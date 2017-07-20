@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.hibernate.tutorial.hbm">
+
+	<class name="" table="">
+		<id name="">
+			<generator class="native"></generator>
+		</id>
+		<property name="" length=""></property>
+		
+		
+		<property name="kz1"/>
+		<property name="kz2"/>
+		<property name="kz3" length="150"/>
+		<property name="kz4" length="150"/>
+		<property name="kz5" length="150"/>
+		
+		<set name="setEmployee" inverse="true" cascade="save-update,delete">
+			<key column="partcode"/>
+			<one-to-many class="cn.lyl.entity.Employee"/>
+		</set>
+	</class>
+
+</hibernate-mapping>
