@@ -5,34 +5,33 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import cn.lyl.ssm.daoImpl.JbyhDaoImpl;
-import cn.lyl.ssm.po.Jbyh;
+import cn.lyl.ssm.daoImpl.PtyyfDaoImpl;
+import cn.lyl.ssm.po.Ptyyf;
 
 @Transactional
-@Service(value="jbyhServc")
-public class JbyhServc extends CommonSevc<Jbyh,JbyhDaoImpl> {
+@Service(value="ptyyfServc")
+public class PtyyfServc extends CommonSevc<Ptyyf, PtyyfDaoImpl> {
 
 	@Override
-	public void save(Jbyh arg) {
+	public void save(Ptyyf arg) {
 		sevc.save(arg);
-		
 	}
 
 	@Override
-	public Jbyh find(String arg) {
-		
+	public Ptyyf find(String arg) {
+		//
 		return null;
 	}
 
 	@Override
-	public List<Jbyh> findAll(String arg) {
-		
+	public List<Ptyyf> findAll(String arg) {
+		//
 		return null;
 	}
 
 	@Override
-	public void delete(Jbyh arg) {
-		
+	public void delete(Ptyyf arg) {
+		//
 		
 	}
 
