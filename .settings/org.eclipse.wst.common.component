@@ -4,6 +4,6 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/config"/>
         <property name="java-output-path" value="/Spring01/build/classes"/>
-        <property name="context-root" value="ssmDemo"/>
+        <property name="context-root" value="hyt"/>
     </wb-module>
 </project-modules>

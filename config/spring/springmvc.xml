@@ -58,7 +58,6 @@
            <list>
 <!--            日期类型转换器 -->
              <bean class="cn.lyl.ssm.controller.converter.CustomDateConverter"/>
-             
            </list>
         </property>
     </bean>

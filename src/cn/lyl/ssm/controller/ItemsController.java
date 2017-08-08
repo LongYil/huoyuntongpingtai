@@ -100,5 +100,9 @@ public class ItemsController {
 		
 		return "success";
 	}
-	
+	@RequestMapping("/testssh")
+	public String testssh() throws Exception{
+		itemsService.delete(1);
+		return "success";
+	}
 }
