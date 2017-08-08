@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.hibernate.tutorial.hbm">
+
+	<class name="cn.lyl.ssm.po.Dd" table="Dd">
+		<id name="id">
+			<generator class="native"></generator>
+		</id>
+		<property name="wtrbh"/>
+		<property name="fhdld"/>
+		<property name="shdld"/>
+		<property name="cys"/>
+		<property name="cfsf" length="150"/>
+		<property name="cfcs" length="150"/>
+		<property name="cfx" length="150"/>
+		<property name="cfjd" length="150"/>
+		<property name="ddsf" length="150"/>
+		<property name="ddcs" length="150"/>
+		<property name="ddx" length="150"/>
+		<property name="ddjd" length="150"/>
+		<property name="zjs"/>
+		<property name="zzl" length="150"/>
+		<property name="ztj" length="150"/>
+		<property name="yjyf"/>
+		<property name="sfyf"/>
+		<property name="fhrxm" length="150"/>
+		<property name="dshk" length="150"/>
+		<property name="ddzt" length="150"/>
+		<property name="bxfy" length="150"/>
+		<property name="smth" length="150"/>
+		<property name="ysfs" length="150"/>
+		<property name="kz1"/>
+		<property name="kz2"/>
+		<property name="kz3" length="150"/>
+		<property name="kz4" length="150"/>
+		<property name="kz5" length="150"/>
+		
+	</class>
+
+</hibernate-mapping>
