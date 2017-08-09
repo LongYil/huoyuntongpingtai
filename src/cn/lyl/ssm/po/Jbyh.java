@@ -11,6 +11,7 @@ package cn.lyl.ssm.po;
 public class Jbyh {
 	private Integer yhbh;
 	private String yhm;
+	private String yhxm;
 	private String yhmm;
 	private Integer yhlx;
 	private String yhsj;
@@ -80,6 +81,12 @@ public class Jbyh {
 	}
 	public void setKz5(String kz5) {
 		this.kz5 = kz5;
+	}
+	public String getYhxm() {
+		return yhxm;
+	}
+	public void setYhxm(String yhxm) {
+		this.yhxm = yhxm;
 	}
 	
 	

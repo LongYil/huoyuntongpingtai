@@ -11,6 +11,10 @@
 		</id>
 		<property name="id"/>
 		<property name="kz1"/>
+		<property name="gsmc" length="150"/>
+		<property name="gssf" length="150"/>
+		<property name="gscs" length="150"/>
+		<property name="gsx" length="150"/>
 		<property name="kz2"/>
 		<property name="kz3" length="150"/>
 		<property name="kz4" length="150"/>

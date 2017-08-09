@@ -16,6 +16,10 @@ import org.springframework.stereotype.Component;
 public class Ptyyf {
 	private Integer id;
 	private Integer yhbh;
+	private String gsmc;
+	private String gssf;
+	private String gscs;
+	private String gsx;
 	private Integer kz1;
 	private Integer kz2;
 	private String kz3;
@@ -34,6 +38,30 @@ public class Ptyyf {
 	}
 	public void setYhbh(Integer yhbh) {
 		this.yhbh = yhbh;
+	}
+	public String getGsmc() {
+		return gsmc;
+	}
+	public void setGsmc(String gsmc) {
+		this.gsmc = gsmc;
+	}
+	public String getGssf() {
+		return gssf;
+	}
+	public void setGssf(String gssf) {
+		this.gssf = gssf;
+	}
+	public String getGscs() {
+		return gscs;
+	}
+	public void setGscs(String gscs) {
+		this.gscs = gscs;
+	}
+	public String getGsx() {
+		return gsx;
+	}
+	public void setGsx(String gsx) {
+		this.gsx = gsx;
 	}
 	public Integer getKz1() {
 		return kz1;
@@ -71,6 +99,5 @@ public class Ptyyf {
 	public void setSetPtgly(Set<Ptgly> setPtgly) {
 		this.setPtgly = setPtgly;
 	}
-	
 
 }

@@ -68,10 +68,10 @@ public class ItemsController {
 	//通过required属性指定参数是否必须传入
 	//通过defaultValue可以设置默认值，如果id参数没有传入，将默认值和形参绑定。
 	@RequestMapping(value="/editItems",method={RequestMethod.POST,RequestMethod.GET})
-	public String editItems(Model model,HttpServletRequest request,@RequestParam(value="id",required=true)Integer items_id) throws Exception{
+	public String editItems(Model model,HttpServletRequest request,Integer id) throws Exception{
 		
 		//调用service根据id查询商品信息
-		ItemsCustom itemsCustom = itemsService.findItemsById(items_id);
+		ItemsCustom itemsCustom = itemsService.findItemsById(id);
 		
 		//通过形参中的model将model数据传到页面
 		//此方法和modelandview方法相当

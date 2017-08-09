@@ -1,20 +1,20 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-        "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <html>
 <head>
     <title>系统初始化</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <link rel="stylesheet" href="css/lzx/Carhost.css">
+    <link rel="stylesheet" href="css/lzx/company.css">
     <link rel="stylesheet" href="css/lzx/all.css">
     <script type="text/javascript" src="js/lzx/jquery-1.8.3.min.js"></script>
-    <script type="text/javascript" src="js/lzx/Carhost.js"></script>
+    
     <script type="text/javascript" src="js/lzx/area.js"></script>
 </head>
 <body>
 <div class="top">
     <img src="images/lzx/货运通logo.png" alt="logo" width="180" class="logo">
     <img src="images/lzx/xian.gif" alt="xian" class="xian" height="80">
-    <span class="zhu">平台运营方首次注册</span>
+    <span class="zhu">系统初始化</span>
     <div class="nav">
         <a href="#">返回主页</a>|
         <a href="#">帮助中心</a>
@@ -40,7 +40,7 @@
         <div class="info-top">
         <img src="images/lzx/icon1.gif" alt="灯泡">
             <span class="info-top1">
-                感谢您注册<span class="imp1">&nbsp;平台运营方</span>， 请您准确填写注册信息。如需改变注册会员类型，请点击<a href="#" class="imp2">上一步</a>选择会员类型！
+                感谢您注册<span class="imp1">&nbsp;平台运营商</span>， 请您准确填写注册信息。如需改变注册会员类型，请点击<a href="#" class="imp2">上一步</a>选择会员类型！
             </span>
             <span class="info-top2">
                 <p><span class="imp1"> &nbsp;&nbsp;&nbsp;* </span>您可以用“会员登录名”使用
@@ -57,10 +57,10 @@
             </span>
             <p class="yours"><img src="images/lzx/icon2.gif" alt="箭头">&nbsp;&nbsp;填写您的帐户信息</p>
         </div>
-        <form action="chedui.action" method="post" name="myform">
+        <form action="${pageContext.request.contextPath}/ptyyf/save.action" method="post" name="myform">
         <div class="write">
             <span class="write-1">管理员名称：</span> <span class="write-2">*</span>
-            <div class="write-3"><input id="user" type="text" class="in" onblur="checkUser()" style="height: 26px;width: 200px"/></div>
+            <div class="write-3"><input id="user" name="yhm" type="text" class="in" onblur="checkUser()" style="height: 26px;width: 200px"/></div>
             <img src="images/lzx/false.png" height="15" style="margin-top: 5px;" class="false" id="false1">
             <img src="images/lzx/true.gif" class="true" id="true1"/>
             <div id="user_prompt" class="prompt">
@@ -71,7 +71,7 @@
         </div>
         <div class="write" style="margin-top: 0px">
             <span class="write-1">输入登录密码：</span> <span class="write-2">*</span>
-            <div class="write-3"><input id="pwd" type="password" class="in" onblur="checkPwd()" style="height: 26px;width: 200px"/></div>
+            <div class="write-3"><input id="pwd" name="yhmm" type="password" class="in" onblur="checkPwd()" style="height: 26px;width: 200px"/></div>
             <img src="images/lzx/false.png" height="15" style="margin-top: 5px;" class="false" id="false2">
             <img src="images/lzx/true.gif"  class="true" id="true2"/>
             <div id="pwd_prompt" class="prompt">
@@ -90,8 +90,8 @@
             </div>
         </div>
         <div class="write" style="margin-top: 0px">
-            <span class="write-1">姓名：</span> <span class="write-2">*</span>
-            <div class="write-3"><input id="name" type="text" class="in" onblur="checkName()" style="height: 26px;width: 200px"/></div>
+            <span class="write-1">注册人姓名：</span> <span class="write-2">*</span>
+            <div class="write-3"><input id="name" name="yhxm" type="text" class="in" onblur="checkName()" style="height: 26px;width: 200px"/></div>
             <img src="images/lzx/false.png" height="15" style="margin-top: 5px;" class="false" id="false4">
             <img src="images/lzx/true.gif"  class="true" id="true4"/>
             <div id="name_prompt" class="prompt" style="margin-top: 2px">
@@ -101,7 +101,7 @@
         </div>
         <div class="write" style="margin-top: 0px">
             <span class="write-1">注册人手机：</span> <span class="write-2">*</span>
-            <div class="write-3"><input id="phone" type="text" class="in" onblur="checkPhone()" style="height: 26px;width: 200px"/></div>
+            <div class="write-3"><input id="phone" name="yhsj" type="text" class="in" onblur="checkPhone()" style="height: 26px;width: 200px"/></div>
             <img src="images/lzx/false.png" height="15" style="margin-top: 5px;" class="false" id="false5">
             <img src="images/lzx/true.gif"  class="true" id="true5"/>
             <div id="phone_prompt" class="prompt" style="margin-top: 2px">
@@ -109,29 +109,55 @@
                 <p>•&nbsp;&nbsp;请填写正确的电话号码</p>
             </div>
         </div>
+        <div class="write" style="margin-top: 0px">
+            <span class="write-1">公司名称：</span> <span class="write-2">*</span>
+            <div class="write-3"><input id="company" name="gsmc" type="text" class="in" onblur="checkCompany()" style="height: 26px;width: 200px"/></div>
+            <img src="images/lzx/false.png" height="15" style="margin-top: 5px;" class="false" id="false6">
+            <img src="images/lzx/true.gif"  class="true" id="true6"/>
+            <div id="company_prompt" class="prompt" style="margin-top: 2px">
+                <span class="prompt2"></span>
+                <p>•&nbsp;&nbsp;请填写企业在工商局注册的全称</p>
+                <p>•&nbsp;&nbsp;准确完整的信息让客户更加信赖您<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="example">如：“广州货运通时空网络科技开发有限公司”</span>
+                </p>
+            </div>
+        </div>
+        <input type="hidden" name="yhlx" value="1"/>
+        <input type="hidden" name="gssf" id="gssf"/>
+        <input type="hidden" name="gscs" id="gscs"/>
+        <input type="hidden" name="gsx" id="gsx"/>
         <div class="write"  id="area_address">
-            <span class="write-1">公司总部：</span> <span class="write-2">*</span>
+            <span class="write-1">公司所在地：</span> <span class="write-2">*</span>
             <!--<input id="area" type="text" class="in" onblur="checkArea()" style="height: 26px;width: 200px"/>-->
             <div class="write-4"><select name="province" style="margin-left: 10px;height: 30px;float: left"></select>
             <select name="city" style="height: 30px;float: left"></select>
             <select name="area" style="height: 30px;float: left"></select></div>
             <span id="place" style="float: left;margin-top: 5px;margin-left: 10px">请选择公司所在地</span>
             <script type="text/javascript">
-                $('#area_address').citys({
+                var gssf;
+                var gscs;
+                var gsx;
+            $('#area_address').citys({
                     required:false,
                     nodata:'disabled',
                     onChange:function(data){
                         var text = data['direct']?'(直辖市)':'';
                         $('#place').text('当前选中地区：'+data['province']+text+' '+data['city']+' '+data['area']);
-                        $('#pla').val('当前选中地区：'+data['province']+text+' '+data['city']+' '+data['area']);
+                        gssf = data['province'];
+                        gscs = data['city'];
+                        gsx = data['area'];
+						$("#gssf").val(gssf);
+						$("#gscs").val(gscs);
+						$("#gsx").val(gsx);
                     }
                 });
             </script>
+            <script type="text/javascript" src="js/lzx/company2.js"></script>
             <img src="images/lzx/false.png" height="15" style="margin-top: 5px;" class="false" id="false7">
             <img src="images/lzx/true.gif"  class="true" id="true7"/>
             <div id="area_prompt" class="prompt" style="margin-top: 2px;width: 150px">
                 <span class="prompt3"></span>
-                <p>•&nbsp;&nbsp;请点击选择车辆所在地</p>
+                <p>•&nbsp;&nbsp;请选择公司所在地</p>
             </div>
         </div>
             <input name="submit" type="submit" value="同意条款并注册" class="submit"/>
