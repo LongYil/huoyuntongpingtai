@@ -12,7 +12,6 @@ import cn.lyl.ssm.service.impl.PtglyServc;
 import cn.lyl.ssm.service.impl.PtyyfServc;
 
 @Controller
-@RequestMapping("/ptyyf")
 public class PtyyfController extends BasicController<PtyyfServc> {
 	@Autowired
 	Ptgly ptgly;
@@ -21,16 +20,16 @@ public class PtyyfController extends BasicController<PtyyfServc> {
 	@Autowired
 	private JbyhServc jbyhServc;
 	
-	@RequestMapping("/save")
+	@RequestMapping("/ptyyf_save")
 	public String save(Jbyh jbyh,Ptyyf ptyyf){
 		
-		ptyyf.setYhbh(jbyh.getYhbh());
-		ptgly.setGlybh(jbyh.getYhbh());
-		ptgly.setGlylx("超级管理员");
-		
-		jbyhServc.save(jbyh);
-		servc.save(ptyyf);
-		ptglyServc.save(ptgly);
-		return "success";
+//		ptyyf.setYhbh(jbyh.getYhbh());
+//		ptgly.setGlybh(jbyh.getYhbh());
+//		ptgly.setGlylx("超级管理员");
+//		
+//		jbyhServc.save(jbyh);
+//		servc.save(ptyyf);
+//		ptglyServc.save(ptgly);
+		return "ptgly";
 	}
 }

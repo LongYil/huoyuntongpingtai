@@ -34,9 +34,12 @@
 		mvc:annotation-driven默认加载很多的参数绑定方法，比如json的转换解析器
 		默认加载，如果使用mvc:annotation-driven就不用配置上边的了	 -->
 	<mvc:annotation-driven conversion-service="conversion-Service">
-	    
+ 
 	</mvc:annotation-driven>
 	
+
+    <mvc:resources location="/jsppage/js/basic/" mapping="/jsppage/js/basic/**"/>
+    
 <!-- 	处理器适配器 
 		所有的处理器适配器都实现HandlerAdapter接口-->
 	<bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter"/>
@@ -47,7 +50,7 @@
 <!-- 	视图解析器 
 		解析jsp视图，默认使用jstl标签，classpath下得有jstl包-->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="prefix" value="/jsp/"/>
+		<property name="prefix" value="/"/>
 		<property name="suffix" value=".jsp"/>
 	</bean>
 

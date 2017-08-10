@@ -25,7 +25,7 @@ public class JbyhController extends BasicController<JbyhServc> {
 		jbyh.setYhbh(4);
 		jbyh.setYhmm("李银龙");
 		servc.save(jbyh);
-		return "success";
+		return "ptgly";
 	}
 	
 	
