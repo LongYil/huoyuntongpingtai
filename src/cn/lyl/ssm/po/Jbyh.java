@@ -9,12 +9,12 @@ package cn.lyl.ssm.po;
  *		下午4:00:42
  */
 public class Jbyh {
-	private Integer yhbh;
-	private String yhm;
-	private String yhxm;
-	private String yhmm;
-	private Integer yhlx;
-	private String yhsj;
+	private Integer yhbh;//用户编号
+	private String yhm;//用户名
+	private String yhxm;//用户真实姓名（不起任何作用）
+	private String yhmm;//用户密码
+	private Integer yhlx;//用户类型
+	private String yhsj;//用户手机号
 	private Integer kz1;
 	private Integer kz2;
 	private String kz3;

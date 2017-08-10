@@ -8,33 +8,33 @@ package cn.lyl.ssm.po;
  *		下午8:11:41
  */
 public class Dd {
-	private Integer id;
-	private Integer wtrbh;
-	private Integer fhdld;
-	private Integer shdld;
-	private Integer cys;
-	private String cfsf;
-	private String cfcs;
-	private String cfx;
-	private String cfjd;
-	private String ddsf;
-	private String ddcs;
-	private String ddx;
-	private String ddjd;
-	private Integer zjs;
-	private String zzl;
-	private String ztj;
-	private Integer yjyf;
-	private Integer sfyf;
-	private String fhrxm;
-	private String fhrdh;
-	private String shrxm;
-	private String shrdh;
-	private String dshk;
-	private String ddzt;
-	private String bxfy;
-	private String smth;
-	private String ysfs;
+	private Integer id;//序号
+	private Integer wtrbh;//委托人编号
+	private Integer fhdld;//发货代理点编号
+	private Integer shdld;//收获代理点把编号
+	private Integer cys;//承运商
+	private String cfsf;//出发省份
+	private String cfcs;//出发城市
+	private String cfx;//出发县
+	private String cfjd;//出发街道
+	private String ddsf;//到达省份
+	private String ddcs;//到达城市
+	private String ddx;//到达县
+	private String ddjd;//到达街道
+	private Integer zjs;//总件数
+	private String zzl;//总重量
+	private String ztj;//总体积
+	private Integer yjyf;//预计运费
+	private Integer sfyf;//实付运费
+	private String fhrxm;//发货人姓名
+	private String fhrdh;//发货人电话
+	private String shrxm;//收货人姓名
+	private String shrdh;//收货人电话
+	private String dshk;//是否代收货款（1：是；2：否）
+	private String ddzt;//订单状态
+	private String bxfy;//保险费用
+	private String smth;//是否上门提货
+	private String ysfs;//运输方式
 	private Integer kz1;
 	private Integer kz2;
 	private String kz3;

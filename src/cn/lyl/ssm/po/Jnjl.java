@@ -10,11 +10,11 @@ import java.util.Date;
  *		下午7:43:53
  */
 public class Jnjl {
-	private Integer id;
-	private Integer yhbh;
-	private Date jysj;
-	private String jyzt;
-	private Integer jyje;
+	private Integer id;//序号
+	private Integer yhbh;//用户编号
+	private Date jysj;//交易时间
+	private String jyzt;//交易主题
+	private Integer jyje;//交易金额
 	private Integer kz1;
 	private Integer kz2;
 	private String kz3;

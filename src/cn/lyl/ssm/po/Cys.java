@@ -11,15 +11,16 @@ import java.util.Set;
  *		下午7:57:32
  */
 public class Cys {
-	private Integer id;
-	private Integer yhbh;
-	private Integer dlbh;
-	private String gsmc;
-	private String lxdh;
-	private String szsf;
-	private String szcs;
-	private String szx;
-	private String szjdh;
+	private Integer id;//序号
+	private Integer yhbh;//用户编号
+	private Integer dlbh;//所属代理点编号
+	private String hylx;//会员类型
+	private String gsmc;//公司 名称
+	private String lxdh;//联系电话
+	private String szsf;//所在省份
+	private String szcs;//所在城市
+	private String szx;//所在县
+	private String szjdh;//所在街道号
 	private Integer kz1;
 	private Integer kz2;
 	private String kz3;
@@ -44,6 +45,12 @@ public class Cys {
 	}
 	public void setDlbh(Integer dlbh) {
 		this.dlbh = dlbh;
+	}
+	public String getHylx() {
+		return hylx;
+	}
+	public void setHylx(String hylx) {
+		this.hylx = hylx;
 	}
 	public String getGsmc() {
 		return gsmc;
@@ -117,6 +124,5 @@ public class Cys {
 	public void setSetCysgly(Set<Cysgly> setCysgly) {
 		this.setCysgly = setCysgly;
 	}
-	
 	
 }

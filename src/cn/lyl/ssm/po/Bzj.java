@@ -8,9 +8,9 @@ package cn.lyl.ssm.po;
  *		下午7:40:28
  */
 public class Bzj {
-	private Integer id;
-	private Integer yhbh;
-	private Integer bzjje;
+	private Integer id;//序号
+	private Integer yhbh;//用户编号
+	private Integer bzjje;//保证金余额
 	private Integer kz1;
 	private Integer kz2;
 	private String kz3;

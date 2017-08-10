@@ -8,16 +8,16 @@ package cn.lyl.ssm.po;
  *		下午8:00:56
  */
 public class Cysgly {
-	private Integer id;
-	private Integer yhbh;
-	private Integer dlbh;
-	private Integer cysbh;
-	private String gsmc;
-	private String lxdh;
-	private String szsf;
-	private String szcs;
-	private String szx;
-	private String szjdh;
+	private Integer id;//序号
+	private Integer yhbh;//用户编号
+	private Integer dlbh;//所属代理点编号
+	private Integer cysbh;//承运商编号
+	private String gsmc;//公司名称
+	private String lxdh;//联系电话
+	private String szsf;//所在省份
+	private String szcs;//所在城市
+	private String szx;//所在县
+	private String szjdh;//所在街道号
 	private Integer kz1;
 	private Integer kz2;
 	private String kz3;

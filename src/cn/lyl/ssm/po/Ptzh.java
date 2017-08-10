@@ -8,9 +8,9 @@ package cn.lyl.ssm.po;
  *		下午7:31:15
  */
 public class Ptzh {
-	private Integer id;
-	private Integer yhbh;
-	private Float zhye;
+	private Integer id;//序号
+	private Integer yhbh;//用户编号
+	private Float zhye;//账户余额
 	private Integer kz1;
 	private Integer kz2;
 	private String kz3;

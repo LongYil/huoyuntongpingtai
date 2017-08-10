@@ -8,10 +8,10 @@ package cn.lyl.ssm.po;
  *		下午6:56:16
  */
 public class Lxr {
-	private Integer id;
-	private String lxrxm;
-	private String lxrdh;
-	private String lxrdz;	
+	private Integer id;//序号
+	private String lxrxm;//联系人姓名
+	private String lxrdh;//联系人电话
+	private String lxrdz;	//联系人地址
 	private Integer kz1;
 	private Integer kz2;
 	private String kz3;

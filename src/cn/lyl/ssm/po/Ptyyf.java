@@ -14,12 +14,12 @@ import org.springframework.stereotype.Component;
  */
 @Component(value="ptyyf")
 public class Ptyyf {
-	private Integer id;
-	private Integer yhbh;
-	private String gsmc;
-	private String gssf;
-	private String gscs;
-	private String gsx;
+	private Integer id;//序号
+	private Integer yhbh;//用户编号
+	private String gsmc;//公司名称
+	private String gssf;//公司省份
+	private String gscs;//公司城市
+	private String gsx;//公司县
 	private Integer kz1;
 	private Integer kz2;
 	private String kz3;

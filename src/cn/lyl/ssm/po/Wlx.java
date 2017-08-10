@@ -8,20 +8,20 @@ package cn.lyl.ssm.po;
  *		下午8:06:47
  */
 public class Wlx {
-	private Integer id;
-	private Integer yhbh;
-	private String cfsf;
-	private String cfcs;
-	private String cfx;
-	private String ddsf;
-	private String ddcs;
-	private String ddx;
-	private Float zhjg;
-	private String zhdw;
-	private Float qhjg;
-	private String qhdw;
-	private String yssx;
-	private String fcpl;
+	private Integer id;//序号
+	private Integer yhbh;//用户编号
+	private String cfsf;//出发省份
+	private String cfcs;//出发城市
+	private String cfx;//出发县
+	private String ddsf;//到达省份
+	private String ddcs;//到达城市
+	private String ddx;//到达县
+	private Float zhjg;//重货价格
+	private String zhdw;//重货单位
+	private Float qhjg;//轻货价格
+	private String qhdw;//轻货单位
+	private String yssx;//运输时效
+	private String fcpl;//发车频率
 	private Integer kz1;
 	private Integer kz2;
 	private String kz3;

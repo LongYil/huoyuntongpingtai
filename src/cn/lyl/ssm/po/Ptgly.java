@@ -11,10 +11,10 @@ import org.springframework.stereotype.Component;
  */
 @Component(value="ptgly")
 public class Ptgly {
-	private Integer id;
-	private Integer glybh;
-	private String glylx;
-	private Integer glyjs;
+	private Integer id;//序号
+	private Integer glybh;//管理员编号
+	private String glylx;//管理员类型
+	private Integer glyjs;//管理员角色
 	private Integer kz1;
 	private Integer kz2;
 	private String kz3;

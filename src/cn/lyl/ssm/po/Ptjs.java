@@ -8,8 +8,8 @@ package cn.lyl.ssm.po;
  *		下午6:48:43
  */
 public class Ptjs {
-	private Integer jsbh;
-	private String jsmc;
+	private Integer jsbh;//角色编号
+	private String jsmc;//角色名称
 	private Integer kz1;
 	private Integer kz2;
 	private String kz3;

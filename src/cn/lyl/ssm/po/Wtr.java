@@ -11,11 +11,11 @@ import java.util.Set;
  *		下午6:51:21
  */
 public class Wtr {
-	private Integer id;
-	private Integer yhbh;
-	private String yhsf;
-	private String yhcs;
-	private String yhx;
+	private Integer id;//序号
+	private Integer yhbh;//用户编号
+	private String yhsf;//用户省份
+	private String yhcs;//用户城市
+	private String yhx;//用户县
 	private Integer kz1;
 	private Integer kz2;
 	private String kz3;

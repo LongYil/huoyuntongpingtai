@@ -14,7 +14,7 @@ public class PtyyfServc extends CommonSevc<Ptyyf, PtyyfDaoImpl> {
 
 	@Override
 	public void save(Ptyyf arg) {
-		sevc.save(arg);
+		daoImpl.save(arg);
 	}
 
 	@Override

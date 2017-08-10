@@ -10,12 +10,12 @@ import java.util.Date;
  *		下午7:46:04
  */
 public class Txjl {
-	private Integer id;
-	private Integer yhbh;
-	private Date fqsj;
-	private Integer txje;
-	private Integer txzt;
-	private Date tgsj;
+	private Integer id;//序号
+	private Integer yhbh;//用户编号
+	private Date fqsj;//提现发起时间
+	private Integer txje;//提现金额
+	private Integer txzt;//提现状态
+	private Date tgsj;//提现通过时间
 	private Integer kz1;
 	private Integer kz2;
 	private String kz3;

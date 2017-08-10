@@ -8,15 +8,15 @@ package cn.lyl.ssm.po;
  *		下午7:50:53
  */
 public class Hygly {
-	private Integer id;
-	private Integer yhbh;
-	private Integer glybh;
-	private String gsmc;
-	private String lxdh;
-	private String szsf;
-	private String szcs;
-	private String szx;
-	private String szjdh;
+	private Integer id;//序号
+	private Integer yhbh;//用户编号
+	private Integer glybh;//管理员编号
+	private String gsmc;//公司名称
+	private String lxdh;//联系电话
+	private String szsf;//所在省份
+	private String szcs;//所在城市
+	private String szx;//所在县
+	private String szjdh;//所在街道号
 	private Integer kz1;
 	private Integer kz2;
 	private String kz3;
