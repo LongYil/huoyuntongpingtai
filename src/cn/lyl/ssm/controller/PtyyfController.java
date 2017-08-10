@@ -23,13 +23,13 @@ public class PtyyfController extends BasicController<PtyyfServc> {
 	@RequestMapping("/ptyyf_save")
 	public String save(Jbyh jbyh,Ptyyf ptyyf){
 		
-//		ptyyf.setYhbh(jbyh.getYhbh());
-//		ptgly.setGlybh(jbyh.getYhbh());
-//		ptgly.setGlylx("超级管理员");
+		ptyyf.setYhbh(jbyh.getYhbh());
+		ptgly.setGlybh(jbyh.getYhbh());
+		ptgly.setGlylx("超级管理员");
 		
-//		jbyhServc.save(jbyh);
-//		servc.save(ptyyf);
-//		ptglyServc.save(ptgly);
+		jbyhServc.save(jbyh);
+		servc.save(ptyyf);
+		ptglyServc.save(ptgly);
 		return "pt_ptgly";
 	}
 }

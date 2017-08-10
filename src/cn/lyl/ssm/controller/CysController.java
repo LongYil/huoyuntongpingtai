@@ -1,7 +1,10 @@
 package cn.lyl.ssm.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
+
+import cn.lyl.ssm.service.impl.CysServc;
+import cn.lyl.ssm.service.impl.JbyhServc;
 
 /**
  * <p>Title:CysController</p>
@@ -11,9 +14,31 @@ import org.springframework.web.bind.annotation.RequestMapping;
  *		上午9:49:01
  */
 @Controller
-@RequestMapping("/cys")
-public class CysController {
+public class CysController  extends BasicController<CysServc> {
 	
-//	@Autowired
+	@Autowired
+	private JbyhServc jbyhServc;
+	
+	//个人承运商
+	public String save(){
+		
+		return "";
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }

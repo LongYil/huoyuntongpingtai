@@ -5,7 +5,6 @@ $(function () {
     var ok3=false;
     var ok4=false;
     var ok5=false;
-    var ok6=false;
     var ok7=false;
     var ok8=true;
 // 验证用户名
@@ -107,27 +106,6 @@ $(function () {
         }
     });
     // 验证公司名称
-    $("#company").focus(function () {
-        $("#company_prompt").show();
-        $("#area_address").css("margin-top","-25px");
-        $("#true6").hide();
-    }).blur(function () {
-        var company = $("#company").val();
-        var reg = /^[\u4e00-\u9fa5]{2,30}$/;;
-        if (reg.test(company) == false) {
-            $("#company_prompt").show();
-            $("#true6").hide();
-            $("#false6").show();
-            $("#area_address").css("margin-top","-25px");
-            return false;
-        } else {
-            $("#area_address").css("margin-top","0px");
-            $("#company_prompt").hide();
-            $("#false6").hide();
-            $("#true6").show();
-            ok6=true;
-        }
-    });
     /*// 总部所在地
      $("#area").focus(function () {
      $("#area_prompt").show();
@@ -211,12 +189,7 @@ $(function () {
             $("#false5").show();
             ok5=false;
         }
-        else if(company==""){
-            $("#company_prompt").show();
-            $("#true6").hide();
-            $("#false6").show();
-            ok6=false;
-        } else if(yan==""){
+        else if(yan==""){
             $("#yan_prompt").show();
             $("#true9").hide();
             $("#false9").show();
@@ -238,11 +211,10 @@ $(function () {
             $("#true7").show();
             ok7 = true;
         }
-        if(ok1 && ok2 && ok3 && ok4 && ok5 && ok6 && ok7){
+        if(ok1 && ok2 && ok3 && ok4 && ok5 && ok7 && ok8){
             $('myform').submit();
         }else{
             alert("请填写好资料再提交！");
-            alert(ok1+"*"+ok2+"*"+ok3+"*"+ok4+"*"+ok5+"*"+ok6+"*"+ok7);
             return false;
         }
     });
