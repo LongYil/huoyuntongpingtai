@@ -14,6 +14,7 @@ public class Cys {
 	private Integer id;
 	private Integer yhbh;
 	private Integer dlbh;
+	private String hylx;
 	private String gsmc;
 	private String lxdh;
 	private String szsf;
@@ -44,6 +45,12 @@ public class Cys {
 	}
 	public void setDlbh(Integer dlbh) {
 		this.dlbh = dlbh;
+	}
+	public String getHylx() {
+		return hylx;
+	}
+	public void setHylx(String hylx) {
+		this.hylx = hylx;
 	}
 	public String getGsmc() {
 		return gsmc;
@@ -117,6 +124,5 @@ public class Cys {
 	public void setSetCysgly(Set<Cysgly> setCysgly) {
 		this.setCysgly = setCysgly;
 	}
-	
 	
 }

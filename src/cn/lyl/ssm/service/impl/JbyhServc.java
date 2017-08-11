@@ -14,8 +14,7 @@ public class JbyhServc extends CommonSevc<Jbyh,JbyhDaoImpl> {
 
 	@Override
 	public void save(Jbyh arg) {
-		sevc.save(arg);
-		
+		daoImpl.save(arg);
 	}
 
 	@Override

@@ -4,11 +4,11 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-public abstract class CommonSevc<T,P> {
+public abstract class CommonSevc<E,D> {
 	@Autowired
-	public P sevc;
-	public abstract void save(T arg);
-	public abstract T find(String arg);
-	public abstract List<T> findAll(String arg);
-	public abstract void delete(T arg);
+	public D daoImpl;
+	public abstract void save(E arg);
+	public abstract E find(String arg);
+	public abstract List<E> findAll(String arg);
+	public abstract void delete(E arg);
 }
