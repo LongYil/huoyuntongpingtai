@@ -18,7 +18,7 @@
     <div style="width:1040px; height:75px;background-image:url(js/basic/ads1.png);"></div>
 	<div style="width:1040px; height:75px;background-image:url(js/basic/head.png);">
     	<a href="javascript:void(0)" class="logo"></a>
-    	<div class="info"><span class="info1">承运商：</span><span class="info2">李银龙</span>&nbsp;&nbsp;<span class="info3">您好！</span></div>
+    	<div class="info"><span class="info1">车主：</span><span class="info2">李银龙</span>&nbsp;&nbsp;<span class="info3">您好！</span></div>
     </div>
     </div>
 	
@@ -106,70 +106,46 @@
 </body>
 <script>
 
-var flag1 = 0;
-var flag2 = 0;
-var flag3 = 0;
-var flag4 = 0;
-var flag5 = 0;
-
-$(".biaotia1").click(function m1(){
-		if(flag1==0){
-			$(this).nextAll().hide();
-			flag1=1;	
-		}else{
-			$(this).nextAll().show();
-			flag1=0;	
-		}
+	$(function m(){
+		$(".biaotia1").nextAll().hide();
+		$(".biaotia2").nextAll().hide();
+		$(".biaotia3").nextAll().hide();
+		$(".biaotia4").nextAll().hide();
+		$(".biaotia5").nextAll().hide();
+	});
 	
-});
-
-$(".biaotia2").click(function m1(){
-		if(flag2==0){
-			$(this).nextAll().hide();
-			flag2=1;	
-		}else{
-			$(this).nextAll().show();
-			flag2=0;	
-		}
+	$(".biaotia1").click(function m1(){
+		m();
+		$(this).nextAll().show();	
+	});
 	
-});
-
-$(".biaotia3").click(function m1(){
-		if(flag3==0){
-			$(this).nextAll().hide();
-			flag3=1;	
-		}else{
-			$(this).nextAll().show();
-			flag3=0;	
-		}
+	$(".biaotia2").click(function m1(){
+		m();
+		$(this).nextAll().show();
+	});
 	
-});
-
-$(".biaotia4").click(function m1(){
-		if(flag4==0){
-			$(this).nextAll().hide();
-			flag4=1;	
-		}else{
-			$(this).nextAll().show();
-			flag4=0;	
-		}
+	$(".biaotia3").click(function m1(){
+		m();
+		$(this).nextAll().show();
+	});
 	
-});
-
-
-$(".biaotia5").click(function m1(){
-		if(flag5==0){
-			$(this).nextAll().hide();
-			flag5=1;	
-		}else{
-			$(this).nextAll().show();
-			flag5=0;	
-		}
+	$(".biaotia4").click(function m1(){
+		m();
+		$(this).nextAll().show();
+	});
 	
-});
-
-
-
+	$(".biaotia5").click(function m1(){
+		m();
+		$(this).nextAll().show();
+	});
+	
+	function m(){
+		$(".biaotia1").nextAll().hide();
+		$(".biaotia2").nextAll().hide();
+		$(".biaotia3").nextAll().hide();
+		$(".biaotia4").nextAll().hide();
+		$(".biaotia5").nextAll().hide();
+	}
 
 </script>
 </html>

@@ -110,7 +110,7 @@
             </div>
         </div>
         
-        <input type="hidden" name="yhlx" value="3"/><!-- 个人车主承运商 -->
+        <input type="hidden" name="yhlx" value="2"/><!-- 个人车主承运商 -->
         <input type="hidden" name="yhsf" id="yhsf"/>
         <input type="hidden" name="yhcs" id="yhcs"/>
         <input type="hidden" name="yhx" id="yhx"/>

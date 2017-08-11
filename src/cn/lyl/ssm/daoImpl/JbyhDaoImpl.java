@@ -1,5 +1,8 @@
 package cn.lyl.ssm.daoImpl;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.stereotype.Component;
 
 import cn.lyl.ssm.dao.JbyhDao;
@@ -15,6 +18,8 @@ import cn.lyl.ssm.po.Jbyh;
  */
 @Component(value="jbyhImpl")
 public class JbyhDaoImpl extends CommonDaoImpl<Jbyh> implements JbyhDao {
+
+	private List<Jbyh> list = new ArrayList<Jbyh>();
 
 	@Override
 	public void save(Jbyh entity) {
@@ -40,4 +45,16 @@ public class JbyhDaoImpl extends CommonDaoImpl<Jbyh> implements JbyhDao {
 		return ht.get(Jbyh.class, Integer.parseInt(arg));
 	}
 
+	@Override
+	public int login(Jbyh jbyh) {
+		System.out.println(jbyh);
+		list = (List<Jbyh>) ht.find("from Jbyh where yhsj = ? and yhmm = ?", jbyh.getYhsj(),jbyh.getYhmm());
+		System.out.println(list.size());
+		if(list.size()>0){
+			return list.get(0).getYhlx();
+		}else{
+			return 0;
+		}
+	}
+	
 }

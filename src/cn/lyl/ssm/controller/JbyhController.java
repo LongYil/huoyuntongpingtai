@@ -14,18 +14,27 @@ import cn.lyl.ssm.service.impl.JbyhServc;
  *		上午9:27:10
  */
 @Controller
-@RequestMapping("/jbyh")
 public class JbyhController extends BasicController<JbyhServc> {
 	
-	@RequestMapping("/testssh")
-	public String testssh() throws Exception{
-		Jbyh jbyh = new Jbyh();
-		jbyh.setYhbh(4);
-		jbyh.setYhmm("李银龙");
-		servc.save(jbyh);
-		return "ptgly";
+	@RequestMapping("/jbyh_login")
+	public String login(Jbyh jbyh){
+		int type = servc.login(jbyh);
+		System.out.println(type);
+		switch(type){
+		case 1:
+			return "pt_ptgly";
+		case 2:
+			return "wtr_index";
+		case 3:
+			return "cys_grindex";
+		case 4:
+			return "cys_cdindex";
+		case 5:
+			return "hy_index";
+		default:
+			return "success";
+		}
 	}
-	
 	
 	
 	

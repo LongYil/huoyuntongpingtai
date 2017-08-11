@@ -57,7 +57,7 @@
             </span>
             <p class="yours"><img src="images/lzx/icon2.gif" alt="箭头">&nbsp;&nbsp;填写您的帐户信息</p>
         </div>
-        <form action="${pageContext.request.contextPath}/cys_save.action" method="post" name="myform">
+        <form action="${pageContext.request.contextPath}/cysgly_save.action" method="post" name="myform">
         <div class="write">
             <span class="write-1">会员登录名：</span> <span class="write-2">*</span>
             <div class="write-3"><input id="user" type="text" name="yhm" class="in" onblur="checkUser()" style="height: 26px;width: 200px"/></div>
