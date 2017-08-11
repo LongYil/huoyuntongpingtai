@@ -25,21 +25,26 @@ public class CysglyController extends BasicController<CysglyServc> {
 	@Autowired
 	private CysServc cysServc;
 	
-	//个人承运商的保存方法：自己是自己的管理员，不能再添加管理员
-	@RequestMapping("/cysgly_save1")
+	//承运商的保存方法：
+	@RequestMapping("/cysgly_save")
 	public String save(Jbyh jbyh,Cys cys,Cysgly cysgly){
+		int type = jbyh.getYhlx();
 		jbyhServc.save(jbyh);
 		cys.setLxdh(jbyh.getYhsj());
 		cysgly.setLxdh(jbyh.getYhsj());
 		cys.setHylx(String.valueOf(jbyh.getYhlx()));
 		cys.setYhbh(jbyh.getYhbh());
 		cysgly.setYhbh(jbyh.getYhbh());
-		
+		cysgly.setHylx(String.valueOf(jbyh.getYhlx()));
+
 		cysServc.save(cys);
 		servc.save(cysgly);
-		return "success";
+		if(type==3){
+			return "cys_grindex";
+		}else{
+			return "cys_cdindex";
+		}
 	}
 	
-	
-	
+
 }

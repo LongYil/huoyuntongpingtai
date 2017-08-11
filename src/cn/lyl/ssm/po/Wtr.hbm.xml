@@ -10,9 +10,10 @@
 			<generator class="native"></generator>
 		</id>
 		<property name="id"></property>	
-		<property name="yhsf" length="100"></property>	
-		<property name="yhcs" length="100"></property>	
-		<property name="yhx" length="100"></property>	
+		<property name="gsmc" length="100"/>	
+		<property name="yhsf" length="100"/>	
+		<property name="yhcs" length="100"/>	
+		<property name="yhx" length="100"/>	
 		<property name="kz1"/>
 		<property name="kz2"/>
 		<property name="kz3" length="150"/>

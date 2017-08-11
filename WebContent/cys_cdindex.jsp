@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -97,75 +99,53 @@
     	<iframe class="zhuomian" frameborder="0">
         
         
-        
+
         </iframe>    
     </div>
 
 </body>
 <script>
 
-var flag1 = 0;
-var flag2 = 0;
-var flag3 = 0;
-var flag4 = 0;
-var flag5 = 0;
+$(function m(){
+	$(".biaotia1").nextAll().hide();
+	$(".biaotia2").nextAll().hide();
+	$(".biaotia3").nextAll().hide();
+	$(".biaotia4").nextAll().hide();
+	$(".biaotia5").nextAll().hide();
+});
 
 $(".biaotia1").click(function m1(){
-		if(flag1==0){
-			$(this).nextAll().hide();
-			flag1=1;	
-		}else{
-			$(this).nextAll().show();
-			flag1=0;	
-		}
-	
+	m();
+	$(this).nextAll().show();	
 });
 
 $(".biaotia2").click(function m1(){
-		if(flag2==0){
-			$(this).nextAll().hide();
-			flag2=1;	
-		}else{
-			$(this).nextAll().show();
-			flag2=0;	
-		}
-	
+	m();
+	$(this).nextAll().show();
 });
 
 $(".biaotia3").click(function m1(){
-		if(flag3==0){
-			$(this).nextAll().hide();
-			flag3=1;	
-		}else{
-			$(this).nextAll().show();
-			flag3=0;	
-		}
-	
+	m();
+	$(this).nextAll().show();
 });
 
 $(".biaotia4").click(function m1(){
-		if(flag4==0){
-			$(this).nextAll().hide();
-			flag4=1;	
-		}else{
-			$(this).nextAll().show();
-			flag4=0;	
-		}
-	
+	m();
+	$(this).nextAll().show();
 });
-
 
 $(".biaotia5").click(function m1(){
-		if(flag5==0){
-			$(this).nextAll().hide();
-			flag5=1;	
-		}else{
-			$(this).nextAll().show();
-			flag5=0;	
-		}
-	
+	m();
+	$(this).nextAll().show();
 });
 
+function m(){
+	$(".biaotia1").nextAll().hide();
+	$(".biaotia2").nextAll().hide();
+	$(".biaotia3").nextAll().hide();
+	$(".biaotia4").nextAll().hide();
+	$(".biaotia5").nextAll().hide();
+}
 
 
 

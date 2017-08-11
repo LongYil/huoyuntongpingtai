@@ -16,6 +16,7 @@ public class Wtr {
 	private String yhsf;//用户省份
 	private String yhcs;//用户城市
 	private String yhx;//用户县
+	private String gsmc;//公司名称
 	private Integer kz1;
 	private Integer kz2;
 	private String kz3;
@@ -53,6 +54,12 @@ public class Wtr {
 	public void setYhx(String yhx) {
 		this.yhx = yhx;
 	}
+	public String getGsmc() {
+		return gsmc;
+	}
+	public void setGsmc(String gsmc) {
+		this.gsmc = gsmc;
+	}
 	public Integer getKz1() {
 		return kz1;
 	}
@@ -89,7 +96,5 @@ public class Wtr {
 	public void setSetLxr(Set<Lxr> setLxr) {
 		this.setLxr = setLxr;
 	}
-
-	
 
 }

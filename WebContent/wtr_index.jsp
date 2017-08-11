@@ -18,7 +18,7 @@
     <div style="width:1040px; height:75px;background-image:url(js/basic/ads1.png);"></div>
 	<div style="width:1040px; height:75px;background-image:url(js/basic/head.png);">
     	<a href="javascript:void(0)" class="logo"></a>
-    	<div class="info"><span class="info1">承运商：</span><span class="info2">李银龙</span>&nbsp;&nbsp;<span class="info3">您好！</span></div>
+    	<div class="info"><span class="info1">委托人：</span><span class="info2">李银龙</span>&nbsp;&nbsp;<span class="info3">您好！</span></div>
     </div>
     </div>
 	
@@ -32,41 +32,29 @@
             </dl>
 			<ul class="menu1">
 				<li><a href="javascript:void(0)"><img src="js/basic/xiugai.png" class="itemicon">基本信息</a></li>
-				<li><a href="javascript:void(0)"><img src="js/basic/xiugai.png" class="itemicon">帐号信息</a></li>
                 <li><a href="javascript:void(0)"><img src="js/basic/xiugai.png" class="itemicon">账户管理</a></li>
+				<li><a href="javascript:void(0)"><img src="js/basic/xiugai.png" class="itemicon">联系人</a></li>
 			</ul>
 		</li>
  
 		<li class="fatheritem">
         	<dl class="biaotia2">
             <li style="background-color:#dce8f3;">
-            <a href="javascript:void(0)" ><img src="js/basic/caidanicon.png" class="menuicon">车辆线路管理</a>
-            </li>
-            </dl>
-			<ul class="menu1">
-				<li><a href="javascript:void(0)"><img src="js/basic/xiugai.png" class="itemicon">车队管理</a></li>
-                <li><a href="javascript:void(0)"><img src="js/basic/xiugai.png" class="itemicon">运输线路</a></li>
-                <li><a href="javascript:void(0)"><img src="js/basic/xiugai.png" class="itemicon">车辆管理</a></li>
-			</ul>
-		</li>
-     
- 		<li class="fatheritem">
-        	<dl class="biaotia3">
-            <li style="background-color:#dce8f3;">
             <a href="javascript:void(0)" ><img src="js/basic/caidanicon.png" class="menuicon">订单管理</a>
             </li>
             </dl>
 			<ul class="menu1">
 				<li><a href="javascript:void(0)"><img src="js/basic/xiugai.png" class="itemicon">全部订单</a></li>
+				<li><a href="javascript:void(0)"><img src="js/basic/xiugai.png" class="itemicon">创建订单</a></li>
                 <li><a href="javascript:void(0)"><img src="js/basic/xiugai.png" class="itemicon">已接单</a></li>
                 <li><a href="javascript:void(0)"><img src="js/basic/xiugai.png" class="itemicon">运输中</a></li>
-				<li><a href="javascript:void(0)"><img src="js/basic/xiugai.png" class="itemicon">已签收</a></li>
-				<li><a href="javascript:void(0)"><img src="js/basic/xiugai.png" class="itemicon">订单查询</a></li>
+                <li><a href="javascript:void(0)"><img src="js/basic/xiugai.png" class="itemicon">已签收</a></li>
+                <li><a href="javascript:void(0)"><img src="js/basic/xiugai.png" class="itemicon">订单查询</a></li>
 			</ul>
-		</li>       
-  
-   		<li class="fatheritem">
-        	<dl class="biaotia4">
+		</li>
+     
+ 		<li class="fatheritem">
+        	<dl class="biaotia3">
             <li style="background-color:#dce8f3;">
             <a href="javascript:void(0)" ><img src="js/basic/caidanicon.png" class="menuicon">财务管理</a>
             </li>
@@ -74,29 +62,28 @@
 			<ul class="menu1">
 				<li><a href="javascript:void(0)"><img src="js/basic/xiugai.png" class="itemicon">余额查询</a></li>
                 <li><a href="javascript:void(0)"><img src="js/basic/xiugai.png" class="itemicon">充值</a></li>
-				<li><a href="javascript:void(0)"><img src="js/basic/xiugai.png" class="itemicon">保证金</a></li>
-				<li><a href="javascript:void(0)"><img src="js/basic/xiugai.png" class="itemicon">提现</a></li>
+                <li><a href="javascript:void(0)"><img src="js/basic/xiugai.png" class="itemicon">提现</a></li>
 			</ul>
-		</li>  
- 
+		</li>       
+  
    		<li class="fatheritem">
-        	<dl class="biaotia5">
+        	<dl class="biaotia4">
             <li style="background-color:#dce8f3;">
             <a href="javascript:void(0)" ><img src="js/basic/caidanicon.png" class="menuicon">系统管理</a>
             </li>
             </dl>
 			<ul class="menu1">
-				<li><a href="javascript:void(0)"><img src="js/basic/xiugai.png" class="itemicon">角色管理</a></li>
-                <li><a href="javascript:void(0)"><img src="js/basic/xiugai.png" class="itemicon">系统日志</a></li>
-				<li><a href="javascript:void(0)"><img src="js/basic/xiugai.png" class="itemicon">退出</a></li>
+				<li><a href="javascript:void(0)"><img src="js/basic/xiugai.png" class="itemicon">系统日志</a></li>
+                <li><a href="javascript:void(0)"><img src="js/basic/xiugai.png" class="itemicon">退出</a></li>
 			</ul>
-		</li> 				
+		</li>
+
 	</ul>
 	</div>
 
 	<div data-options="region:'south',border:false" style="height:50px;background:#A9FACD;padding:10px;">south region</div>
-	<div data-options="region:'center',title:'我的桌面'">
-    	<iframe class="zhuomian" frameborder="0">
+	<div data-options="region:'center'" style="margin-bottom:0px; padding-bottom:0px;">
+    	<iframe class="zhuomian" frameborder="0" src="pt_jbxx.html" style="padding:0px;">
         
         
         
@@ -106,68 +93,41 @@
 </body>
 <script>
 
-var flag1 = 0;
-var flag2 = 0;
-var flag3 = 0;
-var flag4 = 0;
-var flag5 = 0;
+
+
+$(function m(){
+			$(".biaotia1").nextAll().hide();
+			$(".biaotia2").nextAll().hide();
+			$(".biaotia3").nextAll().hide();
+			$(".biaotia4").nextAll().hide();
+});
 
 $(".biaotia1").click(function m1(){
-		if(flag1==0){
-			$(this).nextAll().hide();
-			flag1=1;	
-		}else{
-			$(this).nextAll().show();
-			flag1=0;	
-		}
-	
+			m();
+			$(this).nextAll().show();	
 });
 
 $(".biaotia2").click(function m1(){
-		if(flag2==0){
-			$(this).nextAll().hide();
-			flag2=1;	
-		}else{
+			m();
 			$(this).nextAll().show();
-			flag2=0;	
-		}
-	
 });
 
 $(".biaotia3").click(function m1(){
-		if(flag3==0){
-			$(this).nextAll().hide();
-			flag3=1;	
-		}else{
+			m();
 			$(this).nextAll().show();
-			flag3=0;	
-		}
-	
 });
 
 $(".biaotia4").click(function m1(){
-		if(flag4==0){
-			$(this).nextAll().hide();
-			flag4=1;	
-		}else{
+			m();
 			$(this).nextAll().show();
-			flag4=0;	
-		}
-	
 });
 
-
-$(".biaotia5").click(function m1(){
-		if(flag5==0){
-			$(this).nextAll().hide();
-			flag5=1;	
-		}else{
-			$(this).nextAll().show();
-			flag5=0;	
-		}
-	
-});
-
+function m(){
+			$(".biaotia1").nextAll().hide();
+			$(".biaotia2").nextAll().hide();
+			$(".biaotia3").nextAll().hide();
+			$(".biaotia4").nextAll().hide();
+}
 
 
 

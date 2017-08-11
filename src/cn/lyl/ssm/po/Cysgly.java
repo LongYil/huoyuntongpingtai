@@ -12,6 +12,7 @@ public class Cysgly {
 	private Integer yhbh;//用户编号
 	private Integer dlbh;//所属代理点编号
 	private Integer cysbh;//承运商编号
+	private String hylx;//承运商会员类型，3：个人承运商，4：运输车队承运商
 	private String gsmc;//公司名称
 	private String lxdh;//联系电话
 	private String szsf;//所在省份
@@ -48,6 +49,12 @@ public class Cysgly {
 	}
 	public void setCysbh(Integer cysbh) {
 		this.cysbh = cysbh;
+	}
+	public String getHylx() {
+		return hylx;
+	}
+	public void setHylx(String hylx) {
+		this.hylx = hylx;
 	}
 	public String getGsmc() {
 		return gsmc;

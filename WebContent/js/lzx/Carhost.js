@@ -242,7 +242,7 @@ $(function () {
             $('myform').submit();
         }else{
             alert("请填写好资料再提交！");
-            alert(ok1+"*"+ok2+"*"+ok3+"*"+ok4+"*"+ok5+"*"+ok6+"*"+ok7);
+//            alert(ok1+"*"+ok2+"*"+ok3+"*"+ok4+"*"+ok5+"*"+ok6+"*"+ok7);
             return false;
         }
     });
