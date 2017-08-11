@@ -31,7 +31,7 @@
             </li>
             </dl>
 			<ul class="menu1">
-				<li><a href="javascript:void(0)"><img src="js/basic/xiugai.png" class="itemicon">基本信息</a></li>
+				<li><a href="javascript:void(0)"><img src="js/basic/icon/jibenxinxi.png" class="itemicon">基本信息</a></li>
                 <li><a href="javascript:void(0)"><img src="js/basic/xiugai.png" class="itemicon">账户管理</a></li>
 				<li><a href="javascript:void(0)"><img src="js/basic/xiugai.png" class="itemicon">联系人</a></li>
 			</ul>
