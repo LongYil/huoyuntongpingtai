@@ -45,8 +45,8 @@
             </dl>
 			<ul class="menu1">
 				<li><a href="javascript:void(0)"><img src="js/basic/icon/chedui.png" class="itemicon">车队管理</a></li>
-                <li><a href="javascript:void(0)"><img src="js/basic/xiugai.png" class="itemicon">运输线路</a></li>
-                <li><a href="javascript:void(0)"><img src="js/basic/xiugai.png" class="itemicon">车辆管理</a></li>
+                <li><a href="javascript:void(0)"><img src="js/basic/icon/yunshuxianlu.png" class="itemicon">运输线路</a></li>
+                <li><a href="javascript:void(0)"><img src="js/basic/icon/chenliang.png" class="itemicon">车辆管理</a></li>
 			</ul>
 		</li>
      
