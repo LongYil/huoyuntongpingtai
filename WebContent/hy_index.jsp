@@ -89,7 +89,7 @@
                 <li><a href="javascript:void(0)"><img src="js/basic/xiugai.png" class="itemicon">系统日志</a></li>
                 <li><a href="javascript:void(0)"><img src="js/basic/xiugai.png" class="itemicon">退出</a></li>
 			</ul>
-		</li>               
+		</li>
 	</ul>
 	</div>
 
