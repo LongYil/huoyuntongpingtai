@@ -27,13 +27,13 @@
 		<li class="fatheritem">
         	<dl class="biaotia1">
             <li style="background-color:#dce8f3;">
-            <a href="javascript:void(0)" ><img src="js/basic/caidanicon.png" class="menuicon">用户信息</a>
+            <a href="javascript:void(0)" ><img src="js/basic/icon/yonghuxinxi.png" class="menuicon">用户信息</a>
             </li>
             </dl>
 			<ul class="menu1">
-				<li><a href="javascript:void(0)"><img src="js/basic/xiugai.png" class="itemicon">基本信息</a></li>
-                <li><a href="javascript:void(0)"><img src="js/basic/xiugai.png" class="itemicon">帐号管理</a></li>
-				<li><a href="javascript:void(0)"><img src="js/basic/xiugai.png" class="itemicon">账户管理</a></li>
+				<li><a href="javascript:void(0)"><img src="js/basic/icon/jibenxinxi.png" class="itemicon">基本信息</a></li>
+                <li><a href="javascript:void(0)"><img src="js/basic/icon/zhanghaoguanli.png" class="itemicon">帐号管理</a></li>
+				<li><a href="javascript:void(0)"><img src="js/basic/icon/zhanghuguanli.png" class="itemicon">账户管理</a></li>
 			</ul>
 		</li>
  
@@ -44,22 +44,22 @@
             </li>
             </dl>
 			<ul class="menu1">
-				<li><a href="javascript:void(0)"><img src="js/basic/xiugai.png" class="itemicon">承运商</a></li>
-                <li><a href="javascript:void(0)"><img src="js/basic/xiugai.png" class="itemicon">货运代理点</a></li>
-                <li><a href="javascript:void(0)"><img src="js/basic/xiugai.png" class="itemicon">委托人</a></li>
+				<li><a href="javascript:void(0)"><img src="js/basic/icon/chengyunshang.png" class="itemicon">承运商</a></li>
+                <li><a href="javascript:void(0)"><img src="js/basic/icon/huoyundailidian.png" class="itemicon">货运代理点</a></li>
+                <li><a href="javascript:void(0)"><img src="js/basic/icon/weituoren.png" class="itemicon">委托人</a></li>
 			</ul>
 		</li>
      
  		<li class="fatheritem">
         	<dl class="biaotia3">
             <li style="background-color:#dce8f3;">
-            <a href="javascript:void(0)" ><img src="js/basic/caidanicon.png" class="menuicon">系统管理</a>
+            <a href="javascript:void(0)" ><img src="js/basic/icon/xitongguanli.png" class="menuicon">系统管理</a>
             </li>
             </dl>
 			<ul class="menu1">
-				<li><a href="javascript:void(0)"><img src="js/basic/xiugai.png" class="itemicon">角色管理</a></li>
-                <li><a href="javascript:void(0)"><img src="js/basic/xiugai.png" class="itemicon">系统日志</a></li>
-                <li><a href="javascript:void(0)"><img src="js/basic/xiugai.png" class="itemicon">退出</a></li>
+				<li><a href="javascript:void(0)"><img src="js/basic/icon/jueseguanli.png" class="itemicon">角色管理</a></li>
+                <li><a href="javascript:void(0)"><img src="js/basic/icon/xitongrizhi.png" class="itemicon">系统日志</a></li>
+                <li><a href="javascript:void(0)"><img src="js/basic/icon/tuichu.png" class="itemicon">退出</a></li>
 			</ul>
 		</li>       
   
