@@ -18,7 +18,7 @@
     <div style="width:1040px; height:75px;background-image:url(js/basic/ads1.png);"></div>
 	<div style="width:1040px; height:75px;background-image:url(js/basic/head.png);">
     	<a href="javascript:void(0)" class="logo"></a>
-    	<div class="info"><span class="info1">车主：</span><span class="info2">李银龙</span>&nbsp;&nbsp;<span class="info3">您好！</span></div>
+    	<div class="info"><span class="info1">车主：</span><span class="info2">${jbyh.yhxm}</span>&nbsp;&nbsp;<span class="info3">您好！</span></div>
     </div>
     </div>
 	
@@ -31,9 +31,9 @@
             </li>
             </dl>
 			<ul class="menu1">
-				<li><a href="javascript:void(0)"><img src="js/basic/icon/jibenxinxi.png" class="itemicon">基本信息</a></li>
-				<li><a href="javascript:void(0)"><img src="js/basic/icon/zhanghaoguanli.png" class="itemicon">帐号信息</a></li>
-                <li><a href="javascript:void(0)"><img src="js/basic/icon/zhanghuguanli.png" class="itemicon">账户管理</a></li>
+				<li><a href="javascript:void(0)" onClick="To('cys_findCysInfo.action')"><img src="js/basic/icon/jibenxinxi.png" class="itemicon">基本信息</a></li>
+				<li><a href="javascript:void(0)" onClick="To('cys_grzhxx.jsp')"><img src="js/basic/icon/zhanghaoguanli.png" class="itemicon">帐号信息</a></li>
+                <li><a href="javascript:void(0)" onClick="To('cys_zhgl.jsp')"><img src="js/basic/icon/zhanghuguanli.png" class="itemicon">账户管理</a></li>
 			</ul>
 		</li>
  
@@ -44,12 +44,11 @@
             </li>
             </dl>
 			<ul class="menu1">
-				<li><a href="javascript:void(0)"><img src="js/basic/icon/chedui.png" class="itemicon">车队管理</a></li>
-                <li><a href="javascript:void(0)"><img src="js/basic/icon/yunshuxianlu.png" class="itemicon">运输线路</a></li>
+                <li><a href="javascript:void(0)"  onClick="To('table.html')"><img src="js/basic/icon/yunshuxianlu.png" class="itemicon">运输线路</a></li>
                 <li><a href="javascript:void(0)"><img src="js/basic/icon/chenliang.png" class="itemicon">车辆管理</a></li>
 			</ul>
 		</li>
-     
+
  		<li class="fatheritem">
         	<dl class="biaotia3">
             <li style="background-color:#dce8f3;">
@@ -86,26 +85,27 @@
             </li>
             </dl>
 			<ul class="menu1">
-				<li><a href="javascript:void(0)"><img src="js/basic/icon/jueseguanli.png" class="itemicon">角色管理</a></li>
                 <li><a href="javascript:void(0)"><img src="js/basic/icon/xitongrizhi.png" class="itemicon">系统日志</a></li>
 				<li><a href="javascript:void(0)"><img src="js/basic/icon/tuichu.png" class="itemicon">退出</a></li>
 			</ul>
 		</li> 				
 	</ul>
 	</div>
-
+	
 	<div data-options="region:'south',border:false" style="height:50px;background:#A9FACD;padding:10px;">south region</div>
 	<div data-options="region:'center',title:'我的桌面'">
-    	<iframe class="zhuomian" frameborder="0">
+    	<iframe class="zhuomian" frameborder="0" style="width:835px;height:680px;" src="table.html">
         
         
-        
+
         </iframe>    
     </div>
 
 </body>
 <script>
-
+function To(url){
+	$(".zhuomian").attr("src",url);
+}
 	$(function m(){
 		$(".biaotia1").nextAll().hide();
 		$(".biaotia2").nextAll().hide();

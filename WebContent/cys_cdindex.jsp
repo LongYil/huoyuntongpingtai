@@ -18,7 +18,7 @@
     <div style="width:1040px; height:75px;background-image:url(js/basic/ads1.png);"></div>
 	<div style="width:1040px; height:75px;background-image:url(js/basic/head.png);">
     	<a href="javascript:void(0)" class="logo"></a>
-    	<div class="info"><span class="info1">承运商：</span><span class="info2">李银龙</span>&nbsp;&nbsp;<span class="info3">您好！</span></div>
+    	<div class="info"><span class="info1">承运商(运输车队)：</span><span class="info2">李银龙</span>&nbsp;&nbsp;<span class="info3">您好！</span></div>
     </div>
     </div>
 	
@@ -31,7 +31,7 @@
             </li>
             </dl>
 			<ul class="menu1">
-				<li><a href="javascript:void(0)"><img src="js/basic/icon/jibenxinxi.png" class="itemicon">基本信息</a></li>
+				<li><a href="javascript:void(0)" onClick="To('cys_cdjbxx.html')"><img src="js/basic/icon/jibenxinxi.png" class="itemicon">基本信息</a></li>
 				<li><a href="javascript:void(0)"><img src="js/basic/icon/zhanghaoguanli.png" class="itemicon">帐号信息</a></li>
                 <li><a href="javascript:void(0)"><img src="js/basic/icon/zhanghuguanli.png" class="itemicon">账户管理</a></li>
 			</ul>
@@ -99,12 +99,16 @@
     	<iframe class="zhuomian" frameborder="0">
         
         
-
+		
         </iframe>    
     </div>
 
 </body>
 <script>
+function To(url){
+	$(".zhuomian").attr("src",url);
+}
+
 
 $(function m(){
 	$(".biaotia1").nextAll().hide();

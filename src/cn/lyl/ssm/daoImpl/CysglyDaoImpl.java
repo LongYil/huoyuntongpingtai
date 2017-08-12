@@ -2,10 +2,11 @@ package cn.lyl.ssm.daoImpl;
 
 import org.springframework.stereotype.Component;
 
+import cn.lyl.ssm.dao.CysglyDao;
 import cn.lyl.ssm.po.Cysgly;
 
 @Component(value="cysglyDao")
-public class CysglyDaoImpl extends CommonDaoImpl<Cysgly> implements cn.lyl.ssm.dao.CysglyDao {
+public class CysglyDaoImpl extends CommonDaoImpl<Cysgly> implements CysglyDao {
 
 	@Override
 	public void save(Cysgly entity) {
@@ -14,8 +15,7 @@ public class CysglyDaoImpl extends CommonDaoImpl<Cysgly> implements cn.lyl.ssm.d
 
 	@Override
 	public void update(Cysgly entity) {
-		//
-		
+		ht.update(entity);		
 	}
 
 	@Override
@@ -26,8 +26,7 @@ public class CysglyDaoImpl extends CommonDaoImpl<Cysgly> implements cn.lyl.ssm.d
 
 	@Override
 	public Cysgly find(String arg) {
-		//
-		return null;
+		return (Cysgly) ht.find("from Cysgly where yhbh = "+Integer.parseInt(arg)+"").get(0);
 	}
 
 }

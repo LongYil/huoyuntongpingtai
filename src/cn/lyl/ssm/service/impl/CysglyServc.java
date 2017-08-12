@@ -19,8 +19,7 @@ public class CysglyServc extends CommonSevc<Cysgly, CysglyDaoImpl> {
 
 	@Override
 	public Cysgly find(String arg) {
-		//
-		return null;
+		return daoImpl.find(arg);
 	}
 
 	@Override
@@ -33,6 +32,9 @@ public class CysglyServc extends CommonSevc<Cysgly, CysglyDaoImpl> {
 	public void delete(Cysgly arg) {
 		//
 		
+	}
+	public void update(Cysgly arg){
+		daoImpl.update(arg);
 	}
 
 }

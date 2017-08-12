@@ -1,6 +1,10 @@
 package cn.lyl.ssm.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import cn.lyl.ssm.po.Jbyh;
@@ -16,11 +20,17 @@ import cn.lyl.ssm.service.impl.JbyhServc;
 @Controller
 public class JbyhController extends BasicController<JbyhServc> {
 	
+	@Autowired
+	private Jbyh jbyh;
+	
 	@RequestMapping("/jbyh_login")
-	public String login(Jbyh jbyh){
-		int type = servc.login(jbyh);
-		System.out.println(type);
-		switch(type){
+	public String login(Model model,Jbyh jbyh,HttpServletRequest request){
+		int[] info = servc.login(jbyh);
+		this.jbyh = servc.find(String.valueOf(info[1]));
+		model.addAttribute("jbyh", this.jbyh);
+		request.getSession().setAttribute("jbyh", this.jbyh);
+		request.getSession().setAttribute("yhbh", info[1]);
+		switch(info[0]){
 		case 1:
 			return "pt_ptgly";
 		case 2:

@@ -1,5 +1,8 @@
 package cn.lyl.ssm.po;
 
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
 /**
  * <p>Title:Cysgly</p>
  * <p>Description: 承运商管理员</p>
@@ -7,6 +10,8 @@ package cn.lyl.ssm.po;
  *		2017年7月20日
  *		下午8:00:56
  */
+@Component(value="cysgly")
+@Scope(value="prototype")
 public class Cysgly {
 	private Integer id;//序号
 	private Integer yhbh;//用户编号
@@ -14,6 +19,7 @@ public class Cysgly {
 	private Integer cysbh;//承运商编号
 	private String hylx;//承运商会员类型，3：个人承运商，4：运输车队承运商
 	private String gsmc;//公司名称
+	private String yhyx;//用户邮箱
 	private String lxdh;//联系电话
 	private String szsf;//所在省份
 	private String szcs;//所在城市
@@ -61,6 +67,12 @@ public class Cysgly {
 	}
 	public void setGsmc(String gsmc) {
 		this.gsmc = gsmc;
+	}
+	public String getYhyx() {
+		return yhyx;
+	}
+	public void setYhyx(String yhyx) {
+		this.yhyx = yhyx;
 	}
 	public String getLxdh() {
 		return lxdh;

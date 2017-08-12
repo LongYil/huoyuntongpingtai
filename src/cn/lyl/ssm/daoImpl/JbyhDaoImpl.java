@@ -29,8 +29,7 @@ public class JbyhDaoImpl extends CommonDaoImpl<Jbyh> implements JbyhDao {
 
 	@Override
 	public void update(Jbyh entity) {
-		//
-		
+		ht.update(entity);		
 	}
 
 	@Override
@@ -46,14 +45,16 @@ public class JbyhDaoImpl extends CommonDaoImpl<Jbyh> implements JbyhDao {
 	}
 
 	@Override
-	public int login(Jbyh jbyh) {
-		System.out.println(jbyh);
+	public int[] login(Jbyh jbyh) {
+
 		list = (List<Jbyh>) ht.find("from Jbyh where yhsj = ? and yhmm = ?", jbyh.getYhsj(),jbyh.getYhmm());
-		System.out.println(list.size());
+		int[] info = new int[2] ;
 		if(list.size()>0){
-			return list.get(0).getYhlx();
+			info[0]=list.get(0).getYhlx();
+			info[1]=list.get(0).getYhbh();
+			return info;
 		}else{
-			return 0;
+			return info;
 		}
 	}
 	

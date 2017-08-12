@@ -9,11 +9,11 @@
 		<id name="yhbh">
 			<generator class="native"></generator>
 		</id>
-		<property name="yhm" length="150"/>
+		<property name="yhm" length="150" update="false"/>
 		<property name="yhxm" length="150"/>
-		<property name="yhmm" length="150"/>
-		<property name="yhlx" />
-		<property name="yhsj" length="150"/>
+		<property name="yhmm" length="150" update="false"/>
+		<property name="yhlx" update="false"/>
+		<property name="yhsj" length="150" update="false"/>
 		<property name="kz1"/>
 		<property name="kz2"/>
 		<property name="kz3" length="150"/>

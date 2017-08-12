@@ -1,5 +1,7 @@
 package cn.lyl.ssm.po;
 
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 
 /**
  * <p>Title:Jbyh</p>
@@ -8,6 +10,8 @@ package cn.lyl.ssm.po;
  *		2017年7月20日
  *		下午4:00:42
  */
+@Component(value="jbyh")
+@Scope(value="prototype")
 public class Jbyh {
 	private Integer yhbh;//用户编号
 	private String yhm;//用户名

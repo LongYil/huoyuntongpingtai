@@ -1,5 +1,7 @@
 package cn.lyl.ssm.dao;
 
-public interface CysglyDao {
+import cn.lyl.ssm.po.Cysgly;
 
+public interface CysglyDao {
+	
 }

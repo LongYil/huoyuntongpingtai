@@ -17,25 +17,26 @@ public class JbyhServc extends CommonSevc<Jbyh,JbyhDaoImpl> {
 		daoImpl.save(arg);
 	}
 	
-	public int login(Jbyh jbyh){
+	public int[] login(Jbyh jbyh){
 		return daoImpl.login(jbyh);
 	}
+	
 	@Override
 	public Jbyh find(String arg) {
-		
-		return null;
+		return daoImpl.find(arg);
 	}
 
 	@Override
 	public List<Jbyh> findAll(String arg) {
-		
 		return null;
 	}
 
 	@Override
 	public void delete(Jbyh arg) {
 		
-		
+	}
+	public void update(Jbyh arg){
+		daoImpl.update(arg);
 	}
 
 }

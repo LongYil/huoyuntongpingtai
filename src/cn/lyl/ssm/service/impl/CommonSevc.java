@@ -11,4 +11,5 @@ public abstract class CommonSevc<E,D> {
 	public abstract E find(String arg);
 	public abstract List<E> findAll(String arg);
 	public abstract void delete(E arg);
+
 }
