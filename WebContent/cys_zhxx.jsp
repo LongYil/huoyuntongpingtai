@@ -4,7 +4,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>会员账号信息</title>
+	<title>会员银行账号信息</title>
 	<link rel="stylesheet" type="text/css" href="js/basic/themes/default/easyui.css">
 	<link rel="stylesheet" type="text/css" href="js/basic/themes/icon.css">
 	<link rel="stylesheet" type="text/css" href="js/basic/demo/demo.css">
@@ -13,22 +13,23 @@
 </head>
 <body style="padding:0px;margin:0px;">
 
-	<div class="easyui-panel" style="width:100%;max-width:840px;max-height:600px;padding:30px 60px;" title="会员账号信息">
-		<form id="ff" action="" class="easyui-form" method="post" data-options="novalidate:true">
+	<div class="easyui-panel" style="width:100%;max-width:840px;max-height:600px;padding:30px 60px;" title="会员银行账户信息">
+		<form id="ff" action="${pageContext.request.contextPath}/yhzh_saveorupdate.action" class="easyui-form" method="post" data-options="novalidate:true">
 
 			<div style="margin-bottom:20px">
-				<input class="easyui-textbox" name="name" style="width:40%" data-options="label:'用户姓名',required:true" value="${jbyh.yhmm}">
+				<select class="easyui-combobox" name="yhlx" label="银行类型" style="width:40%">
+				<option value="${yhzh.yhlx}">${yhzh.yhlx}</option>
+				<option value="中国工商银行">中国工商银行</option>
+				<option value="中国农业银行">中国农业银行</option>
+				<option value="中国邮政银行">中国邮政银行</option>
+				</select>
 			</div>
 			<div style="margin-bottom:20px">
-				<input class="easyui-textbox" name="age" style="width:40%" data-options="label:'手机号',required:true">
+				<input class="easyui-textbox" name="ckrxm" value="${yhzh.ckrxm}" style="width:40%" data-options="label:'持卡人姓名',required:true">
 			</div>
 			<div style="margin-bottom:20px">
-				<input class="easyui-textbox" name="email" style="width:40%" data-options="label:'Email:',required:true,validType:'email'">
+				<input class="easyui-textbox" name="yhzh" value="${yhzh.yhzh}" style="width:40%" data-options="label:'银行卡号',required:true">
 			</div>
-			<div style="margin-bottom:20px">
-				<input class="easyui-datebox" name="message" style="width:40%;" data-options="label:'出生日期:'">
-			</div>
-
 
 
 

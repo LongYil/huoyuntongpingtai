@@ -10,6 +10,7 @@
 	<link rel="stylesheet" type="text/css" href="js/basic/demo/demo.css">
 	<script type="text/javascript" src="js/basic/jquery.min.js"></script>
 	<script type="text/javascript" src="js/basic/jquery.easyui.min.js"></script>
+
 </head>
 <body style="padding:0px;margin:0px;">
 
@@ -25,16 +26,16 @@
 			<div style="margin-bottom:20px">
 				<input class="easyui-textbox" name="info"  value="${cysgly.yhyx}" style="width:40%" data-options="label:'Email:',required:true,validType:'email'">
 			</div>
-			<div style="margin-bottom:20px">
-				<select class="easyui-combobox" name="info" label="个人地址-省" style="width:30%">
+			<div style="margin-bottom:20px" id="area_address">
+				<select class="easyui-combobox" name="province" label="个人地址-省" style="width:30%">
 				<option value="ar">${cysgly.szsf}</option><option value="bg">英国</option>
 				<option value="ca">俄罗斯</option><option value="zh-cht">美国</option>
 				</select>
-				<select class="easyui-combobox" name="info" label="个人地址-市" style="width:30%">
+				<select class="easyui-combobox" name="city" label="个人地址-市" style="width:30%">
 				<option value="ar">${cysgly.szcs}</option><option value="bg">英国</option>
 				<option value="ca">俄罗斯</option><option value="zh-cht">美国</option>
 				</select>
-				<select class="easyui-combobox" name="info" label="个人地址-县/区" style="width:30%">
+				<select class="easyui-combobox" name="area" label="个人地址-县/区" style="width:30%">
 				<option value="ar">${cysgly.szx}</option><option value="bg">英国</option>
 				<option value="ca">俄罗斯</option><option value="zh-cht">美国</option>
 				</select>
@@ -42,11 +43,7 @@
 			<div style="margin-bottom:20px">
 				<input class="easyui-textbox" name="message" style="width:91%;height:60px" data-options="label:'备注:',multiline:true">
 			</div>
-
-
-
-
-
+			
 		</form>
 		<div style="text-align:center;padding:5px 0">
 			<a href="javascript:void(0)" class="easyui-linkbutton" onclick="submitForm()" style="width:80px">提交</a>
@@ -65,6 +62,22 @@
 		function clearForm(){
 			$('#ff').form('clear');
 		}
+		
+        $('#area_address').citys({
+            required:false,
+            nodata:'disabled',
+            onChange:function(data){
+                szsf = data['province'];
+                szcs = data['city'];
+                szx = data['area'];
+				$("#szsf").val(szsf);
+				$("#szcs").val(szcs);
+				$("#szx").val(szx);
+            }
+        });
+        
+        
+        
 	</script>
 </body>
 </html>
