@@ -44,7 +44,7 @@
             </li>
             </dl>
 			<ul class="menu1">
-                <li><a href="javascript:void(0)"  onClick="To('table.html')"><img src="js/basic/icon/yunshuxianlu.png" class="itemicon">运输线路</a></li>
+                <li><a href="javascript:void(0)"  onClick="To('cys_xlgl.jsp')"><img src="js/basic/icon/yunshuxianlu.png" class="itemicon">线路管理</a></li>
                 <li><a href="javascript:void(0)"><img src="js/basic/icon/chenliang.png" class="itemicon">车辆管理</a></li>
 			</ul>
 		</li>
@@ -94,7 +94,7 @@
 	
 	<div data-options="region:'south',border:false" style="height:50px;background:#A9FACD;padding:10px;">south region</div>
 	<div data-options="region:'center',title:'我的桌面'">
-    	<iframe class="zhuomian" frameborder="0" style="width:835px;height:680px;" src="cys_syxl.jsp">
+    	<iframe class="zhuomian" frameborder="0" style="width:835px;height:680px;">
         
         
 

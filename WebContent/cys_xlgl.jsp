@@ -4,7 +4,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>所有订单</title>
+	<title>运输线路管理</title>
 	<link rel="stylesheet" type="text/css" href="js/basic/themes/default/easyui.css">
 	<link rel="stylesheet" type="text/css" href="js/basic/themes/icon.css">
 	<link rel="stylesheet" type="text/css" href="js/basic/demo/demo.css">
@@ -14,8 +14,8 @@
 <body style="padding-top:0px; padding-bottom:0px;">
 
 <section style="width:500px;height:40px;margin-top:20px;padding-left:40px;">
-<a href="javascript:void(0)" class="easyui-linkbutton" style="width:80px;margin-right:20px;" onclick="addPanel()">添加线路</a>
-<a href="javascript:void(0)" class="easyui-linkbutton" style="width:80px;" onclick="getSelected()">删除线路</a>
+<a href="#" class="easyui-linkbutton" style="width:80px;margin-right:20px;" onclick="addPanel()">添加线路</a>
+<a href="#" class="easyui-linkbutton" style="width:80px;" onclick="addPanel()">删除线路</a>
 </section>
 
 
@@ -57,17 +57,12 @@
 		function addPanel(){
 			index++;
 			$('#tt').tabs('add',{
-				title: '编辑信息',
-				content: '<iframe src="add.html" frameborder="0" style="padding:5px;width:830px;height:500px;"></iframe>',
+				title: '添加线路',
+				content: '<iframe src="cys_tjxl.jsp" frameborder="0" style="padding:5px;width:830px;height:500px;"></iframe>',
 				closable: true
 			});
 		}
-		function getSelected(){
-			var row = $('#dg').datagrid('getSelected');
-			if (row){
-				$.messager.alert('Info', row.a+":"+row.b+":"+row.c);
-			}
-		}
+
 	</script>
 </body>
 </html>
