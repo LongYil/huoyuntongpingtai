@@ -13,7 +13,7 @@
 </head>
 <body style="padding:0px;margin:0px;">
 
-	<div class="easyui-panel" style="width:100%;max-width:840px;max-height:600px;padding:30px 60px;" title="会员基本信息">
+	<div class="easyui-panel" style="width:100%;max-width:840px;max-height:600px;padding:30px 60px;" title="添加线路">
 		<form id="ff" class="easyui-form" method="post" data-options="novalidate:true">
 
 			<div style="margin-bottom:20px">
