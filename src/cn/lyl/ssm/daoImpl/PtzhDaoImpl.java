@@ -1,8 +1,8 @@
-package cn.lyl.ssm.dao;
+package cn.lyl.ssm.daoImpl;
 
 import org.springframework.stereotype.Component;
 
-import cn.lyl.ssm.daoImpl.CommonDaoImpl;
+import cn.lyl.ssm.dao.PtzhDao;
 import cn.lyl.ssm.po.Ptzh;
 
 @Component(value="ptzhDaoImpl")

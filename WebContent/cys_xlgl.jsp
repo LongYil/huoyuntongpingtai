@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>   
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,33 +33,35 @@
 				<th data-options="field:'b',width:80,align:'center'">出发省份</th>
 				<th data-options="field:'c',width:80,align:'center'">出发城市</th>
 				<th data-options="field:'d',width:80,align:'center'">出发县</th>
-				<th data-options="field:'e',width:80,align:'center'">到达省</th>
+				<th data-options="field:'e',width:80,align:'center'">到达省份</th>
 				<th data-options="field:'f',width:80,align:'center'">到达城市</th>
 				<th data-options="field:'g',width:80,align:'center'">到达县</th>
 				<th data-options="field:'h',width:80,align:'center'">重货价格</th>
 				<th data-options="field:'i',width:80,align:'center'">重货单位</th>
 				<th data-options="field:'j',width:80,align:'center'">轻货价格</th>
 				<th data-options="field:'k',width:80,align:'center'">轻货单位</th>
-				<th data-options="field:'k',width:80,align:'center'">运输时效（X天/次）</th>
-				<th data-options="field:'k',width:80,align:'center'">发车频率</th>
+				<th data-options="field:'l',width:80,align:'center'">运输时效（X天/次）</th>
+				<th data-options="field:'m',width:80,align:'center'">发车频率</th>
 			</tr>
 		</thead>
 		<tbody>
-			<tr>
-				<td >1</td>
-				<td >广东</td>
-				<td >佛山</td>
-				<td >三水</td>
-				<td >广东</td>
-				<td >茂名</td>
-				<td >茂南</td>
-				<td >100</td>
-				<td >千克</td>
-				<td >100</td>
-				<td >千克</td>
-				<td >2</td>
-				<td >1天/次</td>
-			</tr>
+				<c:forEach items="${listwlx}" var="item" begin="0" step="2" varStatus="status">
+				<tr>
+				    <td>${status.index+1}</td>
+					<td>${item.cfsf}</td>
+					<td>${item.cfcs}</td>
+					<td>${item.cfx}</td>
+					<td>${item.ddsf}</td>
+					<td>${item.ddcs}</td>
+					<td>${item.ddx}</td>
+					<td>${item.zhjg}</td>
+					<td>千克</td>
+					<td>${item.qhjg}</td>
+					<td>立方米</td>
+					<td>${item.yssx}</td>
+					<td>${item.fcpl}</td>
+				</tr>
+				</c:forEach>
 		</tbody>
 		</table>
 		</div>

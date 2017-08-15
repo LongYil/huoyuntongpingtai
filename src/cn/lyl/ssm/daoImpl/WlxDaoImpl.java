@@ -1,8 +1,10 @@
-package cn.lyl.ssm.dao;
+package cn.lyl.ssm.daoImpl;
+
+import java.util.List;
 
 import org.springframework.stereotype.Component;
 
-import cn.lyl.ssm.daoImpl.CommonDaoImpl;
+import cn.lyl.ssm.dao.WlxDao;
 import cn.lyl.ssm.po.Wlx;
 
 @Component(value="wlxDaoImpl")
@@ -31,4 +33,9 @@ public class WlxDaoImpl extends CommonDaoImpl<Wlx> implements WlxDao {
 		return null;
 	}
 
+	@Override
+	public List<Wlx> findAll(String arg) {
+		return (List<Wlx>) ht.find("from Wlx where yhbh = "+arg+"");
+	}
+	
 }
