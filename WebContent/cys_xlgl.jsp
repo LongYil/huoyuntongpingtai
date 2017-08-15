@@ -28,22 +28,36 @@
 			data-options="singleSelect:true,url:'datagrid_data1.json',method:'get'">
 		<thead>
 			<tr>
-				<th data-options="field:'a',width:80,align:'center'">Item ID</th>
-				<th data-options="field:'b',width:80,align:'center'">Product</th>
-				<th data-options="field:'c',width:80,align:'center'">List Price</th>
-				<th data-options="field:'d',width:80,align:'center'">Unit Cost</th>
-				<th data-options="field:'e',width:80,align:'center'">Attribute</th>
-				<th data-options="field:'f',width:80,align:'center'">Status</th>
+				<th data-options="field:'a',width:80,align:'center'">序号</th>
+				<th data-options="field:'b',width:80,align:'center'">出发省份</th>
+				<th data-options="field:'c',width:80,align:'center'">出发城市</th>
+				<th data-options="field:'d',width:80,align:'center'">出发县</th>
+				<th data-options="field:'e',width:80,align:'center'">到达省</th>
+				<th data-options="field:'f',width:80,align:'center'">到达城市</th>
+				<th data-options="field:'g',width:80,align:'center'">到达县</th>
+				<th data-options="field:'h',width:80,align:'center'">重货价格</th>
+				<th data-options="field:'i',width:80,align:'center'">重货单位</th>
+				<th data-options="field:'j',width:80,align:'center'">轻货价格</th>
+				<th data-options="field:'k',width:80,align:'center'">轻货单位</th>
+				<th data-options="field:'k',width:80,align:'center'">运输时效（X天/次）</th>
+				<th data-options="field:'k',width:80,align:'center'">发车频率</th>
 			</tr>
 		</thead>
 		<tbody>
 			<tr>
 				<td >1</td>
-				<td >苹果</td>
-				<td >10.5</td>
-				<td >200</td>
-				<td >安徽</td>
-				<td >运输中</td>
+				<td >广东</td>
+				<td >佛山</td>
+				<td >三水</td>
+				<td >广东</td>
+				<td >茂名</td>
+				<td >茂南</td>
+				<td >100</td>
+				<td >千克</td>
+				<td >100</td>
+				<td >千克</td>
+				<td >2</td>
+				<td >1天/次</td>
 			</tr>
 		</tbody>
 		</table>
