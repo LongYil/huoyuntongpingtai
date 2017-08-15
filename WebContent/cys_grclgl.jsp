@@ -4,7 +4,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>车辆信息信息</title>
+	<title>车辆信息</title>
 	<link rel="stylesheet" type="text/css" href="js/basic/themes/default/easyui.css">
 	<link rel="stylesheet" type="text/css" href="js/basic/themes/icon.css">
 	<link rel="stylesheet" type="text/css" href="js/basic/demo/demo.css">
