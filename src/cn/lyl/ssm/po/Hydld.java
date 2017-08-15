@@ -3,6 +3,9 @@ package cn.lyl.ssm.po;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
 /**
  * <p>Title:Hydld</p>
  * <p>Description: 货运代理点</p>
@@ -10,6 +13,8 @@ import java.util.Set;
  *		2017年7月20日
  *		下午7:48:17
  */
+@Component(value="hydld")
+@Scope(value="prototype")
 public class Hydld {
 	private Integer id;//序号
 	private Integer yhbh;//用户编号

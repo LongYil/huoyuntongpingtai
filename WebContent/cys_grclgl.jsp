@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,40 +15,34 @@
 <body style="padding:0px;margin:0px;">
 
 	<div class="easyui-panel" style="width:100%;max-width:840px;max-height:600px;padding:30px 60px;" title="车辆信息">
-		<form id="ff" class="easyui-form" method="post" data-options="novalidate:true">
+		<form id="ff" action="${pageContext.request.contextPath}/clxx_save.action" class="easyui-form" method="post" data-options="novalidate:true">
 
 			<div style="margin-bottom:20px">
-				<input class="easyui-textbox" name="cph" style="width:40%" data-options="label:'车牌号',required:true">	
+				<input class="easyui-textbox" name="cph" value="${clxx.cph}" style="width:40%" data-options="label:'车牌号',required:true">	
 			</div>
 			<div style="margin-bottom:20px">
-				<input class="easyui-textbox" name="cllx" style="width:40%" data-options="label:'车辆类型',required:true">	
+				<input class="easyui-textbox" name="cllx" value="${clxx.cllx}" style="width:40%" data-options="label:'车辆类型',required:true">	
 			</div>
 			<div style="margin-bottom:20px">
-				<input class="easyui-textbox" name="clcd" style="width:40%" data-options="label:'车辆长度',required:true">	
+				<input class="easyui-textbox" name="clcd" value="${clxx.clcd}" style="width:40%" data-options="label:'车辆长度',required:true">	
 			</div>
 			<div style="margin-bottom:20px">
-				<input class="easyui-textbox" name="clkd" style="width:40%" data-options="label:'车辆宽度',required:true">	
+				<input class="easyui-textbox" name="clkd" value="${clxx.clkd}" style="width:40%" data-options="label:'车辆宽度',required:true">	
 			</div>
 			<div style="margin-bottom:20px">
-				<input class="easyui-textbox" name="cltj" style="width:40%" data-options="label:'车辆体积 ',required:true">	
+				<input class="easyui-textbox" name="cltj" value="${clxx.cltj}" style="width:40%" data-options="label:'车辆体积 ',required:true">	
 			</div>
 			<div style="margin-bottom:20px">
-				<input class="easyui-textbox" name="sclxr" style="width:40%" data-options="label:'随车联系人',required:true">	
+				<input class="easyui-textbox" name="sclxr" value="${clxx.sclxr}" style="width:40%" data-options="label:'随车联系人',required:true">	
 			</div>
 			<div style="margin-bottom:20px">
-				<input class="easyui-textbox" name="sclxdh" style="width:40%" data-options="label:'随车联系电话',required:true">	
+				<input class="easyui-textbox" name="sclxdh" value="${clxx.sclxdh}" style="width:40%" data-options="label:'随车联系电话',required:true">	
 			</div>
 			<div style="margin-bottom:20px">
-				<input class="easyui-textbox" name="clpp" style="width:40%" data-options="label:'车辆品牌',required:true">	
+				<input class="easyui-textbox" name="clpp" value="${clxx.clpp}" style="width:40%" data-options="label:'车辆品牌',required:true">	
 			</div>
 			
 			
-
-
-
-
-
-
 		</form>
 		<div style="text-align:center;padding:5px 0">
 			<a href="javascript:void(0)" class="easyui-linkbutton" onclick="submitForm()" style="width:80px">提交</a>

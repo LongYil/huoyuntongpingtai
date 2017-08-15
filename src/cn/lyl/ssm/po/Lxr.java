@@ -1,5 +1,8 @@
 package cn.lyl.ssm.po;
 
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
 /**
  * <p>Title:Lxr</p>
  * <p>Description: 联系人</p>
@@ -7,6 +10,8 @@ package cn.lyl.ssm.po;
  *		2017年7月20日
  *		下午6:56:16
  */
+@Component(value="lxr")
+@Scope(value="prototype")
 public class Lxr {
 	private Integer id;//序号
 	private String lxrxm;//联系人姓名

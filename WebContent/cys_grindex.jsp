@@ -45,7 +45,7 @@
             </dl>
 			<ul class="menu1">
                 <li><a href="javascript:void(0)" onClick="To('wlx_findAll.action')"><img src="js/basic/icon/yunshuxianlu.png" class="itemicon">线路管理</a></li>
-                <li><a href="javascript:void(0)" ><img src="js/basic/icon/chenliang.png" class="itemicon">车辆管理</a></li>
+                <li><a href="javascript:void(0)" onClick="To('clxx_gr_find.action')"><img src="js/basic/icon/chenliang.png" class="itemicon">车辆管理</a></li>
 			</ul>
 		</li>
 

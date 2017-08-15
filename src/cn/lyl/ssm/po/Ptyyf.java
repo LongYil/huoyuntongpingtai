@@ -3,6 +3,7 @@ package cn.lyl.ssm.po;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 /**
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Component;
  *		下午6:12:19
  */
 @Component(value="ptyyf")
+@Scope(value="prototype")
 public class Ptyyf {
 	private Integer id;//序号
 	private Integer yhbh;//用户编号

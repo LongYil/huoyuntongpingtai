@@ -2,6 +2,9 @@ package cn.lyl.ssm.po;
 
 import java.util.Date;
 
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
 /**
  * <p>Title:Jnjl</p>
  * <p>Description: 保证金缴纳记录</p>
@@ -9,6 +12,8 @@ import java.util.Date;
  *		2017年7月20日
  *		下午7:43:53
  */
+@Component(value="jnjl")
+@Scope(value="prototype")
 public class Jnjl {
 	private Integer id;//序号
 	private Integer yhbh;//用户编号

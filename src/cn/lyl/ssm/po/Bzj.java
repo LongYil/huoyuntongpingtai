@@ -1,5 +1,8 @@
 package cn.lyl.ssm.po;
 
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
 /**
  * <p>Title:Bzj</p>
  * <p>Description: 保证金</p>
@@ -7,6 +10,8 @@ package cn.lyl.ssm.po;
  *		2017年7月20日
  *		下午7:40:28
  */
+@Component(value="bzj")
+@Scope(value="prototype")
 public class Bzj {
 	private Integer id;//序号
 	private Integer yhbh;//用户编号

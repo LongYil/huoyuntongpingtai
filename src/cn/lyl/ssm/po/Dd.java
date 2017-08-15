@@ -1,5 +1,8 @@
 package cn.lyl.ssm.po;
 
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
 /**
  * <p>Title:Dd</p>
  * <p>Description: 订单</p>
@@ -7,12 +10,16 @@ package cn.lyl.ssm.po;
  *		2017年7月20日
  *		下午8:11:41
  */
+@Component(value="dd")
+@Scope(value="prototype")
 public class Dd {
 	private Integer id;//序号
 	private Integer wtrbh;//委托人编号
 	private Integer fhdld;//发货代理点编号
 	private Integer shdld;//收获代理点把编号
 	private Integer cys;//承运商
+	private String hwmc;//货物名称
+	private String hwlx;//货物类型
 	private String cfsf;//出发省份
 	private String cfcs;//出发城市
 	private String cfx;//出发县
@@ -40,6 +47,7 @@ public class Dd {
 	private String kz3;
 	private String kz4;
 	private String kz5;
+	
 	public Integer getId() {
 		return id;
 	}
@@ -69,6 +77,18 @@ public class Dd {
 	}
 	public void setCys(Integer cys) {
 		this.cys = cys;
+	}
+	public String getHwmc() {
+		return hwmc;
+	}
+	public void setHwmc(String hwmc) {
+		this.hwmc = hwmc;
+	}
+	public String getHwlx() {
+		return hwlx;
+	}
+	public void setHwlx(String hwlx) {
+		this.hwlx = hwlx;
 	}
 	public String getCfsf() {
 		return cfsf;

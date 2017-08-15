@@ -1,5 +1,8 @@
 package cn.lyl.ssm.po;
 
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
 /**
  * <p>Title:Clxx</p>
  * <p>Description:车辆信息 </p>
@@ -7,6 +10,8 @@ package cn.lyl.ssm.po;
  *		2017年8月15日
  *		下午4:46:10
  */
+@Component(value="clxx")
+@Scope(value="prototype")
 public class Clxx {
 	private Integer id;//序号
 	private Integer yhbh;//用户编号

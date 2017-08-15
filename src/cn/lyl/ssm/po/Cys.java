@@ -3,13 +3,18 @@ package cn.lyl.ssm.po;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
 /**
  * <p>Title:Cys</p>
  * <p>Description: 承运商</p>
  * @author 李银龙
  *		2017年7月20日
  *		下午7:57:32
- */
+*/
+@Component(value="cys")
+@Scope(value="prototype")
 public class Cys {
 	private Integer id;//序号
 	private Integer yhbh;//用户编号

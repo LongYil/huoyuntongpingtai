@@ -3,6 +3,13 @@ package cn.lyl.ssm.po;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+/**
+ * <p>Title:Yhzh</p>
+ * <p>Description: 用户账号实体类</p>
+ * @author 李银龙
+ *		2017年8月15日
+ *		下午10:30:01
+ */
 @Component(value="yhzh")
 @Scope(value="prototype")
 public class Yhzh {

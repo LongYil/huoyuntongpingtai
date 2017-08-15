@@ -43,7 +43,11 @@
 			<div style="margin-bottom:20px">
 				<input class="easyui-textbox" name="message" style="width:91%;height:60px" data-options="label:'备注:',multiline:true">
 			</div>
-			
+		
+		<input type="hidden" name="szsf" id="szsf"/>
+        <input type="hidden" name="szcs" id="szcs"/>
+        <input type="hidden" name="szx" id="szx"/>	
+                
 		</form>
 		<div style="text-align:center;padding:5px 0">
 			<a href="javascript:void(0)" class="easyui-linkbutton" onclick="submitForm()" style="width:80px">提交</a>

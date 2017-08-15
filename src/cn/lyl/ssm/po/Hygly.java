@@ -1,5 +1,8 @@
 package cn.lyl.ssm.po;
 
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
 /**
  * <p>Title:Hygly</p>
  * <p>Description: 货运代理点管理员</p>
@@ -7,6 +10,8 @@ package cn.lyl.ssm.po;
  *		2017年7月20日
  *		下午7:50:53
  */
+@Component(value="hygly")
+@Scope(value="prototype")
 public class Hygly {
 	private Integer id;//序号
 	private Integer yhbh;//用户编号

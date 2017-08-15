@@ -1,5 +1,8 @@
 package cn.lyl.ssm.po;
 
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
 /**
  * <p>Title:Ptzh</p>
  * <p>Description:平台账户 </p>
@@ -7,6 +10,8 @@ package cn.lyl.ssm.po;
  *		2017年7月20日
  *		下午7:31:15
  */
+@Component(value="ptzh")
+@Scope(value="prototype")
 public class Ptzh {
 	private Integer id;//序号
 	private Integer yhbh;//用户编号

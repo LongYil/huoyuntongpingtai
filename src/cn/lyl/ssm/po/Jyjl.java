@@ -2,6 +2,9 @@ package cn.lyl.ssm.po;
 
 import java.util.Date;
 
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
 /**
  * <p>Title:Jyjl</p>
  * <p>Description: 平台账户的交易记录</p>
@@ -9,6 +12,8 @@ import java.util.Date;
  *		2017年7月20日
  *		下午7:36:17
  */
+@Component(value="jyjl")
+@Scope(value="prototype")
 public class Jyjl {
 	private Integer id;//序号
 	private Integer yhbh;//用户编号

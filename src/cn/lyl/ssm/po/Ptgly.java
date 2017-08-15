@@ -1,5 +1,6 @@
 package cn.lyl.ssm.po;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 /**
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Component;
  *		下午6:14:53
  */
 @Component(value="ptgly")
+@Scope(value="prototype")
 public class Ptgly {
 	private Integer id;//序号
 	private Integer glybh;//管理员编号
