@@ -17,26 +17,31 @@
 		<form id="ff" class="easyui-form" method="post" data-options="novalidate:true">
 
 			<div style="margin-bottom:20px">
-				<input class="easyui-textbox" name="name" style="width:40%" data-options="label:'姓名',required:true">
-				<input class="easyui-textbox" name="age" style="width:40%" data-options="label:'年龄',required:true">
+				<input class="easyui-textbox" name="cph" style="width:40%" data-options="label:'车牌号',required:true">	
 			</div>
 			<div style="margin-bottom:20px">
-				<input class="easyui-textbox" name="email" style="width:40%" data-options="label:'Email:',required:true,validType:'email'">
+				<input class="easyui-textbox" name="cllx" style="width:40%" data-options="label:'车辆类型',required:true">	
 			</div>
 			<div style="margin-bottom:20px">
-				<input class="easyui-textbox" name="message" style="width:50%;height:60px" data-options="label:'备注:',multiline:true">
+				<input class="easyui-textbox" name="clcd" style="width:40%" data-options="label:'车辆长度',required:true">	
 			</div>
 			<div style="margin-bottom:20px">
-				<input class="easyui-datebox" name="message" style="width:50%;" data-options="label:'日期:'">
+				<input class="easyui-textbox" name="clkd" style="width:40%" data-options="label:'车辆宽度',required:true">	
 			</div>
 			<div style="margin-bottom:20px">
-				<input class="easyui-datetimebox" name="message" style="width:50%;" data-options="label:'日期时间:'">
+				<input class="easyui-textbox" name="cltj" style="width:40%" data-options="label:'车辆体积 ',required:true">	
 			</div>
 			<div style="margin-bottom:20px">
-				<select class="easyui-combobox" name="language" label="语言" style="width:50%">
-				<option value="ar">中国</option><option value="bg">英国</option>
-				<option value="ca">俄罗斯</option><option value="zh-cht">美国</option></select>
+				<input class="easyui-textbox" name="sclxr" style="width:40%" data-options="label:'随车联系人',required:true">	
 			</div>
+			<div style="margin-bottom:20px">
+				<input class="easyui-textbox" name="sclxdh" style="width:40%" data-options="label:'随车联系电话',required:true">	
+			</div>
+			<div style="margin-bottom:20px">
+				<input class="easyui-textbox" name="clpp" style="width:40%" data-options="label:'车辆品牌',required:true">	
+			</div>
+			
+			
 
 
 
