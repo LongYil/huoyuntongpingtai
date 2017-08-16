@@ -14,6 +14,7 @@ import org.springframework.stereotype.Component;
 @Scope(value="prototype")
 public class Wlx {
 	private Integer id;//序号
+	private Integer cysbh;//承运商编号
 	private Integer yhbh;//用户编号
 	private String cfsf;//出发省份
 	private String cfcs;//出发城市
@@ -37,6 +38,12 @@ public class Wlx {
 	}
 	public void setId(Integer id) {
 		this.id = id;
+	}
+	public Integer getCysbh() {
+		return cysbh;
+	}
+	public void setCysbh(Integer cysbh) {
+		this.cysbh = cysbh;
 	}
 	public Integer getYhbh() {
 		return yhbh;
@@ -146,6 +153,5 @@ public class Wlx {
 	public void setKz5(String kz5) {
 		this.kz5 = kz5;
 	}
-	
-	
+
 }

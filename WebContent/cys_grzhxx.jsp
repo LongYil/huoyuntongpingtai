@@ -17,40 +17,20 @@
 		<form id="ff" class="easyui-form" method="post" data-options="novalidate:true">
 
 			<div style="margin-bottom:20px">
-				<input class="easyui-textbox" disabled="true" name="name" style="width:40%" data-options="label:'用户名',required:true">
+				<input class="easyui-textbox" disabled="true" value="个人车主" style="width:40%;font-weight:bold;" data-options="label:'用户类型',required:true">
 			</div>
 			<div style="margin-bottom:20px">
-				<input class="easyui-textbox" disabled="true" name="age" style="width:40%" data-options="label:'手机号',required:true">
+				<input class="easyui-textbox" disabled="true" value="${jbyh.yhm}" style="width:40%" data-options="label:'用户名',required:true">
+			</div>
+			<div style="margin-bottom:20px">
+				<input class="easyui-textbox" disabled="true" value="${jbyh.yhsj}" style="width:40%" data-options="label:'手机号',required:true">
 			</div>
 			
-			<div style="margin-bottom:20px">
-				<input class="easyui-textbox" name="email" style="width:40%" data-options="label:'Email:',required:true,validType:'email'">
-			</div>
-			<div style="margin-bottom:20px">
-				<input class="easyui-textbox" name="message" style="width:50%;height:60px" data-options="label:'备注:',multiline:true">
-			</div>
-			<div style="margin-bottom:20px">
-				<input class="easyui-datebox" name="message" style="width:50%;" data-options="label:'日期:'">
-			</div>
-			<div style="margin-bottom:20px">
-				<input class="easyui-datetimebox" name="message" style="width:50%;" data-options="label:'日期时间:'">
-			</div>
-			<div style="margin-bottom:20px">
-				<select class="easyui-combobox" name="language" label="语言" style="width:50%">
-				<option value="ar">中国</option><option value="bg">英国</option>
-				<option value="ca">俄罗斯</option><option value="zh-cht">美国</option></select>
-			</div>
-
-
-
-
-
-
+<!-- 			<div style="margin-bottom:20px"> -->
+<!-- 				<input class="easyui-textbox" value="" style="width:91%;height:60px" data-options="label:'说明:',multiline:true"> -->
+<!-- 			</div> -->
 		</form>
-		<div style="text-align:center;padding:5px 0">
-			<a href="javascript:void(0)" class="easyui-linkbutton" onclick="submitForm()" style="width:80px">提交</a>
-			<a href="javascript:void(0)" class="easyui-linkbutton" onclick="clearForm()" style="width:80px">重置</a>
-		</div>
+
 	</div>
 	<script>
 		function submitForm(){

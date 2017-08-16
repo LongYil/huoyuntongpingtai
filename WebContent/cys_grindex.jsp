@@ -52,7 +52,7 @@
  		<li class="fatheritem">
         	<dl class="biaotia3">
             <li style="background-color:#dce8f3;">
-            <a href="javascript:void(0)" ><img src="js/basic/icon/dingdanguanli.png" class="menuicon">订单管理</a>
+            <a href="javascript:void(0)"><img src="js/basic/icon/dingdanguanli.png" class="menuicon">订单管理</a>
             </li>
             </dl>
 			<ul class="menu1">
@@ -73,10 +73,10 @@
 			<ul class="menu1">
 				<li><a href="javascript:void(0)"><img src="js/basic/icon/yuechaxun.png" class="itemicon">余额查询</a></li>
                 <li><a href="javascript:void(0)"><img src="js/basic/icon/chongzhi.png" class="itemicon">充值</a></li>
-				<li><a href="javascript:void(0)"><img src="js/basic/icon/baozhengjin.png" class="itemicon">保证金</a></li>
 				<li><a href="javascript:void(0)"><img src="js/basic/icon/tixian.png" class="itemicon">提现</a></li>
+				<li><a href="javascript:void(0)"><img src="js/basic/icon/baozhengjin.png" class="itemicon">保证金</a></li>
 			</ul>
-		</li>  
+		</li>
  
    		<li class="fatheritem">
         	<dl class="biaotia5">
@@ -95,8 +95,6 @@
 	<div data-options="region:'south',border:false" style="height:50px;background:#A9FACD;padding:10px;">south region</div>
 	<div data-options="region:'center',title:'我的桌面'">
     	<iframe class="zhuomian" frameborder="0" style="width:835px;height:680px;">
-        
-        
 
         </iframe>    
     </div>

@@ -129,5 +129,5 @@ public class Cys {
 	public void setSetCysgly(Set<Cysgly> setCysgly) {
 		this.setCysgly = setCysgly;
 	}
-	
+
 }

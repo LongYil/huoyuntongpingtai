@@ -25,7 +25,6 @@ public class Jbyh {
 	private String kz4;
 	private String kz5;
 	
-	
 	public Integer getYhbh() {
 		return yhbh;
 	}
@@ -37,6 +36,12 @@ public class Jbyh {
 	}
 	public void setYhm(String yhm) {
 		this.yhm = yhm;
+	}
+	public String getYhxm() {
+		return yhxm;
+	}
+	public void setYhxm(String yhxm) {
+		this.yhxm = yhxm;
 	}
 	public String getYhmm() {
 		return yhmm;
@@ -86,12 +91,5 @@ public class Jbyh {
 	public void setKz5(String kz5) {
 		this.kz5 = kz5;
 	}
-	public String getYhxm() {
-		return yhxm;
-	}
-	public void setYhxm(String yhxm) {
-		this.yhxm = yhxm;
-	}
-	
 	
 }

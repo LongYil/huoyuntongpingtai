@@ -35,7 +35,7 @@ public class CysglyController extends BasicController<CysglyServc> {
 	private Cysgly cysgly;
 	//承运商的保存方法：
 	@RequestMapping("/cysgly_save")
-	public String save(Jbyh jbyh,Cys cys,Cysgly cysgly){
+	public String save(Jbyh jbyh,Cys cys,Cysgly cysgly,HttpServletRequest request){
 		int type = jbyh.getYhlx();
 		jbyhServc.save(jbyh);
 		cys.setLxdh(jbyh.getYhsj());
@@ -47,6 +47,10 @@ public class CysglyController extends BasicController<CysglyServc> {
 
 		cysServc.save(cys);
 		servc.save(cysgly);
+		
+		request.getSession().setAttribute("yhbh", jbyh.getYhbh());
+		request.getSession().setAttribute("jbyh", jbyh);
+		
 		if(type==3){
 			return "cys_grindex";
 		}else{
@@ -77,6 +81,10 @@ public class CysglyController extends BasicController<CysglyServc> {
 		model.addAttribute("cysgly",cysgly);
 		return "cys_grjbxx";
 	}
-	
+	public String findCysZhxx(Model model,HttpServletRequest request){
+		jbyh = (Jbyh) request.getSession().getAttribute("jbyh");
+		model.addAttribute("jbyh",jbyh);
+		return "cys_zhxx";
+	}
 
 }

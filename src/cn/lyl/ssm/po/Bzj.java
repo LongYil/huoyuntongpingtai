@@ -69,7 +69,5 @@ public class Bzj {
 	public void setKz5(String kz5) {
 		this.kz5 = kz5;
 	}
-	
-	
-	
+
 }

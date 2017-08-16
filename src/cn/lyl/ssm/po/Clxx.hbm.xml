@@ -9,6 +9,7 @@
 		<id name="id">
 			<generator class="native"></generator>
 		</id>
+		<property name="cysbh"/>
 		<property name="yhbh"/>
 		<property name="cph" length="150"/>
 		<property name="cllx" length="150"/>

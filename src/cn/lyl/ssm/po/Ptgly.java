@@ -29,60 +29,79 @@ public class Ptgly {
 	public Integer getId() {
 		return id;
 	}
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
+
 	public Integer getGlybh() {
 		return glybh;
 	}
+
 	public void setGlybh(Integer glybh) {
 		this.glybh = glybh;
 	}
+
 	public String getGlylx() {
 		return glylx;
 	}
+
 	public void setGlylx(String glylx) {
 		this.glylx = glylx;
 	}
+
 	public Integer getGlyjs() {
 		return glyjs;
 	}
+
 	public void setGlyjs(Integer glyjs) {
 		this.glyjs = glyjs;
 	}
+
 	public Integer getKz1() {
 		return kz1;
 	}
+
 	public void setKz1(Integer kz1) {
 		this.kz1 = kz1;
 	}
+
 	public Integer getKz2() {
 		return kz2;
 	}
+
 	public void setKz2(Integer kz2) {
 		this.kz2 = kz2;
 	}
+
 	public String getKz3() {
 		return kz3;
 	}
+
 	public void setKz3(String kz3) {
 		this.kz3 = kz3;
 	}
+
 	public String getKz4() {
 		return kz4;
 	}
+
 	public void setKz4(String kz4) {
 		this.kz4 = kz4;
 	}
+
 	public String getKz5() {
 		return kz5;
 	}
+
 	public void setKz5(String kz5) {
 		this.kz5 = kz5;
 	}
+
 	public Ptyyf getPtyyf() {
 		return ptyyf;
 	}
+
 	public void setPtyyf(Ptyyf ptyyf) {
 		this.ptyyf = ptyyf;
 	}

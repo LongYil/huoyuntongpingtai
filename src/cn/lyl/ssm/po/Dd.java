@@ -47,7 +47,6 @@ public class Dd {
 	private String kz3;
 	private String kz4;
 	private String kz5;
-	
 	public Integer getId() {
 		return id;
 	}
@@ -252,5 +251,7 @@ public class Dd {
 	public void setKz5(String kz5) {
 		this.kz5 = kz5;
 	}
+	
+
 
 }

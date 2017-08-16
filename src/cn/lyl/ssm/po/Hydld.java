@@ -108,5 +108,6 @@ public class Hydld {
 	public void setSetHygly(Set<Hygly> setHygly) {
 		this.setHygly = setHygly;
 	}
+
 	
 }

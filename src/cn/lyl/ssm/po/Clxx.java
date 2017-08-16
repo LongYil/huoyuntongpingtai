@@ -14,7 +14,8 @@ import org.springframework.stereotype.Component;
 @Scope(value="prototype")
 public class Clxx {
 	private Integer id;//序号
-	private Integer yhbh;//用户编号
+	private Integer cysbh;//承运商编号
+	private Integer yhbh;//用户编号(承运商管理员编号)
 	private String cph;//车牌号
 	private String cllx;//车辆类型
 	private Float clcd;//车辆长度
@@ -28,12 +29,17 @@ public class Clxx {
 	private String kz3;
 	private String kz4;
 	private String kz5;
-	
 	public Integer getId() {
 		return id;
 	}
 	public void setId(Integer id) {
 		this.id = id;
+	}
+	public Integer getCysbh() {
+		return cysbh;
+	}
+	public void setCysbh(Integer cysbh) {
+		this.cysbh = cysbh;
 	}
 	public Integer getYhbh() {
 		return yhbh;
@@ -120,6 +126,5 @@ public class Clxx {
 		this.kz5 = kz5;
 	}
 	
-	
-	
+
 }

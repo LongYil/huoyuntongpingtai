@@ -120,5 +120,4 @@ public class Hygly {
 		this.hydld = hydld;
 	}
 	
-	
 }

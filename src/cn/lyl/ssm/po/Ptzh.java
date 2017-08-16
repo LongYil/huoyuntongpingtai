@@ -21,7 +21,6 @@ public class Ptzh {
 	private String kz3;
 	private String kz4;
 	private String kz5;
-	
 	public Integer getId() {
 		return id;
 	}
