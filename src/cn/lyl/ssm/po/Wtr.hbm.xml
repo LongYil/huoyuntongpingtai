@@ -7,22 +7,20 @@
 
 	<class name="cn.lyl.ssm.po.Wtr" table="Wtr">
 		<id name="yhbh">
-			<generator class="native"></generator>
+			<generator class="native"/>
 		</id>
-		<property name="id"></property>	
-		<property name="gsmc" length="100"/>	
-		<property name="yhsf" length="100"/>	
-		<property name="yhcs" length="100"/>	
-		<property name="yhx" length="100"/>	
+		<property name="id"/>
+		<property name="gsmc" length="100"/>
+		<property name="yhsf" length="100"/>
+		<property name="yhcs" length="100"/>
+		<property name="yhx" length="100"/>
+		<property name="yhbz" length="100"/>
+		<property name="yhyx" length="100"/>
 		<property name="kz1"/>
 		<property name="kz2"/>
 		<property name="kz3" length="150"/>
 		<property name="kz4" length="150"/>
 		<property name="kz5" length="150"/>
-		<set name="setLxr" inverse="true" cascade="save-update,delete">
-			<key column="wtr"/>
-			<one-to-many class="cn.lyl.ssm.po.Lxr"/>
-		</set>
 	</class>
 
 </hibernate-mapping>

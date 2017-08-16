@@ -18,7 +18,7 @@
     <div style="width:1040px; height:75px;background-image:url(js/basic/ads1.png);"></div>
 	<div style="width:1040px; height:75px;background-image:url(js/basic/head.png);">
     	<a href="javascript:void(0)" class="logo"></a>
-    	<div class="info"><span class="info1">委托人：</span><span class="info2">李银龙</span>&nbsp;&nbsp;<span class="info3">您好！</span></div>
+    	<div class="info"><span class="info1">委托人：</span><span class="info2">${jbyh.yhxm}</span>&nbsp;&nbsp;<span class="info3">您好！</span></div>
     </div>
     </div>
 	
@@ -31,9 +31,9 @@
             </li>
             </dl>
 			<ul class="menu1">
-				<li><a href="javascript:void(0)"><img src="js/basic/icon/jibenxinxi.png" class="itemicon">基本信息</a></li>
-                <li><a href="javascript:void(0)"><img src="js/basic/icon/zhanghuguanli.png" class="itemicon">账户管理</a></li>
-				<li><a href="javascript:void(0)"><img src="js/basic/xiugai.png" class="itemicon">联系人</a></li>
+				<li><a href="javascript:void(0)" onClick="To('wtr_findWtrInfo.action')"><img src="js/basic/icon/jibenxinxi.png" class="itemicon">基本信息</a></li>
+                <li><a href="javascript:void(0)" onClick="To('yhzh_find.action')"><img src="js/basic/icon/zhanghuguanli.png" class="itemicon">账户管理</a></li>
+				<li><a href="javascript:void(0)" onClick="To('lxr_findAll.action')"><img src="js/basic/xiugai.png" class="itemicon">联系人</a></li>
 			</ul>
 		</li>
  
@@ -83,17 +83,16 @@
 
 	<div data-options="region:'south',border:false" style="height:50px;background:#A9FACD;padding:10px;">south region</div>
 	<div data-options="region:'center'" style="margin-bottom:0px; padding-bottom:0px;">
-    	<iframe class="zhuomian" frameborder="0" src="pt_jbxx.html" style="padding:0px;">
-        
-        
-        
+    	<iframe class="zhuomian" frameborder="0" src="wtr_jbxx.jsp" style="width:835px;height:680px;">
         </iframe>    
     </div>
 
 </body>
 <script>
 
-
+function To(url){
+	$(".zhuomian").attr("src",url);
+}
 
 $(function m(){
 			$(".biaotia1").nextAll().hide();

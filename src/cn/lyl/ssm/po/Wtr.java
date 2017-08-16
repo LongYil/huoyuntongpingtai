@@ -22,13 +22,14 @@ public class Wtr {
 	private String yhcs;//用户城市
 	private String yhx;//用户县
 	private String gsmc;//公司名称
+	private String yhyx;//用户邮箱
+	private String yhbz;//用户备注
 	private Integer kz1;
 	private Integer kz2;
 	private String kz3;
 	private String kz4;
 	private String kz5;
-	//在委托人里面表示所拥有的联系人，一个委托人可以拥有多个联系人
-	private Set<Lxr> setLxr = new HashSet<Lxr>();
+
 	public Integer getId() {
 		return id;
 	}
@@ -95,11 +96,17 @@ public class Wtr {
 	public void setKz5(String kz5) {
 		this.kz5 = kz5;
 	}
-	public Set<Lxr> getSetLxr() {
-		return setLxr;
+	public String getYhbz() {
+		return yhbz;
 	}
-	public void setSetLxr(Set<Lxr> setLxr) {
-		this.setLxr = setLxr;
+	public void setYhbz(String yhbz) {
+		this.yhbz = yhbz;
+	}
+	public String getYhyx() {
+		return yhyx;
+	}
+	public void setYhyx(String yhyx) {
+		this.yhyx = yhyx;
 	}
 
 }

@@ -1,5 +1,9 @@
 package cn.lyl.ssm.dao;
 
-public interface LxrDao {
+import java.util.List;
 
+import cn.lyl.ssm.po.Lxr;
+
+public interface LxrDao {
+	List<Lxr> findAll(String arg);
 }

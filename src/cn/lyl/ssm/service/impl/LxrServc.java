@@ -25,8 +25,7 @@ public class LxrServc extends CommonSevc<Lxr, LxrDaoImpl> {
 
 	@Override
 	public List<Lxr> findAll(String arg) {
-		//
-		return null;
+		return daoImpl.findAll(arg);
 	}
 
 	@Override

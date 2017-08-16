@@ -40,7 +40,6 @@ public class JbyhDaoImpl extends CommonDaoImpl<Jbyh> implements JbyhDao {
 
 	@Override
 	public Jbyh find(String arg) {
-		//
 		return ht.get(Jbyh.class, Integer.parseInt(arg));
 	}
 

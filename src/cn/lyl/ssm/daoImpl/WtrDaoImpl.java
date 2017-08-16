@@ -1,5 +1,9 @@
 package cn.lyl.ssm.daoImpl;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import cn.lyl.ssm.dao.WtrDao;
@@ -8,27 +12,31 @@ import cn.lyl.ssm.po.Wtr;
 @Component(value="wtrDaoImpl")
 public class WtrDaoImpl extends CommonDaoImpl<Wtr> implements WtrDao {
 
+	private List<Wtr> list = new ArrayList<Wtr>();
+	@Autowired
+	private Wtr wtr;
 	@Override
 	public void save(Wtr entity) {
-		ht.save(entity);		
+		ht.save(entity);	
 	}
 
 	@Override
 	public void update(Wtr entity) {
-		//
-		
+		ht.update(entity);		
 	}
 
 	@Override
-	public void delete(Wtr entity) {
-		//
-		
+	public void delete(Wtr entity) {		
 	}
 
 	@Override
 	public Wtr find(String arg) {
-		//
-		return null;
+		list = (List<Wtr>) ht.find("from Wtr where yhbh="+arg+"");
+		if(list!=null&&list.size()>0){
+			return list.get(0);
+		}else{
+			return wtr;
+		}
 	}
 
 }

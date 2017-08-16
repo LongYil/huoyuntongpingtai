@@ -1,5 +1,6 @@
 package cn.lyl.ssm.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -12,6 +13,8 @@ import cn.lyl.ssm.po.Wtr;
 @Service(value="wtrServc")
 public class WtrServc extends CommonSevc<Wtr, WtrDaoImpl> {
 
+	
+	
 	@Override
 	public void save(Wtr arg) {
 		daoImpl.save(arg);		
@@ -19,8 +22,7 @@ public class WtrServc extends CommonSevc<Wtr, WtrDaoImpl> {
 
 	@Override
 	public Wtr find(String arg) {
-		//
-		return null;
+		return daoImpl.find(arg);
 	}
 
 	@Override
@@ -32,7 +34,10 @@ public class WtrServc extends CommonSevc<Wtr, WtrDaoImpl> {
 	@Override
 	public void delete(Wtr arg) {
 		//
-		
+	}
+	
+	public void update(Wtr arg){
+		daoImpl.update(arg);
 	}
 
 }

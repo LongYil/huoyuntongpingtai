@@ -14,16 +14,16 @@ import org.springframework.stereotype.Component;
 @Scope(value="prototype")
 public class Lxr {
 	private Integer id;//序号
+	private Integer yhbh;//用户编号
 	private String lxrxm;//联系人姓名
 	private String lxrdh;//联系人电话
-	private String lxrdz;	//联系人地址
+	private String lxrdz;//联系人地址
 	private Integer kz1;
 	private Integer kz2;
 	private String kz3;
 	private String kz4;
 	private String kz5;
-	//在联系人里面表示所属委托人，一个联系人只能属于一个委托人
-	private Wtr wtr;
+
 	public Integer getId() {
 		return id;
 	}
@@ -78,12 +78,11 @@ public class Lxr {
 	public void setKz5(String kz5) {
 		this.kz5 = kz5;
 	}
-	public Wtr getWtr() {
-		return wtr;
+	public Integer getYhbh() {
+		return yhbh;
 	}
-	public void setWtr(Wtr wtr) {
-		this.wtr = wtr;
+	public void setYhbh(Integer yhbh) {
+		this.yhbh = yhbh;
 	}
-	
 	
 }

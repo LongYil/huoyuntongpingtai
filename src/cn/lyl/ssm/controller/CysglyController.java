@@ -65,8 +65,12 @@ public class CysglyController extends BasicController<CysglyServc> {
 		jbyh.setYhxm(info[0]);
 		cysgly.setGsmc(info[1]);
 		cysgly.setYhyx(info[2]);
+		cysgly.setSzsf(info[3]);
+		cysgly.setSzcs(info[4]);
+		cysgly.setSzx(info[5]);
 		
-		System.out.println(jbyh+"*"+cysgly);
+		System.out.println(cysgly);
+		
 		jbyhServc.update(jbyh);
 		servc.update(cysgly);
 		

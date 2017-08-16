@@ -25,6 +25,7 @@ public class Cysgly {
 	private String szcs;//所在城市
 	private String szx;//所在县
 	private String szjdh;//所在街道号
+	private String yhbz;//所在街道号
 	private Integer kz1;
 	private Integer kz2;
 	private String kz3;
@@ -139,6 +140,12 @@ public class Cysgly {
 	}
 	public void setCys(Cys cys) {
 		this.cys = cys;
+	}
+	public String getYhbz() {
+		return yhbz;
+	}
+	public void setYhbz(String yhbz) {
+		this.yhbz = yhbz;
 	}
 
 }
