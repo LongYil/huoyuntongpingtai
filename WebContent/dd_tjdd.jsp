@@ -27,9 +27,14 @@
 
 	<div class="easyui-panel" style="width:100%;max-width:840px;max-height:600px;padding:30px 60px;" title="添加订单">
 		<form id="ff" action="${pageContext.request.contextPath}/wlx_save.action" class="easyui-form" method="post" data-options="novalidate:true">
-			
+			<div style="margin-bottom:20px">
+				<input class="easyui-textbox" name="zhjg" style="width:40%" data-options="label:'货物名称',required:true">					
+			</div>
+			<div style="margin-bottom:20px">
+				<input class="easyui-textbox" name="zhjg" style="width:40%" data-options="label:'货物类型',required:true">					
+			</div>
 			<div style="margin-bottom:20px"   id="area_address1">
-				<span class="tou">地址下拉框</span>
+				<span class="tou">出发地址</span>
 				<select  class="mycombox" name="province" style="width:19%">
 				</select>
 				<select  class="mycombox" name="city" style="width:19%">
@@ -37,7 +42,9 @@
 				<select  class="mycombox" name="area" style="width:19%">
 				</select>
 			</div>
-			
+			<div style="margin-bottom:20px">
+				<input class="easyui-textbox" name="zhjg" style="width:40%" data-options="label:'出发街道',required:true">					
+			</div>
 			
 			<div style="margin-bottom:20px"   id="area_address2">
 				<span class="tou">到达地址</span>
@@ -48,27 +55,43 @@
 				<select  class="mycombox" name="area" style="width:19%">
 				</select>						
 			</div>
-
-			<div style="margin-bottom:20px">
-				<input class="easyui-textbox" name="zhjg" style="width:40%" data-options="label:'重货价格',required:true">(单位:千克)						
+<div style="margin-bottom:20px">
+				<input class="easyui-textbox" name="zhjg" style="width:40%" data-options="label:'到达街道',required:true">					
 			</div>
 			<div style="margin-bottom:20px">
-				<input class="easyui-textbox" name="qhjg" style="width:40%" data-options="label:'轻货价格',required:true">(单位:立方米)						
+				<input class="easyui-textbox" name="zhjg" style="width:40%" data-options="label:'总件数',required:true">(单位:件)						
 			</div>
 			<div style="margin-bottom:20px">
-				<input class="easyui-textbox" name="yssx" style="width:40%" data-options="label:'运输时效',required:true">(单位:天)
+				<input class="easyui-textbox" name="qhjg" style="width:40%" data-options="label:'总重量',required:true">(单位:千克)						
 			</div>
 			<div style="margin-bottom:20px">
-				<input class="easyui-textbox" name="fcpl" style="width:40%" data-options="label:'发车频率',required:true">(单位:天/次)
+				<input class="easyui-textbox" name="yssx" style="width:40%" data-options="label:'总体积',required:true">(单位:立方米)
 			</div>
-			
+			<div style="margin-bottom:20px">
+				<input class="easyui-textbox" name="fcpl" style="width:40%" data-options="label:'预计运费',required:true">(单位:元)
+			</div>
+			<div style="margin-bottom:20px">
+				<input class="easyui-textbox" name="fcpl" style="width:40%" data-options="label:'发货人姓名',required:true">
+			</div>
+			<div style="margin-bottom:20px">
+				<input class="easyui-textbox" name="fcpl" style="width:40%" data-options="label:'发货人电话',required:true">
+			</div>
+			<div style="margin-bottom:20px">
+				<input class="easyui-textbox" name="fcpl" style="width:40%" data-options="label:'收货人姓名',required:true">
+			</div>
+			<div style="margin-bottom:20px">
+				<input class="easyui-textbox" name="fcpl" style="width:40%" data-options="label:'收货人电话',required:true">
+			</div>
 			<div style="margin-bottom:20px" id="area_address">
-				<select class="easyui-combobox" name="info" label="单一下拉框" style="width:30%">
-				<option value="ar">中国</option><option value="bg">英国</option>
-				<option value="ca">俄罗斯</option><option value="zh-cht">美国</option>
+				<select class="easyui-combobox" name="info" label="是否代收货款" style="width:30%">
+				<option value="ar">是</option><option value="bg">否</option>
 				</select>
 			</div>
-        
+        <div style="margin-bottom:20px" id="area_address">
+				<select class="easyui-combobox" name="info" label="是否上门提货" style="width:30%">
+				<option value="ar">是</option><option value="bg">否</option>
+				</select>
+			</div>
 		</form>
 		<div style="text-align:center;padding:5px 0">
 			<a href="javascript:void(0)" class="easyui-linkbutton" onclick="submitForm()" style="width:80px">提交</a>
