@@ -18,7 +18,7 @@
     <div style="width:1040px; height:75px;background-image:url(js/basic/ads1.png);"></div>
 	<div style="width:1040px; height:75px;background-image:url(js/basic/head.png);">
     	<a href="javascript:void(0)" class="logo"></a>
-    	<div class="info"><span class="info1">货运代理点：</span><span class="info2">李银龙</span>&nbsp;&nbsp;<span class="info3">您好！</span></div>
+    	<div class="info"><span class="info1">货运代理点：</span><span class="info2">${jbyh.yhxm}</span>&nbsp;&nbsp;<span class="info3">您好！</span></div>
     </div>
     </div>
 	
@@ -31,9 +31,9 @@
             </li>
             </dl>
 			<ul class="menu1">
-				<li><a href="javascript:void(0)"><img src="js/basic/icon/jibenxinxi.png" class="itemicon">基本信息</a></li>
-                <li><a href="javascript:void(0)"><img src="js/basic/icon/zhanghaoguanli.png" class="itemicon">帐号管理</a></li>
-                <li><a href="javascript:void(0)"><img src="js/basic/icon/zhanghuguanli.png" class="itemicon">账户管理</a></li>
+				<li><a href="javascript:void(0)"  onClick="To('hy_dld_findAll.action')"><img src="js/basic/icon/jibenxinxi.png" class="itemicon">基本信息</a></li>
+                <li><a href="javascript:void(0)" ><img src="js/basic/icon/zhanghaoguanli.png" class="itemicon">帐号管理</a></li>
+                <li><a href="javascript:void(0)" ><img src="js/basic/icon/zhanghuguanli.png" class="itemicon">账户管理</a></li>
 			</ul>
 		</li>
  
@@ -95,7 +95,7 @@
 
 	<div data-options="region:'south',border:false" style="height:50px;background:#A9FACD;padding:10px;">south region</div>
 	<div data-options="region:'center',title:'我的桌面'">
-    	<iframe class="zhuomian" frameborder="0" src="hy_jbxx.html"  style="padding:0px;">
+    	<iframe class="zhuomian" frameborder="0" src="hy_jbxx.html" style="width:835px;height:680px;">
         
         
         
@@ -104,6 +104,10 @@
 
 </body>
 <script>
+
+function To(url){
+	$(".zhuomian").attr("src",url);
+}
 
 $(function m(){
 	$(".biaotia1").nextAll().hide();

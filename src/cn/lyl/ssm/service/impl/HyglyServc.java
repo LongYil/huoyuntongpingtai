@@ -19,8 +19,7 @@ public class HyglyServc extends CommonSevc<Hygly, HyglyDaoImpl> {
 
 	@Override
 	public Hygly find(String arg) {
-		//
-		return null;
+		return daoImpl.find(arg);
 	}
 
 	@Override

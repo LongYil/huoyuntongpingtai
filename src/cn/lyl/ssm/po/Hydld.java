@@ -28,8 +28,7 @@ public class Hydld {
 	private String kz3;
 	private String kz4;
 	private String kz5;
-	//在代理点里面表示所拥有的管理员，一个代理点拥有多个管理员
-	private Set<Hygly> setHygly = new HashSet<Hygly>();
+
 	public Integer getId() {
 		return id;
 	}
@@ -102,12 +101,5 @@ public class Hydld {
 	public void setKz5(String kz5) {
 		this.kz5 = kz5;
 	}
-	public Set<Hygly> getSetHygly() {
-		return setHygly;
-	}
-	public void setSetHygly(Set<Hygly> setHygly) {
-		this.setHygly = setHygly;
-	}
-
 	
 }

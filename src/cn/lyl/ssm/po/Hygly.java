@@ -16,19 +16,21 @@ public class Hygly {
 	private Integer id;//序号
 	private Integer yhbh;//用户编号
 	private Integer glybh;//管理员编号
+	private Integer glylx;//管理员类型   1：总代理  2：分代理
 	private String gsmc;//公司名称
 	private String lxdh;//联系电话
 	private String szsf;//所在省份
 	private String szcs;//所在城市
 	private String szx;//所在县
 	private String szjdh;//所在街道号
+	private String yhbz;//用户备注
+	private String yhyx;//用户邮箱
 	private Integer kz1;
 	private Integer kz2;
 	private String kz3;
 	private String kz4;
 	private String kz5;
-	//在货运管理员里面表示所属货运代理点，一个管理员只能属于一个代理点
-	private Hydld hydld;
+
 	public Integer getId() {
 		return id;
 	}
@@ -113,11 +115,23 @@ public class Hygly {
 	public void setKz5(String kz5) {
 		this.kz5 = kz5;
 	}
-	public Hydld getHydld() {
-		return hydld;
+	public String getYhbz() {
+		return yhbz;
 	}
-	public void setHydld(Hydld hydld) {
-		this.hydld = hydld;
+	public void setYhbz(String yhbz) {
+		this.yhbz = yhbz;
+	}
+	public String getYhyx() {
+		return yhyx;
+	}
+	public void setYhyx(String yhyx) {
+		this.yhyx = yhyx;
+	}
+	public Integer getGlylx() {
+		return glylx;
+	}
+	public void setGlylx(Integer glylx) {
+		this.glylx = glylx;
 	}
 	
 }

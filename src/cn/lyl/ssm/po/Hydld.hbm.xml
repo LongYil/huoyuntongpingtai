@@ -20,11 +20,7 @@
 		<property name="kz3" length="150"/>
 		<property name="kz4" length="150"/>
 		<property name="kz5" length="150"/>
-		
-		<set name="setHygly" inverse="true" cascade="save-update,delete">
-			<key column="hydld"/>
-			<one-to-many class="cn.lyl.ssm.po.Hygly"/>
-		</set>
+
 	</class>
 
 </hibernate-mapping>

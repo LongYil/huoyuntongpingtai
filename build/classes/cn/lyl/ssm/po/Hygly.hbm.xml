@@ -9,15 +9,17 @@
 		<id name="id">
 			<generator class="native"></generator>
 		</id>
-		<many-to-one name="hydld" class="cn.lyl.ssm.po.Hydld"/>
 		<property name="yhbh"/>
 		<property name="glybh"/>
+		<property name="glylx"/>
 		<property name="gsmc" length="150"/>
 		<property name="lxdh" length="150"/>
 		<property name="szsf" length="150"/>
 		<property name="szcs" length="150"/>
 		<property name="szx" length="150"/>
 		<property name="szjdh" length="150"/>
+		<property name="yhbz" length="150"/>
+		<property name="yhyx" length="150"/>
 		<property name="kz1"/>
 		<property name="kz2"/>
 		<property name="kz3" length="150"/>
