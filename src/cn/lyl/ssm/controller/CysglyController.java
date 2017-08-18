@@ -1,5 +1,8 @@
 package cn.lyl.ssm.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,21 +36,28 @@ public class CysglyController extends BasicController<CysglyServc> {
 	private Jbyh jbyh;
 	@Autowired
 	private Cysgly cysgly;
-	//承运商的保存方法：
+	
+	private List<Cysgly> listgly = new ArrayList<Cysgly>();
+	private List<Jbyh> listjbyh = new ArrayList<Jbyh>();
+	
+	//承运商的保存方法
 	@RequestMapping("/cysgly_save")
 	public String save(Jbyh jbyh,Cys cys,Cysgly cysgly,HttpServletRequest request){
 		int type = jbyh.getYhlx();
 		jbyhServc.save(jbyh);
 		cys.setLxdh(jbyh.getYhsj());
 		cysgly.setLxdh(jbyh.getYhsj());
-		cys.setHylx(String.valueOf(jbyh.getYhlx()));
 		cys.setYhbh(jbyh.getYhbh());
-		cysgly.setYhbh(jbyh.getYhbh());
-		cysgly.setHylx(String.valueOf(jbyh.getYhlx()));
-
+		cysgly.setYhbh(jbyh.getYhbh());		
+		if(type==3){
+			cys.setHylx(1);
+			cysgly.setHylx(1);
+		}else{
+			cys.setHylx(2);
+			cysgly.setHylx(2);
+		}
 		cysServc.save(cys);
 		servc.save(cysgly);
-		
 		request.getSession().setAttribute("yhbh", jbyh.getYhbh());
 		request.getSession().setAttribute("jbyh", jbyh);
 		
@@ -59,7 +69,6 @@ public class CysglyController extends BasicController<CysglyServc> {
 	}
 	@RequestMapping("/cys_updategly")
 	public String updategly(String[] info,HttpServletRequest request){
-
 		jbyh = jbyhServc.find(request.getSession().getAttribute("yhbh").toString());
 		cysgly = servc.find(request.getSession().getAttribute("yhbh").toString());
 		jbyh.setYhxm(info[0]);
@@ -68,8 +77,6 @@ public class CysglyController extends BasicController<CysglyServc> {
 		cysgly.setSzsf(info[3]);
 		cysgly.setSzcs(info[4]);
 		cysgly.setSzx(info[5]);
-		
-		System.out.println(cysgly);
 		
 		jbyhServc.update(jbyh);
 		servc.update(cysgly);
@@ -93,7 +100,29 @@ public class CysglyController extends BasicController<CysglyServc> {
 	}
 	
 	@RequestMapping("/cys_addGly")
-	public void addGly(){
+	public void addGly(Jbyh jbyh,Cysgly cysgly,HttpServletRequest request){
+		jbyhServc.save(jbyh);
+
+		cysgly.setCysbh(Integer.parseInt(request.getSession().getAttribute("yhbh").toString()));
+		cysgly.setHylx(3);//会员类型为3，表示该管理员是承运商分管理员
+		cysgly.setYhbh(jbyh.getYhbh());
+		servc.save(cysgly);
 		
 	}
+	//查询所有管理员
+	@RequestMapping("/cys_findAllGly")
+	public String findAllGly(HttpServletRequest request){
+		listgly = servc.findAll(request.getSession().getAttribute("yhbh").toString());
+		listjbyh = jbyhServc.findAll(request.getSession().getAttribute("yhbh").toString());
+		
+		System.out.println(listgly+"*"+listjbyh);
+		
+		return "cys_cdzhgl";
+	}
+	
+	
+	
+	
+	
+	
 }

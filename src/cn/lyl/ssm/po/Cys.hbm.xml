@@ -11,7 +11,7 @@
 		</id>
 		<property name="yhbh"/>
 		<property name="dlbh"/>
-		<property name="hylx" length="150"/>
+		<property name="hylx"/>
 		<property name="gsmc" length="150"/>
 		<property name="lxdh" length="150"/>
 		<property name="szsf" length="150"/>
@@ -23,10 +23,6 @@
 		<property name="kz4" length="150"/>
 		<property name="kz5" length="150"/>
 		
-		<set name="setCysgly" inverse="true" cascade="save-update,delete">
-			<key column="cys"/>
-			<one-to-many class="cn.lyl.ssm.po.Cysgly"/>
-		</set>
 	</class>
 
 </hibernate-mapping>

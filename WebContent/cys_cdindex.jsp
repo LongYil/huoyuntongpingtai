@@ -19,7 +19,7 @@
     <div style="width:1040px; height:75px;background-image:url(js/basic/ads1.png);"></div>
 	<div style="width:1040px; height:75px;background-image:url(js/basic/head.png);">
     	<a href="javascript:void(0)" class="logo"></a>
-    	<div class="info"><span class="info1">承运商(运输车队)：</span><span class="info2">${jbyh.yhmc}</span>&nbsp;&nbsp;<span class="info3">您好！</span></div>
+    	<div class="info"><span class="info1">承运商(运输车队)：</span><span class="info2">${jbyh.yhxm}</span>&nbsp;&nbsp;<span class="info3">您好！</span></div>
     </div>
     </div>
 	

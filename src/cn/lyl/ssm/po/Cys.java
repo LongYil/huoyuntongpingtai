@@ -1,8 +1,5 @@
 package cn.lyl.ssm.po;
 
-import java.util.HashSet;
-import java.util.Set;
-
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
@@ -19,7 +16,7 @@ public class Cys {
 	private Integer id;//序号
 	private Integer yhbh;//用户编号
 	private Integer dlbh;//所属代理点编号
-	private String hylx;//会员类型
+	private Integer hylx;//会员类型：区分个人和运输车队  1：个人承运商，2：运输车队承运商(总)，3：运输车队承运商（分）
 	private String gsmc;//公司 名称
 	private String lxdh;//联系电话
 	private String szsf;//所在省份
@@ -31,8 +28,7 @@ public class Cys {
 	private String kz3;
 	private String kz4;
 	private String kz5;
-	//在承运商里面表示所拥有的管理员，一个承运商拥有多个管理员
-	private Set<Cysgly> setCysgly = new HashSet<Cysgly>();
+
 	public Integer getId() {
 		return id;
 	}
@@ -51,10 +47,10 @@ public class Cys {
 	public void setDlbh(Integer dlbh) {
 		this.dlbh = dlbh;
 	}
-	public String getHylx() {
+	public Integer getHylx() {
 		return hylx;
 	}
-	public void setHylx(String hylx) {
+	public void setHylx(Integer hylx) {
 		this.hylx = hylx;
 	}
 	public String getGsmc() {
@@ -122,12 +118,6 @@ public class Cys {
 	}
 	public void setKz5(String kz5) {
 		this.kz5 = kz5;
-	}
-	public Set<Cysgly> getSetCysgly() {
-		return setCysgly;
-	}
-	public void setSetCysgly(Set<Cysgly> setCysgly) {
-		this.setCysgly = setCysgly;
 	}
 
 }

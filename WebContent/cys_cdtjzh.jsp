@@ -40,7 +40,12 @@
 			<div style="margin-bottom:20px">
 				<input class="easyui-textbox" name="yhmm" style="width:40%" data-options="label:'用户密码',required:true">
 			</div>
-			
+			<div style="margin-bottom:20px">
+				<input class="easyui-textbox" name="gsmc" style="width:40%" data-options="label:'公司名称',required:true">
+			</div>
+			<div style="margin-bottom:20px">
+				<input class="easyui-textbox" name="yhyx" style="width:40%" data-options="label:'Email:',required:true,validType:'email'">
+			</div>
 			<div style="margin-bottom:20px"   id="area_address1">
 				<span class="tou">用户地址</span>
 				<select  class="mycombox" name="province" style="width:19%">
@@ -50,8 +55,11 @@
 				<select  class="mycombox" name="area" style="width:19%">
 				</select>
 			</div>
-		
+		    
         <input type="hidden" name="yhlx" value="5"/><!-- 承运商（车队分） -->
+        <input type="hidden" name="szsf" id="szsf"/>
+        <input type="hidden" name="szcs" id="szcs"/>
+        <input type="hidden" name="szx" id="szx"/>
         
 		</form>
 		<div style="text-align:center;padding:5px 0">
@@ -60,7 +68,23 @@
 		</div>
 	</div>
 	<script>
-		
+    var szsf;
+    var szcs;
+    var szx;
+	$('#area_address1').citys({
+	        required:false,
+	        nodata:'disabled',
+	        onChange:function(data){
+	        	szsf = data['province'];
+	        	szcs = data['city'];
+	        	szx = data['area'];
+				$("#szsf").val(szsf);
+				$("#szcs").val(szcs);
+				$("#szx").val(szx);
+	        }
+	});
+	
+	
 		function submitForm(){
 			$('#ff').form('submit',{
 				onSubmit:function(){
@@ -73,7 +97,6 @@
 						$.messager.alert('温馨提示','信息不完整，请填写完整信息!','warning');
 						return false;
 					}
-					
 				}
 			});
 		}
@@ -81,5 +104,7 @@
 			$('#ff').form('clear');
 		}
 	</script>
+	
+	
 </body>
 </html>

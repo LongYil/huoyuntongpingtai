@@ -3,10 +3,13 @@ package cn.lyl.ssm.daoImpl;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import cn.lyl.ssm.dao.JbyhDao;
+import cn.lyl.ssm.po.Cysgly;
 import cn.lyl.ssm.po.Jbyh;
+import cn.lyl.ssm.utils.GetEntity;
 
 
 /**
@@ -20,7 +23,8 @@ import cn.lyl.ssm.po.Jbyh;
 public class JbyhDaoImpl extends CommonDaoImpl<Jbyh> implements JbyhDao {
 
 	private List<Jbyh> list = new ArrayList<Jbyh>();
-
+	@Autowired
+	private Jbyh jbyh;
 	@Override
 	public void save(Jbyh entity) {
 		ht.save(entity);
@@ -55,6 +59,16 @@ public class JbyhDaoImpl extends CommonDaoImpl<Jbyh> implements JbyhDao {
 		}else{
 			return info;
 		}
+	}
+
+	@Override
+	public List<Jbyh> findAll(List<Cysgly> list) {
+		this.list.clear();
+		for (Cysgly cysgly : list) {
+			jbyh = (Jbyh) ht.find("from Jbyh where yhbh = "+cysgly.getYhbh()+"").get(0);
+			this.list.add(jbyh);
+		}
+		return this.list;
 	}
 	
 }

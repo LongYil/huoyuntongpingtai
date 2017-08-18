@@ -24,8 +24,7 @@ public class CysglyServc extends CommonSevc<Cysgly, CysglyDaoImpl> {
 
 	@Override
 	public List<Cysgly> findAll(String arg) {
-		//
-		return null;
+		return daoImpl.findAll(arg);
 	}
 
 	@Override

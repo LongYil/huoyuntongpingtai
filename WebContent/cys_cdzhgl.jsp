@@ -33,6 +33,9 @@
 				<th data-options="field:'b',width:120,align:'center'">用户名</th>
 				<th data-options="field:'c',width:120,align:'center'">用户手机号</th>
 				<th data-options="field:'d',width:120,align:'center'">用户姓名</th>
+				
+				<th data-options="field:'d',width:120,align:'center'">公司名称</th>
+				<th data-options="field:'d',width:120,align:'center'">用户邮箱</th>
 				<th data-options="field:'e',width:150,align:'center'">用户地址（省）</th>
 				<th data-options="field:'f',width:150,align:'center'">用户地址（市）</th>
 				<th data-options="field:'g',width:150,align:'center'">用户地址（县/区）</th>

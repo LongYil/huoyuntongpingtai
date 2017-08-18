@@ -1,5 +1,7 @@
 package cn.lyl.ssm.daoImpl;
 
+import java.util.List;
+
 import org.springframework.stereotype.Component;
 
 import cn.lyl.ssm.dao.CysglyDao;
@@ -28,5 +30,12 @@ public class CysglyDaoImpl extends CommonDaoImpl<Cysgly> implements CysglyDao {
 	public Cysgly find(String arg) {
 		return (Cysgly) ht.find("from Cysgly where yhbh = "+Integer.parseInt(arg)+"").get(0);
 	}
+
+	@Override
+	public List<Cysgly> findAll(String arg) {
+		return (List<Cysgly>) ht.find("from Cysgly where cysbh = "+arg+"");
+	}
+	
+	
 
 }

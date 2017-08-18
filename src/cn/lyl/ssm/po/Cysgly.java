@@ -17,7 +17,7 @@ public class Cysgly {
 	private Integer yhbh;//用户编号
 	private Integer dlbh;//所属代理点编号
 	private Integer cysbh;//承运商编号
-	private String hylx;//承运商会员类型，3：个人承运商，4：运输车队承运商
+	private Integer hylx;//承运商会员类型，1：个人承运商，2：运输车队承运商(总)，3：运输车队承运商（分）
 	private String gsmc;//公司名称
 	private String yhyx;//用户邮箱
 	private String lxdh;//联系电话
@@ -25,14 +25,13 @@ public class Cysgly {
 	private String szcs;//所在城市
 	private String szx;//所在县
 	private String szjdh;//所在街道号
-	private String yhbz;//所在街道号
+	private String yhbz;//用户备注
 	private Integer kz1;
 	private Integer kz2;
 	private String kz3;
 	private String kz4;
 	private String kz5;
 	//在承运商管理员里面表示所属承运商，一个管理员是能属于一个承运商
-	private Cys cys;
 	public Integer getId() {
 		return id;
 	}
@@ -57,10 +56,10 @@ public class Cysgly {
 	public void setCysbh(Integer cysbh) {
 		this.cysbh = cysbh;
 	}
-	public String getHylx() {
+	public Integer getHylx() {
 		return hylx;
 	}
-	public void setHylx(String hylx) {
+	public void setHylx(Integer hylx) {
 		this.hylx = hylx;
 	}
 	public String getGsmc() {
@@ -134,12 +133,6 @@ public class Cysgly {
 	}
 	public void setKz5(String kz5) {
 		this.kz5 = kz5;
-	}
-	public Cys getCys() {
-		return cys;
-	}
-	public void setCys(Cys cys) {
-		this.cys = cys;
 	}
 	public String getYhbz() {
 		return yhbz;
