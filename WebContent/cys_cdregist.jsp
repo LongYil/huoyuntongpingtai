@@ -111,7 +111,7 @@
             </div>
         </div>
         
-        <input type="hidden" name="yhlx" value="4"/><!-- 运输车队承运商 -->
+        <input type="hidden" name="yhlx" value="4"/><!-- 运输车队承运商（总） -->
         <input type="hidden" name="szsf" id="szsf"/>
         <input type="hidden" name="szcs" id="szcs"/>
         <input type="hidden" name="szx" id="szx"/>
@@ -141,7 +141,7 @@
             var szsf;
             var szcs;
             var szx;
-            
+
             	$('#area_address').citys({
                     required:false,
                     nodata:'disabled',

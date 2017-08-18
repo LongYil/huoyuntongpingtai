@@ -85,10 +85,15 @@ public class CysglyController extends BasicController<CysglyServc> {
 		model.addAttribute("cysgly",cysgly);
 		return "cys_grjbxx";
 	}
+	@RequestMapping("/cys_findCysZhxx")
 	public String findCysZhxx(Model model,HttpServletRequest request){
 		jbyh = (Jbyh) request.getSession().getAttribute("jbyh");
 		model.addAttribute("jbyh",jbyh);
 		return "cys_zhxx";
 	}
-
+	
+	@RequestMapping("/cys_addGly")
+	public void addGly(){
+		
+	}
 }

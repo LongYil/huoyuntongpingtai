@@ -121,7 +121,7 @@
                 </p>
             </div>
         </div>
-        <input type="hidden" name="yhlx" value="5"/><!-- 运输车队承运商 -->
+        <input type="hidden" name="yhlx" value="5"/>
         <input type="hidden" name="szsf" id="szsf"/>
         <input type="hidden" name="szcs" id="szcs"/>
         <input type="hidden" name="szx" id="szx"/>

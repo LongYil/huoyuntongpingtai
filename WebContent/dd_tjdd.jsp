@@ -68,9 +68,6 @@
 				<input class="easyui-textbox" name="yssx" style="width:40%" data-options="label:'总体积',required:true">(单位:立方米)
 			</div>
 			<div style="margin-bottom:20px">
-				<input class="easyui-textbox" name="fcpl" style="width:40%" data-options="label:'预计运费',required:true">(单位:元)
-			</div>
-			<div style="margin-bottom:20px">
 				<input class="easyui-textbox" name="fcpl" style="width:40%" data-options="label:'发货人姓名',required:true">
 			</div>
 			<div style="margin-bottom:20px">
@@ -106,8 +103,14 @@
 		function submitForm(){
 			$('#ff').form('submit',{
 				onSubmit:function(){
-					$.messager.alert('提示','保存成功!');
-					return $(this).form('enableValidation').form('validate');
+					var flag = $(this).form('enableValidation').form('validate');
+					if(flag){
+						$.messager.alert('提示','保存成功!');
+						return $(this).form('enableValidation').form('validate');
+					}else{
+						$.messager.alert('温馨提示','信息不完整，请填写完整信息!','warning');
+						return false;
+					}
 				}
 			});
 		}

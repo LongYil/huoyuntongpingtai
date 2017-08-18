@@ -31,7 +31,7 @@
             </li>
             </dl>
 			<ul class="menu1">
-				<li><a href="javascript:void(0)"  onClick="To('hy_dld_findAll.action')"><img src="js/basic/icon/jibenxinxi.png" class="itemicon">基本信息</a></li>
+				<li><a href="javascript:void(0)"  onClick="To('hy_dld_findInfo.action')"><img src="js/basic/icon/jibenxinxi.png" class="itemicon">基本信息</a></li>
                 <li><a href="javascript:void(0)" ><img src="js/basic/icon/zhanghaoguanli.png" class="itemicon">帐号管理</a></li>
                 <li><a href="javascript:void(0)" ><img src="js/basic/icon/zhanghuguanli.png" class="itemicon">账户管理</a></li>
 			</ul>
@@ -76,7 +76,7 @@
                 <li><a href="javascript:void(0)"><img src="js/basic/icon/baozhengjin.png" class="itemicon">保证金</a></li>
                 <li><a href="javascript:void(0)"><img src="js/basic/icon/tixian.png" class="itemicon">提现</a></li>
 			</ul>
-		</li>  
+		</li>
   
      	<li class="fatheritem">
         	<dl class="biaotia5">

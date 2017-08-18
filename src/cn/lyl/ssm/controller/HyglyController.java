@@ -33,9 +33,9 @@ public class HyglyController extends BasicController<HyglyServc> {
 		jbyhServc.save(jbyh);
 		hydld.setYhbh(jbyh.getYhbh());
 		hygly.setYhbh(jbyh.getYhbh());
+		hygly.setGlylx(1);
 		servc.save(hygly);
 		hydldServc.save(hydld);
-		
 		return "hy_index";
 	}
 	@RequestMapping("/hy_dld_update")
@@ -61,13 +61,23 @@ public class HyglyController extends BasicController<HyglyServc> {
 		servc.save(hygly);		
 	}
 	
-	@RequestMapping("/hy_dld_findAll")
-	public String find(Model model,HttpServletRequest request){
+	@RequestMapping("/hy_dld_findInfo")
+	public String findInfo(Model model,HttpServletRequest request){
 		jbyh = (Jbyh) request.getSession().getAttribute("jbyh");
 		hygly = servc.find(request.getSession().getAttribute("yhbh").toString());
 		model.addAttribute("jbyh",jbyh);
 		model.addAttribute("hygly",hygly);
-		System.out.println(jbyh+"*"+hygly);
 		return "hy_jbxx";
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

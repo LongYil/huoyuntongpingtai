@@ -33,8 +33,8 @@
             </dl>
 			<ul class="menu1">
 				<li><a href="javascript:void(0)" onClick="To('cys_findCysInfo.action')"><img src="js/basic/icon/jibenxinxi.png" class="itemicon">基本信息</a></li>
-				<li><a href="javascript:void(0)" ><img src="js/basic/icon/zhanghaoguanli.png" class="itemicon">帐号信息</a></li>
-                <li><a href="javascript:void(0)"><img src="js/basic/icon/zhanghuguanli.png" class="itemicon">账户管理</a></li>
+				<li><a href="javascript:void(0)" onClick="To('cys_cdzhgl.jsp')"><img src="js/basic/icon/zhanghaoguanli.png" class="itemicon">帐号管理</a></li>
+                <li><a href="javascript:void(0)" ><img src="js/basic/icon/zhanghuguanli.png" class="itemicon">账户管理</a></li>
 			</ul>
 		</li>
  
@@ -97,7 +97,7 @@
 
 	<div data-options="region:'south',border:false" style="height:50px;background:#A9FACD;padding:10px;">south region</div>
 	<div data-options="region:'center',title:'我的桌面'">
-    	<iframe class="zhuomian" frameborder="0">
+    	<iframe class="zhuomian" frameborder="0" style="width:835px;height:680px;">
         
         
 		
