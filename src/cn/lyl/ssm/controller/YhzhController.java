@@ -24,7 +24,6 @@ public class YhzhController extends BasicController<YhzhServc> {
 	public String find(Model model,HttpServletRequest request){
 		yhzh = servc.find(request.getSession().getAttribute("yhbh").toString());
 		model.addAttribute("yhzh",yhzh);
-
 		return "zhxx";
 	}
 

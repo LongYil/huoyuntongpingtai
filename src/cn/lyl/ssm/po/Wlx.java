@@ -16,6 +16,7 @@ public class Wlx {
 	private Integer id;//序号
 	private Integer cysbh;//承运商编号
 	private Integer yhbh;//用户编号
+	private Integer cdbh;//车队编号
 	private String cfsf;//出发省份
 	private String cfcs;//出发城市
 	private String cfx;//出发县
@@ -152,6 +153,12 @@ public class Wlx {
 	}
 	public void setKz5(String kz5) {
 		this.kz5 = kz5;
+	}
+	public Integer getCdbh() {
+		return cdbh;
+	}
+	public void setCdbh(Integer cdbh) {
+		this.cdbh = cdbh;
 	}
 
 }

@@ -16,6 +16,7 @@ public class Clxx {
 	private Integer id;//序号
 	private Integer cysbh;//承运商编号
 	private Integer yhbh;//用户编号(承运商管理员编号)
+	private Integer cdbh;//车队编号
 	private String cph;//车牌号
 	private String cllx;//车辆类型
 	private Float clcd;//车辆长度
@@ -124,6 +125,12 @@ public class Clxx {
 	}
 	public void setKz5(String kz5) {
 		this.kz5 = kz5;
+	}
+	public Integer getCdbh() {
+		return cdbh;
+	}
+	public void setCdbh(Integer cdbh) {
+		this.cdbh = cdbh;
 	}
 	
 

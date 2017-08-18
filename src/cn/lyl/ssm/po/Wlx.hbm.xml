@@ -11,6 +11,7 @@
 		</id>
 		<property name="cysbh"/>
 		<property name="yhbh"/>
+		<property name="cdbh"/>
 		<property name="cfsf" length="150"/>
 		<property name="cfcs" length="150"/>
 		<property name="cfx" length="150"/>

@@ -34,7 +34,7 @@
 			<ul class="menu1">
 				<li><a href="javascript:void(0)" onClick="To('cys_findCysInfo.action')"><img src="js/basic/icon/jibenxinxi.png" class="itemicon">基本信息</a></li>
 				<li><a href="javascript:void(0)" onClick="To('cys_findAllGly.action')"><img src="js/basic/icon/zhanghaoguanli.png" class="itemicon">帐号管理</a></li>
-                <li><a href="javascript:void(0)" ><img src="js/basic/icon/zhanghuguanli.png" class="itemicon">账户管理</a></li>
+                <li><a href="javascript:void(0)" onClick="To('yhzh_find.action')" ><img src="js/basic/icon/zhanghuguanli.png" class="itemicon">账户管理</a></li>
 			</ul>
 		</li>
  
@@ -50,7 +50,7 @@
                 <li><a href="javascript:void(0)"><img src="js/basic/icon/chenliang.png" class="itemicon">车辆管理</a></li>
 			</ul>
 		</li>
-     
+
  		<li class="fatheritem">
         	<dl class="biaotia3">
             <li style="background-color:#dce8f3;">
