@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import cn.lyl.ssm.daoImpl.JbyhDaoImpl;
+import cn.lyl.ssm.po.Cysgly;
 import cn.lyl.ssm.po.Jbyh;
 
 @Transactional
@@ -30,7 +31,10 @@ public class JbyhServc extends CommonSevc<Jbyh,JbyhDaoImpl> {
 	public List<Jbyh> findAll(String arg) {
 		return null;
 	}
-
+	public List<Jbyh> findAllGly(List<Cysgly> list){
+		return daoImpl.findAll(list);
+	}
+	
 	@Override
 	public void delete(Jbyh arg) {
 		

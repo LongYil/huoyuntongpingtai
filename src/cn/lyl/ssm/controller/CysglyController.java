@@ -17,6 +17,8 @@ import cn.lyl.ssm.po.Jbyh;
 import cn.lyl.ssm.service.impl.CysServc;
 import cn.lyl.ssm.service.impl.CysglyServc;
 import cn.lyl.ssm.service.impl.JbyhServc;
+import cn.lyl.ssm.utils.AssembleCysgly;
+import cn.lyl.ssm.vo.CysglyVo;
 
 /**
  * <p>Title:CysglyController</p>
@@ -36,9 +38,12 @@ public class CysglyController extends BasicController<CysglyServc> {
 	private Jbyh jbyh;
 	@Autowired
 	private Cysgly cysgly;
+	@Autowired
+	private AssembleCysgly assembleCysgly;
 	
 	private List<Cysgly> listgly = new ArrayList<Cysgly>();
 	private List<Jbyh> listjbyh = new ArrayList<Jbyh>();
+	private List<CysglyVo> listvo = new ArrayList<CysglyVo>();
 	
 	//承运商的保存方法
 	@RequestMapping("/cysgly_save")
@@ -111,18 +116,13 @@ public class CysglyController extends BasicController<CysglyServc> {
 	}
 	//查询所有管理员
 	@RequestMapping("/cys_findAllGly")
-	public String findAllGly(HttpServletRequest request){
+	public String findAllGly(Model model,HttpServletRequest request){
 		listgly = servc.findAll(request.getSession().getAttribute("yhbh").toString());
-		listjbyh = jbyhServc.findAll(request.getSession().getAttribute("yhbh").toString());
-		
-		System.out.println(listgly+"*"+listjbyh);
-		
+		listjbyh = jbyhServc.findAllGly(listgly);
+		listvo = assembleCysgly.getAllVo(listjbyh, listgly);
+		model.addAttribute("listvo", listvo);
+		System.out.println(listgly+"*"+listjbyh+"*"+listvo);
 		return "cys_cdzhgl";
 	}
-	
-	
-	
-	
-	
 	
 }

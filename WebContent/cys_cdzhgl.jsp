@@ -30,27 +30,28 @@
 		<thead>
 			<tr>
 				<th data-options="field:'a',width:40,align:'center'">序号</th>
-				<th data-options="field:'b',width:120,align:'center'">用户名</th>
+				<th data-options="field:'b',width:120,align:'center'">用户名(帐户名)</th>
 				<th data-options="field:'c',width:120,align:'center'">用户手机号</th>
 				<th data-options="field:'d',width:120,align:'center'">用户姓名</th>
-				
-				<th data-options="field:'d',width:120,align:'center'">公司名称</th>
-				<th data-options="field:'d',width:120,align:'center'">用户邮箱</th>
-				<th data-options="field:'e',width:150,align:'center'">用户地址（省）</th>
-				<th data-options="field:'f',width:150,align:'center'">用户地址（市）</th>
-				<th data-options="field:'g',width:150,align:'center'">用户地址（县/区）</th>
+				<th data-options="field:'e',width:120,align:'center'">公司名称</th>
+				<th data-options="field:'g',width:120,align:'center'">用户邮箱</th>
+				<th data-options="field:'h',width:150,align:'center'">用户地址（省）</th>
+				<th data-options="field:'i',width:150,align:'center'">用户地址（市）</th>
+				<th data-options="field:'j',width:150,align:'center'">用户地址（县/区）</th>
 			</tr>
 		</thead>
 		<tbody>
-				<c:forEach items="${listwlx}" var="item" begin="0" step="2" varStatus="status">
+				<c:forEach items="${listvo}" var="item" begin="0" step="1" varStatus="status">
 				<tr>
 				    <td>${status.index+1}</td>
-					<td>${item.cfsf}</td>
-					<td>${item.cfcs}</td>
-					<td>${item.cfx}</td>
-					<td>${item.ddsf}</td>
-					<td>${item.ddcs}</td>
-					<td>${item.ddx}</td>
+					<td>${item.yhm}</td>
+					<td>${item.yhsj}</td>
+					<td>${item.yhxm}</td>
+					<td>${item.gsmc}</td>
+					<td>${item.yhyx}</td>
+					<td>${item.szsf}</td>
+					<td>${item.szcs}</td>
+					<td>${item.szx}</td>
 
 				</tr>
 				</c:forEach>
