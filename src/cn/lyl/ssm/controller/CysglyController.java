@@ -53,13 +53,14 @@ public class CysglyController extends BasicController<CysglyServc> {
 		cys.setLxdh(jbyh.getYhsj());
 		cysgly.setLxdh(jbyh.getYhsj());
 		cys.setYhbh(jbyh.getYhbh());
-		cysgly.setYhbh(jbyh.getYhbh());		
+		cysgly.setYhbh(jbyh.getYhbh());
 		if(type==3){
 			cys.setHylx(1);
 			cysgly.setHylx(1);
 		}else{
 			cys.setHylx(2);
 			cysgly.setHylx(2);
+			cysgly.setCysbh(jbyh.getYhbh());
 		}
 		cysServc.save(cys);
 		servc.save(cysgly);

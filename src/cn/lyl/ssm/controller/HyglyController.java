@@ -14,6 +14,13 @@ import cn.lyl.ssm.service.impl.HydldServc;
 import cn.lyl.ssm.service.impl.HyglyServc;
 import cn.lyl.ssm.service.impl.JbyhServc;
 
+/**
+ * <p>Title:HyglyController</p>
+ * <p>Description: 货运代理点管理员控制器</p>
+ * @author 李银龙
+ *		2017年8月19日
+ *		下午5:26:30
+ */
 @Controller
 public class HyglyController extends BasicController<HyglyServc> {
 	@Autowired
@@ -39,7 +46,7 @@ public class HyglyController extends BasicController<HyglyServc> {
 		return "hy_index";
 	}
 	@RequestMapping("/hy_dld_update")
-	public void update(String info[],HttpServletRequest request){
+	public void update(String info[],HttpServletRequest request) throws Exception{
 		jbyh = (Jbyh) request.getSession().getAttribute("jbyh");
 		hygly = servc.find(request.getSession().getAttribute("yhbh").toString());
 		hydld = hydldServc.find(request.getSession().getAttribute("yhbh").toString());

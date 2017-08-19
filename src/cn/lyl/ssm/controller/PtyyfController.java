@@ -11,6 +11,13 @@ import cn.lyl.ssm.service.impl.JbyhServc;
 import cn.lyl.ssm.service.impl.PtglyServc;
 import cn.lyl.ssm.service.impl.PtyyfServc;
 
+/**
+ * <p>Title:PtyyfController</p>
+ * <p>Description:平台运营方控制器 </p>
+ * @author 李银龙
+ *		2017年8月19日
+ *		下午5:27:08
+ */
 @Controller
 public class PtyyfController extends BasicController<PtyyfServc> {
 	@Autowired

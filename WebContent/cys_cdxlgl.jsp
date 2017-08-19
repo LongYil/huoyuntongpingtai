@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html;charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>   
 <!DOCTYPE html>
@@ -11,17 +11,22 @@
 	<link rel="stylesheet" type="text/css" href="js/basic/demo/demo.css">
 	<script type="text/javascript" src="js/basic/jquery.min.js"></script>
 	<script type="text/javascript" src="js/basic/jquery.easyui.min.js"></script>
+	<style type="text/css">
+		.cdmc{
+		margin-left:350px;
+		font-size:24px;
+		color:#0248b5;
+		font-weight:bold;
+		}
+	</style>
 </head>
 <body style="padding-top:0px; padding-bottom:0px;">
 
-<section style="width:500px;height:40px;margin-top:20px;padding-left:40px;">
+<section style="width:760px;height:40px;margin-top:20px;padding-left:40px;">
 <a href="#" class="easyui-linkbutton" style="width:80px;margin-right:20px;" onclick="addPanel()">添加线路</a>
 <a href="#" class="easyui-linkbutton" style="width:80px;" onclick="getSelected()">删除线路</a>
+<span class="cdmc">车队名称:${cdmc}</span>
 </section>
-
-
-
-
 
 	<div id="tt" class="easyui-tabs" data-options="tools:'#tab-tools'" style="padding:0px;width:835px;height:620px;margin-left:-20px;margin-bottom:0px;">
 	<div title="所有线路">
@@ -75,7 +80,7 @@
 			index++;
 			$('#tt').tabs('add',{
 				title: '添加线路',
-				content: '<iframe src="cys_tjxl.jsp" frameborder="0" style="padding:5px;width:830px;height:500px;"></iframe>',
+				content: '<iframe src="cys_cdtjxl.jsp" frameborder="0" style="padding:5px;width:830px;height:500px;"></iframe>',
 				closable: true
 			});
 		}

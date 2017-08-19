@@ -19,7 +19,7 @@ public class YhzhServc extends CommonSevc<Yhzh, YhzhDaoImpl> {
 	}
 
 	@Override
-	public Yhzh find(String arg) {
+	public Yhzh find(String arg) throws Exception{
 		return daoImpl.find(arg);
 	}
 

@@ -1,5 +1,8 @@
 package cn.lyl.ssm.po;
 
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
 /**
  * <p>Title:Yscd</p>
  * <p>Description:运输车队 </p>
@@ -7,6 +10,8 @@ package cn.lyl.ssm.po;
  *		2017年8月18日
  *		下午10:08:21
  */
+@Component(value="yscd")
+@Scope(value="prototype")
 public class Yscd {
 	private Integer cdbh;//车队编号
 	private Integer cysbh;//承运商编号

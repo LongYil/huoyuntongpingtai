@@ -12,6 +12,13 @@ import cn.lyl.ssm.po.Wtr;
 import cn.lyl.ssm.service.impl.JbyhServc;
 import cn.lyl.ssm.service.impl.WtrServc;
 
+/**
+ * <p>Title:WtrController</p>
+ * <p>Description: 委托人控制器</p>
+ * @author 李银龙
+ *		2017年8月19日
+ *		下午5:27:35
+ */
 @Controller
 public class WtrController extends BasicController<WtrServc> {
 	

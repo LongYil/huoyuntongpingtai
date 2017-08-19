@@ -7,7 +7,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import cn.lyl.ssm.po.Cysgly;
 import cn.lyl.ssm.po.Jbyh;
+import cn.lyl.ssm.service.impl.CysglyServc;
 import cn.lyl.ssm.service.impl.JbyhServc;
 
 /**
@@ -22,6 +24,10 @@ public class JbyhController extends BasicController<JbyhServc> {
 	
 	@Autowired
 	private Jbyh jbyh;
+	@Autowired
+	private Cysgly cysgly;
+	@Autowired
+	private CysglyServc cysglyServc;
 	
 	@RequestMapping("/jbyh_login")
 	public String login(Model model,Jbyh jbyh,HttpServletRequest request){
@@ -38,9 +44,13 @@ public class JbyhController extends BasicController<JbyhServc> {
 		case 3:
 			return "cys_grindex";
 		case 4:
+			cysgly = cysglyServc.find(String.valueOf(info[1]));
+			request.getSession().setAttribute("cysgly",cysgly);
 			return "cys_cdindex";
 		case 5:
-			return "hy_index";
+			cysgly = cysglyServc.find(String.valueOf(info[1]));
+			request.getSession().setAttribute("cysgly",cysgly);
+			return "cys_cdindex";
 		default:
 			return "success";
 		}

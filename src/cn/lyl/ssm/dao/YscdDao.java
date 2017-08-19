@@ -1,5 +1,9 @@
 package cn.lyl.ssm.dao;
 
-public interface YscdDao {
+import java.util.List;
 
+import cn.lyl.ssm.po.Yscd;
+
+public interface YscdDao {
+	List<Yscd> cysFindAll(String arg);
 }

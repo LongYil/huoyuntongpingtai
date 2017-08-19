@@ -8,12 +8,15 @@ import org.springframework.stereotype.Component;
 
 import cn.lyl.ssm.dao.YhzhDao;
 import cn.lyl.ssm.po.Yhzh;
+import cn.lyl.ssm.utils.GetEntity;
 
 @Component(value="yhzhDaoImpl")
 public class YhzhDaoImpl extends CommonDaoImpl<Yhzh> implements YhzhDao {
 	@Autowired
 	private Yhzh yhzh;
-	private List<Yhzh> list = new ArrayList<Yhzh>();
+	@Autowired
+	private GetEntity getEntity;
+	
 	@Override
 	public void save(Yhzh entity) {
 		ht.saveOrUpdate(entity);		
@@ -30,13 +33,8 @@ public class YhzhDaoImpl extends CommonDaoImpl<Yhzh> implements YhzhDao {
 	}
 
 	@Override
-	public Yhzh find(String arg) {
-		list = (List<Yhzh>) ht.find("from Yhzh where yhbh = "+Integer.parseInt(arg)+"");
-		if(list==null||list.size()==0){
-			return yhzh;
-		}else{
-			return list.get(0);
-		}
+	public Yhzh find(String arg) throws Exception {
+		return (Yhzh) getEntity.getEntity("Yhzh", arg,Yhzh.class);
 	}
 
 }

@@ -26,7 +26,7 @@
 <body style="padding:0px;margin:0px;">
 
 	<div class="easyui-panel" style="width:100%;max-width:820px;max-height:600px;padding:30px 60px;">
-		<form id="ff" action="${pageContext.request.contextPath}/cys_addGly.action" class="easyui-form" method="post" data-options="novalidate:true">
+		<form id="ff" action="${pageContext.request.contextPath}/yscd_save.action" class="easyui-form" method="post" data-options="novalidate:true">
 
 			<div style="margin-bottom:20px">
 				<input class="easyui-textbox" name="cdmc" style="width:40%" data-options="label:'车队名称',required:true">						

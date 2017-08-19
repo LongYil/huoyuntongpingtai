@@ -20,7 +20,7 @@ public class HydldServc extends CommonSevc<Hydld, HydldDaoImpl> {
 	}
 
 	@Override
-	public Hydld find(String arg) {
+	public Hydld find(String arg) throws Exception {
 		return daoImpl.find(arg);
 	}
 

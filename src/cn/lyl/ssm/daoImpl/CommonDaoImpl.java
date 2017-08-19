@@ -20,7 +20,7 @@ public abstract class CommonDaoImpl<T> implements ICommonDao<T> {
 	public abstract void delete(T entity) ;
 	
 	@Override
-	public abstract T find(String arg) ;
+	public abstract T find(String arg) throws Exception;
 	
 	
 }

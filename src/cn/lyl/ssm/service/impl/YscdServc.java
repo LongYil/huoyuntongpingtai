@@ -28,7 +28,10 @@ public class YscdServc extends CommonSevc<Yscd, YscdDaoImpl> {
 		//
 		return null;
 	}
-
+	public List<Yscd> cysFindAll(String arg){
+		return daoImpl.cysFindAll(arg);
+	}
+	
 	@Override
 	public void delete(Yscd arg) {
 		//

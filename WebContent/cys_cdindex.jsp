@@ -22,7 +22,7 @@
     	<div class="info"><span class="info1">承运商(运输车队)：</span><span class="info2">${jbyh.yhxm}</span>&nbsp;&nbsp;<span class="info3">您好！</span></div>
     </div>
     </div>
-	
+
 	<div data-options="region:'west',split:true,title:'货运通物流平台'" style="width:195px;padding:10px;">
 	<ul class="menubox">
 		<li class="fatheritem">
@@ -34,20 +34,20 @@
 			<ul class="menu1">
 				<li><a href="javascript:void(0)" onClick="To('cys_findCysInfo.action')"><img src="js/basic/icon/jibenxinxi.png" class="itemicon">基本信息</a></li>
 				<li><a href="javascript:void(0)" onClick="To('cys_findAllGly.action')"><img src="js/basic/icon/zhanghaoguanli.png" class="itemicon">帐号管理</a></li>
-                <li><a href="javascript:void(0)" onClick="To('yhzh_find.action')" ><img src="js/basic/icon/zhanghuguanli.png" class="itemicon">账户管理</a></li>
+                <li><a href="javascript:void(0)" onClick="To('yhzh_find.action')"><img src="js/basic/icon/zhanghuguanli.png" class="itemicon">账户管理</a></li>
 			</ul>
 		</li>
  
 		<li class="fatheritem">
         	<dl class="biaotia2">
             <li style="background-color:#dce8f3;">
-            <a href="javascript:void(0)" ><img src="js/basic/icon/cheliangxianlu.png" class="menuicon">车辆线路管理</a>
+            <a href="javascript:void(0)" ><img src="js/basic/icon/cheliangxianlu.png" class="menuicon">车队线路管理</a>
             </li>
             </dl>
 			<ul class="menu1">
-				<li><a href="javascript:void(0)"><img src="js/basic/icon/chedui.png" class="itemicon">车队管理</a></li>
-                <li><a href="javascript:void(0)"><img src="js/basic/icon/yunshuxianlu.png" class="itemicon">运输线路</a></li>
-                <li><a href="javascript:void(0)"><img src="js/basic/icon/chenliang.png" class="itemicon">车辆管理</a></li>
+				<li><a href="javascript:void(0)"  onClick="To('yscd_cysFindAll.action')"><img src="js/basic/icon/chedui.png" class="itemicon">车队管理</a></li>
+                <li><a href="javascript:void(0)"><img src="js/basic/icon/yunshuxianlu.png" class="itemicon">所有线路</a></li>
+                <li><a href="javascript:void(0)"><img src="js/basic/icon/chenliang.png" class="itemicon">所有车辆</a></li>
 			</ul>
 		</li>
 
@@ -64,7 +64,7 @@
 				<li><a href="javascript:void(0)"><img src="js/basic/icon/yiqianshou.png" class="itemicon">已签收</a></li>
 				<li><a href="javascript:void(0)"><img src="js/basic/icon/dingdanchaxun.png" class="itemicon">订单查询</a></li>
 			</ul>
-		</li>       
+		</li>
   
    		<li class="fatheritem">
         	<dl class="biaotia4">

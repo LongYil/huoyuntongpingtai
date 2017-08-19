@@ -29,8 +29,8 @@ public class HydldDaoImpl extends CommonDaoImpl<Hydld> implements HydldDao {
 	}
 
 	@Override
-	public Hydld find(String arg) {
-		return (Hydld) getEntity.getEntity("Hydld", arg);
+	public Hydld find(String arg) throws Exception {
+		return (Hydld) getEntity.getEntity("Hydld",arg,Hydld.class);
 	}
 
 }

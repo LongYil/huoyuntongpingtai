@@ -44,6 +44,7 @@
 		<mapping resource="cn/lyl/ssm/po/Wlx.hbm.xml"/>
 		<mapping resource="cn/lyl/ssm/po/Yhzh.hbm.xml"/>
 		<mapping resource="cn/lyl/ssm/po/Clxx.hbm.xml"/>
+		<mapping resource="cn/lyl/ssm/po/Yscd.hbm.xml"/>
 
 	</session-factory>
 
