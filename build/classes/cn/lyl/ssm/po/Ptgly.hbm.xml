@@ -9,7 +9,6 @@
 		<id name="glybh" column="glybh">
 			<generator class="native"></generator>
 		</id>
-		<many-to-one name="ptyyf" class="cn.lyl.ssm.po.Ptyyf"/>
 		<property name="id"/>
 		<property name="glylx" length="100"/>
 		<property name="glyjs"/>

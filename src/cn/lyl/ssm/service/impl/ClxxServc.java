@@ -10,7 +10,7 @@ import cn.lyl.ssm.po.Clxx;
 
 @Transactional
 @Service(value="clxxServc")
-public class ClxxServc extends CommonSevc<Clxx, ClxxDaoImpl> {
+public class ClxxServc extends CommonSevc<Clxx, ClxxDaoImpl>{
 
 	@Override
 	public void save(Clxx arg) {
@@ -27,11 +27,15 @@ public class ClxxServc extends CommonSevc<Clxx, ClxxDaoImpl> {
 		//
 		return null;
 	}
-
+	
 	@Override
 	public void delete(Clxx arg) {
 		//
-		
 	}
 
+	public List<Clxx> findByCdid(String arg) {
+		return daoImpl.findByCdid(arg);
+	}
+	
+	
 }

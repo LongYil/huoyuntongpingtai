@@ -5,35 +5,19 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>运输线路管理</title>
+	<title>所有线路</title>
 	<link rel="stylesheet" type="text/css" href="js/basic/themes/default/easyui.css">
 	<link rel="stylesheet" type="text/css" href="js/basic/themes/icon.css">
 	<link rel="stylesheet" type="text/css" href="js/basic/demo/demo.css">
 	<script type="text/javascript" src="js/basic/jquery.min.js"></script>
 	<script type="text/javascript" src="js/basic/jquery.easyui.min.js"></script>
 	<style type="text/css">
-		.cdmc{
-		margin-left:140px;
-		font-size:24px;
-		color:#0248b5;
-		font-weight:bold;
-		height:40px;
-		line-height:40px;
-		}
 	</style>
 </head>
 <body style="padding-top:0px; padding-bottom:0px;">
-
-<section style="width:760px;height:40px;margin-top:10px;margin-bottom:10px;padding-left:40px;">
-<a href="javascript:void(0)" class="easyui-linkbutton" style="width:80px;margin-right:20px;" onclick="addPanel()">添加线路</a>
-<a href="javascript:void(0)" class="easyui-linkbutton" style="width:80px;margin-right:20px;" onclick="getSelected()">删除线路</a>
+<section style="width:760px;height:40px;line-height:40px;margin-top:10px;margin-bottom:10px;padding-left:40px;">
 <a href="javascript:void(0)" class="easyui-linkbutton" style="width:80px;margin-right:20px;" onclick="sxxl()">刷新</a>
-<a href="javascript:void(0)" class="easyui-linkbutton" style="width:80px;" onclick="sxcd()">返回</a>
-<span class="cdmc">车队名称:${cdxlmc}</span>
-<input type="hidden" value="${cdxlid}" class="cdxlid"/>
-<input type="hidden" value="${cdxlmc}" class="cdxlmc"/>
 </section>
-
 	<div id="tt" class="easyui-tabs" data-options="tools:'#tab-tools'" style="padding:0px;width:835px;height:620px;margin-left:-20px;margin-bottom:0px;">
 	<div title="所有线路">
 		<table id="dg" class="easyui-datagrid" title="运输线路" style="width:1040px;height:590px"
@@ -41,6 +25,7 @@
 		<thead>
 			<tr>
 				<th data-options="field:'a',width:80,align:'center'">序号</th>
+				<th data-options="field:'n',width:80,align:'center'">所属车队</th>
 				<th data-options="field:'b',width:80,align:'center'">出发省份</th>
 				<th data-options="field:'c',width:80,align:'center'">出发城市</th>
 				<th data-options="field:'d',width:80,align:'center'">出发县</th>
@@ -56,29 +41,28 @@
 			</tr>
 		</thead>
 		<tbody>
-				<c:forEach items="${listwlx}" var="item" begin="0" step="1" varStatus="status">
+				<c:forEach items="${listwlxvo}" var="item" begin="0" step="1" varStatus="status">
 				<tr>
 				    <td>${status.index+1}</td>
-					<td>${item.cfsf}</td>
-					<td>${item.cfcs}</td>
-					<td>${item.cfx}</td>
-					<td>${item.ddsf}</td>
-					<td>${item.ddcs}</td>
-					<td>${item.ddx}</td>
-					<td>${item.zhjg}</td>
+				    <td>${item.cdmc}</td>
+					<td>${item.wlx.cfsf}</td>
+					<td>${item.wlx.cfcs}</td>
+					<td>${item.wlx.cfx}</td>
+					<td>${item.wlx.ddsf}</td>
+					<td>${item.wlx.ddcs}</td>
+					<td>${item.wlx.ddx}</td>
+					<td>${item.wlx.zhjg}</td>
 					<td>千克</td>
-					<td>${item.qhjg}</td>
+					<td>${item.wlx.qhjg}</td>
 					<td>立方米</td>
-					<td>${item.yssx}</td>
-					<td>${item.fcpl}</td>
+					<td>${item.wlx.yssx}</td>
+					<td>${item.wlx.fcpl}</td>
 				</tr>
 				</c:forEach>
 		</tbody>
 		</table>
 		</div>
 	</div>
-
-
 
 	<script type="text/javascript">
 		var index = 0;

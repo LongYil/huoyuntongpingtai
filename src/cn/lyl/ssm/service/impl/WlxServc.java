@@ -7,6 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import cn.lyl.ssm.daoImpl.WlxDaoImpl;
 import cn.lyl.ssm.po.Wlx;
+import cn.lyl.ssm.vo.WlxVo;
 
 @Transactional
 @Component(value="wlxServc")
@@ -30,9 +31,15 @@ public class WlxServc extends CommonSevc<Wlx, WlxDaoImpl> {
 
 	@Override
 	public void delete(Wlx arg) {
-		//
-		
-	}
 
-}
+	}
 	
+	public List<Wlx> findByCysid(String arg){
+		return daoImpl.findByCysid(arg);
+	}
+	
+	public List<WlxVo> findByCysYhid(String arg){
+		return daoImpl.findByCysYhid(arg);
+	}
+	
+}	

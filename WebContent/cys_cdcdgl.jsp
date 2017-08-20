@@ -14,11 +14,12 @@
 </head>
 <body style="padding-top:0px; padding-bottom:0px;">
 
-<section style="width:500px;height:40px;margin-top:20px;padding-left:20px;">
-<a href="#" class="easyui-linkbutton" style="width:80px;margin-right:20px;" onclick="addPanel()">添加车队</a>
-<a href="#" class="easyui-linkbutton" style="width:80px;margin-right:20px;" onclick="addPanel()">删除车队</a>
-<a href="#" class="easyui-linkbutton" style="width:100px;margin-right:20px;" onclick="chakancheliang()">查看所有车辆</a>
-<a href="#" class="easyui-linkbutton" style="width:100px;" onclick="chakanxianlu()">查看所有线路</a>
+<section style="width:700px;height:40px;margin-top:20px;padding-left:20px;">
+<a href="javascript:void(0)" class="easyui-linkbutton" style="width:80px;margin-right:20px;" onclick="addPanel()">添加车队</a>
+<a href="javascript:void(0)" class="easyui-linkbutton" style="width:80px;margin-right:20px;" onclick="addPanel()">删除车队</a>
+<a href="javascript:void(0)" class="easyui-linkbutton" style="width:100px;margin-right:20px;" onclick="chakancheliang()">查看所有车辆</a>
+<a href="javascript:void(0)" class="easyui-linkbutton" style="width:100px;margin-right:20px;" onclick="chakanxianlu()">查看所有线路</a>
+<a href="javascript:void(0)" class="easyui-linkbutton" style="width:100px;" onclick="sxcd()">刷新</a>
 </section>
 
 	<div id="tt" class="easyui-tabs" data-options="tools:'#tab-tools'" style="padding:0px;width:835px;height:620px;margin-left:-20px;margin-bottom:0px;">
@@ -70,7 +71,6 @@
 		function chakancheliang(){
 			var row = $('#dg').datagrid('getSelected');
 			if (row){
-// 				得到车队编号
 				var id = row.id;
 				var mc = row.b;
 				window.location = "clxx_glyFindById.action?id="+id+"&&mc="+mc;
@@ -84,7 +84,9 @@
 				window.location = "wlx_findByGlybh.action?id="+id+"&&mc="+mc;;
 			}
 		}
-		
+		function sxcd(){
+			window.location = "yscd_cysFindAll.action";
+		}
 	</script>
 </body>
 </html>

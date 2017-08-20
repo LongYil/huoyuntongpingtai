@@ -5,7 +5,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>车辆管理</title>
+	<title>所有车辆</title>
 	<link rel="stylesheet" type="text/css" href="js/basic/themes/default/easyui.css">
 	<link rel="stylesheet" type="text/css" href="js/basic/themes/icon.css">
 	<link rel="stylesheet" type="text/css" href="js/basic/demo/demo.css">
@@ -21,17 +21,10 @@
 	</style>
 </head>
 <body style="padding-top:0px; padding-bottom:0px;">
-
 <section style="width:760px;height:40px;margin-top:20px;padding-left:40px;">
-<a href="javascript:void(0)" class="easyui-linkbutton" style="width:80px;margin-right:20px;" onclick="addPanel()">添加车辆</a>
-<a href="javascript:void(0)" class="easyui-linkbutton" style="width:80px;margin-right:20px;" onclick="getSelected()">删除车辆</a>
+<!-- <a href="javascript:void(0)" class="easyui-linkbutton" style="width:80px;margin-right:20px;" onclick="addPanel()">添加车辆</a> -->
 <a href="javascript:void(0)" class="easyui-linkbutton" style="width:80px;margin-right:20px;" onclick="shuaxin()">刷新</a>
-<a href="javascript:void(0)" class="easyui-linkbutton" style="width:80px;" onclick="sxcd()">返回</a>
-<span class="cdmc">车队名称:${cdmc}</span>
-<input type="hidden" value="${cdclid}" class="cdclid"/>
-<input type="hidden" value="${cdmc}" class="cdclmc"/>
 </section>
-
 	<div id="tt" class="easyui-tabs" data-options="tools:'#tab-tools'" style="padding:0px;width:835px;height:620px;margin-left:-20px;margin-bottom:0px;">
 	<div title="所有车辆">
 		<table id="dg" class="easyui-datagrid" title="车辆信息" style="width:1040px;height:590px"
@@ -73,19 +66,8 @@
 		</table>
 		</div>
 	</div>
-
-
-
 	<script type="text/javascript">
 		var index = 0;
-		function addPanel(){
-			index++;
-			$('#tt').tabs('add',{
-				title: '添加车辆',
-				content: '<iframe src="cys_cdtjcl.jsp" frameborder="0" style="padding:5px;width:830px;height:500px;"></iframe>',
-				closable: true
-			});
-		}
 		function getSelected(){
 			var row = $('#dg').datagrid('getSelected');
 			if (row){
@@ -96,9 +78,6 @@
 			var id = $(".cdclid").val();
 			var mc = $(".cdclmc").val();
 			window.location="clxx_glyFindById.action?id="+id+"&&mc="+mc;
-		}
-		function sxcd(){
-			window.location = "yscd_cysFindAll.action";
 		}
 	</script>
 </body>

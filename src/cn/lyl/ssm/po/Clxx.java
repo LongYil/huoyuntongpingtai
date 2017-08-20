@@ -21,6 +21,7 @@ public class Clxx {
 	private String cllx;//车辆类型
 	private Float clcd;//车辆长度
 	private Float clkd;//车辆宽度
+	private Float clgd;//车辆高度
 	private Float cltj;//车辆体积
 	private String sclxr;//随车联系人
 	private String sclxdh;//随车联系电话
@@ -131,6 +132,12 @@ public class Clxx {
 	}
 	public void setCdbh(Integer cdbh) {
 		this.cdbh = cdbh;
+	}
+	public Float getClgd() {
+		return clgd;
+	}
+	public void setClgd(Float clgd) {
+		this.clgd = clgd;
 	}
 	
 

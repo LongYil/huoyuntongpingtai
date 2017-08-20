@@ -1,5 +1,8 @@
 package cn.lyl.ssm.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,11 +28,12 @@ public class ClxxController extends BasicController<ClxxServc> {
 	@Autowired
 	private Cysgly cysgly;
 
+	private List<Clxx> listclxx = new ArrayList<Clxx>();;
 	
 	@RequestMapping("/clxx_save")
 	public void save(Clxx clxx,HttpServletRequest request){
 		clxx.setYhbh(Integer.parseInt(request.getSession().getAttribute("yhbh").toString()));
-		System.out.println(clxx);
+
 		servc.save(clxx);
 	}
 	
@@ -41,11 +45,14 @@ public class ClxxController extends BasicController<ClxxServc> {
 	}
 	@RequestMapping("/clxx_glyFindById")
 	public String glyFindById(String id,String mc,Model model,HttpServletRequest request){
-		
 		request.getSession().setAttribute("cdclid",id);
+		listclxx = servc.findByCdid(id);
 		model.addAttribute("cdmc",mc);
+		model.addAttribute("cdclid", id);
+		model.addAttribute("listclxx",listclxx);
 		return "cys_cdclgl";
 	}
+
 	@RequestMapping("clxx_cd_save")
 	public void cd_save(Clxx clxx,HttpServletRequest request){
 		cysgly = (Cysgly) request.getSession().getAttribute("cysgly");
@@ -54,5 +61,6 @@ public class ClxxController extends BasicController<ClxxServc> {
 		clxx.setCysbh(cysgly.getCysbh());
 		servc.save(clxx);
 	}
+	
 	
 }

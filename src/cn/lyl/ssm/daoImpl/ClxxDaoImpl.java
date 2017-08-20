@@ -49,4 +49,9 @@ public class ClxxDaoImpl extends CommonDaoImpl<Clxx> implements ClxxDao {
 		}
 	}
 
+	@Override
+	public List<Clxx> findByCdid(String arg) {
+		return (List<Clxx>) ht.find("from Clxx where cdbh = "+arg+"");
+	}
+
 }

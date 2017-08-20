@@ -30,6 +30,9 @@
 				<input class="easyui-textbox" name="clkd" value="${clxx.clkd}" style="width:40%" data-options="label:'车辆宽度',required:true">	
 			</div>
 			<div style="margin-bottom:20px">
+				<input class="easyui-textbox" name="clgd" value="${clxx.clgd}" style="width:40%" data-options="label:'车辆高度',required:true">	
+			</div>
+			<div style="margin-bottom:20px">
 				<input class="easyui-textbox" name="cltj" value="${clxx.cltj}" style="width:40%" data-options="label:'车辆体积 ',required:true">	
 			</div>
 			<div style="margin-bottom:20px">

@@ -11,10 +11,12 @@
 		</id>
 		<property name="cysbh"/>
 		<property name="yhbh"/>
+		<property name="cdbh"/>
 		<property name="cph" length="150"/>
 		<property name="cllx" length="150"/>
 		<property name="clcd"/>
 		<property name="clkd"/>
+		<property name="clgd"/>
 		<property name="cltj"/>
 		<property name="sclxr" length="150"/>
 		<property name="sclxdh" length="150"/>

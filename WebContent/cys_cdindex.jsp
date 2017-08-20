@@ -45,9 +45,9 @@
             </li>
             </dl>
 			<ul class="menu1">
-				<li><a href="javascript:void(0)"  onClick="To('yscd_cysFindAll.action')"><img src="js/basic/icon/chedui.png" class="itemicon">车队管理</a></li>
-                <li><a href="javascript:void(0)"><img src="js/basic/icon/yunshuxianlu.png" class="itemicon">所有线路</a></li>
-                <li><a href="javascript:void(0)"><img src="js/basic/icon/chenliang.png" class="itemicon">所有车辆</a></li>
+				<li><a href="javascript:void(0)" onClick="To('yscd_cysFindAll.action')"><img src="js/basic/icon/chedui.png" class="itemicon">车队管理</a></li>
+                <li><a href="javascript:void(0)" onClick="To('wlx_glyfindByYhbh.action')"><img src="js/basic/icon/yunshuxianlu.png" class="itemicon">所有线路</a></li>
+                <li><a href="javascript:void(0)" ><img src="js/basic/icon/chenliang.png" class="itemicon">所有车辆</a></li>
 			</ul>
 		</li>
 

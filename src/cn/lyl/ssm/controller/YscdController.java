@@ -5,10 +5,12 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import cn.lyl.ssm.po.Cysgly;
 import cn.lyl.ssm.po.Yscd;
 import cn.lyl.ssm.service.impl.YscdServc;
 
@@ -23,6 +25,8 @@ import cn.lyl.ssm.service.impl.YscdServc;
 public class YscdController extends BasicController<YscdServc> {
 	
 	private List<Yscd> listcd = new ArrayList<Yscd>();
+	@Autowired
+	private Cysgly cysgly;
 	
 	@RequestMapping("/yscd_save")
 	public void save(Yscd yscd,HttpServletRequest request){
@@ -32,7 +36,8 @@ public class YscdController extends BasicController<YscdServc> {
 	
 	@RequestMapping("/yscd_cysFindAll")
 	public String cysFindAll(Model model,HttpServletRequest request){
-		listcd = servc.cysFindAll(request.getSession().getAttribute("yhbh").toString());
+		cysgly = (Cysgly) request.getSession().getAttribute("cysgly");
+		listcd = servc.cysFindAll(String.valueOf(cysgly.getCysbh()));
 		model.addAttribute("listcd",listcd);
 		return "cys_cdcdgl";
 	}

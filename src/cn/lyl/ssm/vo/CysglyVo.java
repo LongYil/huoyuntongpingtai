@@ -2,7 +2,7 @@ package cn.lyl.ssm.vo;
 
 /**
  * <p>Title:CysglyVo</p>
- * <p>Description: 承运商管理员po</p>
+ * <p>Description: 承运商管理员vo</p>
  * @author 李银龙
  *		2017年8月18日
  *		下午5:01:50

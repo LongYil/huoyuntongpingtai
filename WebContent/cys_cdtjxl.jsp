@@ -26,7 +26,7 @@
 <body style="padding:0px;margin:0px;">
 
 	<div class="easyui-panel" style="width:100%;max-width:840px;max-height:600px;padding:30px 60px;" title="添加线路">
-		<form id="ff" action="${pageContext.request.contextPath}/wlx_save.action" class="easyui-form" method="post" data-options="novalidate:true">
+		<form id="ff" action="${pageContext.request.contextPath}/wlx_glySave.action" class="easyui-form" method="post" data-options="novalidate:true">
 			<div style="margin-bottom:20px"   id="area_address1">
 				<span class="tou">出发地址</span>
 				<select  class="mycombox" name="province" style="width:19%">
@@ -45,7 +45,6 @@
 				<select  class="mycombox" name="area" style="width:19%">
 				</select>						
 			</div>
-
 			<div style="margin-bottom:20px">
 				<input class="easyui-textbox" name="zhjg" style="width:40%" data-options="label:'重货价格',required:true">(单位:千克)						
 			</div>

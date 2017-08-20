@@ -5,12 +5,15 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import cn.lyl.ssm.po.Cysgly;
 import cn.lyl.ssm.po.Wlx;
 import cn.lyl.ssm.service.impl.WlxServc;
+import cn.lyl.ssm.vo.WlxVo;
 
 /**
  * <p>Title:WlxController</p>
@@ -22,7 +25,9 @@ import cn.lyl.ssm.service.impl.WlxServc;
 @Controller
 public class WlxController extends BasicController<WlxServc> {
 	private List<Wlx> listwlx = new ArrayList<Wlx>();
-	private String cdmc;
+	private List<WlxVo> listwlxvo = new ArrayList<WlxVo>();
+	@Autowired
+	private Cysgly cysgly;
 	
 	@RequestMapping("/wlx_save")
 	public void save(Wlx wlx,HttpServletRequest request){
@@ -32,17 +37,41 @@ public class WlxController extends BasicController<WlxServc> {
 	
 	@RequestMapping("/wlx_findAll")
 	public String findAll(Model model,HttpServletRequest request){
+		listwlx.clear();
 		listwlx = servc.findAll(request.getSession().getAttribute("yhbh").toString());
 		model.addAttribute("listwlx", listwlx);
 		return "cys_xlgl";
 	}
+	
 	@RequestMapping("wlx_findByGlybh")
-	public String findByGlybh(String id,String mc,Model model){
-		System.out.println(id);
+	public String findByGlybh(String id,String mc,Model model,HttpServletRequest request){
+		listwlx.clear();
+		cysgly = (Cysgly)request.getSession().getAttribute("cysgly");
+		listwlx = servc.findByCysid(String.valueOf(cysgly.getYhbh()));
 		
-		cdmc = mc;
-		
-		model.addAttribute("cdmc",cdmc);
+		request.getSession().setAttribute("cdwlxid",id);
+		model.addAttribute("listwlx",listwlx);
+		model.addAttribute("cdxlmc",mc);
+		model.addAttribute("cdxlid",id);
 		return "cys_cdxlgl";
 	}
+	
+	@RequestMapping("wlx_glySave")
+	public void glySave(Wlx wlx,HttpServletRequest request){
+		cysgly = (Cysgly)request.getSession().getAttribute("cysgly");
+		wlx.setCdbh(Integer.parseInt(request.getSession().getAttribute("cdwlxid").toString()));
+		wlx.setYhbh(cysgly.getYhbh());
+		wlx.setCysbh(cysgly.getCysbh());
+		servc.save(wlx);
+	}
+	@RequestMapping("wlx_glyfindByYhbh")
+	public String glyfindByYhbh(Model model,HttpServletRequest request){
+		cysgly = (Cysgly)request.getSession().getAttribute("cysgly");
+		listwlxvo.clear();
+		listwlxvo = servc.findByCysYhid(cysgly.getYhbh().toString());
+		model.addAttribute("listwlxvo",listwlxvo);
+		return "cys_cdsyxl";
+	}
+	
+
 }
