@@ -9,6 +9,7 @@ package cn.lyl.ssm.vo;
  */
 public class CysglyVo {
 	private Integer id;
+	private Integer yhbh;
 	private String yhm;
 	private String yhsj;
 	private String yhxm;
@@ -70,6 +71,12 @@ public class CysglyVo {
 	}
 	public void setId(Integer id) {
 		this.id = id;
+	}
+	public Integer getYhbh() {
+		return yhbh;
+	}
+	public void setYhbh(Integer yhbh) {
+		this.yhbh = yhbh;
 	}
 	
 	

@@ -43,20 +43,19 @@ public class WlxController extends BasicController<WlxServc> {
 		return "cys_xlgl";
 	}
 	
-	@RequestMapping("wlx_findByGlybh")
-	public String findByGlybh(String id,String mc,Model model,HttpServletRequest request){
+	@RequestMapping("wlx_findByCdid")//根据车队编号查询该车队的所有线路
+	public String findByCdid(String id,String mc,Model model,HttpServletRequest request){
 		listwlx.clear();
 		cysgly = (Cysgly)request.getSession().getAttribute("cysgly");
-		listwlx = servc.findByCysid(String.valueOf(cysgly.getYhbh()));
-		
+		listwlx = servc.findByCdid(id);
 		request.getSession().setAttribute("cdwlxid",id);
 		model.addAttribute("listwlx",listwlx);
 		model.addAttribute("cdxlmc",mc);
 		model.addAttribute("cdxlid",id);
 		return "cys_cdxlgl";
 	}
-	
-	@RequestMapping("wlx_glySave")
+
+	@RequestMapping("wlx_glySave")//承运商用户保存运输线路
 	public void glySave(Wlx wlx,HttpServletRequest request){
 		cysgly = (Cysgly)request.getSession().getAttribute("cysgly");
 		wlx.setCdbh(Integer.parseInt(request.getSession().getAttribute("cdwlxid").toString()));
@@ -64,7 +63,7 @@ public class WlxController extends BasicController<WlxServc> {
 		wlx.setCysbh(cysgly.getCysbh());
 		servc.save(wlx);
 	}
-	@RequestMapping("wlx_glyfindByYhbh")
+	@RequestMapping("wlx_glyfindByYhbh")//
 	public String glyfindByYhbh(Model model,HttpServletRequest request){
 		cysgly = (Cysgly)request.getSession().getAttribute("cysgly");
 		listwlxvo.clear();

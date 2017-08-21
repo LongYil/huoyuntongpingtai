@@ -48,8 +48,8 @@ public class WlxDaoImpl extends CommonDaoImpl<Wlx> implements WlxDao {
 	}
 
 	@Override
-	public List<Wlx> findByCysid(String arg) {
-		return (List<Wlx>) ht.find("from Wlx where cysbh = "+arg+"");
+	public List<Wlx> findByCdid(String arg) {
+		return (List<Wlx>) ht.find("from Wlx where cdbh = "+arg+"");
 	}
 
 	@Override

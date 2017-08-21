@@ -7,7 +7,7 @@ import cn.lyl.ssm.vo.WlxVo;
 
 public interface WlxDao {
 	List<Wlx> findAll(String arg);
-	List<Wlx> findByCysid(String arg);
+	List<Wlx> findByCdid(String arg);
 	List<WlxVo> findByCysYhid(String arg);
 	
 }

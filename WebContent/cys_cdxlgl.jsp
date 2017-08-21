@@ -78,8 +78,6 @@
 		</div>
 	</div>
 
-
-
 	<script type="text/javascript">
 		var index = 0;
 		function addPanel(){
@@ -98,8 +96,8 @@
 		}
 		function sxxl(){
 			var id = $(".cdxlid").val();
-			var mc = $("cdxlmc").val();
-			window.location="wlx_findByGlybh.action?id="+id+"&&mc="+mc;
+			var mc = $(".cdxlmc").val();
+			window.location="wlx_findByCdid.action?id="+id+"&&mc="+mc;
 		}
 		
 		function sxcd(){

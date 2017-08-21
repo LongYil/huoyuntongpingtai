@@ -30,6 +30,7 @@
 		<thead>
 			<tr>
 				<th data-options="field:'a',width:40,align:'center'">序号</th>
+				<th data-options="field:'k',width:60,align:'center'">用户id</th>
 				<th data-options="field:'b',width:120,align:'center'">用户名(帐户名)</th>
 				<th data-options="field:'c',width:120,align:'center'">用户手机号</th>
 				<th data-options="field:'d',width:120,align:'center'">用户姓名</th>
@@ -44,6 +45,7 @@
 				<c:forEach items="${listvo}" var="item" begin="0" step="1" varStatus="status">
 				<tr>
 				    <td>${status.index+1}</td>
+					<td>${item.yhbh}</td>
 					<td>${item.yhm}</td>
 					<td>${item.yhsj}</td>
 					<td>${item.yhxm}</td>
@@ -52,7 +54,6 @@
 					<td>${item.szsf}</td>
 					<td>${item.szcs}</td>
 					<td>${item.szx}</td>
-
 				</tr>
 				</c:forEach>
 		</tbody>

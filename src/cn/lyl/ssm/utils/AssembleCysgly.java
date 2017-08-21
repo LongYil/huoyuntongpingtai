@@ -31,6 +31,7 @@ public class AssembleCysgly {
 		for(int i=0;i<size;i++){
 			cv = new CysglyVo();
 			cv.setId(i);
+			cv.setYhbh(list1.get(i).getYhbh());
 			cv.setYhm(list1.get(i).getYhm());
 			cv.setYhxm(list1.get(i).getYhxm());
 			cv.setYhsj(list1.get(i).getYhsj());

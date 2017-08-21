@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import cn.lyl.ssm.po.Clxx;
 import cn.lyl.ssm.po.Cysgly;
 import cn.lyl.ssm.service.impl.ClxxServc;
+import cn.lyl.ssm.vo.ClxxVo;
 
 /**
  * <p>Title:ClxxController</p>
@@ -29,21 +30,21 @@ public class ClxxController extends BasicController<ClxxServc> {
 	private Cysgly cysgly;
 
 	private List<Clxx> listclxx = new ArrayList<Clxx>();;
+	private List<ClxxVo> listclxxvo = new ArrayList<ClxxVo>();
 	
-	@RequestMapping("/clxx_save")
+	@RequestMapping("/clxx_save")//个人车主保存车辆信息
 	public void save(Clxx clxx,HttpServletRequest request){
 		clxx.setYhbh(Integer.parseInt(request.getSession().getAttribute("yhbh").toString()));
-
 		servc.save(clxx);
 	}
 	
-	@RequestMapping("/clxx_gr_find")
+	@RequestMapping("/clxx_gr_find")//个人车主查询车辆信息
 	public String find(Model model,HttpServletRequest request){
 		clxx = servc.find(request.getSession().getAttribute("yhbh").toString());
 		model.addAttribute("clxx",clxx);
 		return "cys_grclgl";
 	}
-	@RequestMapping("/clxx_glyFindById")
+	@RequestMapping("/clxx_glyFindById")//根据车队id查询该车队的所有车辆
 	public String glyFindById(String id,String mc,Model model,HttpServletRequest request){
 		request.getSession().setAttribute("cdclid",id);
 		listclxx = servc.findByCdid(id);
@@ -53,7 +54,7 @@ public class ClxxController extends BasicController<ClxxServc> {
 		return "cys_cdclgl";
 	}
 
-	@RequestMapping("clxx_cd_save")
+	@RequestMapping("clxx_cd_save")//运输车队用户保存车辆信息
 	public void cd_save(Clxx clxx,HttpServletRequest request){
 		cysgly = (Cysgly) request.getSession().getAttribute("cysgly");
 		clxx.setCdbh(Integer.parseInt(request.getSession().getAttribute("cdclid").toString()));
@@ -61,6 +62,12 @@ public class ClxxController extends BasicController<ClxxServc> {
 		clxx.setCysbh(cysgly.getCysbh());
 		servc.save(clxx);
 	}
-	
+	@RequestMapping("clxx_yhFindAll")
+	public String yhFindAll(Model model,HttpServletRequest request){
+		listclxxvo.clear();
+		listclxxvo = servc.findByYhbh(request.getSession().getAttribute("yhbh").toString());
+		model.addAttribute("listclxxvo",listclxxvo);
+		return "cys_cdsycl";
+	}
 	
 }

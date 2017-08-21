@@ -66,12 +66,14 @@ public class CysglyController extends BasicController<CysglyServc> {
 		servc.save(cysgly);
 		request.getSession().setAttribute("yhbh", jbyh.getYhbh());
 		request.getSession().setAttribute("jbyh", jbyh);
+		request.getSession().setAttribute("cysgly", cysgly);
 		
 		if(type==3){
 			return "cys_grindex";
 		}else{
 			return "cys_cdindex";
 		}
+		
 	}
 	@RequestMapping("/cys_updategly")
 	public String updategly(String[] info,HttpServletRequest request){
@@ -122,7 +124,7 @@ public class CysglyController extends BasicController<CysglyServc> {
 		listjbyh = jbyhServc.findAllGly(listgly);
 		listvo = assembleCysgly.getAllVo(listjbyh, listgly);
 		model.addAttribute("listvo", listvo);
-		System.out.println(listgly+"*"+listjbyh+"*"+listvo);
+
 		return "cys_cdzhgl";
 	}
 	

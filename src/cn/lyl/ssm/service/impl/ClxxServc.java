@@ -7,6 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import cn.lyl.ssm.daoImpl.ClxxDaoImpl;
 import cn.lyl.ssm.po.Clxx;
+import cn.lyl.ssm.vo.ClxxVo;
 
 @Transactional
 @Service(value="clxxServc")
@@ -35,6 +36,9 @@ public class ClxxServc extends CommonSevc<Clxx, ClxxDaoImpl>{
 
 	public List<Clxx> findByCdid(String arg) {
 		return daoImpl.findByCdid(arg);
+	}
+	public List<ClxxVo> findByYhbh(String arg){
+		return daoImpl.findByYhbh(arg);
 	}
 	
 	

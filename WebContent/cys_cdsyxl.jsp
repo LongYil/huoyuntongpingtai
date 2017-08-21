@@ -65,15 +65,7 @@
 	</div>
 
 	<script type="text/javascript">
-		var index = 0;
-		function addPanel(){
-			index++;
-			$('#tt').tabs('add',{
-				title: '添加线路',
-				content: '<iframe src="cys_cdtjxl.jsp" frameborder="0" style="padding:5px;width:830px;height:500px;"></iframe>',
-				closable: true
-			});
-		}
+
 		function getSelected(){
 			var row = $('#dg').datagrid('getSelected');
 			if (row){
@@ -83,12 +75,9 @@
 		function sxxl(){
 			var id = $(".cdxlid").val();
 			var mc = $("cdxlmc").val();
-			window.location="wlx_findByGlybh.action?id="+id+"&&mc="+mc;
+			window.location="wlx_glyfindByYhbh.action";
 		}
-		
-		function sxcd(){
-			window.location = "yscd_cysFindAll.action";
-		}
+
 	</script>
 </body>
 </html>

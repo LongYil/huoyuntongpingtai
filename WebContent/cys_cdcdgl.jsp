@@ -81,7 +81,7 @@
 			if (row){
 				var id = row.id;
 				var mc = row.b;
-				window.location = "wlx_findByGlybh.action?id="+id+"&&mc="+mc;;
+				window.location = "wlx_findByCdid.action?id="+id+"&&mc="+mc;;
 			}
 		}
 		function sxcd(){

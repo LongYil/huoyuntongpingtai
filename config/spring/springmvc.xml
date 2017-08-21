@@ -33,7 +33,7 @@
 <!-- 	使用mvc:annotation-driven代替上边注解映射器和适配器的设置
 		mvc:annotation-driven默认加载很多的参数绑定方法，比如json的转换解析器
 		默认加载，如果使用mvc:annotation-driven就不用配置上边的了	 -->
-	<mvc:annotation-driven conversion-service="conversion-Service">
+	<mvc:annotation-driven >
  
 	</mvc:annotation-driven>
 	
@@ -53,20 +53,7 @@
 		<property name="prefix" value="/"/>
 		<property name="suffix" value=".jsp"/>
 	</bean>
-
-<!--     自定义参数绑定bean -->
-    <bean id="conversion-Service" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
-<!--          转换器 -->
-        <property name="converters">
-           <list>
-<!--            日期类型转换器 -->
-             <bean class="cn.lyl.ssm.controller.converter.CustomDateConverter"/>
-           </list>
-        </property>
-    </bean>
-    
-    
-    
+   
     
 
 </beans> 

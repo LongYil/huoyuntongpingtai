@@ -46,20 +46,20 @@
 			</tr>
 		</thead>
 		<tbody>
-				<c:forEach items="${listclxx}" var="item" begin="0" step="1" varStatus="status">
+				<c:forEach items="${listclxxvo}" var="item" begin="0" step="1" varStatus="status">
 				<tr>
 				    <td>${status.index+1}</td>
-				    <td>${item.id}</td>
-				    <td>${cdmc}</td>
-					<td>${item.cph}</td>
-					<td>${item.cllx}</td>
-					<td>${item.clcd}</td>
-					<td>${item.clkd}</td>
-					<td>${item.clgd}</td>
-					<td>${item.cltj}</td>
-					<td>${item.sclxr}</td>
-					<td>${item.sclxdh}</td>
-					<td>${item.clpp}</td>
+				    <td>${item.clxx.id}</td>
+				    <td>${item.cdmc}</td>
+					<td>${item.clxx.cph}</td>
+					<td>${item.clxx.cllx}</td>
+					<td>${item.clxx.clcd}</td>
+					<td>${item.clxx.clkd}</td>
+					<td>${item.clxx.clgd}</td>
+					<td>${item.clxx.cltj}</td>
+					<td>${item.clxx.sclxr}</td>
+					<td>${item.clxx.sclxdh}</td>
+					<td>${item.clxx.clpp}</td>
 				</tr>
 				</c:forEach>
 		</tbody>
@@ -75,9 +75,7 @@
 			}
 		}
 		function shuaxin(){
-			var id = $(".cdclid").val();
-			var mc = $(".cdclmc").val();
-			window.location="clxx_glyFindById.action?id="+id+"&&mc="+mc;
+			window.location="clxx_yhFindAll.action";
 		}
 	</script>
 </body>
