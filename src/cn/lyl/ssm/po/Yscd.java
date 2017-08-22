@@ -16,6 +16,7 @@ public class Yscd {
 	private Integer cdbh;//车队编号
 	private Integer cysbh;//承运商编号
 	private Integer yhbh;//用户编号（承运商管理员编号）
+	private Integer fpzt;//分配状态
 	private String cdmc;//车队名称
 	private String cdlxr;//车队联系人
 	private String cdlxdh;//车队联系电话
@@ -90,6 +91,12 @@ public class Yscd {
 	}
 	public void setKz5(String kz5) {
 		this.kz5 = kz5;
+	}
+	public Integer getFpzt() {
+		return fpzt;
+	}
+	public void setFpzt(Integer fpzt) {
+		this.fpzt = fpzt;
 	}
 	
 	

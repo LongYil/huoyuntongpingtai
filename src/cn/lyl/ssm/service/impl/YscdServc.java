@@ -34,8 +34,13 @@ public class YscdServc extends CommonSevc<Yscd, YscdDaoImpl> {
 	
 	@Override
 	public void delete(Yscd arg) {
-		//
-		
+		//	
 	}
-
+	
+	public List<Yscd> cysFindByGlyid(String arg){
+		return daoImpl.cysFindByGlyid(arg);
+	}
+	
+	
+	
 }

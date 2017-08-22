@@ -110,12 +110,11 @@ public class CysglyController extends BasicController<CysglyServc> {
 	@RequestMapping("/cys_addGly")
 	public void addGly(Jbyh jbyh,Cysgly cysgly,HttpServletRequest request){
 		jbyhServc.save(jbyh);
-
-		cysgly.setCysbh(Integer.parseInt(request.getSession().getAttribute("yhbh").toString()));
+		System.out.println(jbyh);
+		cysgly.setCysbh(jbyh.getYhbh());
 		cysgly.setHylx(3);//会员类型为3，表示该管理员是承运商分管理员
-		cysgly.setYhbh(jbyh.getYhbh());
+		cysgly.setYhbh(Integer.parseInt(request.getSession().getAttribute("yhbh").toString()));
 		servc.save(cysgly);
-		
 	}
 	//查询所有管理员
 	@RequestMapping("/cys_findAllGly")
@@ -124,7 +123,6 @@ public class CysglyController extends BasicController<CysglyServc> {
 		listjbyh = jbyhServc.findAllGly(listgly);
 		listvo = assembleCysgly.getAllVo(listjbyh, listgly);
 		model.addAttribute("listvo", listvo);
-
 		return "cys_cdzhgl";
 	}
 	

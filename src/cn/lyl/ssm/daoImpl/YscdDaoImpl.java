@@ -37,7 +37,17 @@ public class YscdDaoImpl extends CommonDaoImpl<Yscd> implements YscdDao{
 
 	@Override
 	public List<Yscd> cysFindAll(String arg) {
-		return (List<Yscd>) ht.find("from Yscd where yhbh = "+arg+"");
+		return (List<Yscd>) ht.find("from Yscd where fpzt = 0 and yhbh = "+arg+"");
 	}
 
+	@Override
+	public List<Yscd> cysFindByGlyid(String arg) {
+		return (List<Yscd>) ht.find("from Yscd where cysbh = "+arg+"");
+	}
+	
+	
+	
+	
+	
+	
 }

@@ -31,6 +31,7 @@ public class YscdController extends BasicController<YscdServc> {
 	@RequestMapping("/yscd_save")
 	public void save(Yscd yscd,HttpServletRequest request){
 		yscd.setYhbh(Integer.parseInt(request.getSession().getAttribute("yhbh").toString()));
+		yscd.setFpzt(0);
 		servc.save(yscd);
 	}
 	
@@ -41,13 +42,33 @@ public class YscdController extends BasicController<YscdServc> {
 		model.addAttribute("listcd",listcd);
 		return "cys_cdcdgl";
 	}
+
+
+	@RequestMapping("/yscd_cysFindByGlyid")
+	public String cysFindByGlyid(Model model,String id,HttpServletRequest request){
+		
+		listcd.clear();
+		listcd = servc.cysFindByGlyid(id);
+		
+		model.addAttribute("listcd",listcd);
+		model.addAttribute("glyid",id);
+		return "cys_cdzhcd";
+	}
 	
-	
-	
-	
-	
-	
-	
+	@RequestMapping("yscd_jbyhFindAllCd")
+	public String jbyhFindAllCd(Model model,HttpServletRequest request){
+		listcd.clear();
+		listcd = servc.cysFindAll(request.getSession().getAttribute("yhbh").toString());
+
+		model.addAttribute("listcd",listcd);
+		return "cys_cdzhtjcd";
+	}
+	@RequestMapping("yscd_jbyhAddCdToGly")
+	public void jbyhAddCdToGly(String[] cdbh,HttpServletRequest request){
+		
+		
+		System.out.println(cdbh);
+	}
 	
 	
 }

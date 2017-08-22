@@ -11,6 +11,7 @@
 		</id>
 		<property name="cysbh"/>
 		<property name="yhbh"/>
+		<property name="fpzt"/>		
 		<property name="cdmc" length="150"/>
 		<property name="cdlxr" length="150"/>
 		<property name="cdlxdh" length="150"/>		

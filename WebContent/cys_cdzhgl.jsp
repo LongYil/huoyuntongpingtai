@@ -15,13 +15,11 @@
 <body style="padding-top:0px; padding-bottom:0px;">
 
 <section style="width:500px;height:40px;margin-top:20px;padding-left:40px;">
-<a href="#" class="easyui-linkbutton" style="width:80px;margin-right:20px;" onclick="addPanel()">添加帐号</a>
-<a href="#" class="easyui-linkbutton" style="width:80px;" onclick="addPanel()">删除帐号</a>
+<a href="javascript:void(0)" class="easyui-linkbutton" style="width:80px;margin-right:20px;" onclick="addPanel()">添加帐号</a>
+<a href="javascript:void(0)" class="easyui-linkbutton" style="width:80px;margin-right:20px;" onclick="addPanel()">删除帐号</a>
+<a href="javascript:void(0)" class="easyui-linkbutton" style="width:110px;margin-right:20px;" onclick="chakanchedui()">查看所有车队</a>
+<a href="javascript:void(0)" class="easyui-linkbutton" style="width:80px;" onclick="shuaxin()">刷新</a>
 </section>
-
-
-
-
 
 	<div id="tt" class="easyui-tabs" data-options="tools:'#tab-tools'" style="padding:0px;width:835px;height:620px;margin-left:-20px;margin-bottom:0px;">
 	<div title="所有帐号">
@@ -30,7 +28,7 @@
 		<thead>
 			<tr>
 				<th data-options="field:'a',width:40,align:'center'">序号</th>
-				<th data-options="field:'k',width:60,align:'center'">用户id</th>
+				<th data-options="field:'id',width:60,align:'center'">用户id</th>
 				<th data-options="field:'b',width:120,align:'center'">用户名(帐户名)</th>
 				<th data-options="field:'c',width:120,align:'center'">用户手机号</th>
 				<th data-options="field:'d',width:120,align:'center'">用户姓名</th>
@@ -73,7 +71,18 @@
 				closable: true
 			});
 		}
-
+		function chakanchedui(){
+			var row = $('#dg').datagrid('getSelected');
+			if (row){
+				var id = row.id;
+				window.location = "yscd_cysFindByGlyid.action?id="+id;
+			}
+		}
+		
+		function shuaxin(){
+			window.location = "cys_findAllGly.action";
+		}
+		
 	</script>
 </body>
 </html>

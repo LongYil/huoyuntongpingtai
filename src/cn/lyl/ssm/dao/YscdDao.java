@@ -6,4 +6,5 @@ import cn.lyl.ssm.po.Yscd;
 
 public interface YscdDao {
 	List<Yscd> cysFindAll(String arg);
+	List<Yscd> cysFindByGlyid(String arg);
 }

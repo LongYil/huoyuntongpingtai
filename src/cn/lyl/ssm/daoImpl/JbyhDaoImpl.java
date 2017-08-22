@@ -65,7 +65,7 @@ public class JbyhDaoImpl extends CommonDaoImpl<Jbyh> implements JbyhDao {
 	public List<Jbyh> findAll(List<Cysgly> list) {
 		this.list.clear();
 		for (Cysgly cysgly : list) {
-			jbyh = (Jbyh) ht.find("from Jbyh where yhbh = "+cysgly.getYhbh()+"").get(0);
+			jbyh = (Jbyh) ht.find("from Jbyh where yhbh = "+cysgly.getCysbh()+"").get(0);
 			this.list.add(jbyh);
 		}
 		return this.list;
