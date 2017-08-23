@@ -110,7 +110,6 @@ public class CysglyController extends BasicController<CysglyServc> {
 	@RequestMapping("/cys_addGly")
 	public void addGly(Jbyh jbyh,Cysgly cysgly,HttpServletRequest request){
 		jbyhServc.save(jbyh);
-		System.out.println(jbyh);
 		cysgly.setCysbh(jbyh.getYhbh());
 		cysgly.setHylx(3);//会员类型为3，表示该管理员是承运商分管理员
 		cysgly.setYhbh(Integer.parseInt(request.getSession().getAttribute("yhbh").toString()));

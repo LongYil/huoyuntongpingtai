@@ -75,7 +75,8 @@
 			var row = $('#dg').datagrid('getSelected');
 			if (row){
 				var id = row.id;
-				window.location = "yscd_cysFindByGlyid.action?id="+id;
+				var mc = row.b;
+				window.location = "yscd_cysFindByGlyid.action?id="+id+"&mc="+mc;
 			}
 		}
 		

@@ -38,20 +38,21 @@ public class YscdController extends BasicController<YscdServc> {
 	@RequestMapping("/yscd_cysFindAll")
 	public String cysFindAll(Model model,HttpServletRequest request){
 		cysgly = (Cysgly) request.getSession().getAttribute("cysgly");
-		listcd = servc.cysFindAll(String.valueOf(cysgly.getCysbh()));
+		listcd = servc.jbyhFindAll(String.valueOf(cysgly.getYhbh()));
 		model.addAttribute("listcd",listcd);
 		return "cys_cdcdgl";
 	}
 
 
-	@RequestMapping("/yscd_cysFindByGlyid")
-	public String cysFindByGlyid(Model model,String id,HttpServletRequest request){
-		
+	@RequestMapping("/yscd_cysFindByGlyid")//查找运输车队管理员的所有车队，id为管理员的管理员编号
+	public String cysFindByGlyid(Model model,String id,String mc,HttpServletRequest request){
 		listcd.clear();
 		listcd = servc.cysFindByGlyid(id);
-		
+		request.getSession().setAttribute("glybh",id);
+		request.getSession().setAttribute("zhmc", mc);
 		model.addAttribute("listcd",listcd);
 		model.addAttribute("glyid",id);
+		model.addAttribute("zhmc",mc);
 		return "cys_cdzhcd";
 	}
 	
@@ -59,14 +60,14 @@ public class YscdController extends BasicController<YscdServc> {
 	public String jbyhFindAllCd(Model model,HttpServletRequest request){
 		listcd.clear();
 		listcd = servc.cysFindAll(request.getSession().getAttribute("yhbh").toString());
-
+		
 		model.addAttribute("listcd",listcd);
 		return "cys_cdzhtjcd";
 	}
-	@RequestMapping("yscd_jbyhAddCdToGly")
-	public void jbyhAddCdToGly(String[] cdbh,HttpServletRequest request){
-		
-		
+	@RequestMapping("yscd_jbyhAddCdToGly")//给承运商管理员添加车队，dcbh数组为选中的车队编号
+	public void jbyhAddCdToGly(String[] cdbh,HttpServletRequest request) throws Exception{
+		String glybh = request.getSession().getAttribute("glybh").toString();
+		servc.jbyhAddCdToGly(cdbh, glybh);
 		System.out.println(cdbh);
 	}
 	

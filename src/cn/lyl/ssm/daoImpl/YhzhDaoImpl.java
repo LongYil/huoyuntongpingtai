@@ -34,7 +34,7 @@ public class YhzhDaoImpl extends CommonDaoImpl<Yhzh> implements YhzhDao {
 
 	@Override
 	public Yhzh find(String arg) throws Exception {
-		return (Yhzh) getEntity.getEntity("Yhzh", arg,Yhzh.class);
+		return (Yhzh) getEntity.getEntity("Yhzh","yhbh",arg,Yhzh.class);
 	}
 
 }

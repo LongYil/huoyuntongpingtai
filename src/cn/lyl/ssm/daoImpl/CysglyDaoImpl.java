@@ -33,7 +33,7 @@ public class CysglyDaoImpl extends CommonDaoImpl<Cysgly> implements CysglyDao {
 
 	@Override
 	public List<Cysgly> findAll(String arg) {
-		return (List<Cysgly>) ht.find("from Cysgly where yhbh = "+arg+"");
+		return (List<Cysgly>) ht.find("from Cysgly where yhbh!=cysbh and yhbh = "+arg+"");
 	}
 	
 	
