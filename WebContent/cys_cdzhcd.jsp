@@ -30,7 +30,7 @@
 
 <span class="cdmc">帐号名称:${zhmc}</span>
 <input type="hidden" class="glyid"  value="${glyid}"/>
-<input type="hidden" class="cdclmc" value="${zhmc}"/>
+<input type="hidden" class="zhmc" value="${zhmc}"/>
 </section>
 
 	<div id="tt" class="easyui-tabs" data-options="tools:'#tab-tools'" style="padding:0px;width:835px;height:620px;margin-left:-20px;margin-bottom:0px;">

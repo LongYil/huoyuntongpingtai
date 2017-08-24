@@ -73,7 +73,7 @@
             </li>
             </dl>
 			<ul class="menu1">
-				<li><a href="javascript:void(0)"><img src="js/basic/icon/yuechaxun.png" class="itemicon">余额查询</a></li>
+				<li><a href="javascript:void(0)"  onClick="To('cys_zhye.jsp')"><img src="js/basic/icon/yuechaxun.png" class="itemicon">余额查询</a></li>
                 <li><a href="javascript:void(0)"><img src="js/basic/icon/chongzhi.png" class="itemicon">充值</a></li>
 				<li><a href="javascript:void(0)"><img src="js/basic/icon/baozhengjin.png" class="itemicon">保证金</a></li>
 				<li><a href="javascript:void(0)"><img src="js/basic/icon/tixian.png" class="itemicon">提现</a></li>
@@ -97,7 +97,7 @@
 
 	<div data-options="region:'south',border:false" style="height:50px;background:#A9FACD;padding:10px;">south region</div>
 	<div data-options="region:'center',title:'我的桌面'">
-    	<iframe class="zhuomian" frameborder="0" style="width:835px;height:680px;">
+    	<iframe class="zhuomian" frameborder="0" style="width:839px;height:680px;">
         
         
 		
