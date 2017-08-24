@@ -11,12 +11,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import cn.lyl.ssm.po.Bzj;
 import cn.lyl.ssm.po.Cys;
 import cn.lyl.ssm.po.Cysgly;
 import cn.lyl.ssm.po.Jbyh;
+import cn.lyl.ssm.po.Ptzh;
+import cn.lyl.ssm.service.impl.BzjServc;
 import cn.lyl.ssm.service.impl.CysServc;
 import cn.lyl.ssm.service.impl.CysglyServc;
 import cn.lyl.ssm.service.impl.JbyhServc;
+import cn.lyl.ssm.service.impl.PtzhServc;
 import cn.lyl.ssm.utils.AssembleCysgly;
 import cn.lyl.ssm.vo.CysglyVo;
 
@@ -34,6 +38,14 @@ public class CysglyController extends BasicController<CysglyServc> {
 	private JbyhServc jbyhServc;
 	@Autowired
 	private CysServc cysServc;
+	@Autowired
+	private PtzhServc ptzhServc;
+	@Autowired
+	private BzjServc bzjServc;
+	@Autowired
+	private Bzj bzj;
+	@Autowired
+	private Ptzh ptzh;
 	@Autowired
 	private Jbyh jbyh;
 	@Autowired
@@ -64,6 +76,12 @@ public class CysglyController extends BasicController<CysglyServc> {
 		}
 		cysServc.save(cys);
 		servc.save(cysgly);
+		ptzh.setYhbh(jbyh.getYhbh());
+		ptzh.setZhye(2000.0f);
+		bzj.setYhbh(jbyh.getYhbh());
+		bzj.setBzjje(0);
+		bzjServc.save(bzj);
+		ptzhServc.save(ptzh);
 		request.getSession().setAttribute("yhbh", jbyh.getYhbh());
 		request.getSession().setAttribute("jbyh", jbyh);
 		request.getSession().setAttribute("cysgly", cysgly);
@@ -73,7 +91,7 @@ public class CysglyController extends BasicController<CysglyServc> {
 		}else{
 			return "cys_cdindex";
 		}
-		
+
 	}
 	@RequestMapping("/cys_updategly")
 	public String updategly(String[] info,HttpServletRequest request){

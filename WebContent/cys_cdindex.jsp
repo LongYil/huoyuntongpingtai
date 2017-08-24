@@ -75,8 +75,9 @@
 			<ul class="menu1">
 				<li><a href="javascript:void(0)"  onClick="To('cys_zhye.jsp')"><img src="js/basic/icon/yuechaxun.png" class="itemicon">余额查询</a></li>
                 <li><a href="javascript:void(0)"><img src="js/basic/icon/chongzhi.png" class="itemicon">充值</a></li>
-				<li><a href="javascript:void(0)"><img src="js/basic/icon/baozhengjin.png" class="itemicon">保证金</a></li>
+				<li><a href="javascript:void(0)"  onClick="To('cys_bzj.jsp')"><img src="js/basic/icon/baozhengjin.png" class="itemicon">保证金</a></li>
 				<li><a href="javascript:void(0)"><img src="js/basic/icon/tixian.png" class="itemicon">提现</a></li>
+				<li><a href="javascript:void(0)"><img src="js/basic/icon/chongzhi.png" class="itemicon">交易记录</a></li>
 			</ul>
 		</li>  
  

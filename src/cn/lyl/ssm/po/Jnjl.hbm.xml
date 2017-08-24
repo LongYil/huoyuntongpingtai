@@ -12,6 +12,7 @@
 		<property name="yhbh"/>
 		<property name="jysj"/>
 		<property name="jyzt" length="150"/>
+		<property name="jyje"/>
 		<property name="kz1"/>
 		<property name="kz2"/>
 		<property name="kz3" length="150"/>

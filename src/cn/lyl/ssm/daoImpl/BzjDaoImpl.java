@@ -10,7 +10,7 @@ public class BzjDaoImpl extends CommonDaoImpl<Bzj> implements BzjDao {
 
 	@Override
 	public void save(Bzj entity) {
-		ht.save(entity);		
+		ht.saveOrUpdate(entity);		
 	}
 
 	@Override

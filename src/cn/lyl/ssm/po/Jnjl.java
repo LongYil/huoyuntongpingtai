@@ -17,7 +17,7 @@ import org.springframework.stereotype.Component;
 public class Jnjl {
 	private Integer id;//序号
 	private Integer yhbh;//用户编号
-	private Date jysj;//交易时间
+	private String jysj;//交易时间
 	private String jyzt;//交易主题
 	private Integer jyje;//交易金额
 	private Integer kz1;
@@ -25,6 +25,7 @@ public class Jnjl {
 	private String kz3;
 	private String kz4;
 	private String kz5;
+	
 	public Integer getId() {
 		return id;
 	}
@@ -37,10 +38,10 @@ public class Jnjl {
 	public void setYhbh(Integer yhbh) {
 		this.yhbh = yhbh;
 	}
-	public Date getJysj() {
+	public String getJysj() {
 		return jysj;
 	}
-	public void setJysj(Date jysj) {
+	public void setJysj(String jysj) {
 		this.jysj = jysj;
 	}
 	public String getJyzt() {
