@@ -11,24 +11,13 @@
 	<script type="text/javascript" src="js/basic/jquery.min.js"></script>
 	<script type="text/javascript" src="js/basic/jquery.easyui.min.js"></script>
 	<script type="text/javascript" src="js/lzx/area.js"></script>
-	<script type="text/javascript">
-        window.onload = function(){
-            var sum = document.getElementById("sum");
-            var sum = document.getElementById("sum01");
-                    var buy = document.getElementById("buy").innerText ;
-                    var give = document.getElementById("give").innerText ;
-                    document.getElementById("sum").innerText = buy*1 + give*1;
-                    document.getElementById("sum_01").innerText = buy*1 + give*1;
-
-        }
-    </script>
 	<style type="text/css">
         .zhyediv{
             width:650px;
             height:300px;
             font-size:14px;
             border: solid 1px #ddd;
-
+			margin:0 auto;
         }
         .zhyediv_header{
             width:640px;
@@ -111,7 +100,7 @@
     </style>
 </head>
 <body style="padding:0px;margin:0px;">
-<div class="easyui-panel" style="width:100%;height:678px;max-width:840px;max-height:678px;padding:30px 60px;">
+<div class="easyui-panel" style="width:100%;height:678px;max-width:840px;max-height:678px;">
     <div class="zhyediv" >
         <div class="zhyediv_header">
             	财务信息
@@ -119,12 +108,8 @@
         <div class="zhyediv_content">
             <div class="zhyediv_content_header">
                 <span class="zhye">可用余额:</span>
-                <span class="ye" id="sum_01" >200</span>
+                <span class="ye" id="sum_01" >${ptzh.zhye}</span>
                 <span class="dw">物流币</span>
-                <a class="record" href="#">清除记录</a>
-                |
-                <a class="record" href="#">充值记录</a>
-                <input type="button" value="立即充值" />
             </div>
             <div class="zhyediv_content_content">
                 <div class="left_txt">
@@ -141,12 +126,12 @@
                                     </thead>
                                     <tbody>
                                     <tr>
-                                        <td rowspan="2">long_94</td>
-                                        <td rowspan="2"><span id="sum" >500</span></td>
+                                        <td rowspan="2">${jbyh.yhm}</td>
+                                        <td rowspan="2"><span id="sum" >${ptzh.zhye}</span></td>
                                         <td >购买：<span id="buy">0</span>物流币</td>
                                     </tr>
                                     <tr>
-                                        <td>赠送：<span id="give">400</span>物流币</td>
+                                        <td>赠送：<span id="give">2000</span>物流币</td>
                                     </tr>
                                     </tbody>
                                 </table>

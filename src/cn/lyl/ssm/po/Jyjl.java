@@ -1,7 +1,5 @@
 package cn.lyl.ssm.po;
 
-import java.util.Date;
-
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
@@ -17,15 +15,18 @@ import org.springframework.stereotype.Component;
 public class Jyjl {
 	private Integer id;//序号
 	private Integer yhbh;//用户编号
-	private Date jysj;//交易时间
-	private Integer jylx;//交易类型 1：充值；2：提现
+	private String jysj;//交易时间
+	private Integer jylx;//交易类型 1：物流币充值；2：物流币提现；3:营业收入；4：缴纳保证金；5：解冻保证金；
 	private Integer jyje;//交易金额
-	private String jyzt;//交易主题
+	private Integer jyzt;//交易状态   1：申请已发起；2：交易成功；3：交易失败
+	private String jyrxm;//交易人姓名（此字段仅在用户申请充值物流币时使用）
+	private String jyrid;//交易人身份证号（此字段仅在用户申请充值物流币时使用）
 	private Integer kz1;
 	private Integer kz2;
 	private String kz3;
 	private String kz4;
 	private String kz5;
+	
 	public Integer getId() {
 		return id;
 	}
@@ -38,10 +39,10 @@ public class Jyjl {
 	public void setYhbh(Integer yhbh) {
 		this.yhbh = yhbh;
 	}
-	public Date getJysj() {
+	public String getJysj() {
 		return jysj;
 	}
-	public void setJysj(Date jysj) {
+	public void setJysj(String jysj) {
 		this.jysj = jysj;
 	}
 	public Integer getJylx() {
@@ -56,10 +57,10 @@ public class Jyjl {
 	public void setJyje(Integer jyje) {
 		this.jyje = jyje;
 	}
-	public String getJyzt() {
+	public Integer getJyzt() {
 		return jyzt;
 	}
-	public void setJyzt(String jyzt) {
+	public void setJyzt(Integer jyzt) {
 		this.jyzt = jyzt;
 	}
 	public Integer getKz1() {
@@ -92,5 +93,18 @@ public class Jyjl {
 	public void setKz5(String kz5) {
 		this.kz5 = kz5;
 	}
+	public String getJyrxm() {
+		return jyrxm;
+	}
+	public void setJyrxm(String jyrxm) {
+		this.jyrxm = jyrxm;
+	}
+	public String getJyrid() {
+		return jyrid;
+	}
+	public void setJyrid(String jyrid) {
+		this.jyrid = jyrid;
+	}
+
 
 }

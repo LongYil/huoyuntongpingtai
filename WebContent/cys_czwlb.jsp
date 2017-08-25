@@ -4,7 +4,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>缴纳保证金</title>
+	<title>充值物流币</title>
 	<link rel="stylesheet" type="text/css" href="js/basic/themes/default/easyui.css">
 	<link rel="stylesheet" type="text/css" href="js/basic/themes/icon.css">
 	<link rel="stylesheet" type="text/css" href="js/basic/demo/demo.css">
@@ -25,13 +25,20 @@
 </head>
 <body style="padding:0px;margin:0px;">
 
-	<div class="easyui-panel" style="width:100%;max-width:840px;max-height:600px;padding:30px 60px;" title="缴纳保证金">
-		<form id="ff" class="easyui-form" method="post" data-options="novalidate:true">
-
+	<div class="easyui-panel" style="width:100%;max-width:840px;max-height:600px;padding:30px 60px;" title="充值物流币">
+		<form id="ff" action="${pageContext.request.contextPath}/jyjl_cysSave.action" class="easyui-form" method="post" data-options="novalidate:true">
+			
 			<div style="margin-bottom:20px">
-				<input class="easyui-textbox" name="zhjg" id="jine" style="width:40%;margin-left:100px;" data-options="label:'缴纳金额：',required:true">&nbsp;&nbsp;(单位：物流币)				
+				<input class="easyui-textbox" name="jyje" style="width:40%" data-options="label:'充值金额',required:true">(单位:元)						
 			</div>
-
+			<div style="margin-bottom:20px">
+				<input class="easyui-textbox" name="hkrxm" style="width:40%" data-options="label:'汇款人姓名',required:true">						
+			</div>
+			<div style="margin-bottom:20px">
+				<input class="easyui-textbox" name="hkrid" style="width:40%" data-options="label:'汇款人身份证号',required:true">					
+			</div>
+			
+			
 		</form>
 		<div style="text-align:center;padding:5px 0">
 			<a href="javascript:void(0)" class="easyui-linkbutton" onclick="submitForm()" style="width:80px">提交</a>
@@ -39,14 +46,14 @@
 		</div>
 	</div>
 	<script>
-	
 		
 		function submitForm(){
 			$('#ff').form('submit',{
 				onSubmit:function(){
 					var flag = $(this).form('enableValidation').form('validate');
 					if(flag){
-						jiaona();
+						$.messager.alert('提示','提交成功!');
+						return $(this).form('enableValidation').form('validate');
 					}else{
 						$.messager.alert('温馨提示','信息不完整，请填写完整信息!','warning');
 						return false;
@@ -58,43 +65,6 @@
 			$('#ff').form('clear');
 		}
 		
-		function jiaona(){
-			var num = $("#jine").val();
-			tijiao(num);
-		}
-		
-		var rqt = null;
-		function tijiao(arg0){
-		if(window.XMLHttpRequest){//非IE浏览器
-			rqt = new XMLHttpRequest();
-		}else if(window.ActiveXObject){
-			try{
-				rqt = new ActiveXObject("Msxml2.XMLHTTP");
-			}catch(e){
-				try{
-					rqt = new ActiveXObject("Microsoft.XMLHTTP");
-				}catch(e){		
-				}
-			}
-		}
-		rqt.onreadystatechange = getresult;
-		rqt.open("POST","bzj_checkAndSave.action?info="+encodeURI(encodeURI(arg0)),false);
-		rqt.send("");
-	   };
-		
-	   function getresult(){
-		   if(rqt.readyState == 4){
-			   if(rqt.status == 200){
-				   var temp = rqt.responseText;
-				   if(temp=="true"){
-						$.messager.alert('提示','保证金缴纳成功!');
-				   }else{
-					   $.messager.alert('提示','账户余额不足,请先充值!','warning'); 
-				   }
-				};
-			   }
-		}
-
 	</script>
 </body>
 </html>

@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 public class GetDateAndTime {
 	public String getNowDate(){
 		Date date = new Date();
-		DateFormat dateFormat = new SimpleDateFormat("YYYY年MM月dd日 HH时mm分ss秒");
+		DateFormat dateFormat = new SimpleDateFormat("YYYY-MM-dd HH:mm:ss");
 		return dateFormat.format(date);
 	}
 }

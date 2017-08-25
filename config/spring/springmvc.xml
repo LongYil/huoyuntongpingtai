@@ -47,6 +47,7 @@
 <!-- 	另一个非注解的适配器 -->
 	<bean class="org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter"></bean>
 	
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/> 
 <!-- 	视图解析器 
 		解析jsp视图，默认使用jstl标签，classpath下得有jstl包-->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
