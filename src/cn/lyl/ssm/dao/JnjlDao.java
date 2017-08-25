@@ -1,7 +1,9 @@
 package cn.lyl.ssm.dao;
 
-import cn.lyl.ssm.po.Jbyh;
+import java.util.List;
+
+import cn.lyl.ssm.po.Jnjl;
 
 public interface JnjlDao {
-
+	List<Jnjl> cysFindAllJnjl(String arg);
 }

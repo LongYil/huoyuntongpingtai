@@ -1,7 +1,5 @@
 package cn.lyl.ssm.po;
 
-import java.util.Date;
-
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 

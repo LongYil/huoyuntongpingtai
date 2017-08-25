@@ -29,7 +29,7 @@
 		<form id="ff" class="easyui-form" method="post" data-options="novalidate:true">
 
 			<div style="margin-bottom:20px">
-				<input class="easyui-textbox" name="zhjg" id="jine" style="width:40%;margin-left:100px;" data-options="label:'缴纳金额：',required:true">&nbsp;&nbsp;单位：物流币				
+				<input class="easyui-textbox" name="zhjg" id="jine" style="width:40%;margin-left:100px;" data-options="label:'缴纳金额：',required:true">&nbsp;&nbsp;(单位：物流币)				
 			</div>
 
 		</form>
@@ -93,9 +93,8 @@
 				   }
 				};
 			   }
-		   }
-		   
-		
+		}
+
 	</script>
 </body>
 </html>

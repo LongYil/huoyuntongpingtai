@@ -15,7 +15,8 @@
 <body style="padding-top:0px; padding-bottom:0px;">
 
 <section style="width:500px;height:40px;margin-top:20px;padding-left:40px;">
-<a href="javascript:void(0)" class="easyui-linkbutton" style="width:80px;margin-right:20px;" onclick="addPanel()">缴纳保证金</a>
+<a href="javascript:void(0)" class="easyui-linkbutton" style="width:80px;margin-right:20px;" onclick="jiaona()">缴纳保证金</a>
+<a href="javascript:void(0)" class="easyui-linkbutton" style="width:80px;margin-right:20px;" onclick="jilu()">缴纳记录</a>
 </section>
 
 	<div id="tt" class="easyui-tabs" data-options="tools:'#tab-tools'" style="padding:0px;width:835px;height:620px;margin-left:-20px;margin-bottom:0px;">
@@ -28,7 +29,7 @@
 
 	<script type="text/javascript">
 		var index = 0;
-		function addPanel(){
+		function jiaona(){
 			index++;
 			$('#tt').tabs('add',{
 				title: '缴纳保证金',
@@ -36,7 +37,16 @@
 				closable: true
 			});
 		}
-
+		function jilu(){
+			index++;
+			$('#tt').tabs('add',{
+				title: '缴纳记录',
+				content: '<iframe src="jnjl_cysFindAllJnjl.action" frameborder="0" style="width:828px;height:580px;"></iframe>',
+				closable: true
+			});
+		}
+		
+		
 		
 	</script>
 </body>

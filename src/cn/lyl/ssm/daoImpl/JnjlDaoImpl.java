@@ -34,6 +34,11 @@ public class JnjlDaoImpl extends CommonDaoImpl<Jnjl> implements JnjlDao {
 		return null;
 	}
 
+	@Override
+	public List<Jnjl> cysFindAllJnjl(String arg) {
+		return (List<Jnjl>) ht.find("from Jnjl where yhbh = "+arg+"");
+	}
+
 
 
 }

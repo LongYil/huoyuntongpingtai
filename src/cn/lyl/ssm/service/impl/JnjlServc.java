@@ -31,8 +31,12 @@ public class JnjlServc extends CommonSevc<Jnjl, JnjlDaoImpl> {
 
 	@Override
 	public void delete(Jnjl arg) {
-		//
 		
 	}
-
+	
+	public List<Jnjl> cysFindAllJnjl(String arg){
+		return daoImpl.cysFindAllJnjl(arg);
+	}
+	
+	
 }
