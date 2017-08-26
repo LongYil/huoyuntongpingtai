@@ -1,5 +1,7 @@
 package cn.lyl.ssm.controller;
 
+import java.io.PrintWriter;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,12 +27,35 @@ public class PtzhController extends BasicController<PtzhServc> {
 	@Autowired
 	private Jbyh jbyh;
 	
-	@RequestMapping("ptzh_cysfind")
-	public String cysfind(Model model,HttpServletRequest request) throws Exception{
+	@RequestMapping("ptzh_find")
+	public String find(Model model,HttpServletRequest request) throws Exception{
+		ptzh = servc.find(request.getSession().getAttribute("yhbh").toString());
+		jbyh = (Jbyh) request.getSession().getAttribute("jbyh");
+		model.addAttribute("ptzh",ptzh);
+		model.addAttribute("jbyh",jbyh);
+		return "cys_wlb";
+	}
+	
+	@RequestMapping("ptzh_cysfind")//账户余额查询方法
+	public String findYe(Model model,HttpServletRequest request) throws Exception{
 		ptzh = servc.find(request.getSession().getAttribute("yhbh").toString());
 		jbyh = (Jbyh) request.getSession().getAttribute("jbyh");
 		model.addAttribute("ptzh",ptzh);
 		model.addAttribute("jbyh",jbyh);
 		return "cys_zhye";
 	}
+	
+	@RequestMapping("ptzh_tixian")
+	public void tixian(String info,HttpServletRequest request,PrintWriter out) throws Exception{
+		boolean result = servc.tixian(info,request.getSession().getAttribute("yhbh").toString());
+		out.write(String.valueOf(result));
+	}
+	
+	@RequestMapping("ptzh_fqtx")
+	public String fqtx(Model model,HttpServletRequest request) throws Exception{
+		ptzh = servc.find(request.getSession().getAttribute("yhbh").toString());
+		model.addAttribute("ptzh",ptzh);
+		return "cys_wlbtx";
+	}
+	
 }

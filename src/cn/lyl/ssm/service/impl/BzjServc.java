@@ -8,21 +8,21 @@ import org.springframework.transaction.annotation.Transactional;
 
 import cn.lyl.ssm.daoImpl.BzjDaoImpl;
 import cn.lyl.ssm.po.Bzj;
-import cn.lyl.ssm.po.Jnjl;
+import cn.lyl.ssm.po.Jyjl;
 import cn.lyl.ssm.po.Ptzh;
 import cn.lyl.ssm.utils.GetDateAndTime;
 import cn.lyl.ssm.utils.GetEntity;
 
 @Transactional
 @Service(value="bzjServc")
-public class BzjServc extends CommonSevc<Bzj, BzjDaoImpl> {
+public class BzjServc extends CommonSevc<Bzj,BzjDaoImpl> {
 	
 	@Autowired	
 	private PtzhServc ptzhServc;
 	@Autowired
-	private JnjlServc jnjlServc;
+	private Jyjl jyjl;
 	@Autowired
-	private Jnjl jnjl;
+	private JyjlServc jyjlServc;
 	@Autowired
 	private Ptzh ptzh;
 	@Autowired
@@ -33,7 +33,7 @@ public class BzjServc extends CommonSevc<Bzj, BzjDaoImpl> {
 	private GetDateAndTime getDateAndTime;
 	@Override
 	public void save(Bzj arg) {
-		daoImpl.save(arg);		
+		daoImpl.save(arg);
 	}
 	
 	public boolean checkAndSave(String arg,String yhbh) throws Exception{
@@ -44,12 +44,12 @@ public class BzjServc extends CommonSevc<Bzj, BzjDaoImpl> {
 			ptzh.setZhye(ptzh.getZhye()-num);
 			bzj.setBzjje(bzj.getBzjje()+num);
 			daoImpl.save(bzj);
-			
-			jnjl.setJyje(num);
-			jnjl.setJysj(getDateAndTime.getNowDate());
-			jnjl.setJyzt("缴纳保证金");
-			jnjl.setYhbh(Integer.parseInt(yhbh));
-			jnjlServc.save(jnjl);
+			jyjl.setJyje(num);
+			jyjl.setJysj(getDateAndTime.getNowDate());
+			jyjl.setJyzt(2);
+			jyjl.setJylx(4);
+			jyjl.setYhbh(Integer.parseInt(yhbh));
+			jyjlServc.save(jyjl);
 			return true;
 		}else{
 			return false;
@@ -69,8 +69,27 @@ public class BzjServc extends CommonSevc<Bzj, BzjDaoImpl> {
 
 	@Override
 	public void delete(Bzj arg) {
-		//
 		
+	}
+	
+	public boolean cysFqjd(String num,String yhbh) throws Exception{
+		bzj = this.find("yhbh");
+		if(bzj.getBzjje()>Integer.parseInt(num)|bzj.getBzjje()==Integer.parseInt(num)){
+			jyjl.setJyje(Integer.parseInt(num));
+			jyjl.setJysj(getDateAndTime.getNowDate());
+			jyjl.setJyzt(1);
+			jyjl.setJylx(5);
+			jyjl.setYhbh(Integer.parseInt(yhbh));
+			
+			bzj.setBzjje(bzj.getBzjje()-Integer.parseInt(num));
+			
+			daoImpl.save(bzj);
+			jyjlServc.save(jyjl);
+			return true;
+		}else{
+			return false;
+		}
+
 	}
 
 }

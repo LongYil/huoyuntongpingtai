@@ -5,7 +5,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>保证金</title>
+	<title>物流币</title>
 	<link rel="stylesheet" type="text/css" href="js/basic/themes/default/easyui.css">
 	<link rel="stylesheet" type="text/css" href="js/basic/themes/icon.css">
 	<link rel="stylesheet" type="text/css" href="js/basic/demo/demo.css">
@@ -102,27 +102,27 @@
 <body style="padding-top:0px; padding-bottom:0px;">
 
 <section style="width:500px;height:40px;margin-top:20px;padding-left:40px;">
-<a href="javascript:void(0)" class="easyui-linkbutton" style="width:80px;margin-right:20px;" onclick="jiaona()">缴纳保证金</a>
-<a href="javascript:void(0)" class="easyui-linkbutton" style="width:80px;margin-right:20px;" onclick="jiedong()">申请解冻</a>
-<a href="javascript:void(0)" class="easyui-linkbutton" style="display:inline-block;width:80px;margin-right:20px;" onclick="jilu()">缴纳记录</a>
-<a href="javascript:void(0)" class="easyui-linkbutton" style="width:80px;margin-right:20px;" onclick="jiedongjilu()">解冻记录</a>
+<a href="javascript:void(0)" class="easyui-linkbutton" style="width:80px;margin-right:20px;" onclick="chongzhi()">充值物流币</a>
+<a href="javascript:void(0)" class="easyui-linkbutton" style="width:80px;margin-right:20px;" onclick="tixian()">申请提现</a>
+<a href="javascript:void(0)" class="easyui-linkbutton" style="width:80px;margin-right:20px;" onclick="chongzhijilu()">充值记录</a>
+<a href="javascript:void(0)" class="easyui-linkbutton" style="width:80px;margin-right:20px;" onclick="tixianjilu()">提现记录</a>
 </section>
 
 	<div id="tt" class="easyui-tabs" data-options="tools:'#tab-tools'" style="padding:0px;width:835px;height:620px;margin-left:-20px;margin-bottom:0px;">
-		<div title="保证金">
+		<div title="物流币">
 		<div class="zhyediv" >
         <div class="zhyediv_header">
-            	保证金
+            	物流币
         </div>
         <div class="zhyediv_content">
             <div class="zhyediv_content_header">
-                <span class="zhye">已缴纳保证金金额:</span>
-                <span class="ye" id="sum_01" >${bzj.bzjje}</span>
+                <span class="zhye">当前账户余额:</span>
+                <span class="ye" id="sum_01" >${ptzh.zhye}</span>
                 <span class="dw">物流币</span>
-                <a class="record" href="javascript:void(0)" onclick="jiedongjilu()">解冻记录</a>
+                <a class="record" href="javascript:void(0)" onclick="tixianjilu()">提现记录</a>
                 |
-                <a class="record" href="javascript:void(0)" onClick="jilu()">缴纳记录</a>
-                <input type="button" value="立即缴纳" onClick="jiaona()"/>
+                <a class="record" href="javascript:void(0)" onClick="chongzhijilu()">充值记录</a>
+                <input type="button" value="立即充值" onClick="chongzhi()"/>
             </div>
             <div class="zhyediv_content_content">
                 <div class="left_txt">
@@ -133,8 +133,8 @@
                                     <thead>
                                     <tr class="table_first">
                                         <td >账户名</td>
-                                        <td >可用余额</td>
-                                        <td >购买物流币/赠送物流币</td>
+                                        <td >可用余额</th>
+                                        <td >购买物流币/赠送物流币</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -160,37 +160,37 @@
 
 	<script type="text/javascript">
 		var index = 0;
-		function jiaona(){
+		function chongzhi(){
 			index++;
 			$('#tt').tabs('add',{
-				title: '缴纳保证金',
-				content: '<iframe src="cys_bzjjn.jsp" frameborder="0" style="padding:5px;width:820px;height:500px;"></iframe>',
+				title: '充值物流币',
+				content: '<iframe src="cys_czwlb.jsp" frameborder="0" style="padding:5px;width:820px;height:500px;"></iframe>',
 				closable: true
 			});
 		}
-		function jilu(){
+		function chongzhijilu(){
 			index++;
 			$('#tt').tabs('add',{
-				title: '缴纳记录',
-				content: '<iframe src="jyjl_FindJnjl.action" frameborder="0" style="width:828px;height:580px;"></iframe>',
+				title: '充值记录',
+				content: '<iframe src="jyjl_FindCzjl.action" frameborder="0" style="width:828px;height:580px;"></iframe>',
 				closable: true
 			});
 		}
 			
-		function jiedong(){
+		function tixian(){
 			index++;
 			$('#tt').tabs('add',{
-				title: '申请解冻',
-				content: '<iframe src="bzj_cysSqjd.action" frameborder="0" style="width:828px;height:580px;"></iframe>',
+				title: '申请提现',
+				content: '<iframe src="ptzh_fqtx.action" frameborder="0" style="width:828px;height:580px;"></iframe>',
 				closable: true
 			});
 		}
 		
-		function jiedongjilu(){
+		function tixianjilu(){
 			index++;
 			$('#tt').tabs('add',{
-				title: '解冻记录',
-				content: '<iframe src="jyjl_FindJdjl.action" frameborder="0" style="width:828px;height:580px;"></iframe>',
+				title: '提现记录',
+				content: '<iframe src="jyjl_FindTxjl.action" frameborder="0" style="width:828px;height:580px;"></iframe>',
 				closable: true
 			});
 		}

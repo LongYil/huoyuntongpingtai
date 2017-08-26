@@ -26,11 +26,15 @@ public class AssembleJyjl {
 	private Jyjl jyjl;
 	
 	public List<JyjlVo> getJyjyVo(List<Jyjl> listjyjl){
+		
+		listvo.clear();
 		for(int i=0;i<listjyjl.size();i++){
 			jyjl = listjyjl.get(i);
 			jyjlvo = new JyjlVo();
 
 			jyjlvo.setId(i);
+			jyjlvo.setJysj(jyjl.getJysj());
+			
 			jyjlvo.setJyje(String.valueOf(jyjl.getJyje()));
 			jyjlvo.setJyrxm(jyjl.getJyrxm());
 			jyjlvo.setJyrid(jyjl.getJyrid());

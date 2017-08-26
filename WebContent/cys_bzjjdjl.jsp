@@ -5,7 +5,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>保证金缴纳记录</title>
+	<title>保证金解冻记录</title>
 	<link rel="stylesheet" type="text/css" href="js/basic/themes/default/easyui.css">
 	<link rel="stylesheet" type="text/css" href="js/basic/themes/icon.css">
 	<link rel="stylesheet" type="text/css" href="js/basic/demo/demo.css">
@@ -43,9 +43,5 @@
 		</tbody>
 		</table>
 	</div>
-	<script>
-	
-	</script>
-
 </body>
 </html>

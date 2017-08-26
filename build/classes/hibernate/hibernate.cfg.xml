@@ -33,7 +33,6 @@
 		<mapping resource="cn/lyl/ssm/po/Hydld.hbm.xml"/>
 		<mapping resource="cn/lyl/ssm/po/Hygly.hbm.xml"/>
 		<mapping resource="cn/lyl/ssm/po/Jbyh.hbm.xml"/>
-		<mapping resource="cn/lyl/ssm/po/Jnjl.hbm.xml"/>
 		<mapping resource="cn/lyl/ssm/po/Jyjl.hbm.xml"/>
 		<mapping resource="cn/lyl/ssm/po/Lxr.hbm.xml"/>
 		<mapping resource="cn/lyl/ssm/po/Ptgly.hbm.xml"/>

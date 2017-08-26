@@ -46,10 +46,10 @@
 				</select>						
 			</div>
 			<div style="margin-bottom:20px">
-				<input class="easyui-textbox" name="zhjg" style="width:40%" data-options="label:'重货价格',required:true">(单位:千克)						
+				<input class="easyui-textbox" name="zhjg" style="width:40%" data-options="label:'重货价格',required:true">(单位:元/千克)						
 			</div>
 			<div style="margin-bottom:20px">
-				<input class="easyui-textbox" name="qhjg" style="width:40%" data-options="label:'轻货价格',required:true">(单位:立方米)						
+				<input class="easyui-textbox" name="qhjg" style="width:40%" data-options="label:'轻货价格',required:true">(单位:元/立方米)						
 			</div>
 			<div style="margin-bottom:20px">
 				<input class="easyui-textbox" name="yssx" style="width:40%" data-options="label:'运输时效',required:true">(单位:天)
@@ -57,7 +57,7 @@
 			<div style="margin-bottom:20px">
 				<input class="easyui-textbox" name="fcpl" style="width:40%" data-options="label:'发车频率',required:true">(单位:天/次)
 			</div>
-			
+
 		<input type="hidden" name="cfsf" id="cfsf"/>
         <input type="hidden" name="cfcs" id="cfcs"/>
         <input type="hidden" name="cfx" id="cfx"/>
