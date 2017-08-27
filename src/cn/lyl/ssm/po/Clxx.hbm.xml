@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.hibernate.tutorial.hbm">
+
+	<class name="cn.lyl.ssm.po.Clxx" table="Clxx">
+		<id name="id">
+			<generator class="native"></generator>
+		</id>
+		<property name="cysbh"/>
+		<property name="yhbh"/>
+		<property name="cdbh"/>
+		<property name="cph" length="150"/>
+		<property name="cllx" length="150"/>
+		<property name="clcd"/>
+		<property name="clkd"/>
+		<property name="clgd"/>
+		<property name="cltj"/>
+		<property name="sclxr" length="150"/>
+		<property name="sclxdh" length="150"/>
+		<property name="clpp" length="150"/>
+		<property name="kz1"/>
+		<property name="kz2"/>
+		<property name="kz3" length="150"/>
+		<property name="kz4" length="150"/>
+		<property name="kz5" length="150"/>
+
+	</class>
+
+</hibernate-mapping>

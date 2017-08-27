@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>DataGrid Selection - jQuery EasyUI Demo</title>
+	<link rel="stylesheet" type="text/css" href="../../themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../../themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="../demo.css">
+	<script type="text/javascript" src="../../jquery.min.js"></script>
+	<script type="text/javascript" src="../../jquery.easyui.min.js"></script>
+</head>
+<body>
+	<h2>DataGrid Selection</h2>
+	<p>Choose a selection mode and select one or more rows.</p>
+	<div style="margin:20px 0;">
+		<a href="#" class="easyui-linkbutton" onclick="getSelected()">GetSelected</a>
+		<a href="#" class="easyui-linkbutton" onclick="getSelections()">GetSelections</a>
+	</div>
+	<table id="dg" class="easyui-datagrid" title="DataGrid Selection" style="width:700px;height:250px"
+			data-options="singleSelect:true,url:'datagrid_data1.json',method:'get'">
+		<thead>
+			<tr>
+				<th data-options="field:'a',width:80,align:'center'">Item ID</th>
+				<th data-options="field:'b',width:80,align:'center'">Product</th>
+				<th data-options="field:'c',width:80,align:'center'">List Price</th>
+				<th data-options="field:'d',width:80,align:'center'">Unit Cost</th>
+				<th data-options="field:'e',width:80,align:'center'">Attribute</th>
+				<th data-options="field:'f',width:80,align:'center'">Status</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td >1</td>
+				<td >苹果</td>
+				<td >10.5</td>
+				<td >200</td>
+				<td >安徽</td>
+				<td >运输中</td>
+			</tr>
+		</tbody>
+	</table>
+	<div style="margin:10px 0;">
+		<span>Selection Mode: </span>
+		<select onchange="$('#dg').datagrid({singleSelect:(this.value==0)})">
+			<option value="0">Single Row</option>
+			<option value="1">Multiple Rows</option>
+		</select>
+	</div>
+	<script type="text/javascript">
+		function getSelected(){
+			var row = $('#dg').datagrid('getSelected');
+			if (row){
+				$.messager.alert('Info', row.a+":"+row.b+":"+row.c);
+			}
+		}
+		function getSelections(){
+			var ss = [];
+			var rows = $('#dg').datagrid('getSelections');
+			for(var i=0; i<rows.length; i++){
+				var row = rows[i];
+				ss.push('<span>'+row.itemid+":"+row.productid+":"+row.attr1+'</span>');
+			}
+			$.messager.alert('Info', ss.join('<br/>'));
+		}
+	</script>
+</body>
+</html>

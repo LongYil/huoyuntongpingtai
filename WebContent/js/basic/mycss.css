@@ -1,0 +1,107 @@
+.pagehead{
+	height:160px;
+	width:1040px;
+	background-color:#33C5B1;
+}
+ul li{
+	margin:0px;
+	list-style:none;
+	display:inline-block;
+	width:145px;
+	height:20px;
+	line-height:20px;
+	font-weight:bold;
+	color:#0e2d5f;
+	padding:5px;
+}
+.fatheritem{
+	margin-top:15px;
+}
+ul li ul{
+	margin-top:5px;
+	margin-left:-40px;
+}
+ul li ul li{
+	margin-left:5px;
+	width:145px;
+	padding:0px;
+	height:30px;
+	margin-top:0px;
+	border-bottom:#A49F9F 1px solid;
+}
+ul li ul li :hover{
+	background-color:#f9ec88;
+	font-weight:bold;
+}
+ul li ul li a{
+	margin-left:-5px;
+	padding-left:15px;
+	display:inline-block;
+	width:140px;
+	height:30px;
+	line-height:30px;
+	color:#000000;
+	background-color:#ffffff;
+	font-weight:normal;
+}
+.biaotia{
+	margin:0px;
+	padding:0px;
+}
+
+ul li a{
+	display:inline-block;
+	width:145px;
+	color:#0e2d5f;
+	font-weight:bold;
+	text-decoration:none;
+}
+.menuicon{
+	width:16px;
+	height:16px;
+	margin-top:4px;
+	margin-left:5px;
+	margin-right:10px;
+	float:left;
+}
+.itemicon{
+	width:14px;
+	height:14px;
+	margin-top:9px;
+	margin-left:5px;
+	margin-right:8px;
+	float:left;
+}
+.menubox{
+	margin:0px;
+	padding:0px;
+	margin-top:-20px;
+}
+.info{
+	float:left;
+	margin-top:40px;
+	margin-left:10px;
+	font-size:16px;
+	color:#0e2d5f;
+	font-weight:bold;
+}
+.info2{
+	color:#FC0105;
+}
+.logo{
+	display:inline-block; 
+	width:190px; 
+	height:75px;
+	float:left;
+}
+
+
+ul li dl{
+	margin-bottom:-4px;
+}
+
+
+
+
+
+

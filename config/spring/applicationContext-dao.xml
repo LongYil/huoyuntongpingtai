@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<beans xmlns="http://www.springframework.org/schema/beans"        
+    xmlns:mvc="http://www.springframework.org/schema/mvc"     
+    xmlns:tx="http://www.springframework.org/schema/tx"  
+    xmlns:aop="http://www.springframework.org/schema/aop"  
+    xmlns:context="http://www.springframework.org/schema/context"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"              
+    xsi:schemaLocation="                                               
+            http://www.springframework.org/schema/beans    
+            http://www.springframework.org/schema/beans/spring-beans.xsd    
+            http://www.springframework.org/schema/context     
+            http://www.springframework.org/schema/context/spring-context.xsd    
+            http://www.springframework.org/schema/mvc    
+            http://www.springframework.org/schema/mvc/spring-mvc.xsd  
+            http://www.springframework.org/schema/tx   
+            http://www.springframework.org/schema/tx/spring-tx.xsd  
+            http://www.springframework.org/schema/aop  
+            http://www.springframework.org/schema/aop/spring-aop.xsd ">  
+<!-- 		加载配置文件 
+			db.properties中的key要有一定的特殊规则-->
+	<context:property-placeholder location="classpath:db.properties"/>
+<!--     配置数据源，使用dbcp -->
+    <bean id="datas"  
+          class="org.apache.commons.dbcp.BasicDataSource">  
+        <property name="driverClassName" value="${jdbc.driver}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/> 
+        <property name="maxActive" value="10"/>   
+        <property name="maxIdle" value="5"/>  
+    </bean>
+
+<!-- 		sessionFactory创建交给spring管理 
+			配置sessionFactory创建						-->
+		<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean"> 
+<!-- 			因为在hibernate核心配置文件中，没有数据库配置，数据库配置在spring里面，所以需要注入数据库信息  指定数据库信息 -->
+				<property name="dataSource" ref="datas"></property>
+<!-- 			指定使用hibernate核心配置文件位置	 -->
+				<property name="configLocations" value="classpath:hibernate/hibernate.cfg.xml"></property>
+		</bean>    	
+    	
+    	<!-- 		创建hibernateTemplate对象   注入sessionFactory -->
+		<bean id="hibernateTemplate" class="org.springframework.orm.hibernate4.HibernateTemplate">
+<!-- 			注入sessionFactory -->
+				<property name="sessionFactory" ref="sessionFactory"></property>
+		</bean>
+
+<!-- 		配置事务 -->
+<!-- 		第一步  配置事务管理器   注入sessionFactory -->
+		<bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+<!-- 			注入sessionFactory -->
+			<property name="sessionFactory" ref="sessionFactory"></property>
+		</bean>
+		
+		<!-- 第二步 开始事务注解 -->
+		<tx:annotation-driven transaction-manager="transactionManager"></tx:annotation-driven>
+
+<!-- 	开启注解扫描 -->
+<!-- 		1 到包里面扫描类、方法、属性上面是否有注解 -->
+		<context:component-scan base-package="cn.lyl.ssm"></context:component-scan>
+<!-- 		只会扫描属性上面的注解 -->
+	
+	
+</beans> 
