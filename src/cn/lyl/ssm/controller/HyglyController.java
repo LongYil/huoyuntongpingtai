@@ -35,14 +35,29 @@ public class HyglyController extends BasicController<HyglyServc> {
 	private Hygly hygly;
 	
 	
-	@RequestMapping("/hy_save")
-	public String save(Jbyh jbyh,Hydld hydld,Hygly hygly){
-		jbyhServc.save(jbyh);
-		hydld.setYhbh(jbyh.getYhbh());
-		hygly.setYhbh(jbyh.getYhbh());
-		hygly.setGlylx(1);
-		servc.save(hygly);
-		hydldServc.save(hydld);
+	@RequestMapping("/hy_save")//货运代理点用户注册方法
+	public String save(Model model,Jbyh jbyh,Hydld hydld,Hygly hygly,HttpServletRequest request){
+		boolean temp = false;
+		try{
+			String info = request.getSession().getAttribute("jbyh").toString();
+
+		}catch(Exception e){
+			temp = true;
+		}
+		if(temp){
+			jbyhServc.save(jbyh);
+			hydld.setYhbh(jbyh.getYhbh());
+			hygly.setYhbh(jbyh.getYhbh());
+			hygly.setGlylx(1);
+			servc.save(hygly);
+			hydldServc.save(hydld);
+			request.getSession().setAttribute("jbyh", jbyh);
+			request.getSession().setAttribute("yhbh", jbyh.getYhbh());
+			model.addAttribute("jbyh",jbyh);
+		}else{
+			;
+		}
+
 		return "hy_index";
 	}
 	@RequestMapping("/hy_dld_update")
@@ -76,15 +91,5 @@ public class HyglyController extends BasicController<HyglyServc> {
 		model.addAttribute("hygly",hygly);
 		return "hy_jbxx";
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 }
