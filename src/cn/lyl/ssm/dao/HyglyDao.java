@@ -1,5 +1,10 @@
 package cn.lyl.ssm.dao;
 
-public interface HyglyDao {
+import java.util.List;
 
+import cn.lyl.ssm.po.Hygly;
+
+public interface HyglyDao {
+	List<Hygly> findAll();
+	List<Hygly> findByYhbh(String arg);
 }

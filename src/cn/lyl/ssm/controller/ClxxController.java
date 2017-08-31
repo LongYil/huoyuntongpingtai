@@ -53,6 +53,18 @@ public class ClxxController extends BasicController<ClxxServc> {
 		model.addAttribute("listclxx",listclxx);
 		return "cys_cdclgl";
 	}
+	@RequestMapping("/clxx_hyFindById")//货运代理点：根据车队id查询该车队的所有车辆
+	public String hyFindById(String id,String mc,Model model,HttpServletRequest request){
+		String glybh = request.getSession().getAttribute("glybh").toString();
+		String zhmc = request.getSession().getAttribute("zhmc").toString();
+		listclxx = servc.findByCdid(id);
+		model.addAttribute("cdmc",mc);
+		model.addAttribute("cdclid", id);
+		model.addAttribute("glybh", glybh);
+		model.addAttribute("zhmc", zhmc);
+		model.addAttribute("listclxx",listclxx);
+		return "hy_clxx";
+	}
 
 	@RequestMapping("clxx_cd_save")//运输车队用户保存车辆信息
 	public void cd_save(Clxx clxx,HttpServletRequest request){

@@ -11,13 +11,16 @@
 	<link rel="stylesheet" type="text/css" href="js/basic/demo/demo.css">
 	<script type="text/javascript" src="js/basic/jquery.min.js"></script>
 	<script type="text/javascript" src="js/basic/jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="js/basic/locale/easyui-lang-zh_CN.js"></script>
 </head>
 <body style="padding-top:0px; padding-bottom:0px;">
 
-<section style="width:500px;height:40px;margin-top:20px;padding-left:40px;">
+<section style="width:700px;height:40px;margin-top:20px;padding-left:40px;">
 <a href="javascript:void(0)" class="easyui-linkbutton" style="width:80px;margin-right:20px;" onclick="addPanel()">添加帐号</a>
-<a href="javascript:void(0)" class="easyui-linkbutton" style="width:80px;margin-right:20px;" onclick="addPanel()">删除帐号</a>
+<a href="javascript:void(0)" class="easyui-linkbutton" style="width:80px;margin-right:20px;" onclick="shanchu()">删除帐号</a>
 <a href="javascript:void(0)" class="easyui-linkbutton" style="width:110px;margin-right:20px;" onclick="chakanchedui()">查看所有车队</a>
+<a href="javascript:void(0)" class="easyui-linkbutton" style="width:110px;margin-right:20px;" onclick="chakandailidian()">查看所属代理点</a>
+<a href="javascript:void(0)" class="easyui-linkbutton" style="width:110px;margin-right:20px;" onclick="shezhidailidian()">设置代理点</a>
 <a href="javascript:void(0)" class="easyui-linkbutton" style="width:80px;" onclick="shuaxin()">刷新</a>
 </section>
 
@@ -83,6 +86,42 @@
 		function shuaxin(){
 			window.location = "cys_findAllGly.action";
 		}
+		
+		
+		function shanchu(){
+			var row = $('#dg').datagrid('getSelected');
+			if (row){
+				var id = row.id;
+				var name = row.b;
+				$.messager.confirm("确认","是否删除帐号:"+name, function (r) {  
+			        if (r) {  
+			        	window.location = "cys_deleteGly.action?id="+id; 
+			        }  
+			    });  
+			}
+		}
+		
+		function chakandailidian(){
+			index++;
+			var row = $('#dg').datagrid('getSelected');
+			var id = row.id;
+			$('#tt').tabs('add',{
+				title: '代理点信息',
+				content: '<iframe src="hy_findByGlybh.action?id='+id+'" frameborder="0" style="padding:5px;width:820px;height:500px;"></iframe>',
+				closable: true
+			});
+		}
+		function shezhidailidian(){
+			index++;
+			var row = $('#dg').datagrid('getSelected');
+			var id = row.id;
+			$('#tt').tabs('add',{
+				title: '设置代理点',
+				content: '<iframe src="hy_yszdld.action?id='+id+'" frameborder="0" style="padding:5px;width:820px;height:500px;"></iframe>',
+				closable: true
+			});
+		}
+		
 		
 	</script>
 </body>

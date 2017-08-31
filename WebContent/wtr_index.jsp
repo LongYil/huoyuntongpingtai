@@ -44,9 +44,9 @@
             </li>
             </dl>
 			<ul class="menu1">
-				
-				<li><a href="javascript:void(0)"><img src="js/basic/xiugai.png" class="itemicon">创建订单</a></li>
-				<li><a href="javascript:void(0)"><img src="js/basic/icon/quanbudingdan.png" class="itemicon">全部订单</a></li>
+				<li><a href="javascript:void(0)" onClick="To('dd_tjdd.jsp')"><img src="js/basic/xiugai.png" class="itemicon">创建订单</a></li>
+				<li><a href="javascript:void(0)" onClick="To('dd_xzly.jsp')"><img src="js/basic/icon/quanbudingdan.png" class="itemicon">全部订单</a></li>
+                <li><a href="javascript:void(0)"><img src="js/basic/icon/yijiedan.png" class="itemicon">待处理订单</a></li>
                 <li><a href="javascript:void(0)"><img src="js/basic/icon/yijiedan.png" class="itemicon">已接单</a></li>
                 <li><a href="javascript:void(0)"><img src="js/basic/icon/yunshuzhong.png" class="itemicon">运输中</a></li>
                 <li><a href="javascript:void(0)"><img src="js/basic/icon/yiqinahsou.png" class="itemicon">已签收</a></li>
@@ -61,12 +61,12 @@
             </li>
             </dl>
 			<ul class="menu1">
-				<li><a href="javascript:void(0)"><img src="js/basic/icon/yuechaxun.png" class="itemicon">余额查询</a></li>
-                <li><a href="javascript:void(0)"><img src="js/basic/icon/chongzhi.png" class="itemicon">充值</a></li>
-                <li><a href="javascript:void(0)"><img src="js/basic/icon/tixian.png" class="itemicon">提现</a></li>
+				<li><a href="javascript:void(0)" onClick="To('ptzh_cysfind.action')"><img src="js/basic/icon/yuechaxun.png" class="itemicon">余额查询</a></li>
+				<li><a href="javascript:void(0)"  onClick="To('ptzh_find.action')"><img src="js/basic/icon/baozhengjin.png" class="itemicon">物流币</a></li>
+				<li><a href="javascript:void(0)" onClick="To('jyjl_cysFindAll.action')"><img src="js/basic/icon/chongzhi.png" class="itemicon">交易记录</a></li>
 			</ul>
 		</li>       
-  
+
    		<li class="fatheritem">
         	<dl class="biaotia4">
             <li style="background-color:#dce8f3;">

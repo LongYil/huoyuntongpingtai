@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import cn.lyl.ssm.dao.WlxDao;
+import cn.lyl.ssm.po.Dd;
 import cn.lyl.ssm.po.Wlx;
 import cn.lyl.ssm.po.Yscd;
 import cn.lyl.ssm.vo.WlxVo;
@@ -64,6 +65,20 @@ public class WlxDaoImpl extends CommonDaoImpl<Wlx> implements WlxDao {
 		}
 		return listwlxvo;
 	}
+
+	@Override
+	public List<Wlx> findBestWlx(Dd dd) {
+		return (List<Wlx>) ht.find("from Wlx where cfsf = ? and cfcs = ? and cfx = ? and ddsf = ? and ddcs = ? and ddx = ?",dd.getCfsf().trim(),dd.getCfcs().trim(),dd.getCfx().trim(),dd.getDdsf().trim(),dd.getDdcs().trim(),dd.getDdx().trim());
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 }

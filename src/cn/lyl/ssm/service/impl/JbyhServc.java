@@ -37,7 +37,7 @@ public class JbyhServc extends CommonSevc<Jbyh,JbyhDaoImpl> {
 	
 	@Override
 	public void delete(Jbyh arg) {
-		
+		daoImpl.delete(arg);
 	}
 	public void update(Jbyh arg){
 		daoImpl.update(arg);

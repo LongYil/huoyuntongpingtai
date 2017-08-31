@@ -64,6 +64,7 @@ public class CysglyController extends BasicController<CysglyServc> {
 		jbyhServc.save(jbyh);
 		cys.setLxdh(jbyh.getYhsj());
 		cysgly.setLxdh(jbyh.getYhsj());
+		cysgly.setDlbh(0);
 		cys.setYhbh(jbyh.getYhbh());
 		cysgly.setYhbh(jbyh.getYhbh());
 		if(type==3){
@@ -103,10 +104,8 @@ public class CysglyController extends BasicController<CysglyServc> {
 		cysgly.setSzsf(info[3]);
 		cysgly.setSzcs(info[4]);
 		cysgly.setSzx(info[5]);
-		
 		jbyhServc.update(jbyh);
 		servc.update(cysgly);
-		
 		return "redirect:cys_findCysInfo.action";
 	}
 	//查询承运商信息
@@ -129,6 +128,8 @@ public class CysglyController extends BasicController<CysglyServc> {
 	public void addGly(Jbyh jbyh,Cysgly cysgly,HttpServletRequest request){
 		jbyhServc.save(jbyh);
 		cysgly.setCysbh(jbyh.getYhbh());
+		cysgly.setDlbh(0);
+		cysgly.setLxdh(jbyh.getYhsj());
 		cysgly.setHylx(3);//会员类型为3，表示该管理员是承运商分管理员
 		cysgly.setYhbh(Integer.parseInt(request.getSession().getAttribute("yhbh").toString()));
 		servc.save(cysgly);
@@ -142,5 +143,38 @@ public class CysglyController extends BasicController<CysglyServc> {
 		model.addAttribute("listvo", listvo);
 		return "cys_cdzhgl";
 	}
+	
+	//设置承运商的货运代理点
+	@RequestMapping("cys_szCysDld")
+	public void szCysDld(String id,HttpServletRequest request){
+		cysgly = (Cysgly) request.getSession().getAttribute("cysgly");
+		cysgly.setDlbh(Integer.parseInt(id));
+		servc.update(cysgly);
+	}
+	//设置承运商所有管理员的货运代理点
+	@RequestMapping("cys_szsyCysDld")
+	public void szsyCysDld(String id,HttpServletRequest request){
+		cysgly = (Cysgly) request.getSession().getAttribute("cysgly");
+		servc.szsyCysGly(id,String.valueOf(cysgly.getYhbh()));
+	}
+	
+	@RequestMapping("cys_deleteGly")//删除承运商管理员
+	public String deleteGly(String id) throws Exception{
+		cysgly = servc.findByGlyid(id);
+		jbyh = jbyhServc.find(id);
+		servc.delete(cysgly);
+		jbyhServc.delete(jbyh);
+		return "redirect:cys_findAllGly.action";
+	}
+	
+	@RequestMapping("cys_hyglyFindAllCys")//货运代理点用户查找所有承运商
+	public String hyglyFindAllCys(Model model,HttpServletRequest request) throws Exception{
+		jbyh = (Jbyh) request.getSession().getAttribute("jbyh");
+		listgly.clear();
+		listgly = servc.hyglyFindAllCys(String.valueOf(jbyh.getYhbh()));
+		model.addAttribute("listgly",listgly);
+		return "hy_sycys";
+	}
+	
 	
 }

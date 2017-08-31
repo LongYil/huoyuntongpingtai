@@ -5,6 +5,7 @@ import org.springframework.orm.hibernate4.HibernateTemplate;
 
 import cn.lyl.ssm.dao.ICommonDao;
 import cn.lyl.ssm.utils.GetDateAndTime;
+import cn.lyl.ssm.utils.GetEntity;
 
 public abstract class CommonDaoImpl<T> implements ICommonDao<T> {
 	
@@ -12,6 +13,8 @@ public abstract class CommonDaoImpl<T> implements ICommonDao<T> {
 	public HibernateTemplate ht;
 	@Autowired
 	public GetDateAndTime getDateAndTime;
+	@Autowired
+	public GetEntity getEntity;
 	@Override
 	public abstract void save(T entity) ;
 

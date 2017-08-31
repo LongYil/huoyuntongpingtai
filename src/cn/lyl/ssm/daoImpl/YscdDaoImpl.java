@@ -1,5 +1,6 @@
 package cn.lyl.ssm.daoImpl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,16 +8,18 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import cn.lyl.ssm.dao.YscdDao;
+import cn.lyl.ssm.po.Wlx;
 import cn.lyl.ssm.po.Yscd;
-import cn.lyl.ssm.utils.GetEntity;
+import cn.lyl.ssm.service.impl.WlxServc;
 
 @Component(value="yscdDaoImpl")
 @Scope(value="prototype")
 public class YscdDaoImpl extends CommonDaoImpl<Yscd> implements YscdDao{
-	
 	@Autowired
-	private GetEntity getEntity;
+	private WlxServc wlxServc;
 	
+	private List<Wlx> listWlx = new ArrayList<Wlx>();
+	private Wlx wlx;
 	@Override
 	public void save(Yscd entity) {
 		ht.save(entity);		
@@ -55,6 +58,13 @@ public class YscdDaoImpl extends CommonDaoImpl<Yscd> implements YscdDao{
 			yscd.setFpzt(1);
 			yscd.setCysbh(Integer.parseInt(arg2));
 			ht.update(yscd);
+		}
+		listWlx = wlxServc.findByYscdId(listcd);
+		for(int i=0;i<listWlx.size();i++){
+			wlx = new Wlx();
+			wlx = listWlx.get(i);
+			wlx.setCysbh(Integer.parseInt(arg2));
+			wlxServc.update(wlx);
 		}
 	}
 

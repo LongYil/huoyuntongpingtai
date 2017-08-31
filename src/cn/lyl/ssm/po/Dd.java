@@ -16,8 +16,9 @@ public class Dd {
 	private Integer id;//序号
 	private Integer wtrbh;//委托人编号
 	private Integer fhdld;//发货代理点编号
-	private Integer shdld;//收获代理点把编号
+	private Integer shdld;//收货代理点把编号
 	private Integer cys;//承运商
+	private Integer jjlx;//订单计价类型 1：轻货（按体积计价），2：重货（按重量计价）
 	private String hwmc;//货物名称
 	private String hwlx;//货物类型
 	private String cfsf;//出发省份
@@ -40,7 +41,7 @@ public class Dd {
 	private String dshk;//是否代收货款（1：是；2：否）
 	private String ddzt;//订单状态
 	private String bxfy;//保险费用
-	private String smth;//是否上门提货
+	private String smth;//是否上门提货（1：是；2：否）
 	private String ysfs;//运输方式
 	private Integer kz1;
 	private Integer kz2;
@@ -250,6 +251,12 @@ public class Dd {
 	}
 	public void setKz5(String kz5) {
 		this.kz5 = kz5;
+	}
+	public Integer getJjlx() {
+		return jjlx;
+	}
+	public void setJjlx(Integer jjlx) {
+		this.jjlx = jjlx;
 	}
 	
 

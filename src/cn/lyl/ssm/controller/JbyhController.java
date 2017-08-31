@@ -8,8 +8,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import cn.lyl.ssm.po.Cysgly;
+import cn.lyl.ssm.po.Hygly;
 import cn.lyl.ssm.po.Jbyh;
 import cn.lyl.ssm.service.impl.CysglyServc;
+import cn.lyl.ssm.service.impl.HyglyServc;
 import cn.lyl.ssm.service.impl.JbyhServc;
 
 /**
@@ -28,9 +30,14 @@ public class JbyhController extends BasicController<JbyhServc> {
 	private Cysgly cysgly;
 	@Autowired
 	private CysglyServc cysglyServc;
+	@Autowired
+	private Hygly hygly;
+	@Autowired
+	private HyglyServc hyglyServc;
+	
 	
 	@RequestMapping("/jbyh_login")
-	public String login(Model model,Jbyh jbyh,HttpServletRequest request){
+	public String login(Model model,Jbyh jbyh,HttpServletRequest request) throws Exception{
 		int[] info = servc.login(jbyh);
 		this.jbyh = servc.find(String.valueOf(info[1]));
 		model.addAttribute("jbyh", this.jbyh);
@@ -51,8 +58,13 @@ public class JbyhController extends BasicController<JbyhServc> {
 			cysgly = cysglyServc.find(String.valueOf(info[1]));
 			request.getSession().setAttribute("cysgly",cysgly);
 			return "cys_cdindex";
+		case 6:
+			hygly = hyglyServc.find(String.valueOf(info[1]));
+			request.getSession().setAttribute("hygly",hygly);
+			return "hy_index";
 		default:
 			return "success";
+			
 		}
 	}
 	

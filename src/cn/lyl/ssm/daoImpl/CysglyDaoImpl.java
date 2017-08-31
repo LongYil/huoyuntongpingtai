@@ -22,8 +22,7 @@ public class CysglyDaoImpl extends CommonDaoImpl<Cysgly> implements CysglyDao {
 
 	@Override
 	public void delete(Cysgly entity) {
-		//
-		
+		ht.delete(entity);		
 	}
 
 	@Override
@@ -34,6 +33,21 @@ public class CysglyDaoImpl extends CommonDaoImpl<Cysgly> implements CysglyDao {
 	@Override
 	public List<Cysgly> findAll(String arg) {
 		return (List<Cysgly>) ht.find("from Cysgly where yhbh!=cysbh and yhbh = "+arg+"");
+	}
+
+	@Override
+	public List<Cysgly> findAllByCysbh(String arg) {
+		return (List<Cysgly>) ht.find("from Cysgly where yhbh="+arg+"");
+	}
+
+	@Override
+	public Cysgly findByGlyid(String arg) throws Exception {
+		return (Cysgly) getEntity.getEntity("Cysgly", "cysbh", arg, Cysgly.class);
+	}
+
+	@Override
+	public List<Cysgly> findByDlbh(String arg) {
+		return (List<Cysgly>) ht.find("from Cysgly where dlbh = "+arg+"");
 	}
 	
 	

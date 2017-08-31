@@ -44,11 +44,12 @@
             </li>
             </dl>
 			<ul class="menu1">
-				<li><a href="javascript:void(0)"><img src="js/basic/icon/yunshuchedui.png" class="itemicon">所有车队</a></li>
-                <li><a href="javascript:void(0)"><img src="js/basic/icon/yunshuxianlu.png" class="itemicon">所有线路</a></li>
+				<li><a href="javascript:void(0)" onClick="To('cys_hyglyFindAllCys.action')"><img src="js/basic/icon/yunshuchedui.png" class="itemicon">所有承运商</a></li>
+                <li><a href="javascript:void(0)" onClick="To('yscd_hyFindAllYscd.action')"><img src="js/basic/icon/chengyunshang.png" class="itemicon">所有车队</a></li>
+                <li><a href="javascript:void(0)" onClick="To('wlx_dldFindByYhbh.action')"><img src="js/basic/icon/yunshuxianlu.png" class="itemicon">所有线路</a></li>
 			</ul>
 		</li>
-     
+
  		<li class="fatheritem">
         	<dl class="biaotia3">
             <li style="background-color:#dce8f3;">
@@ -57,6 +58,7 @@
             </dl>
 			<ul class="menu1">
 				<li><a href="javascript:void(0)"><img src="js/basic/icon/quanbudingdan.png" class="itemicon">全部订单</a></li>
+                <li><a href="javascript:void(0)"><img src="js/basic/icon/yijiedan.png" class="itemicon">待处理订单</a></li>
                 <li><a href="javascript:void(0)"><img src="js/basic/icon/yijiedan.png" class="itemicon">已接单</a></li>
                 <li><a href="javascript:void(0)"><img src="js/basic/icon/yunshuzhong.png" class="itemicon">运输中</a></li>
                 <li><a href="javascript:void(0)"><img src="js/basic/icon/yiqianshou.png" class="itemicon">已签收</a></li>
@@ -96,9 +98,6 @@
 	<div data-options="region:'south',border:false" style="height:50px;background:#A9FACD;padding:10px;">south region</div>
 	<div data-options="region:'center',title:'我的桌面'">
     	<iframe class="zhuomian" frameborder="0" style="width:835px;height:680px;">
-        
-        
-        
         </iframe>    
     </div>
 

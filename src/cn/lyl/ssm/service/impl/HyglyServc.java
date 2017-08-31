@@ -18,20 +18,21 @@ public class HyglyServc extends CommonSevc<Hygly, HyglyDaoImpl> {
 	}
 
 	@Override
-	public Hygly find(String arg) {
+	public Hygly find(String arg) throws Exception {
 		return daoImpl.find(arg);
 	}
 
 	@Override
 	public List<Hygly> findAll(String arg) {
-		//
-		return null;
+		return daoImpl.findAll();
 	}
 
 	@Override
 	public void delete(Hygly arg) {
 		//
-		
 	}
-
+	
+	public List<Hygly> findByYhbh(String arg){
+		return daoImpl.findByYhbh(arg);
+	}
 }

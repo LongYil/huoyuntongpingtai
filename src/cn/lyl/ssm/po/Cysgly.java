@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
 public class Cysgly {
 	private Integer id;//序号
 	private Integer yhbh;//用户编号
-	private Integer dlbh;//所属代理点编号
+	private Integer dlbh;//所属代理点编号   默认值为0，表示没有所属的代理点
 	private Integer cysbh;//承运商编号
 	private Integer hylx;//承运商会员类型，1：个人承运商，2：运输车队承运商(总)，3：运输车队承运商（分）
 	private String gsmc;//公司名称

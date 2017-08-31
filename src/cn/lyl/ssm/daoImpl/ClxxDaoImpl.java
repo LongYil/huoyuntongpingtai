@@ -64,7 +64,6 @@ public class ClxxDaoImpl extends CommonDaoImpl<Clxx> implements ClxxDao {
 	public List<ClxxVo> findByYhbh(String arg) {
 		list.clear();
 		list = (List<Clxx>) ht.find("from Clxx where yhbh = "+arg+"");
-		
 		for(int i=0;i<list.size();i++){
 			clxxvo = new ClxxVo();
 			yscd = (Yscd) ht.find("from Yscd where cdbh = "+(list.get(i).getCdbh())+"").get(0);

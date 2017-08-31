@@ -10,9 +10,6 @@ import cn.lyl.ssm.utils.GetEntity;
 @Component(value="bzjDaoImpl")
 public class BzjDaoImpl extends CommonDaoImpl<Bzj> implements BzjDao {
 	
-	@Autowired
-	private GetEntity getEntity;
-	
 	@Override
 	public void save(Bzj entity) {
 		ht.saveOrUpdate(entity);		

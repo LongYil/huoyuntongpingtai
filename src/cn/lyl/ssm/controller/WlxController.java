@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import cn.lyl.ssm.po.Cysgly;
 import cn.lyl.ssm.po.Wlx;
 import cn.lyl.ssm.service.impl.WlxServc;
+import cn.lyl.ssm.utils.AssembleWlx;
 import cn.lyl.ssm.vo.WlxVo;
 
 /**
@@ -28,6 +29,8 @@ public class WlxController extends BasicController<WlxServc> {
 	private List<WlxVo> listwlxvo = new ArrayList<WlxVo>();
 	@Autowired
 	private Cysgly cysgly;
+	@Autowired
+	private AssembleWlx assembleWlx;
 	
 	@RequestMapping("/wlx_save")
 	public void save(Wlx wlx,HttpServletRequest request){
@@ -43,7 +46,7 @@ public class WlxController extends BasicController<WlxServc> {
 		return "cys_xlgl";
 	}
 	
-	@RequestMapping("wlx_findByCdid")//根据车队编号查询该车队的所有线路
+	@RequestMapping("wlx_findByCdid")//承运商：根据车队编号查询该车队的所有线路
 	public String findByCdid(String id,String mc,Model model,HttpServletRequest request){
 		listwlx.clear();
 		cysgly = (Cysgly)request.getSession().getAttribute("cysgly");
@@ -54,6 +57,21 @@ public class WlxController extends BasicController<WlxServc> {
 		model.addAttribute("cdxlid",id);
 		return "cys_cdxlgl";
 	}
+	
+	@RequestMapping("wlx_HyFindByCdid")//承运商：根据车队编号查询该车队的所有线路
+	public String HyFindByCdid(String id,String mc,Model model,HttpServletRequest request){
+		listwlx.clear();
+		cysgly = (Cysgly)request.getSession().getAttribute("cysgly");
+		listwlx = servc.findByCdid(id);
+		String glybh = request.getSession().getAttribute("glybh").toString();
+		String zhmc = request.getSession().getAttribute("zhmc").toString();
+		
+		model.addAttribute("glybh",glybh);
+		model.addAttribute("zhmc",zhmc);
+		model.addAttribute("listwlx",listwlx);
+		model.addAttribute("cdxlmc",mc);
+		return "hy_xlgl";
+	}
 
 	@RequestMapping("wlx_glySave")//承运商用户保存运输线路
 	public void glySave(Wlx wlx,HttpServletRequest request){
@@ -63,7 +81,7 @@ public class WlxController extends BasicController<WlxServc> {
 		wlx.setCysbh(cysgly.getCysbh());
 		servc.save(wlx);
 	}
-	@RequestMapping("wlx_glyfindByYhbh")//
+	@RequestMapping("wlx_glyfindByYhbh")
 	public String glyfindByYhbh(Model model,HttpServletRequest request){
 		cysgly = (Cysgly)request.getSession().getAttribute("cysgly");
 		listwlxvo.clear();
@@ -72,5 +90,20 @@ public class WlxController extends BasicController<WlxServc> {
 		return "cys_cdsyxl";
 	}
 	
-
+	@RequestMapping("wlx_dldFindByYhbh")//货运代理点:查找所拥有的运输线路
+	public String dldFindByYhbh(Model model,HttpServletRequest request) throws Exception{
+		listwlx.clear();
+		listwlxvo.clear();
+		listwlx = servc.dldFindByYhbh(request.getSession().getAttribute("yhbh").toString());
+		listwlxvo = assembleWlx.getWlxVo(listwlx);
+		model.addAttribute("listwlxvo",listwlxvo);
+		return "hy_syxl";
+	}
+	
+	
+	
+	
+	
+	
+	
 }

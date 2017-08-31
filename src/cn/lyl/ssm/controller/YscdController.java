@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import cn.lyl.ssm.po.Cysgly;
 import cn.lyl.ssm.po.Yscd;
 import cn.lyl.ssm.service.impl.YscdServc;
+import cn.lyl.ssm.utils.AssembleYscd;
+import cn.lyl.ssm.vo.YscdVo;
 
 /**
  * <p>Title:YscdController</p>
@@ -25,9 +27,11 @@ import cn.lyl.ssm.service.impl.YscdServc;
 public class YscdController extends BasicController<YscdServc> {
 	
 	private List<Yscd> listcd = new ArrayList<Yscd>();
+	private List<YscdVo> listcdvo = new ArrayList<YscdVo>();
 	@Autowired
 	private Cysgly cysgly;
-	
+	@Autowired
+	private AssembleYscd assembleYscd;
 	@RequestMapping("/yscd_save")
 	public void save(Yscd yscd,HttpServletRequest request){
 		yscd.setYhbh(Integer.parseInt(request.getSession().getAttribute("yhbh").toString()));
@@ -56,20 +60,40 @@ public class YscdController extends BasicController<YscdServc> {
 		return "cys_cdzhcd";
 	}
 	
+	@RequestMapping("/yscd_hyFindByGlyid")//查找运输车队管理员的所有车队，id为管理员的管理员编号
+	public String hyFindByGlyid(Model model,String id,String mc,HttpServletRequest request){
+		listcd.clear();
+		listcd = servc.cysFindByGlyid(id);
+		request.getSession().setAttribute("glybh",id);
+		request.getSession().setAttribute("zhmc", mc);
+		model.addAttribute("listcd",listcd);
+		model.addAttribute("glyid",id);
+		model.addAttribute("zhmc",mc);
+		return "hy_cdgl";
+	}
+	
 	@RequestMapping("yscd_jbyhFindAllCd")
 	public String jbyhFindAllCd(Model model,HttpServletRequest request){
 		listcd.clear();
 		listcd = servc.cysFindAll(request.getSession().getAttribute("yhbh").toString());
-		
 		model.addAttribute("listcd",listcd);
 		return "cys_cdzhtjcd";
 	}
 	@RequestMapping("yscd_jbyhAddCdToGly")//给承运商管理员添加车队，dcbh数组为选中的车队编号
 	public void jbyhAddCdToGly(String[] cdbh,HttpServletRequest request) throws Exception{
 		String glybh = request.getSession().getAttribute("glybh").toString();
+		
 		servc.jbyhAddCdToGly(cdbh, glybh);
-		System.out.println(cdbh);
 	}
 	
+	@RequestMapping("yscd_hyFindAllYscd")
+	public String hyFindAllYscd(Model model,HttpServletRequest request) throws Exception{
+		listcd.clear();
+		listcdvo.clear();
+		listcd = servc.hyFindAllYscd(request.getSession().getAttribute("yhbh").toString());
+		listcdvo = assembleYscd.getAllYscd(listcd);
+		model.addAttribute("listcdvo",listcdvo);
+		return "hy_sycd";
+	}
 	
 }

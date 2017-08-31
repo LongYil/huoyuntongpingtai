@@ -36,7 +36,6 @@ public class BzjController extends BasicController<BzjServc> {
 	@Autowired
 	private JbyhServc jbyhServc;
 	
-	
 	@RequestMapping("/bzj_checkAndSave")
 	public void checkAndSave(String info,PrintWriter arg,HttpServletRequest request) throws Exception{
 		boolean result = servc.checkAndSave(info,request.getSession().getAttribute("yhbh").toString());
@@ -47,8 +46,7 @@ public class BzjController extends BasicController<BzjServc> {
 	public String cysFind(Model model,HttpServletRequest request) throws Exception{
 		bzj = servc.find(request.getSession().getAttribute("yhbh").toString());
 		ptzh = ptzhServc.find(request.getSession().getAttribute("yhbh").toString());
-		jbyh = jbyhServc.find(request.getSession().getAttribute("yhbh").toString());
-		
+		jbyh = jbyhServc.find(request.getSession().getAttribute("yhbh").toString());	
 		model.addAttribute("bzj",bzj);
 		model.addAttribute("ptzh",ptzh);
 		model.addAttribute("jbyh",jbyh);
@@ -63,13 +61,9 @@ public class BzjController extends BasicController<BzjServc> {
 	}
 	
 	@RequestMapping("bzj_cysFqjd")//承运商发起解冻保证金的申请，若成功发起，返回true，否则返回false
-	public void cysFqjd(String info,HttpServletRequest request,PrintWriter out) throws Exception{
-		
+	public void cysFqjd(String info,HttpServletRequest request,PrintWriter out) throws Exception{		
 		boolean result = servc.cysFqjd(info, request.getSession().getAttribute("yhbh").toString());
 		out.write(String.valueOf(result));
 	}
-
-	
-	
 	
 }

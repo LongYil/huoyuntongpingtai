@@ -3,10 +3,12 @@ package cn.lyl.ssm.service.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import cn.lyl.ssm.daoImpl.YscdDaoImpl;
+import cn.lyl.ssm.po.Cysgly;
 import cn.lyl.ssm.po.Yscd;
 
 @Service(value="yscdServc")
@@ -15,6 +17,16 @@ public class YscdServc extends CommonSevc<Yscd, YscdDaoImpl> {
 	
 	private List<Yscd> listcd = new ArrayList<Yscd>();
 	private Yscd yscd;
+
+	private List<Cysgly> listCysgly = new ArrayList<Cysgly>();
+	private List<Yscd> listYscd = new ArrayList<Yscd>();
+	private List<Yscd> templistYscd = new ArrayList<Yscd>();
+	
+	@Autowired
+	private HyglyServc hyglyServc;
+	@Autowired
+	private CysglyServc cysglyServc;
+	
 	
 	@Override
 	public void save(Yscd arg) {
@@ -22,9 +34,8 @@ public class YscdServc extends CommonSevc<Yscd, YscdDaoImpl> {
 	}
 
 	@Override
-	public Yscd find(String arg) {
-
-		return null;
+	public Yscd find(String arg) throws Exception {
+		return daoImpl.find(arg);
 	}
 
 	@Override
@@ -54,6 +65,23 @@ public class YscdServc extends CommonSevc<Yscd, YscdDaoImpl> {
 			listcd.add(yscd);
 		}
 		daoImpl.jbyhAddCdToGly(listcd,arg2);
+	}
+	
+	public List<Yscd> hyFindAllYscd(String yhbh) throws Exception{//货运代理点:用户查找所有运输车队
+		listYscd.clear();
+		templistYscd.clear();
+		listCysgly.clear();
+		listCysgly = cysglyServc.hyglyFindAllCys(yhbh);
+		for(int i=0;i<listCysgly.size();i++){
+			templistYscd.clear();
+			templistYscd = this.cysFindByGlyid(String.valueOf(listCysgly.get(i).getCysbh()));
+			if(templistYscd.size()>0){
+				listYscd.addAll(templistYscd);
+			}else{
+				;
+			}
+		}
+		return listYscd;
 	}
 	
 }

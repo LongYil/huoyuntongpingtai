@@ -38,8 +38,7 @@ public class JbyhDaoImpl extends CommonDaoImpl<Jbyh> implements JbyhDao {
 
 	@Override
 	public void delete(Jbyh entity) {
-		//
-		
+		ht.delete(entity);		
 	}
 
 	@Override
