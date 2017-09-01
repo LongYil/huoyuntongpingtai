@@ -55,6 +55,11 @@ public class HyglyDaoImpl extends CommonDaoImpl<Hygly> implements HyglyDao {
 	public List<Hygly> findByShdz(Dd dd) {
 		return (List<Hygly>) ht.find("from Hygly where szsf = ? and szcs = ? and szx = ?",dd.getDdsf(),dd.getDdcs(),dd.getDdx());
 	}
+
+	@Override
+	public List<Hygly> yhFindAllGly(String arg) {
+		return (List<Hygly>) ht.find("from Hygly where yhbh = "+arg+" and yhbh!=glybh");
+	}
 	
 	
 	

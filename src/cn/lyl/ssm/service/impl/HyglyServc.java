@@ -37,7 +37,11 @@ public class HyglyServc extends CommonSevc<Hygly, HyglyDaoImpl> {
 		return daoImpl.findByYhbh(arg);
 	}
 	
-	public List<Hygly> findByShdd(Dd dd){
+	public List<Hygly> findByShdd(Dd dd){//根据收货地址查找收货代理点
 		return daoImpl.findByShdz(dd);
+	}
+	
+	public List<Hygly> yhFindAllGly(String arg){//货运代理点用户查找所有管理员
+		return daoImpl.yhFindAllGly(arg);
 	}
 }

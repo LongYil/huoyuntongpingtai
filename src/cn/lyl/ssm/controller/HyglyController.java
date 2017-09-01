@@ -56,6 +56,7 @@ public class HyglyController extends BasicController<HyglyServc> {
 	private CysglyServc cysglyServc;
 	@Autowired
 	private List<Hygly> listdld = new ArrayList<Hygly>();
+	private List<Hygly> listgly = new ArrayList<Hygly>();
 	
 	
 	@RequestMapping("/hy_save")//货运代理点用户注册方法
@@ -172,6 +173,30 @@ public class HyglyController extends BasicController<HyglyServc> {
 		cysgly.setDlbh(Integer.parseInt(id));
 		cysglyServc.update(cysgly);
 	}
+	
+	@RequestMapping("hy_hyAddGly")//货运代理点用户添加管理员
+	public void hyAddGly(Jbyh jbyh,Hygly hygly,HttpServletRequest request){
+		jbyhServc.save(jbyh);
+		hygly.setYhbh(Integer.parseInt(request.getSession().getAttribute("yhbh").toString()));
+		hygly.setGlylx(2);
+		hygly.setLxdh(jbyh.getYhsj());
+		hygly.setGlybh(jbyh.getYhbh());
+		servc.save(hygly);
+	}
+	
+	@RequestMapping("hy_hyFindAllGly")
+	public String hyFindAllGly(Model model,HttpServletRequest request){//货运代理点用户查找所有管理员
+		listgly.clear();
+		listgly = servc.yhFindAllGly(request.getSession().getAttribute("yhbh").toString());
+		model.addAttribute("listgly",listgly);
+		return "hy_zhgl";
+	}
+	
+	
+	
+	
+	
+	
 	
 	
 	
