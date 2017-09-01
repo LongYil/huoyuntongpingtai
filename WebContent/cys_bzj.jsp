@@ -77,7 +77,6 @@
             border-right: 1px solid #c5d3d3;
             border-bottom: 1px solid #c5d3d3;
             background: #fff;
-
         }
         table tr td{
             padding: 12px 35px;
@@ -101,11 +100,12 @@
 </head>
 <body style="padding-top:0px; padding-bottom:0px;">
 
-<section style="width:500px;height:40px;margin-top:20px;padding-left:40px;">
+<section style="width:600px;height:40px;margin-top:20px;padding-left:40px;">
 <a href="javascript:void(0)" class="easyui-linkbutton" style="width:80px;margin-right:20px;" onclick="jiaona()">缴纳保证金</a>
 <a href="javascript:void(0)" class="easyui-linkbutton" style="width:80px;margin-right:20px;" onclick="jiedong()">申请解冻</a>
-<a href="javascript:void(0)" class="easyui-linkbutton" style="display:inline-block;width:80px;margin-right:20px;" onclick="jilu()">缴纳记录</a>
+<a href="javascript:void(0)" class="easyui-linkbutton" style="width:80px;margin-right:20px;" onclick="jilu()">缴纳记录</a>
 <a href="javascript:void(0)" class="easyui-linkbutton" style="width:80px;margin-right:20px;" onclick="jiedongjilu()">解冻记录</a>
+<a href="javascript:void(0)" class="easyui-linkbutton" style="width:80px;margin-right:20px;" onclick="shuaxin()">刷新</a>
 </section>
 
 	<div id="tt" class="easyui-tabs" data-options="tools:'#tab-tools'" style="padding:0px;width:835px;height:620px;margin-left:-20px;margin-bottom:0px;">
@@ -119,11 +119,18 @@
                 <span class="zhye">已缴纳保证金金额:</span>
                 <span class="ye" id="sum_01" >${bzj.bzjje}</span>
                 <span class="dw">物流币</span>
-                <a class="record" href="javascript:void(0)" onclick="jiedongjilu()">解冻记录</a>
-                |
-                <a class="record" href="javascript:void(0)" onClick="jilu()">缴纳记录</a>
+                <a class="record" href="javascript:void(0)" onclick="jiaonajilu()">缴纳记录</a>
                 <input type="button" value="立即缴纳" onClick="jiaona()"/>
             </div>
+            
+            <div class="zhyediv_content_header">
+                <span class="zhye">已申请解冻金额:</span>
+                <span class="ye" id="sum_01" >${bzj.ysqje}</span>
+                <span class="dw">物流币</span>
+                <a class="record" href="javascript:void(0)" onclick="jiedongjilu()">解冻记录</a>
+                <input type="button" value="申请解冻" onClick="jiedong()"/>
+            </div>
+            
             <div class="zhyediv_content_content">
                 <div class="left_txt">
                    	 关联账户：
@@ -193,6 +200,10 @@
 				content: '<iframe src="jyjl_FindJdjl.action" frameborder="0" style="width:828px;height:580px;"></iframe>',
 				closable: true
 			});
+		}
+		
+		function shuaxin(){
+			window.location="bzj_cysFind.action";
 		}
 
 	</script>

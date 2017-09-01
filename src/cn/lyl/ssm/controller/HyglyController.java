@@ -70,6 +70,7 @@ public class HyglyController extends BasicController<HyglyServc> {
 			jbyhServc.save(jbyh);
 			bzj.setYhbh(jbyh.getYhbh());
 			bzj.setBzjje(0);
+			bzj.setYsqje(0);
 			bzjServc.save(bzj);
 			ptzh.setYhbh(jbyh.getYhbh());
 			ptzh.setZhye(2000.0f);

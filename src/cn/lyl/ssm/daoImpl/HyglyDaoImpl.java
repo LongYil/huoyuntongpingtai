@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import cn.lyl.ssm.dao.HyglyDao;
+import cn.lyl.ssm.po.Dd;
 import cn.lyl.ssm.po.Hygly;
 import cn.lyl.ssm.utils.GetEntity;
 
@@ -48,6 +49,11 @@ public class HyglyDaoImpl extends CommonDaoImpl<Hygly> implements HyglyDao {
 	@Override
 	public List<Hygly> findByYhbh(String arg) {
 		return (List<Hygly>) ht.find("from Hygly where yhbh = "+arg+"");
+	}
+
+	@Override
+	public List<Hygly> findByShdz(Dd dd) {
+		return (List<Hygly>) ht.find("from Hygly where szsf = ? and szcs = ? and szx = ?",dd.getDdsf(),dd.getDdcs(),dd.getDdx());
 	}
 	
 	

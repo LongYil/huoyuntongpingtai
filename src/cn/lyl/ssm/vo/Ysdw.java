@@ -1,5 +1,8 @@
 package cn.lyl.ssm.vo;
 
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
 /**
  * <p>Title:Ysdw</p>
  * <p>Description:运输单位po类 </p>
@@ -7,6 +10,8 @@ package cn.lyl.ssm.vo;
  *		2017年8月30日
  *		下午4:44:13
  */
+@Component(value="ysdw")
+@Scope(value="prototype")
 public class Ysdw {
 	private Integer id;
 	private String fhdldmc;//发货代理点名称

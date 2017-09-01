@@ -34,7 +34,7 @@
 			
 			<div style="margin-bottom:20px">
 				<input class="easyui-textbox" name="zhjg" id="jine" style="width:40%;margin-left:100px;" data-options="label:'解冻金额：',required:true">&nbsp;&nbsp;(单位：物流币)
-				最大解冻金额为:&nbsp;<span class="maxnum">${bzj.bzjje}</span>&nbsp;物流币				
+				最大解冻金额为:&nbsp;<span class="maxnum">${bzj.ksqje}</span>&nbsp;物流币				
 			</div>
 		</form>
 		<div style="text-align:center;padding:5px 0">

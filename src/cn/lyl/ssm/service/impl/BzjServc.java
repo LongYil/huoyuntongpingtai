@@ -43,6 +43,7 @@ public class BzjServc extends CommonSevc<Bzj,BzjDaoImpl> {
 		if(ptzh.getZhye()>num){
 			ptzh.setZhye(ptzh.getZhye()-num);
 			bzj.setBzjje(bzj.getBzjje()+num);
+			bzj.setKsqje(bzj.getBzjje()-bzj.getYsqje());
 			daoImpl.save(bzj);
 			jyjl.setJyje(num);
 			jyjl.setJysj(getDateAndTime.getNowDate());
@@ -74,14 +75,15 @@ public class BzjServc extends CommonSevc<Bzj,BzjDaoImpl> {
 	
 	public boolean cysFqjd(String num,String yhbh) throws Exception{
 		bzj = this.find("yhbh");
-		if(bzj.getBzjje()>Integer.parseInt(num)|bzj.getBzjje()==Integer.parseInt(num)){
+		int tempnum = bzj.getYsqje()+Integer.parseInt(num);
+		if(bzj.getBzjje()>tempnum|bzj.getBzjje()==tempnum){
 			jyjl.setJyje(Integer.parseInt(num));
 			jyjl.setJysj(getDateAndTime.getNowDate());
 			jyjl.setJyzt(1);
 			jyjl.setJylx(5);
 			jyjl.setYhbh(Integer.parseInt(yhbh));
-			
-			bzj.setBzjje(bzj.getBzjje()-Integer.parseInt(num));
+			bzj.setKsqje(bzj.getBzjje()-tempnum);
+			bzj.setYsqje(tempnum);
 			
 			daoImpl.save(bzj);
 			jyjlServc.save(jyjl);

@@ -17,7 +17,7 @@ public class Dd {
 	private Integer wtrbh;//委托人编号
 	private Integer fhdld;//发货代理点编号
 	private Integer shdld;//收货代理点把编号
-	private Integer cys;//承运商
+	private Integer cys;//承运商编号
 	private Integer jjlx;//订单计价类型 1：轻货（按体积计价），2：重货（按重量计价）
 	private String hwmc;//货物名称
 	private String hwlx;//货物类型
@@ -30,8 +30,8 @@ public class Dd {
 	private String ddx;//到达县
 	private String ddjd;//到达街道
 	private Integer zjs;//总件数
-	private String zzl;//总重量
-	private String ztj;//总体积
+	private Float zzl;//总重量
+	private Float ztj;//总体积
 	private Integer yjyf;//预计运费
 	private Integer sfyf;//实付运费
 	private String fhrxm;//发货人姓名
@@ -39,7 +39,7 @@ public class Dd {
 	private String shrxm;//收货人姓名
 	private String shrdh;//收货人电话
 	private String dshk;//是否代收货款（1：是；2：否）
-	private String ddzt;//订单状态
+	private Integer ddzt;//订单状态   1:待处理   2：已处理  3：运输中  4：签收
 	private String bxfy;//保险费用
 	private String smth;//是否上门提货（1：是；2：否）
 	private String ysfs;//运输方式
@@ -144,16 +144,16 @@ public class Dd {
 	public void setZjs(Integer zjs) {
 		this.zjs = zjs;
 	}
-	public String getZzl() {
+	public Float getZzl() {
 		return zzl;
 	}
-	public void setZzl(String zzl) {
+	public void setZzl(Float zzl) {
 		this.zzl = zzl;
 	}
-	public String getZtj() {
+	public Float getZtj() {
 		return ztj;
 	}
-	public void setZtj(String ztj) {
+	public void setZtj(Float ztj) {
 		this.ztj = ztj;
 	}
 	public Integer getYjyf() {
@@ -198,10 +198,10 @@ public class Dd {
 	public void setDshk(String dshk) {
 		this.dshk = dshk;
 	}
-	public String getDdzt() {
+	public Integer getDdzt() {
 		return ddzt;
 	}
-	public void setDdzt(String ddzt) {
+	public void setDdzt(Integer ddzt) {
 		this.ddzt = ddzt;
 	}
 	public String getBxfy() {

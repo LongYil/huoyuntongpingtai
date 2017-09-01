@@ -1,0 +1,99 @@
+@charset "utf-8";
+/* CSS Document */
+body{
+	width:900px;
+	margin:0 auto;
+	padding:15px;
+}
+#top{
+	width:900px;
+    height:140px;
+	margin:0 auto;
+}
+#top img{
+	height:180px;
+	width:300px;
+}
+#xuanxiangka{
+	width: 900px;
+    margin: 0px auto;
+    background-color: #E3F3FF;
+    padding-top: 15px;
+    height: 33px;
+	
+}
+#kind{
+	width: 139px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    color: White;
+    background-image: url("../../images/cy/bt.png");
+    height: 23px;
+    padding-top: 10px;
+    margin-left: 30px;
+    float: left;
+	}
+#information{
+	width: 139px;
+    font-size: 14px;
+    text-align: center;
+    height: 23px;
+    padding-top: 10px;
+    margin-left: 10px;
+    float: left;
+}
+tr.light{
+	background-color: #E9FDFD;
+}
+tr.light:hover{
+	background-color: #FDE9FC;
+}
+#tip{
+	width: 129px;
+    text-align: center;
+    height: 23px;
+    padding-top: 10px;
+    color: #FF0000;
+    float: right;
+}
+#biaoge{
+	margin: 0px auto;
+	margin-top:-10px;
+	border:#E3F3FF 10px solid;
+}
+table{
+	width:880px;
+	border:#1e89ca 2px solid;
+	font-size:14px;
+	padding:15px;
+	font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, sans-serif;
+}
+table td{
+	border:none;
+}
+font.red{
+	color:#FF0105;
+}
+td.bigger{
+	font-size:18px;
+	font-weight:bold;
+}
+#bt_next{
+	background-image:url(../../images/cy/bt_next.png);
+	height:32px;
+	width:107px;
+	}
+.bt_next{
+	text-align:center;
+}
+#foot{
+	text-align:center;
+}
+#foot p{
+	font-size:14px;
+	color: #C7C7C7;
+}
+#foot a:hover{
+	color: #F71013;
+}

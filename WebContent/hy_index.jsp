@@ -13,7 +13,6 @@
 	<script type="text/javascript" src="js/basic/jquery.easyui.min.js"></script>
 </head>
 <body class="easyui-layout" style="width:1040px;margin:0 auto;">
-
 	<div data-options="region:'north',border:false" style="height:150px;background:#B3DFDA;">
     <div style="width:1040px; height:75px;background-image:url(js/basic/ads1.png);"></div>
 	<div style="width:1040px; height:75px;background-image:url(js/basic/head.png);">
@@ -21,7 +20,6 @@
     	<div class="info"><span class="info1">货运代理点：</span><span class="info2">${jbyh.yhxm}</span>&nbsp;&nbsp;<span class="info3">您好！</span></div>
     </div>
     </div>
-	
 	<div data-options="region:'west',split:true,title:'货运通物流平台'" style="width:200px;padding:10px;">
 	<ul class="menubox">
 		<li class="fatheritem">
@@ -36,7 +34,7 @@
                 <li><a href="javascript:void(0)" onClick="To('yhzh_find.action')"><img src="js/basic/icon/zhanghuguanli.png" class="itemicon">账户管理</a></li>
 			</ul>
 		</li>
- 
+
 		<li class="fatheritem">
         	<dl class="biaotia2">
             <li style="background-color:#dce8f3;">
@@ -58,13 +56,13 @@
             </dl>
 			<ul class="menu1">
 				<li><a href="javascript:void(0)"><img src="js/basic/icon/quanbudingdan.png" class="itemicon">全部订单</a></li>
-                <li><a href="javascript:void(0)"><img src="js/basic/icon/yijiedan.png" class="itemicon">待处理订单</a></li>
+                <li><a href="javascript:void(0)" ><img src="js/basic/icon/yijiedan.png" class="itemicon">待处理订单</a></li>
                 <li><a href="javascript:void(0)"><img src="js/basic/icon/yijiedan.png" class="itemicon">已接单</a></li>
                 <li><a href="javascript:void(0)"><img src="js/basic/icon/yunshuzhong.png" class="itemicon">运输中</a></li>
                 <li><a href="javascript:void(0)"><img src="js/basic/icon/yiqianshou.png" class="itemicon">已签收</a></li>
                 <li><a href="javascript:void(0)"><img src="js/basic/icon/dingdanchaxun.png" class="itemicon">订单查询</a></li>
 			</ul>
-		</li>       
+		</li>
   
    		<li class="fatheritem">
         	<dl class="biaotia4">

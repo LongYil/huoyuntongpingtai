@@ -25,13 +25,16 @@
 		<property name="ddx" length="150"/>
 		<property name="ddjd" length="150"/>
 		<property name="zjs"/>
-		<property name="zzl" length="150"/>
-		<property name="ztj" length="150"/>
+		<property name="zzl" />
+		<property name="ztj" />
 		<property name="yjyf"/>
 		<property name="sfyf"/>
 		<property name="fhrxm" length="150"/>
+		<property name="fhrdh" length="150"/>
+		<property name="shrxm" length="150"/>
+		<property name="shrdh" length="150"/>
 		<property name="dshk" length="150"/>
-		<property name="ddzt" length="150"/>
+		<property name="ddzt" />
 		<property name="bxfy" length="150"/>
 		<property name="smth" length="150"/>
 		<property name="ysfs" length="150"/>

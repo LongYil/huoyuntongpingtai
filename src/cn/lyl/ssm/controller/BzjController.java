@@ -66,4 +66,5 @@ public class BzjController extends BasicController<BzjServc> {
 		out.write(String.valueOf(result));
 	}
 	
+	
 }

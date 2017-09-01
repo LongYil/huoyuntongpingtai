@@ -6,10 +6,10 @@
 <hibernate-mapping package="org.hibernate.tutorial.hbm">
 
 	<class name="cn.lyl.ssm.po.Wtr" table="Wtr">
-		<id name="yhbh">
+		<id name="id">
 			<generator class="native"/>
 		</id>
-		<property name="id"/>
+		<property name="yhbh"/>
 		<property name="gsmc" length="100"/>
 		<property name="yhsf" length="100"/>
 		<property name="yhcs" length="100"/>

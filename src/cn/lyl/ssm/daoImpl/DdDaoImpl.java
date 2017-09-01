@@ -1,5 +1,7 @@
 package cn.lyl.ssm.daoImpl;
 
+import java.util.List;
+
 import org.springframework.stereotype.Component;
 
 import cn.lyl.ssm.dao.DdDao;
@@ -29,6 +31,11 @@ public class DdDaoImpl extends CommonDaoImpl<Dd> implements DdDao {
 	public Dd find(String arg) {
 		//
 		return null;
+	}
+
+	@Override
+	public List<Dd> findAll(String column, String ztid,String yhid) {
+		return (List<Dd>) ht.find("from Dd where "+column+" = "+yhid+"and ddzt = "+ztid+"");
 	}
 
 }

@@ -35,6 +35,7 @@ public class YscdController extends BasicController<YscdServc> {
 	@RequestMapping("/yscd_save")
 	public void save(Yscd yscd,HttpServletRequest request){
 		yscd.setYhbh(Integer.parseInt(request.getSession().getAttribute("yhbh").toString()));
+		yscd.setCysbh(Integer.parseInt(request.getSession().getAttribute("yhbh").toString()));
 		yscd.setFpzt(0);
 		servc.save(yscd);
 	}

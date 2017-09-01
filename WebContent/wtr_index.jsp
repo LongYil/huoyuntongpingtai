@@ -45,12 +45,11 @@
             </dl>
 			<ul class="menu1">
 				<li><a href="javascript:void(0)" onClick="To('dd_tjdd.jsp')"><img src="js/basic/xiugai.png" class="itemicon">创建订单</a></li>
-				<li><a href="javascript:void(0)" onClick="To('dd_xzly.jsp')"><img src="js/basic/icon/quanbudingdan.png" class="itemicon">全部订单</a></li>
-                <li><a href="javascript:void(0)"><img src="js/basic/icon/yijiedan.png" class="itemicon">待处理订单</a></li>
-                <li><a href="javascript:void(0)"><img src="js/basic/icon/yijiedan.png" class="itemicon">已接单</a></li>
-                <li><a href="javascript:void(0)"><img src="js/basic/icon/yunshuzhong.png" class="itemicon">运输中</a></li>
-                <li><a href="javascript:void(0)"><img src="js/basic/icon/yiqinahsou.png" class="itemicon">已签收</a></li>
-                <li><a href="javascript:void(0)"><img src="js/basic/icon/dingdanchaxun.png" class="itemicon">订单查询</a></li>
+                <li><a href="javascript:void(0)" onClick="To('dd_findAll.action?yhlx=1&id=1')"><img src="js/basic/icon/yijiedan.png" class="itemicon">待处理</a></li>
+                <li><a href="javascript:void(0)" onClick="To('dd_findAll.action?yhlx=1&id=2')"><img src="js/basic/icon/yijiedan.png" class="itemicon">已处理</a></li>
+                <li><a href="javascript:void(0)" onClick="To('dd_findAll.action?yhlx=1&id=3')"><img src="js/basic/icon/yunshuzhong.png" class="itemicon">运输中</a></li>
+                <li><a href="javascript:void(0)" onClick="To('dd_findAll.action?yhlx=1&id=4')"><img src="js/basic/icon/yiqinahsou.png" class="itemicon">已签收</a></li>
+				<li><a href="javascript:void(0)" ><img src="js/basic/icon/quanbudingdan.png" class="itemicon">全部订单</a></li>
 			</ul>
 		</li>
      

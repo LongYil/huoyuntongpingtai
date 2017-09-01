@@ -16,6 +16,8 @@ public class Bzj {
 	private Integer id;//序号
 	private Integer yhbh;//用户编号
 	private Integer bzjje;//保证金余额
+	private Integer ysqje;//已申请解冻金额
+	private Integer ksqje;//可申请解冻金额
 	private Integer kz1;
 	private Integer kz2;
 	private String kz3;
@@ -68,6 +70,18 @@ public class Bzj {
 	}
 	public void setKz5(String kz5) {
 		this.kz5 = kz5;
+	}
+	public Integer getYsqje() {
+		return ysqje;
+	}
+	public void setYsqje(Integer ysqje) {
+		this.ysqje = ysqje;
+	}
+	public Integer getKsqje() {
+		return ksqje;
+	}
+	public void setKsqje(Integer ksqje) {
+		this.ksqje = ksqje;
 	}
 
 }

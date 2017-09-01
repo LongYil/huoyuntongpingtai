@@ -36,8 +36,7 @@
 				<c:forEach items="${listYsdw}" var="item" begin="0" step="1" varStatus="status">
 				<tr>
 				    <td>${status.index+1}</td>
-				    <td><input type="checkbox" value="${item.id}" name="id"/></td>
-					<td>${item.fhdldbh}</td>
+				    <td><input type="checkbox" value="${item.id}" name="ysdwid"/></td>
 					<td>${item.fhdldmc}</td>
 					<td>${item.fhdz}</td>
 					<td>${item.cyscd}</td>

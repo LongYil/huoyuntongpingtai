@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import cn.lyl.ssm.daoImpl.HyglyDaoImpl;
+import cn.lyl.ssm.po.Dd;
 import cn.lyl.ssm.po.Hygly;
 
 @Transactional
@@ -34,5 +35,9 @@ public class HyglyServc extends CommonSevc<Hygly, HyglyDaoImpl> {
 	
 	public List<Hygly> findByYhbh(String arg){
 		return daoImpl.findByYhbh(arg);
+	}
+	
+	public List<Hygly> findByShdd(Dd dd){
+		return daoImpl.findByShdz(dd);
 	}
 }

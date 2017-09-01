@@ -53,6 +53,7 @@ public class DdServc extends CommonSevc<Dd,DdDaoImpl> {
 
 	@Override
 	public List<Dd> findAll(String arg) {
+		//
 		return null;
 	}
 
@@ -62,7 +63,7 @@ public class DdServc extends CommonSevc<Dd,DdDaoImpl> {
 	}
 	
 	public List<Ysdw> findBestYsdw(Dd dd) throws Exception{
-		Float tempnum = Float.parseFloat(dd.getZtj())/(Float.parseFloat(dd.getZzl())/1000);//计算货物每吨的体积
+		Float tempnum = dd.getZtj()/(dd.getZzl()/1000);//计算货物每吨的体积
 		if(tempnum>3){
 			dd.setJjlx(2);//重货
 		}else{
@@ -89,12 +90,17 @@ public class DdServc extends CommonSevc<Dd,DdDaoImpl> {
 			ysdw.setFhdz(hygly.getSzsf()+"-"+hygly.getSzcs()+"-"+hygly.getSzx()+"-"+hygly.getSzjdh());
 			
 			if(dd.getJjlx()==2){
-				ysdw.setYjfy(Float.parseFloat(dd.getZzl())*listWlx.get(i).getZhjg());
+				ysdw.setYjfy(dd.getZzl()*listWlx.get(i).getZhjg());
 			}else{
-				ysdw.setYjfy(Float.parseFloat(dd.getZtj())*listWlx.get(i).getQhjg());
+				ysdw.setYjfy(dd.getZtj()*listWlx.get(i).getQhjg());
 			}
 			listysdw1.add(ysdw);
 		}
 		return listysdw1;
 	}
+	
+	public List<Dd> findAllDdxx(String column,String ztid,String yhid) {
+		return daoImpl.findAll(column, ztid, yhid);
+	}
+	
 }

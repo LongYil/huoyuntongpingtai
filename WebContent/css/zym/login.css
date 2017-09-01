@@ -1,0 +1,251 @@
+
+body{
+    margin:0px;
+    padding:0px;
+    font-size: 12px;
+    line-height: 22px;
+    font-family: Tahoma,Arial,"宋体";
+    color: #333333;
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+}
+ul li{
+    list-style: none;
+}
+header{
+    height:120px;
+    padding-top:2px;
+}
+.huoyun_logo{
+    height:100px;
+    margin-left:10%;
+    float: left;
+}
+#login_title{
+    float: left;
+    font-size: 24px;
+    color: #5e5e5e;
+    font-family: "微软雅黑";
+    padding-top: 80px;
+    letter-spacing: 3px;
+}
+.header_right{
+    float: right;
+    padding-top:90px;
+    margin-right: 10%;
+}
+.header_right a {
+    font-family: "宋体";
+    font-size: 12px;
+    color: #6c6c6c;
+}
+.header_right a:hover{
+    color: #44afe2;
+}
+.container{
+    height:490px;
+    background-color: #44afe2;
+}
+.container_left {
+    height:400px;
+    width:40%;
+    padding-top: 90px;
+    float: left;
+}
+.container_text{
+    font-family: "微软雅黑 ";
+    font-size: 22px;
+    color: #FFFFFF;
+    float: right;
+    text-align: center;
+    height:100px;
+    letter-spacing: 2px;
+}
+.people{
+    height:300px;
+    float: right;
+}
+.container_right{
+    float:right;
+    margin-right:10%;
+    margin-top: 46px;
+    width: 300px;
+    height: 355px;
+    background: #fff;
+    padding: 25px;
+    box-shadow: 3px 3px 8px #9cafb9;
+}
+.login_list01 {
+    height: 58px;
+}
+.login_box {
+    font-size: 18px;
+    font-family: "微软雅黑";
+    color: #3c3c3c;
+    margin-top: 16px;
+    float: left;
+}
+.extra_r {
+    background: url(../../images/zym/f_icon.png) no-repeat center left;
+    padding-left: 20px;
+    margin-top: 18px;
+}
+.fr {
+    float: right;
+}
+.extra_r a:hover {
+    color: #F83636;
+}
+.extra_r a {
+    color: #0f93d5;
+}
+/*表单*/
+.code
+{
+    font-family:Arial;
+    font-style:italic;
+    color:blue;
+    font-size:15px;
+    border:0;
+    padding:2px 3px;
+    letter-spacing:2px;
+    font-weight:bolder;
+    float:left;
+    cursor:pointer;
+    text-align:center;
+    vertical-align:middle;
+    width:80px;
+}
+.login_namewar {
+    position: relative;
+}
+.text_uid li {
+    margin-bottom: 22px;
+}
+.text_uid li {
+    margin-bottom: 22px;
+}
+.service a {
+    color: #0f93d5;
+}
+.login_name {
+    background: url(../../images/zym/d_icon.png) no-repeat;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: 1px;
+    *top: 2px;
+    left: 1px;
+}
+.text_uid input {
+    font-size: 14px;
+    font-family: "微软雅黑";
+}
+.login_text, .login_text2 {
+    width: 220px;
+    height: 40px;
+    line-height: 40px;
+    border: solid 1px #cbcbcb;
+    padding-left: 50px;
+    color: #999;
+}
+.login_text3 {
+    margin-right: 10px;
+    width: 110px;
+    height: 38px;
+    line-height: 38px;
+    padding-left: 10px;
+    color: #999;
+    border: solid 1px #cbcbcb;
+}
+.login_text4 {
+    width: 135px;
+    height: 38px;
+    line-height: 38px;
+    border: solid 1px #f0efef;
+    padding-right: 3px;
+}
+.fl {
+    float: left;
+}
+.remember input {
+    margin-bottom: 15px;
+}
+.text_uid input {
+    font-size: 14px;
+    font-family: "微软雅黑";
+}
+.jzmm {
+    margin-right: 5px;
+}
+.login_btn input {
+    width: 300px;
+    height: 42px;
+    background: #0f93d5;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    line-height: 42px;
+    color: #fff;
+    font-size: 18px;
+    border: 0;
+    margin-bottom: 15px;
+}
+.remember label {
+    font-size: 12px;
+    font-family: "微软雅黑";
+    color: #6c6c6c;
+}
+.login_pwd {
+    background: url(../../images/zym/d2_icon.png) no-repeat;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: 65px;
+    left: 1px;
+}
+.rememr a:hover {
+    color: #F83636;
+}
+.rememr a {
+    font-size: 12px;
+    font-family: "微软雅黑";
+    color: #0f93d5;
+}
+.btnnew {
+    cursor: pointer;
+}
+footer{
+    clear: both;
+    height:100px;
+}
+.foot_login {
+    width: 735px;
+    margin: 0 auto;
+    margin-top: 38px;
+}
+.foot_login3 {
+    width: 520px;
+    margin: 0 auto;
+}
+.foot_login a:hover {
+    color: #F83636;
+}
+.foot_login a {
+    font-family: Arial,宋体, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #1f1f1f;
+}
+.foot_login3 span {
+    font-family: Arial,宋体, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #999999;
+    margin: 15px 0px 38px 0px;
+    display: inline-block;
+}
