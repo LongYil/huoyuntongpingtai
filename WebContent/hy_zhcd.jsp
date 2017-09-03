@@ -13,7 +13,7 @@
 	<script type="text/javascript" src="js/basic/jquery.easyui.min.js"></script>
 	<style type="text/css">
 		.cdmc{
-		margin-left:120px;
+		margin-left:140px;
 		font-size:18px;
 		color:#0248b5;
 		font-weight:bold;
@@ -22,14 +22,11 @@
 </head>
 <body style="padding-top:0px; padding-bottom:0px;">
 
-<section style="width:780px;height:40px;margin-top:20px;padding-left:20px;">
-<a href="javascript:void(0)" class="easyui-linkbutton" style="width:110px;margin-right:20px;" onclick="chakancheliang()">查看所有车辆</a>
-<a href="javascript:void(0)" class="easyui-linkbutton" style="width:110px;margin-right:20px;" onclick="chakanxianlu()">查看所有线路</a>
+<section style="width:700px;height:40px;margin-top:20px;padding-left:20px;">
 <a href="javascript:void(0)" class="easyui-linkbutton" style="width:80px;" onclick="fanhui()">返回</a>
 
-<span class="cdmc">货运公司:${zhmc}</span>
-<input type="hidden" class="glyid"  value="${glyid}"/>
-<input type="hidden" class="zhmc" value="${zhmc}"/>
+<span class="cdmc">帐号:${mc1}_${mc2}</span>
+
 </section>
 
 	<div id="tt" class="easyui-tabs" data-options="tools:'#tab-tools'" style="padding:0px;width:835px;height:620px;margin-left:-20px;margin-bottom:0px;">
@@ -39,20 +36,24 @@
 		<thead>
 			<tr>
 				<th data-options="field:'a',width:40,align:'center'">序号</th>
-				<th data-options="field:'id',width:100,align:'center'" hidden="hidden">车队编号</th>
-				<th data-options="field:'b',width:150,align:'center'">车队名称</th>
-				<th data-options="field:'c',width:150,align:'center'">车队联系人</th>
-				<th data-options="field:'d',width:150,align:'center'">车队联系电话</th>
+				<th data-options="field:'b',width:100,align:'center'">承运商名称</th>
+				<th data-options="field:'c',width:100,align:'center'">承运商地址</th>
+				<th data-options="field:'d',width:100,align:'center'">承运商电话</th>
+				<th data-options="field:'e',width:150,align:'center'">车队名称</th>
+				<th data-options="field:'g',width:150,align:'center'">车队联系人</th>
+				<th data-options="field:'h',width:150,align:'center'">车队联系电话</th>
 			</tr>
 		</thead>
 		<tbody>
-				<c:forEach items="${listcd}" var="item" begin="0" step="1" varStatus="status">
+				<c:forEach items="${listcdvo}" var="item" begin="0" step="1" varStatus="status">
 				<tr>
 				    <td>${status.index+1}</td>
-					<td hidden="hidden">${item.cdbh}</td>
-					<td>${item.cdmc}</td>
-					<td>${item.cdlxr}</td>
-					<td>${item.cdlxdh}</td>
+					<td>${item.gsmc}</td>
+					<td>${item.gsdz}</td>
+					<td>${item.lxdh}</td>
+					<td>${item.yscd.cdmc}</td>
+					<td>${item.yscd.cdlxr}</td>
+					<td>${item.yscd.cdlxdh}</td>
 				</tr>
 				</c:forEach>
 		</tbody>
@@ -62,29 +63,13 @@
 
 	<script type="text/javascript">
 
-
 		function fanhui(){
-			window.location="hy_hyFindAllGly.action";
-		}
-
-		
-		function chakancheliang(){
-			var row = $('#dg').datagrid('getSelected');
-			if(row){
-				var id = row.id;
-				var mc = row.b;
-				window.location = "clxx_hyFindById.action?id="+id+"&mc="+mc;
-			}
+			window.location = "hy_hyFindAllGly.action";
 		}
 		
-		function chakanxianlu(){
-			var row = $('#dg').datagrid('getSelected');
-			if (row){
-				var id = row.id;
-				var mc = row.b;
-				window.location = "wlx_HyFindByCdid.action?id="+id+"&&mc="+mc;
-			}
-		}
+		
+		
+		
 		
 	</script>
 </body>

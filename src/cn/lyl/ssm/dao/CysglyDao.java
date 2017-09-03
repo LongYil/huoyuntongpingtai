@@ -9,4 +9,5 @@ public interface CysglyDao {
 	List<Cysgly> findAllByCysbh(String arg);
 	Cysgly findByGlyid(String arg) throws Exception;
 	List<Cysgly> findByDlbh(String arg);
+	List<Cysgly> findByHyglyid(String arg);
 }

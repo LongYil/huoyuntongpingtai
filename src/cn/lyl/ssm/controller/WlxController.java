@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import cn.lyl.ssm.po.Cysgly;
 import cn.lyl.ssm.po.Wlx;
+import cn.lyl.ssm.service.impl.CysglyServc;
 import cn.lyl.ssm.service.impl.WlxServc;
 import cn.lyl.ssm.utils.AssembleWlx;
 import cn.lyl.ssm.vo.WlxVo;
@@ -27,8 +28,11 @@ import cn.lyl.ssm.vo.WlxVo;
 public class WlxController extends BasicController<WlxServc> {
 	private List<Wlx> listwlx = new ArrayList<Wlx>();
 	private List<WlxVo> listwlxvo = new ArrayList<WlxVo>();
+	private List<Cysgly> listcysgly = new ArrayList<Cysgly>();
 	@Autowired
 	private Cysgly cysgly;
+	@Autowired
+	private CysglyServc cysglyServc;
 	@Autowired
 	private AssembleWlx assembleWlx;
 	
@@ -72,6 +76,25 @@ public class WlxController extends BasicController<WlxServc> {
 		model.addAttribute("cdxlmc",mc);
 		return "hy_xlgl";
 	}
+	
+	@RequestMapping("wlx_HyFindByCysid")//货运代理点：根据承运商编号查找所有运输线路
+	public String HyFindByCysid(String id,String mc,Model model,HttpServletRequest request) throws Exception{
+		listwlx.clear();
+		listwlxvo.clear();
+		listwlx = servc.findByCysid(id);
+		String hy_id = request.getSession().getAttribute("hy_id").toString();
+		String hy_mc1 = request.getSession().getAttribute("hy_mc1").toString();
+		String hy_mc2 = request.getSession().getAttribute("hy_mc2").toString();
+		listwlxvo = assembleWlx.getWlxVo(listwlx);
+		model.addAttribute("listwlxvo",listwlxvo);
+		
+		model.addAttribute("hy_id",hy_id);
+		model.addAttribute("hy_mc1",hy_mc1);
+		model.addAttribute("hy_mc2",hy_mc2);
+		
+		model.addAttribute("mc",mc);
+		return "hy_zhcysxl";
+	}
 
 	@RequestMapping("wlx_glySave")//承运商用户保存运输线路
 	public void glySave(Wlx wlx,HttpServletRequest request){
@@ -100,7 +123,17 @@ public class WlxController extends BasicController<WlxServc> {
 		return "hy_syxl";
 	}
 	
-	
+	@RequestMapping("wlx_hyFindByGlyid")//货运代理点用户查找管理员的所有物流线
+	public String hyFindByGlyid(String id,String mc1,String mc2,Model model) {
+		listcysgly.clear();
+		listwlxvo.clear();
+		listcysgly = cysglyServc.findByHyglyid(id);
+		listwlxvo = servc.findByGlyid(listcysgly);
+		model.addAttribute("listwlxvo",listwlxvo);
+		model.addAttribute("mc1",mc1);
+		model.addAttribute("mc2",mc2);
+		return "hy_zhsyxl";
+	}
 	
 	
 	

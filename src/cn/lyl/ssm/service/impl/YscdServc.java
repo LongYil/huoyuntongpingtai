@@ -10,9 +10,10 @@ import org.springframework.transaction.annotation.Transactional;
 import cn.lyl.ssm.daoImpl.YscdDaoImpl;
 import cn.lyl.ssm.po.Cysgly;
 import cn.lyl.ssm.po.Yscd;
+import cn.lyl.ssm.vo.YscdVo;
 
-@Service(value="yscdServc")
 @Transactional
+@Service(value="yscdServc")
 public class YscdServc extends CommonSevc<Yscd, YscdDaoImpl> {
 	
 	private List<Yscd> listcd = new ArrayList<Yscd>();
@@ -83,5 +84,10 @@ public class YscdServc extends CommonSevc<Yscd, YscdDaoImpl> {
 		}
 		return listYscd;
 	}
+	
+	public List<YscdVo> findYscdByCysgly(List<Cysgly> list) throws Exception{
+		return daoImpl.findYscdByCysgly(list);
+	}
+	
 	
 }

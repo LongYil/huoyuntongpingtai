@@ -4,17 +4,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import cn.lyl.ssm.daoImpl.WlxDaoImpl;
+import cn.lyl.ssm.po.Cysgly;
 import cn.lyl.ssm.po.Dd;
 import cn.lyl.ssm.po.Wlx;
 import cn.lyl.ssm.po.Yscd;
 import cn.lyl.ssm.vo.WlxVo;
 
 @Transactional
-@Component(value="wlxServc")
+@Service(value="wlxServc")
 public class WlxServc extends CommonSevc<Wlx, WlxDaoImpl> {
 	
 	@Autowired
@@ -92,4 +93,14 @@ public class WlxServc extends CommonSevc<Wlx, WlxDaoImpl> {
 	public void update(Wlx wlx){
 		daoImpl.update(wlx);
 	}
+	
+	public List<WlxVo> findByGlyid(List<Cysgly> list){
+		return daoImpl.findByGlyid(list);
+	}
+	
+	public List<Wlx> findByCysid(String arg){
+		return daoImpl.findByCysid(arg);
+	}
+	
+	
 }	

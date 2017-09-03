@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -81,4 +82,10 @@ public class CysglyServc extends CommonSevc<Cysgly, CysglyDaoImpl> {
 		}
 		return listgly;
 	}
+	
+	public List<Cysgly> findByHyglyid(String arg){
+		return daoImpl.findByHyglyid(arg);	
+	}
+	
+	
 }

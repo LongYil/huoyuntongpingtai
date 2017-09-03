@@ -8,9 +8,8 @@ import org.springframework.transaction.annotation.Transactional;
 import cn.lyl.ssm.daoImpl.YhzhDaoImpl;
 import cn.lyl.ssm.po.Yhzh;
 
-
-@Service(value="yhzhServc")
 @Transactional
+@Service(value="yhzhServc")
 public class YhzhServc extends CommonSevc<Yhzh, YhzhDaoImpl> {
 
 	@Override

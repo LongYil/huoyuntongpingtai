@@ -2,6 +2,7 @@ package cn.lyl.ssm.service.impl;
 
 import java.util.List;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -30,7 +31,7 @@ public class HyglyServc extends CommonSevc<Hygly, HyglyDaoImpl> {
 
 	@Override
 	public void delete(Hygly arg) {
-		//
+		daoImpl.delete(arg);
 	}
 	
 	public List<Hygly> findByYhbh(String arg){
@@ -44,4 +45,13 @@ public class HyglyServc extends CommonSevc<Hygly, HyglyDaoImpl> {
 	public List<Hygly> yhFindAllGly(String arg){//货运代理点用户查找所有管理员
 		return daoImpl.yhFindAllGly(arg);
 	}
+	
+	public Hygly getById(String arg) {//根据id得到货运管理员
+		return daoImpl.getById(Integer.parseInt(arg));
+	}
+	
+	
+	
+	
+	
 }

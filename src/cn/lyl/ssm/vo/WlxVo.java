@@ -6,11 +6,13 @@ import cn.lyl.ssm.po.Wlx;
 
 @Component(value="wlxVo")
 public class WlxVo{
-	private String cdmc;//车队名称
 	private Wlx wlx;
+	
+	private String cdmc;//车队名称
+	private String cddh;//车队电话
 	private String gsmc;//公司名称
 	private String gsdh;//公司电话
-	private String cddh;
+	
 	public String getCdmc() {
 		return cdmc;
 	}

@@ -18,9 +18,9 @@
 <section style="width:760px;height:40px;margin-top:20px;padding-left:40px;">
 <a href="javascript:void(0)" class="easyui-linkbutton" style="width:80px;margin-right:20px;" onclick="tianjia()">添加帐号</a>
 <a href="javascript:void(0)" class="easyui-linkbutton" style="width:80px;margin-right:20px;" onclick="shanchu()">删除帐号</a>
-<a href="javascript:void(0)" class="easyui-linkbutton" style="width:110px;margin-right:20px;" onclick="shezhidailidian()">查看承运商</a>
-<a href="javascript:void(0)" class="easyui-linkbutton" style="width:110px;margin-right:20px;" onclick="shezhidailidian()">查看所有线路</a>
-<a href="javascript:void(0)" class="easyui-linkbutton" style="width:110px;margin-right:20px;" onclick="shezhidailidian()">查看所有车辆</a>
+<a href="javascript:void(0)" class="easyui-linkbutton" style="width:110px;margin-right:20px;" onclick="chakanchengyunshang()">查看承运商</a>
+<a href="javascript:void(0)" class="easyui-linkbutton" style="width:110px;margin-right:20px;" onclick="chakanxianlu()">查看所有线路</a>
+<a href="javascript:void(0)" class="easyui-linkbutton" style="width:110px;margin-right:20px;" onclick="chakanchedui()">查看所有车队</a>
 <a href="javascript:void(0)" class="easyui-linkbutton" style="width:80px;" onclick="shuaxin()">刷新</a>
 </section>
 
@@ -31,7 +31,7 @@
 		<thead>
 			<tr>
 				<th data-options="field:'a',width:40,align:'center'">序号</th>
-				<th data-options="field:'id',width:60,align:'center'">用户id</th>
+				<th data-options="field:'id',width:60,align:'center'" hidden="hidden">用户id</th>
 				<th data-options="field:'b',width:120,align:'center'">用户名(帐户名)</th>
 				<th data-options="field:'c',width:120,align:'center'">用户手机号</th>
 				<th data-options="field:'d',width:120,align:'center'">用户姓名</th>
@@ -43,18 +43,18 @@
 			</tr>
 		</thead>
 		<tbody>
-				<c:forEach items="${listgly}" var="item" begin="0" step="1" varStatus="status">
+				<c:forEach items="${listvo}" var="item" begin="0" step="1" varStatus="status">
 				<tr>
 				    <td>${status.index+1}</td>
-					<td>${item.yhbh}</td>
+					<td hidden="hidden">${item.hygly.glybh}</td>
 					<td>${item.yhm}</td>
-					<td>${item.yhsj}</td>
+					<td>${item.hygly.lxdh}</td>
 					<td>${item.yhxm}</td>
-					<td>${item.gsmc}</td>
-					<td>${item.yhyx}</td>
-					<td>${item.szsf}</td>
-					<td>${item.szcs}</td>
-					<td>${item.szx}</td>
+					<td>${item.hygly.gsmc}</td>
+					<td>${item.hygly.yhyx}</td>
+					<td>${item.hygly.szsf}</td>
+					<td>${item.hygly.szcs}</td>
+					<td>${item.hygly.szx}</td>
 				</tr>
 				</c:forEach>
 		</tbody>
@@ -74,12 +74,34 @@
 				closable: true
 			});
 		}
+		
+		function chakanchengyunshang(){
+			var row = $('#dg').datagrid('getSelected');
+			if (row){
+				var id = row.id;
+				var mc1 = row.b;
+				var mc2 = row.d;
+				window.location = "hy_hyglyFindAllCysByglyid.action?id="+id+"&mc1="+mc1+"&mc2="+mc2;
+			}
+		}
+		
+		function chakanxianlu(){
+			var row = $('#dg').datagrid('getSelected');
+			if (row){
+				var id = row.id;
+				var mc1 = row.b;
+				var mc2 = row.d;
+				window.location = "wlx_hyFindByGlyid.action?id="+id+"&mc1="+mc1+"&mc2="+mc2;
+			}
+		}
+		
 		function chakanchedui(){
 			var row = $('#dg').datagrid('getSelected');
 			if (row){
 				var id = row.id;
-				var mc = row.b;
-				window.location = "yscd_cysFindByGlyid.action?id="+id+"&mc="+mc;
+				var mc1 = row.b;
+				var mc2 = row.d;
+				window.location = "yscd_hyFindYscdByGlyid.action?id="+id+"&mc1="+mc1+"&mc2="+mc2;
 			}
 		}
 		
@@ -95,22 +117,13 @@
 				var name = row.b;
 				$.messager.confirm("确认","是否删除帐号:"+name, function (r) {  
 			        if (r) {  
-			        	window.location = "cys_deleteGly.action?id="+id; 
+			        	window.location = "hy_hyDeleteGly.action?id="+id; 
 			        }  
 			    });  
 			}
 		}
 		
-		function shezhidailidian(){
-			index++;
-			var row = $('#dg').datagrid('getSelected');
-			var id = row.id;
-			$('#tt').tabs('add',{
-				title: '设置代理点',
-				content: '<iframe src="hy_yszdld.action?id='+id+'" frameborder="0" style="padding:5px;width:820px;height:500px;"></iframe>',
-				closable: true
-			});
-		}
+
 		
 		
 	</script>
