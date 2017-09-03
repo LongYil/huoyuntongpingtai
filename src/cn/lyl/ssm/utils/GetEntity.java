@@ -18,7 +18,7 @@ import cn.lyl.ssm.po.Yhzh;
  *		下午3:50:34
  */
 @Component(value="getEntity")
-@Scope(value="prototype")
+
 public class GetEntity {
 	@Autowired
 	public HibernateTemplate ht;

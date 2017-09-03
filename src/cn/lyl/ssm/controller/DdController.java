@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.TreeSet;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -29,6 +30,7 @@ import cn.lyl.ssm.vo.Ysdw;
 @Controller
 public class DdController extends BasicController<DdServc> {
 	
+	private List<Ysdw> templistYsdw = new ArrayList<Ysdw>();
 	private List<Ysdw> listYsdw = new ArrayList<Ysdw>();
 	private List<Hygly> listhygly = new ArrayList<Hygly>();
 	private List<Dd> listdd = new ArrayList<Dd>();
@@ -43,12 +45,19 @@ public class DdController extends BasicController<DdServc> {
 	
 	@RequestMapping("dd_diyibu")//第一步
 	public String diyibu(Model model,Dd dd,HttpServletRequest request) throws Exception{
+		templistYsdw.clear();
 		listYsdw.clear();
-		listYsdw.addAll(servc.findBestYsdw(dd));
+		
+		templistYsdw.addAll(servc.findBestYsdw(dd));
+		
+		Set<Ysdw> setYsdw = new HashSet();
+		setYsdw.addAll(templistYsdw);
+		listYsdw.addAll(setYsdw);
 		
 		request.getSession().setAttribute("listYsdw",listYsdw);
 		request.getSession().setAttribute("dd", dd);
 		model.addAttribute("listYsdw",listYsdw);
+		
 		return "dd_xzly";
 	}
 	
