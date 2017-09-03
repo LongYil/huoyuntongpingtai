@@ -2,8 +2,10 @@ package cn.lyl.ssm.daoImpl;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import cn.lyl.ssm.dao.WlxDao;
@@ -14,6 +16,7 @@ import cn.lyl.ssm.po.Yscd;
 import cn.lyl.ssm.vo.WlxVo;
 
 @Component(value="wlxDaoImpl")
+@Scope(value="prototype")
 public class WlxDaoImpl extends CommonDaoImpl<Wlx> implements WlxDao {
 	
 	private List<Wlx> listwlx = new ArrayList<Wlx>();
@@ -61,6 +64,8 @@ public class WlxDaoImpl extends CommonDaoImpl<Wlx> implements WlxDao {
 
 	@Override
 	public List<WlxVo> findByCysYhid(String arg) {
+		listwlx.clear();
+		listwlxvo.clear();
 		listwlx = (List<Wlx>) ht.find("from Wlx where yhbh ="+arg+"");
 		for(int i=0;i<listwlx.size();i++){
 			yscd = (Yscd) ht.find("from Yscd where cdbh = "+listwlx.get(i).getCdbh()+"").get(0);
@@ -74,7 +79,7 @@ public class WlxDaoImpl extends CommonDaoImpl<Wlx> implements WlxDao {
 
 	@Override
 	public List<Wlx> findBestWlx(Dd dd) {
-		return (List<Wlx>) ht.find("from Wlx where cfsf = ? and cfcs = ? and cfx = ? and ddsf = ? and ddcs = ? and ddx = ?",dd.getCfsf().trim(),dd.getCfcs().trim(),dd.getCfx().trim(),dd.getDdsf().trim(),dd.getDdcs().trim(),dd.getDdx().trim());
+		return  (List<Wlx>) ht.find("from Wlx where cfsf = ? and cfcs = ? and cfx = ? and ddsf = ? and ddcs = ? and ddx = ?",dd.getCfsf().trim(),dd.getCfcs().trim(),dd.getCfx().trim(),dd.getDdsf().trim(),dd.getDdcs().trim(),dd.getDdx().trim());
 	}
 
 	@Override

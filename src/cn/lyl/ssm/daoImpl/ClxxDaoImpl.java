@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import cn.lyl.ssm.dao.ClxxDao;
@@ -19,6 +20,7 @@ import cn.lyl.ssm.vo.ClxxVo;
  *		下午5:47:55
  */
 @Component(value="clxxDaoImpl")
+@Scope(value="prototype")
 public class ClxxDaoImpl extends CommonDaoImpl<Clxx> implements ClxxDao {
 	
 	private List<Clxx> list = new ArrayList<Clxx>();
@@ -47,6 +49,7 @@ public class ClxxDaoImpl extends CommonDaoImpl<Clxx> implements ClxxDao {
 
 	@Override
 	public Clxx find(String arg) {
+		list.clear();
 		list = (List<Clxx>) ht.find("from Clxx where yhbh = "+arg+"");
 		if(list!=null&&list.size()!=0){
 			return list.get(0);
@@ -63,6 +66,7 @@ public class ClxxDaoImpl extends CommonDaoImpl<Clxx> implements ClxxDao {
 	@Override
 	public List<ClxxVo> findByYhbh(String arg) {
 		list.clear();
+		listvo.clear();
 		list = (List<Clxx>) ht.find("from Clxx where yhbh = "+arg+"");
 		for(int i=0;i<list.size();i++){
 			clxxvo = new ClxxVo();

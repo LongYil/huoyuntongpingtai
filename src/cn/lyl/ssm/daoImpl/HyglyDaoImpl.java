@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import cn.lyl.ssm.dao.HyglyDao;
@@ -12,6 +13,7 @@ import cn.lyl.ssm.po.Hygly;
 import cn.lyl.ssm.utils.GetEntity;
 
 @Component(value="hyglyDaoImpl")
+@Scope(value="prototype")
 public class HyglyDaoImpl extends CommonDaoImpl<Hygly> implements HyglyDao {
 
 	private List<Hygly> list = new ArrayList<Hygly>();

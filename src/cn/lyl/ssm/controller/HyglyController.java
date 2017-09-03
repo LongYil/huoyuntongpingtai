@@ -138,6 +138,7 @@ public class HyglyController extends BasicController<HyglyServc> {
 	@RequestMapping("hy_findAllDldb")
 	public String findAllDldb(Model model){//查找所有代理点
 		listdld.clear();
+		
 		listdld = servc.findAll("");
 		model.addAttribute("listdld",listdld);
 		return "cys_dldszbdld";
@@ -145,6 +146,7 @@ public class HyglyController extends BasicController<HyglyServc> {
 	@RequestMapping("hy_findAllDldsy")
 	public String findAllDldsy(Model model){//查找所有代理点
 		listdld.clear();
+		
 		listdld = servc.findAll("");
 		model.addAttribute("listdld",listdld);
 		return "cys_dldszsydld";
@@ -164,8 +166,9 @@ public class HyglyController extends BasicController<HyglyServc> {
 	
 	@RequestMapping("hy_yszdld")//承运商管理员给所拥有的帐号预设置代理点 id为帐号的id(用户给管理员设置代理点)
 	public String yszdld(Model model,String id,HttpServletRequest request){
-		request.getSession().setAttribute("temphyid", id);
 		listdld.clear();
+		
+		request.getSession().setAttribute("temphyid", id);
 		listdld = servc.findAll("");
 		model.addAttribute("listdld",listdld);
 		return "dld_sz";

@@ -1,12 +1,13 @@
 package cn.lyl.ssm.controller;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -44,6 +45,7 @@ public class DdController extends BasicController<DdServc> {
 	public String diyibu(Model model,Dd dd,HttpServletRequest request) throws Exception{
 		listYsdw.clear();
 		listYsdw.addAll(servc.findBestYsdw(dd));
+		
 		request.getSession().setAttribute("listYsdw",listYsdw);
 		request.getSession().setAttribute("dd", dd);
 		model.addAttribute("listYsdw",listYsdw);
@@ -52,6 +54,8 @@ public class DdController extends BasicController<DdServc> {
 	
 	@RequestMapping("dd_dierbu")//第二步
 	public String dierbu(Model model,String ysdwid,HttpServletRequest request){
+		listhygly.clear();
+		
 		request.getSession().setAttribute("ysdwid", ysdwid);
 		dd = (Dd) request.getSession().getAttribute("dd");
 		listhygly = hyglyServc.findByShdd(dd);
@@ -61,6 +65,8 @@ public class DdController extends BasicController<DdServc> {
 	
 	@RequestMapping("dd_disanbu")//第三步
 	public void disanbu(String shid,HttpServletRequest request){
+		listYsdw.clear();
+		
 		listYsdw = (List<Ysdw>) request.getSession().getAttribute("listYsdw");
 		String ysdwid = request.getSession().getAttribute("ysdwid").toString();
 		ysdw = listYsdw.get(Integer.parseInt(ysdwid));
@@ -76,8 +82,9 @@ public class DdController extends BasicController<DdServc> {
 		
 	@RequestMapping("dd_findAll")
 	public String findAll(Model model,String yhlx,String id,HttpServletRequest request){
-		yhlx = getRealColumnName.getColumnName(yhlx);
 		listdd.clear();
+		
+		yhlx = getRealColumnName.getColumnName(yhlx);
 		listdd = servc.findAllDdxx(yhlx,id,request.getSession().getAttribute("yhbh").toString());
 		model.addAttribute("listdd",listdd);
 		return "ddxx";

@@ -1,13 +1,13 @@
 package cn.lyl.ssm.daoImpl;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import cn.lyl.ssm.dao.BzjDao;
 import cn.lyl.ssm.po.Bzj;
-import cn.lyl.ssm.utils.GetEntity;
 
 @Component(value="bzjDaoImpl")
+@Scope(value="prototype")
 public class BzjDaoImpl extends CommonDaoImpl<Bzj> implements BzjDao {
 	
 	@Override

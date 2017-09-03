@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -57,8 +58,8 @@ public class WlxServc extends CommonSevc<Wlx, WlxDaoImpl> {
 		listYscd.clear();
 		listWlx.clear();
 		templistWlx.clear();
-		listYscd = yscdServc.hyFindAllYscd(yhbh);
 		
+		listYscd = yscdServc.hyFindAllYscd(yhbh);
 		for(int i=0;i<listYscd.size();i++){
 			templistWlx.clear();
 			templistWlx = this.findByCdid(String.valueOf(listYscd.get(i).getCdbh()));
@@ -68,7 +69,6 @@ public class WlxServc extends CommonSevc<Wlx, WlxDaoImpl> {
 				;
 			}
 		}
-		System.out.println(listWlx);
 		return listWlx;
 	}
 	

@@ -2,12 +2,14 @@ package cn.lyl.ssm.daoImpl;
 
 import java.util.List;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import cn.lyl.ssm.dao.DdDao;
 import cn.lyl.ssm.po.Dd;
 
 @Component(value="ddDaoImpl")
+@Scope(value="prototype")
 public class DdDaoImpl extends CommonDaoImpl<Dd> implements DdDao {
 
 	@Override

@@ -49,6 +49,7 @@ public class CysglyServc extends CommonSevc<Cysgly, CysglyDaoImpl> {
 	}
 	
 	public void szsyCysGly(String id,String yhbh){
+		listgly.clear();
 		listgly = daoImpl.findAllByCysbh(yhbh);
 
 		for(int i=0;i<listgly.size();i++){
@@ -69,8 +70,10 @@ public class CysglyServc extends CommonSevc<Cysgly, CysglyDaoImpl> {
 	
 	public List<Cysgly> hyglyFindAllCys(String arg) throws Exception{//参数为货运代理点用户编号
 		listgly.clear();
-		listhygly = hyglyServc.findByYhbh(arg);
+		listhygly.clear();
+		templistgly.clear();
 		
+		listhygly = hyglyServc.findByYhbh(arg);
 		for(int i=0;i<listhygly.size();i++){
 			templistgly.clear();
 			templistgly = this.findByDlbh(String.valueOf(listhygly.get(i).getGlybh()));

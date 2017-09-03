@@ -45,6 +45,7 @@ public class WlxController extends BasicController<WlxServc> {
 	@RequestMapping("/wlx_findAll")
 	public String findAll(Model model,HttpServletRequest request){
 		listwlx.clear();
+		
 		listwlx = servc.findAll(request.getSession().getAttribute("yhbh").toString());
 		model.addAttribute("listwlx", listwlx);
 		return "cys_xlgl";
@@ -53,6 +54,7 @@ public class WlxController extends BasicController<WlxServc> {
 	@RequestMapping("wlx_findByCdid")//承运商：根据车队编号查询该车队的所有线路
 	public String findByCdid(String id,String mc,Model model,HttpServletRequest request){
 		listwlx.clear();
+		
 		cysgly = (Cysgly)request.getSession().getAttribute("cysgly");
 		listwlx = servc.findByCdid(id);
 		request.getSession().setAttribute("cdwlxid",id);
@@ -65,6 +67,7 @@ public class WlxController extends BasicController<WlxServc> {
 	@RequestMapping("wlx_HyFindByCdid")//承运商：根据车队编号查询该车队的所有线路
 	public String HyFindByCdid(String id,String mc,Model model,HttpServletRequest request){
 		listwlx.clear();
+		
 		cysgly = (Cysgly)request.getSession().getAttribute("cysgly");
 		listwlx = servc.findByCdid(id);
 		String glybh = request.getSession().getAttribute("glybh").toString();
@@ -81,6 +84,7 @@ public class WlxController extends BasicController<WlxServc> {
 	public String HyFindByCysid(String id,String mc,Model model,HttpServletRequest request) throws Exception{
 		listwlx.clear();
 		listwlxvo.clear();
+		
 		listwlx = servc.findByCysid(id);
 		String hy_id = request.getSession().getAttribute("hy_id").toString();
 		String hy_mc1 = request.getSession().getAttribute("hy_mc1").toString();
@@ -106,8 +110,9 @@ public class WlxController extends BasicController<WlxServc> {
 	}
 	@RequestMapping("wlx_glyfindByYhbh")
 	public String glyfindByYhbh(Model model,HttpServletRequest request){
-		cysgly = (Cysgly)request.getSession().getAttribute("cysgly");
 		listwlxvo.clear();
+		
+		cysgly = (Cysgly)request.getSession().getAttribute("cysgly");
 		listwlxvo = servc.findByCysYhid(cysgly.getYhbh().toString());
 		model.addAttribute("listwlxvo",listwlxvo);
 		return "cys_cdsyxl";
@@ -117,6 +122,7 @@ public class WlxController extends BasicController<WlxServc> {
 	public String dldFindByYhbh(Model model,HttpServletRequest request) throws Exception{
 		listwlx.clear();
 		listwlxvo.clear();
+		
 		listwlx = servc.dldFindByYhbh(request.getSession().getAttribute("yhbh").toString());
 		listwlxvo = assembleWlx.getWlxVo(listwlx);
 		model.addAttribute("listwlxvo",listwlxvo);
@@ -127,6 +133,7 @@ public class WlxController extends BasicController<WlxServc> {
 	public String hyFindByGlyid(String id,String mc1,String mc2,Model model) {
 		listcysgly.clear();
 		listwlxvo.clear();
+		
 		listcysgly = cysglyServc.findByHyglyid(id);
 		listwlxvo = servc.findByGlyid(listcysgly);
 		model.addAttribute("listwlxvo",listwlxvo);

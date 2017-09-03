@@ -10,6 +10,7 @@ import cn.lyl.ssm.po.Jyjl;
 
 
 @Component(value="jyjlDaoImpl")
+@Scope(value="prototype")
 public class JyjlDaoImpl extends CommonDaoImpl<Jyjl> implements JyjlDao {
 
 	@Override

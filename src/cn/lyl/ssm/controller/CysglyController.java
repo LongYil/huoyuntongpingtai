@@ -171,8 +171,9 @@ public class CysglyController extends BasicController<CysglyServc> {
 	
 	@RequestMapping("cys_hyglyFindAllCys")//货运代理点用户查找所有承运商
 	public String hyglyFindAllCys(Model model,HttpServletRequest request) throws Exception{
-		jbyh = (Jbyh) request.getSession().getAttribute("jbyh");
 		listgly.clear();
+		
+		jbyh = (Jbyh) request.getSession().getAttribute("jbyh");
 		listgly = servc.hyglyFindAllCys(String.valueOf(jbyh.getYhbh()));
 		model.addAttribute("listgly",listgly);
 		return "hy_sycys";

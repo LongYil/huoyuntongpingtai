@@ -21,6 +21,7 @@ import cn.lyl.ssm.po.Jbyh;
  *		上午9:18:41
  */
 @Component(value="jbyhImpl")
+@Scope(value="prototype")
 public class JbyhDaoImpl extends CommonDaoImpl<Jbyh> implements JbyhDao {
 
 	private List<Jbyh> list = new ArrayList<Jbyh>();
@@ -50,7 +51,7 @@ public class JbyhDaoImpl extends CommonDaoImpl<Jbyh> implements JbyhDao {
 
 	@Override
 	public int[] login(Jbyh jbyh) {
-
+		this.list.clear();
 		list = (List<Jbyh>) ht.find("from Jbyh where yhsj = ? and yhmm = ?", jbyh.getYhsj(),jbyh.getYhmm());
 		int[] info = new int[2] ;
 		if(list.size()>0){

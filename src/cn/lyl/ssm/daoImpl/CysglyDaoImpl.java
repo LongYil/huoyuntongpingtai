@@ -2,12 +2,14 @@ package cn.lyl.ssm.daoImpl;
 
 import java.util.List;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import cn.lyl.ssm.dao.CysglyDao;
 import cn.lyl.ssm.po.Cysgly;
 
 @Component(value="cysglyDao")
+@Scope(value="prototype")
 public class CysglyDaoImpl extends CommonDaoImpl<Cysgly> implements CysglyDao {
 
 	@Override

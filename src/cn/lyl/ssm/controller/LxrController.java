@@ -28,11 +28,12 @@ public class LxrController extends BasicController<LxrServc> {
 	public void save(String[] info,Lxr lxr,HttpServletRequest request){
 		lxr.setLxrdz(info[0]+info[1]+info[2]);
 		lxr.setYhbh(Integer.parseInt(request.getSession().getAttribute("yhbh").toString()));
-		System.out.println(lxr);
 		servc.save(lxr);		
 	}
 	@RequestMapping("lxr_findAll")
 	public String findAll(Model model,HttpServletRequest request){
+		listlxr.clear();
+		
 		listlxr = servc.findAll(request.getSession().getAttribute("yhbh").toString());
 		model.addAttribute("listlxr", listlxr);
 		return "wtr_lxrgl";

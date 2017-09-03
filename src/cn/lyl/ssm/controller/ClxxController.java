@@ -46,6 +46,8 @@ public class ClxxController extends BasicController<ClxxServc> {
 	}
 	@RequestMapping("/clxx_glyFindById")//根据车队id查询该车队的所有车辆
 	public String glyFindById(String id,String mc,Model model,HttpServletRequest request){
+		listclxx.clear();
+		
 		request.getSession().setAttribute("cdclid",id);
 		listclxx = servc.findByCdid(id);
 		model.addAttribute("cdmc",mc);
@@ -55,6 +57,8 @@ public class ClxxController extends BasicController<ClxxServc> {
 	}
 	@RequestMapping("/clxx_hyFindById")//货运代理点：根据车队id查询该车队的所有车辆
 	public String hyFindById(String id,String mc,Model model,HttpServletRequest request){
+		listclxx.clear();
+		
 		String glybh = request.getSession().getAttribute("glybh").toString();
 		String zhmc = request.getSession().getAttribute("zhmc").toString();
 		listclxx = servc.findByCdid(id);

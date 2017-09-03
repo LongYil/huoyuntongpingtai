@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import cn.lyl.ssm.dao.YscdDao;
@@ -15,6 +16,7 @@ import cn.lyl.ssm.service.impl.WlxServc;
 import cn.lyl.ssm.vo.YscdVo;
 
 @Component(value="yscdDaoImpl")
+@Scope(value="prototype")
 public class YscdDaoImpl extends CommonDaoImpl<Yscd> implements YscdDao{
 	@Autowired
 	private WlxServc wlxServc;

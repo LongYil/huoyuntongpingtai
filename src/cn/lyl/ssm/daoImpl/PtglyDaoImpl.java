@@ -1,11 +1,13 @@
 package cn.lyl.ssm.daoImpl;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import cn.lyl.ssm.dao.PtglyDao;
 import cn.lyl.ssm.po.Ptgly;
 
 @Component(value="ptglyDaoImpl")
+@Scope(value="prototype")
 public class PtglyDaoImpl extends CommonDaoImpl<Ptgly> implements PtglyDao {
 
 	@Override

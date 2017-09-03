@@ -1,10 +1,11 @@
 package cn.lyl.ssm.service.impl;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -62,39 +63,46 @@ public class DdServc extends CommonSevc<Dd,DdDaoImpl> {
 	}
 	
 	public List<Ysdw> findBestYsdw(Dd dd) throws Exception{
+		listysdw1.clear();
+		listWlx.clear();
+		
 		Float tempnum = dd.getZtj()/(dd.getZzl()/1000);//计算货物每吨的体积
 		if(tempnum>3){
 			dd.setJjlx(2);//重货
 		}else{
 			dd.setJjlx(1);//轻货
 		}
-		listysdw1.clear();
-		listWlx.clear();
+
 		listWlx = wlxServc.findBestWlx(dd);
-		for(int i=0;i<listWlx.size();i++){
-			ysdw = new Ysdw();
-			ysdw.setId(i);
-			cysgly = cysglyServc.findByGlyid(String.valueOf(listWlx.get(i).getCysbh()));
-			hygly = hyglyServc.find(String.valueOf(cysgly.getDlbh()));
-			yscd = yscdServc.find(String.valueOf(listWlx.get(i).getCdbh()));
-			ysdw.setCysbh(cysgly.getCysbh());
-			ysdw.setCysmc(cysgly.getGsmc());
-			ysdw.setCysdz(cysgly.getSzsf()+"-"+cysgly.getSzcs()+"-"+cysgly.getSzx()+"-"+cysgly.getSzjdh());
-			ysdw.setCysdh(cysgly.getLxdh());
-			ysdw.setCyscd(yscd.getCdmc());
-			ysdw.setCyscddh(yscd.getCdlxdh());
-			ysdw.setFhdldmc(hygly.getGsmc());
-			ysdw.setFhdldbh(hygly.getGlybh());
-			ysdw.setFhdh(hygly.getLxdh());
-			ysdw.setFhdz(hygly.getSzsf()+"-"+hygly.getSzcs()+"-"+hygly.getSzx()+"-"+hygly.getSzjdh());
-			
-			if(dd.getJjlx()==2){
-				ysdw.setYjfy(dd.getZzl()*listWlx.get(i).getZhjg());
-			}else{
-				ysdw.setYjfy(dd.getZtj()*listWlx.get(i).getQhjg());
+		if(listWlx.size()>0) {
+			for(int i=0;i<listWlx.size();i++){
+				ysdw = new Ysdw();
+				ysdw.setId(i);
+				cysgly = cysglyServc.findByGlyid(String.valueOf(listWlx.get(i).getCysbh()));
+				hygly = hyglyServc.find(String.valueOf(cysgly.getDlbh()));
+				yscd = yscdServc.find(String.valueOf(listWlx.get(i).getCdbh()));
+				ysdw.setCysbh(cysgly.getCysbh());
+				ysdw.setCysmc(cysgly.getGsmc());
+				ysdw.setCysdz(cysgly.getSzsf()+"-"+cysgly.getSzcs()+"-"+cysgly.getSzx()+"-"+cysgly.getSzjdh());
+				ysdw.setCysdh(cysgly.getLxdh());
+				ysdw.setCyscd(yscd.getCdmc());
+				ysdw.setCyscddh(yscd.getCdlxdh());
+				ysdw.setFhdldmc(hygly.getGsmc());
+				ysdw.setFhdldbh(hygly.getGlybh());
+				ysdw.setFhdh(hygly.getLxdh());
+				ysdw.setFhdz(hygly.getSzsf()+"-"+hygly.getSzcs()+"-"+hygly.getSzx()+"-"+hygly.getSzjdh());
+				
+				if(dd.getJjlx()==2){
+					ysdw.setYjfy(dd.getZzl()*listWlx.get(i).getZhjg());
+				}else{
+					ysdw.setYjfy(dd.getZtj()*listWlx.get(i).getQhjg());
+				}
+				listysdw1.add(ysdw);
 			}
-			listysdw1.add(ysdw);
+		}else {
+			;
 		}
+
 		return listysdw1;
 	}
 	
