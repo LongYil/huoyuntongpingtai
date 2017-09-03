@@ -10,4 +10,5 @@ public interface HyglyDao {
 	List<Hygly> findByYhbh(String arg);
 	List<Hygly> findByShdz(Dd dd);
 	List<Hygly> yhFindAllGly(String arg);
+	Hygly getById(Integer id);
 }

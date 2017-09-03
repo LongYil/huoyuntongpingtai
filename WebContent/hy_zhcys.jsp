@@ -5,54 +5,60 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>所有车队</title>
+	<title>承运商</title>
 	<link rel="stylesheet" type="text/css" href="js/basic/themes/default/easyui.css">
 	<link rel="stylesheet" type="text/css" href="js/basic/themes/icon.css">
 	<link rel="stylesheet" type="text/css" href="js/basic/demo/demo.css">
 	<script type="text/javascript" src="js/basic/jquery.min.js"></script>
 	<script type="text/javascript" src="js/basic/jquery.easyui.min.js"></script>
-	<style type="text/css">
+	<script type="text/javascript" src="js/basic/locale/easyui-lang-zh_CN.js"></script>
+	<style type="text/css">	
 		.cdmc{
 		margin-left:120px;
 		font-size:18px;
 		color:#0248b5;
 		font-weight:bold;
-		}
+		}		
 	</style>
+	
 </head>
 <body style="padding-top:0px; padding-bottom:0px;">
 
-<section style="width:780px;height:40px;margin-top:20px;padding-left:20px;">
-<a href="javascript:void(0)" class="easyui-linkbutton" style="width:110px;margin-right:20px;" onclick="chakancheliang()">查看所有车辆</a>
+<section style="width:700px;height:40px;margin-top:20px;padding-left:40px;">
 <a href="javascript:void(0)" class="easyui-linkbutton" style="width:110px;margin-right:20px;" onclick="chakanxianlu()">查看所有线路</a>
 <a href="javascript:void(0)" class="easyui-linkbutton" style="width:80px;" onclick="fanhui()">返回</a>
 
-<span class="cdmc">货运公司:${zhmc}</span>
-<input type="hidden" class="glyid"  value="${glyid}"/>
-<input type="hidden" class="zhmc" value="${zhmc}"/>
+<span class="cdmc">帐号:${mc1}_${mc2}</span>
 </section>
-
 	<div id="tt" class="easyui-tabs" data-options="tools:'#tab-tools'" style="padding:0px;width:835px;height:620px;margin-left:-20px;margin-bottom:0px;">
-	<div title="所有车队">
+	<div title="所有承运商">
 		<table id="dg" class="easyui-datagrid" style="width:830px;height:580px"
 			data-options="singleSelect:true,url:'datagrid_data1.json',method:'get'">
 		<thead>
 			<tr>
 				<th data-options="field:'a',width:40,align:'center'">序号</th>
-				<th data-options="field:'id',width:100,align:'center'" hidden="hidden">车队编号</th>
-				<th data-options="field:'b',width:150,align:'center'">车队名称</th>
-				<th data-options="field:'c',width:150,align:'center'">车队联系人</th>
-				<th data-options="field:'d',width:150,align:'center'">车队联系电话</th>
+				<th data-options="field:'id',width:60,align:'center'">用户id</th>
+				<th data-options="field:'c',width:120,align:'center'">用户手机号</th>
+				<th data-options="field:'d',width:120,align:'center'">用户姓名</th>
+				<th data-options="field:'e',width:120,align:'center'">公司名称</th>
+				<th data-options="field:'g',width:120,align:'center'">用户邮箱</th>
+				<th data-options="field:'h',width:150,align:'center'">用户地址（省）</th>
+				<th data-options="field:'i',width:150,align:'center'">用户地址（市）</th>
+				<th data-options="field:'j',width:150,align:'center'">用户地址（县/区）</th>
 			</tr>
 		</thead>
 		<tbody>
-				<c:forEach items="${listcd}" var="item" begin="0" step="1" varStatus="status">
+				<c:forEach items="${listvo}" var="item" begin="0" step="1" varStatus="status">
 				<tr>
 				    <td>${status.index+1}</td>
-					<td hidden="hidden">${item.cdbh}</td>
-					<td>${item.cdmc}</td>
-					<td>${item.cdlxr}</td>
-					<td>${item.cdlxdh}</td>
+					<td>${item.yhbh}</td>
+					<td>${item.yhsj}</td>
+					<td>${item.yhxm}</td>
+					<td>${item.gsmc}</td>
+					<td>${item.yhyx}</td>
+					<td>${item.szsf}</td>
+					<td>${item.szcs}</td>
+					<td>${item.szx}</td>
 				</tr>
 				</c:forEach>
 		</tbody>
@@ -60,31 +66,23 @@
 		</div>
 	</div>
 
+
+
 	<script type="text/javascript">
 
-
-		function fanhui(){
-			window.location="hy_hyFindAllGly.action";
-		}
-
-		
-		function chakancheliang(){
-			var row = $('#dg').datagrid('getSelected');
-			if(row){
-				var id = row.id;
-				var mc = row.b;
-				window.location = "clxx_hyFindById.action?id="+id+"&mc="+mc;
-			}
-		}
-		
 		function chakanxianlu(){
 			var row = $('#dg').datagrid('getSelected');
 			if (row){
 				var id = row.id;
-				var mc = row.b;
-				window.location = "wlx_HyFindByCdid.action?id="+id+"&&mc="+mc;
+				var mc = row.e;
+				window.location = "wlx_HyFindByCysid.action?id="+id+"&mc="+mc;
 			}
 		}
+		
+		function fanhui(){
+			window.location = "hy_hyFindAllGly.action";
+		}
+		
 		
 	</script>
 </body>

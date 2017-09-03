@@ -18,7 +18,6 @@ import cn.lyl.ssm.vo.Ysdw;
 
 @Transactional
 @Service(value="ddServc")
-@Scope(value="prototype")
 public class DdServc extends CommonSevc<Dd,DdDaoImpl> {
 
 	@Autowired

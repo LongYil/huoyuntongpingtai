@@ -6,6 +6,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,6 +23,8 @@ import cn.lyl.ssm.service.impl.HydldServc;
 import cn.lyl.ssm.service.impl.HyglyServc;
 import cn.lyl.ssm.service.impl.JbyhServc;
 import cn.lyl.ssm.service.impl.PtzhServc;
+import cn.lyl.ssm.utils.AssembleHygly;
+import cn.lyl.ssm.vo.HyglyVo;
 
 /**
  * <p>Title:HyglyController</p>
@@ -55,9 +58,11 @@ public class HyglyController extends BasicController<HyglyServc> {
 	@Autowired
 	private CysglyServc cysglyServc;
 	@Autowired
+	private AssembleHygly assembleHygly;
+	private List<Jbyh> listJbyh = new ArrayList<Jbyh>();
 	private List<Hygly> listdld = new ArrayList<Hygly>();
 	private List<Hygly> listgly = new ArrayList<Hygly>();
-	
+	private List<HyglyVo> listvo = new ArrayList<HyglyVo>();
 	
 	@RequestMapping("/hy_save")//货运代理点用户注册方法
 	public String save(Model model,Jbyh jbyh,Hydld hydld,Hygly hygly,HttpServletRequest request){
@@ -157,7 +162,7 @@ public class HyglyController extends BasicController<HyglyServc> {
 		return "dld";
 	}
 	
-	@RequestMapping("hy_yszdld")//承运商管理员给所拥有的帐号预设置代理点 id为帐号的id
+	@RequestMapping("hy_yszdld")//承运商管理员给所拥有的帐号预设置代理点 id为帐号的id(用户给管理员设置代理点)
 	public String yszdld(Model model,String id,HttpServletRequest request){
 		request.getSession().setAttribute("temphyid", id);
 		listdld.clear();
@@ -185,13 +190,26 @@ public class HyglyController extends BasicController<HyglyServc> {
 	}
 	
 	@RequestMapping("hy_hyFindAllGly")
-	public String hyFindAllGly(Model model,HttpServletRequest request){//货运代理点用户查找所有管理员
+	public String hyFindAllGly(Model model,HttpServletRequest request){//货运代理点用户查找所有管理员帐户
 		listgly.clear();
+		listJbyh.clear();
+		listvo.clear();
 		listgly = servc.yhFindAllGly(request.getSession().getAttribute("yhbh").toString());
-		model.addAttribute("listgly",listgly);
+		listJbyh = jbyhServc.getJbyhByHygly(listgly);
+		listvo = assembleHygly.getGlyvoList(listJbyh, listgly);
+		model.addAttribute("listvo",listvo);
 		return "hy_zhgl";
 	}
 	
+	@RequestMapping("hy_hyDeleteGly")//货运代理点用户删除管理员
+	public String hyDeleteGly(String id) {
+		hygly = servc.getById(id);
+		jbyh = jbyhServc.find(id);
+		servc.delete(hygly);
+		jbyhServc.delete(jbyh);
+		
+		return "redirect:hy_hyFindAllGly.action";
+	}
 	
 	
 	

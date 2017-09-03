@@ -131,7 +131,8 @@
         <div class="write"  id="area_address">
             <span class="write-1">公司所在地：</span> <span class="write-2">*</span>
             <!--<input id="area" type="text" class="in" onblur="checkArea()" style="height: 26px;width: 200px"/>-->
-            <div class="write-4"><select name="province" style="margin-left: 10px;height: 30px;float: left"></select>
+            <div class="write-4">
+            <select name="province" style="margin-left: 10px;height: 30px;float: left"></select>
             <select name="city" style="height: 30px;float: left"></select>
             <select name="area" style="height: 30px;float: left"></select></div>
             <span id="place" style="float: left;margin-top: 5px;margin-left: 10px">请选择公司所在地</span>

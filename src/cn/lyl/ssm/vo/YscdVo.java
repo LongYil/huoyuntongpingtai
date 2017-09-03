@@ -9,8 +9,10 @@ import cn.lyl.ssm.po.Yscd;
 @Scope(value="")
 public class YscdVo {
 	private Yscd yscd;
-	private String gsmc;
-	private String lxdh;
+	
+	private String gsmc;//公司名称
+	private String lxdh;//公司电话
+	private String gsdz;//公司地址
 	public Yscd getYscd() {
 		return yscd;
 	}
@@ -28,6 +30,12 @@ public class YscdVo {
 	}
 	public void setLxdh(String lxdh) {
 		this.lxdh = lxdh;
+	}
+	public String getGsdz() {
+		return gsdz;
+	}
+	public void setGsdz(String gsdz) {
+		this.gsdz = gsdz;
 	}
 	
 	

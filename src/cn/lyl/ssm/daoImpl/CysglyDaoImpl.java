@@ -49,6 +49,11 @@ public class CysglyDaoImpl extends CommonDaoImpl<Cysgly> implements CysglyDao {
 	public List<Cysgly> findByDlbh(String arg) {
 		return (List<Cysgly>) ht.find("from Cysgly where dlbh = "+arg+"");
 	}
+
+	@Override
+	public List<Cysgly> findByHyglyid(String arg) {//根据代理点id查找承运商
+		return (List<Cysgly>) ht.find("from Cysgly where dlbh = "+arg+"");
+	}
 	
 	
 	

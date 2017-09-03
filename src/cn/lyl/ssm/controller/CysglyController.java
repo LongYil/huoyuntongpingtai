@@ -32,7 +32,6 @@ import cn.lyl.ssm.vo.CysglyVo;
  *		下午8:31:23
  */
 @Controller
-@Scope(value="prototype")
 public class CysglyController extends BasicController<CysglyServc> {
 	@Autowired
 	private JbyhServc jbyhServc;
@@ -137,6 +136,9 @@ public class CysglyController extends BasicController<CysglyServc> {
 	//查询所有管理员
 	@RequestMapping("/cys_findAllGly")
 	public String findAllGly(Model model,HttpServletRequest request){
+		listgly.clear();
+		listjbyh.clear();
+		listvo.clear();
 		listgly = servc.findAll(request.getSession().getAttribute("yhbh").toString());
 		listjbyh = jbyhServc.findAllGly(listgly);
 		listvo = assembleCysgly.getAllVo(listjbyh, listgly);
@@ -176,5 +178,24 @@ public class CysglyController extends BasicController<CysglyServc> {
 		return "hy_sycys";
 	}
 	
-	
+	@RequestMapping("hy_hyglyFindAllCysByglyid")//货运代理点用户根据管理员id查找该管理员的所有承运商
+	public String hyglyFindAllCysByglyid(Model model,String id,String mc1,String mc2,HttpServletRequest request) {
+		listgly.clear();
+		listjbyh.clear();
+		listvo.clear();
+		
+		request.getSession().setAttribute("hy_id",id);
+		request.getSession().setAttribute("hy_mc1",mc1);
+		request.getSession().setAttribute("hy_mc2",mc2);
+		
+		listgly = servc.findByHyglyid(id);
+		listjbyh = jbyhServc.findAllGly(listgly);
+		listvo = assembleCysgly.getAllVo(listjbyh, listgly);
+		model.addAttribute("listvo", listvo);
+		
+		
+		model.addAttribute("mc1", mc1);
+		model.addAttribute("mc2", mc2);
+		return "hy_zhcys";
+	}
 }

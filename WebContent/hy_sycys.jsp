@@ -22,7 +22,9 @@
 </head>
 <body style="padding-top:0px; padding-bottom:0px;">
 <section style="width:760px;height:40px;margin-top:20px;padding-left:40px;">
+
 <a href="javascript:void(0)" class="easyui-linkbutton" style="width:100px;margin-right:20px;" onclick="chakanchedui()">查看所有车队</a>
+
 </section>
 	<div id="tt" class="easyui-tabs" data-options="tools:'#tab-tools'" style="padding:0px;width:835px;height:620px;margin-left:-20px;margin-bottom:0px;">
 	<div title="所有承运商">

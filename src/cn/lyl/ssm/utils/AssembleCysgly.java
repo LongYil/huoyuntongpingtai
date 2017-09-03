@@ -18,7 +18,7 @@ import cn.lyl.ssm.vo.CysglyVo;
  *		2017年8月18日
  *		下午5:11:46
  */
-@Component
+@Component(value="assembleCysgly")
 @Scope(value="prototype")
 public class AssembleCysgly {
 	private List<Jbyh> listjbyh = new ArrayList<Jbyh>();

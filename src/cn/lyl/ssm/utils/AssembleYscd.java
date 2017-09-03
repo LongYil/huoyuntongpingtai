@@ -20,8 +20,8 @@ import cn.lyl.ssm.vo.YscdVo;
  *		2017年8月30日
  *		上午11:00:16
  */
-@Service(value="AssembleYscd")
 @Transactional
+@Service(value="AssembleYscd")
 public class AssembleYscd {
 	private List<Yscd> listcd = new ArrayList<Yscd>();
 	private List<YscdVo> listcdvo = new ArrayList<YscdVo>();

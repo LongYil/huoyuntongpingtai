@@ -32,13 +32,12 @@ public class HyglyDaoImpl extends CommonDaoImpl<Hygly> implements HyglyDao {
 
 	@Override
 	public void delete(Hygly entity) {
-		//
-		
+		ht.delete(entity);
 	}
 
 	@Override
 	public Hygly find(String arg) throws Exception {
-		return (Hygly) getEntity.getEntity("Hygly", "yhbh", arg, Hygly.class);
+		return (Hygly) getEntity.getEntity("Hygly", "glybh", arg, Hygly.class);
 	}
 
 	@Override
@@ -59,6 +58,11 @@ public class HyglyDaoImpl extends CommonDaoImpl<Hygly> implements HyglyDao {
 	@Override
 	public List<Hygly> yhFindAllGly(String arg) {
 		return (List<Hygly>) ht.find("from Hygly where yhbh = "+arg+" and yhbh!=glybh");
+	}
+
+	@Override
+	public Hygly getById(Integer id) {
+		return ht.get(Hygly.class, id);
 	}
 	
 	

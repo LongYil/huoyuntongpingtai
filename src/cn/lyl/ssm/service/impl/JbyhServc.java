@@ -2,11 +2,13 @@ package cn.lyl.ssm.service.impl;
 
 import java.util.List;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import cn.lyl.ssm.daoImpl.JbyhDaoImpl;
 import cn.lyl.ssm.po.Cysgly;
+import cn.lyl.ssm.po.Hygly;
 import cn.lyl.ssm.po.Jbyh;
 
 @Transactional
@@ -42,5 +44,8 @@ public class JbyhServc extends CommonSevc<Jbyh,JbyhDaoImpl> {
 	public void update(Jbyh arg){
 		daoImpl.update(arg);
 	}
-
+	
+	public List<Jbyh> getJbyhByHygly(List<Hygly> arg){
+		return daoImpl.getJbyhByHygly(arg);
+	}
 }

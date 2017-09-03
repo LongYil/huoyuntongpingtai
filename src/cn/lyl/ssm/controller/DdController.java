@@ -26,7 +26,6 @@ import cn.lyl.ssm.vo.Ysdw;
  *		下午5:26:12
  */
 @Controller
-@Scope(value="prototype")
 public class DdController extends BasicController<DdServc> {
 	
 	private List<Ysdw> listYsdw = new ArrayList<Ysdw>();

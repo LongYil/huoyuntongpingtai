@@ -4,12 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import cn.lyl.ssm.dao.JbyhDao;
 import cn.lyl.ssm.po.Cysgly;
+import cn.lyl.ssm.po.Hygly;
 import cn.lyl.ssm.po.Jbyh;
-import cn.lyl.ssm.utils.GetEntity;
 
 
 /**
@@ -25,6 +26,7 @@ public class JbyhDaoImpl extends CommonDaoImpl<Jbyh> implements JbyhDao {
 	private List<Jbyh> list = new ArrayList<Jbyh>();
 	@Autowired
 	private Jbyh jbyh;
+	
 	@Override
 	public void save(Jbyh entity) {
 		ht.save(entity);
@@ -68,6 +70,16 @@ public class JbyhDaoImpl extends CommonDaoImpl<Jbyh> implements JbyhDao {
 			this.list.add(jbyh);
 		}
 		return this.list;
+	}
+
+	@Override
+	public List<Jbyh> getJbyhByHygly(List<Hygly> arg) {
+		list.clear();
+		for(int i=0;i<arg.size();i++) {
+			jbyh  = (Jbyh) ht.find("from Jbyh where yhbh = "+arg.get(i).getGlybh()+"").get(0);
+			list.add(jbyh);
+		}
+		return list;
 	}
 	
 }

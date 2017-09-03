@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 import cn.lyl.ssm.dao.PtyyfDao;
 import cn.lyl.ssm.po.Ptyyf;
 
-@Component
+@Component(value="ptyyfDaoImpl")
 public class PtyyfDaoImpl extends CommonDaoImpl<Ptyyf> implements PtyyfDao {
 
 	@Override

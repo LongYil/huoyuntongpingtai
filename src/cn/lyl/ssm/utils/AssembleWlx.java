@@ -21,8 +21,8 @@ import cn.lyl.ssm.vo.WlxVo;
  *		2017年8月20日
  *		下午9:59:10
  */
-@Service(value="assembleWlx")
 @Transactional
+@Service(value="assembleWlx")
 public class AssembleWlx {
 	@Autowired
 	private CysglyServc cysglyServc;

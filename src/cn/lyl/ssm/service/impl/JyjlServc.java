@@ -12,8 +12,8 @@ import cn.lyl.ssm.po.Jyjl;
 import cn.lyl.ssm.utils.AssembleJyjl;
 import cn.lyl.ssm.vo.JyjlVo;
 
-@Service(value="jyjlServc")
 @Transactional
+@Service(value="jyjlServc")
 public class JyjlServc extends CommonSevc<Jyjl, JyjlDaoImpl> {
 
 	private List<JyjlVo> listvo = new ArrayList<JyjlVo>();
