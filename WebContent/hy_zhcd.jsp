@@ -62,15 +62,9 @@
 	</div>
 
 	<script type="text/javascript">
-
 		function fanhui(){
 			window.location = "hy_hyFindAllGly.action";
-		}
-		
-		
-		
-		
-		
+		}			
 	</script>
 </body>
 </html>

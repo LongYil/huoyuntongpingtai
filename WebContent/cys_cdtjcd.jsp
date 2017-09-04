@@ -26,7 +26,7 @@
 <body style="padding:0px;margin:0px;">
 
 	<div class="easyui-panel" style="width:100%;max-width:820px;max-height:600px;padding:30px 60px;">
-		<form id="ff" action="${pageContext.request.contextPath}/yscd_save.action" class="easyui-form" method="post" data-options="novalidate:true">
+		<form id="ff" name="myform" action="${pageContext.request.contextPath}/yscd_save.action" class="easyui-form" method="post" data-options="novalidate:true">
 
 			<div style="margin-bottom:20px">
 				<input class="easyui-textbox" name="cdmc" style="width:40%" data-options="label:'车队名称',required:true">						
@@ -46,21 +46,20 @@
 	</div>
 	<script>
 	
-		function submitForm(){
-			$('#ff').form('submit',{
-				onSubmit:function(){
-					
-					var flag = $(this).form('enableValidation').form('validate');
-					if(flag){
-						$.messager.alert('提示','保存成功!');
-						return $(this).form('enableValidation').form('validate');
-					}else{
-						$.messager.alert('温馨提示','信息不完整，请填写完整信息!','warning');
-						return false;
-					}
+	function submitForm(){
+		var a = $("#ff").form('enableValidation').form('validate');
+		$('#ff').form('submit',{
+			onSubmit:function(){
+				if(a){
+					$.messager.alert('提示','保存成功!');
+					return $(this).form('enableValidation').form('validate');
+				}else{
+					$.messager.alert('温馨提示','信息填写不完整，请填写完整信息!','warning');
 				}
-			});
-		}
+			}
+		});
+	}
+	
 		function clearForm(){
 			$('#ff').form('clear');
 		}

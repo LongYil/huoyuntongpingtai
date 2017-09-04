@@ -80,6 +80,8 @@ public class CysglyController extends BasicController<CysglyServc> {
 		ptzh.setZhye(2000.0f);
 		bzj.setYhbh(jbyh.getYhbh());
 		bzj.setBzjje(0);
+		bzj.setKsqje(0);
+		bzj.setYsqje(0);
 		bzjServc.save(bzj);
 		ptzhServc.save(ptzh);
 		request.getSession().setAttribute("yhbh", jbyh.getYhbh());

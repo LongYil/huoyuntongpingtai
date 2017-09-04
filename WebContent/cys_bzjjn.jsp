@@ -26,7 +26,7 @@
 <body style="padding:0px;margin:0px;">
 
 	<div class="easyui-panel" style="width:100%;max-width:840px;max-height:600px;padding:30px 60px;" title="缴纳保证金">
-		<form id="ff" class="easyui-form" method="post" data-options="novalidate:true">
+		<form id="ff" name="myform" class="easyui-form" method="post" data-options="novalidate:true">
 
 			<div style="margin-bottom:20px">
 				<input class="easyui-textbox" name="zhjg" id="jine" style="width:40%;margin-left:100px;" data-options="label:'缴纳金额：',required:true">&nbsp;&nbsp;(单位：物流币)				
@@ -40,20 +40,19 @@
 	</div>
 	<script>
 	
-		
 		function submitForm(){
+			var a = $("#ff").form('enableValidation').form('validate');
 			$('#ff').form('submit',{
 				onSubmit:function(){
-					var flag = $(this).form('enableValidation').form('validate');
-					if(flag){
+					if(a){
 						jiaona();
 					}else{
-						$.messager.alert('温馨提示','信息不完整，请填写完整信息!','warning');
-						return false;
+						$.messager.alert('温馨提示','信息填写不完整，请填写完整信息!','warning');
 					}
 				}
 			});
 		}
+
 		function clearForm(){
 			$('#ff').form('clear');
 		}

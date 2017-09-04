@@ -14,7 +14,7 @@
 <body style="padding:0px;margin:0px;">
 
 	<div class="easyui-panel" style="width:100%;max-width:840px;max-height:600px;padding:30px 60px;" title="账号信息">
-		<form id="ff" class="easyui-form" method="post" data-options="novalidate:true">
+		<form id="ff" name="myform" class="easyui-form" method="post" data-options="novalidate:true">
 
 			<div style="margin-bottom:20px">
 				<input class="easyui-textbox" disabled="true" value="个人车主" style="width:40%;font-weight:bold;" data-options="label:'用户类型',required:true">
@@ -33,20 +33,20 @@
 
 	</div>
 	<script>
-		function submitForm(){
-			$('#ff').form('submit',{
-				onSubmit:function(){
-					var flag = $(this).form('enableValidation').form('validate');
-					if(flag){
-						$.messager.alert('提示','保存成功!');
-						return $(this).form('enableValidation').form('validate');
-					}else{
-						$.messager.alert('温馨提示','信息不完整，请填写完整信息!','warning');
-						return false;
-					}
+	function submitForm(){
+		var a = $("#ff").form('enableValidation').form('validate');
+		$('#ff').form('submit',{
+			onSubmit:function(){
+				if(a){
+					$.messager.alert('提示','保存成功!');
+					return $(this).form('enableValidation').form('validate');
+				}else{
+					$.messager.alert('温馨提示','信息填写不完整，请填写完整信息!','warning');
 				}
-			});
-		}
+			}
+		});
+	}
+	
 		function clearForm(){
 			$('#ff').form('clear');
 		}

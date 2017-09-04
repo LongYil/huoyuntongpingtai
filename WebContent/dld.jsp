@@ -42,27 +42,5 @@
 			
 		</div>
 	</div>
-	<script>
-		
-		function submitForm(){
-			$('#ff').form('submit',{
-				onSubmit:function(){
-					var flag = $(this).form('enableValidation').form('validate');
-					if(flag){
-						$.messager.alert('提示','保存成功!');
-						return $(this).form('enableValidation').form('validate');
-					}else{
-						$.messager.alert('温馨提示','信息不完整，请填写完整信息!','warning');
-						return false;
-					}
-				}
-			});
-		}
-		
-		function clearForm(){
-			$('#ff').form('clear');
-		}
-		
-	</script>
 </body>
 </html>

@@ -11,7 +11,7 @@
 	<link rel="stylesheet" type="text/css" href="js/basic/demo/demo.css">
 	<script type="text/javascript" src="js/basic/jquery.min.js"></script>
 	<script type="text/javascript" src="js/basic/jquery.easyui.min.js"></script>
-<style type="text/css">
+	<style type="text/css">
 		p{
 			margin-left:200px;
 			font-size:17px;
@@ -21,7 +21,7 @@
 			color:#4592ec;
 			margin-left:5px;
 		}
-</style>
+	</style>
 </head>
 <body style="padding-top:0px; padding-bottom:0px;">
 

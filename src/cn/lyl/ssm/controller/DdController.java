@@ -45,19 +45,14 @@ public class DdController extends BasicController<DdServc> {
 	
 	@RequestMapping("dd_diyibu")//第一步
 	public String diyibu(Model model,Dd dd,HttpServletRequest request) throws Exception{
-		templistYsdw.clear();
 		listYsdw.clear();
 		
-		templistYsdw.addAll(servc.findBestYsdw(dd));
-		
-		Set<Ysdw> setYsdw = new HashSet();
-		setYsdw.addAll(templistYsdw);
-		listYsdw.addAll(setYsdw);
-		
-		request.getSession().setAttribute("listYsdw",listYsdw);
+		listYsdw.addAll(servc.findBestYsdw(dd));
+	
+		request.getSession().setAttribute("templistYsdw",listYsdw);
 		request.getSession().setAttribute("dd", dd);
 		model.addAttribute("listYsdw",listYsdw);
-		
+
 		return "dd_xzly";
 	}
 	
@@ -74,9 +69,8 @@ public class DdController extends BasicController<DdServc> {
 	
 	@RequestMapping("dd_disanbu")//第三步
 	public void disanbu(String shid,HttpServletRequest request){
-		listYsdw.clear();
-		
-		listYsdw = (List<Ysdw>) request.getSession().getAttribute("listYsdw");
+
+		listYsdw = (List<Ysdw>) request.getSession().getAttribute("templistYsdw");
 		String ysdwid = request.getSession().getAttribute("ysdwid").toString();
 		ysdw = listYsdw.get(Integer.parseInt(ysdwid));
 		dd = (Dd) request.getSession().getAttribute("dd");

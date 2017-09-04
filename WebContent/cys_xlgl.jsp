@@ -19,10 +19,6 @@
 <a href="#" class="easyui-linkbutton" style="width:80px;" onclick="getSelected()">删除线路</a>
 </section>
 
-
-
-
-
 	<div id="tt" class="easyui-tabs" data-options="tools:'#tab-tools'" style="padding:0px;width:835px;height:620px;margin-left:-20px;margin-bottom:0px;">
 	<div title="所有线路">
 		<table id="dg" class="easyui-datagrid" title="运输线路" style="width:1040px;height:590px"

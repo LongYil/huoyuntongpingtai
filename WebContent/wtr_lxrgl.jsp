@@ -45,8 +45,6 @@
 		</div>
 	</div>
 
-
-
 	<script type="text/javascript">
 		var index = 0;
 		function addPanel(){

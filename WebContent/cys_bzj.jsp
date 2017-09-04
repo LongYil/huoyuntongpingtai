@@ -119,7 +119,7 @@
                 <span class="zhye">已缴纳保证金金额:</span>
                 <span class="ye" id="sum_01" >${bzj.bzjje}</span>
                 <span class="dw">物流币</span>
-                <a class="record" href="javascript:void(0)" onclick="jiaonajilu()">缴纳记录</a>
+                <a class="record" href="javascript:void(0)" onclick="jilu()">缴纳记录</a>
                 <input type="button" value="立即缴纳" onClick="jiaona()"/>
             </div>
             

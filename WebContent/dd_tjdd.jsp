@@ -145,17 +145,12 @@
 	
 		
 		function submitForm(){
-			$('#ff').form('submit',{
-				onSubmit:function(){
-					var flag = $(this).form('enableValidation').form('validate');
-					if(flag){
-						myform.submit();
-					}else{
-						$.messager.alert('温馨提示','信息不完整，请填写完整信息!','warning');
-						return false;
-					}
-				}
-			});
+			var a = $("#ff").form('enableValidation').form('validate');
+			if(a){
+				myform.submit();
+			}else{
+				$.messager.alert('温馨提示','信息填写不完整，请填写完整信息!','warning');
+			}
 		}
 		function clearForm(){
 			$('#ff').form('clear');

@@ -1,1 +1,25 @@
 $.messager.alert('提示','保存成功!');
+form表单无跳转保存
+		function submitForm(){
+			var a = $("#ff").form('enableValidation').form('validate');
+			$('#ff').form('submit',{
+				onSubmit:function(){
+					if(a){
+						$.messager.alert('提示','保存成功!');
+						return $(this).form('enableValidation').form('validate');
+					}else{
+						$.messager.alert('温馨提示','信息填写不完整，请填写完整信息!','warning');
+					}
+				}
+			});
+		}
+
+form表单跳转保存
+		function submitForm(){
+			var a = $("#ff").form('enableValidation').form('validate');
+			if(a){
+				myform.submit();
+			}else{
+				$.messager.alert('温馨提示','信息填写不完整，请填写完整信息!','warning');
+			}
+		}
