@@ -36,8 +36,23 @@ public class DdDaoImpl extends CommonDaoImpl<Dd> implements DdDao {
 	}
 
 	@Override
-	public List<Dd> findAll(String column, String ztid,String yhid) {
+	public List<Dd> findByDdzt(String column, String ztid,String yhid) {
 		return (List<Dd>) ht.find("from Dd where "+column+" = "+yhid+"and ddzt = "+ztid+"");
+	}
+
+	@Override
+	public List<Dd> findAllByYhlx(String column, String yhid) {
+		return (List<Dd>) ht.find("from Dd where "+column+" = "+yhid+"");
+	}
+
+	@Override
+	public List<Dd> findAllFhAndSh(String yhid) {
+		return (List<Dd>) ht.find("from Dd where fhdld = "+yhid+" or shdld = "+yhid+" ");
+	}
+
+	@Override
+	public List<Dd> cysFindAll(String yhid) {
+		return (List<Dd>) ht.find("from Dd where cys = "+yhid+"");
 	}
 
 }

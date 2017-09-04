@@ -1,10 +1,7 @@
 package cn.lyl.ssm.controller;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
-import java.util.TreeSet;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -30,7 +27,6 @@ import cn.lyl.ssm.vo.Ysdw;
 @Controller
 public class DdController extends BasicController<DdServc> {
 	
-	private List<Ysdw> templistYsdw = new ArrayList<Ysdw>();
 	private List<Ysdw> listYsdw = new ArrayList<Ysdw>();
 	private List<Hygly> listhygly = new ArrayList<Hygly>();
 	private List<Dd> listdd = new ArrayList<Dd>();
@@ -93,11 +89,30 @@ public class DdController extends BasicController<DdServc> {
 		return "ddxx";
 	}
 	
+	@RequestMapping("dd_findAllByYhlx")
+	public String findAllByYhlx(Model model,String yhlx,HttpServletRequest request) {
+		listdd.clear();
+		yhlx = getRealColumnName.getColumnName(yhlx);
+		listdd = servc.findAllByYhlx(yhlx,request.getSession().getAttribute("yhbh").toString());
+		model.addAttribute("listdd",listdd);
+		return "ddxx";
+	}
 	
+	@RequestMapping("dd_findAllShAndFh")//货运代理点查找所有代理收货和代理发货订单
+	public String findAllShAndFh(Model model,HttpServletRequest request) {
+		listdd.clear();
+		listdd = servc.findAllFhAndSh(request.getSession().getAttribute("yhbh").toString());
+		model.addAttribute("listdd",listdd);
+		return "ddxx";
+	}
 	
-	
-	
-	
+	@RequestMapping("dd_cysFindAll")
+	public String cysFindAll(Model model,HttpServletRequest request) {
+		listdd.clear();
+		listdd = servc.cysFindAll(request.getSession().getAttribute("yhbh").toString());
+		model.addAttribute("listdd",listdd);
+		return "ddxx";
+	}
 	
 	
 	

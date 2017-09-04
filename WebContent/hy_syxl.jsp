@@ -22,22 +22,22 @@
 		<thead>
 			<tr>
 				<th data-options="field:'a',width:80,align:'center'">序号</th>
-				<th data-options="field:'o',width:80,align:'center'">公司名称</th>
-				<th data-options="field:'p',width:80,align:'center'">公司电话</th>
-				<th data-options="field:'n',width:80,align:'center'">车队名称</th>
-				<th data-options="field:'m',width:80,align:'center'">车队电话</th>
-				<th data-options="field:'b',width:80,align:'center'">出发省份</th>
-				<th data-options="field:'c',width:80,align:'center'">出发城市</th>
-				<th data-options="field:'d',width:80,align:'center'">出发县</th>
-				<th data-options="field:'e',width:80,align:'center'">到达省份</th>
-				<th data-options="field:'f',width:80,align:'center'">到达城市</th>
-				<th data-options="field:'g',width:80,align:'center'">到达县</th>
-				<th data-options="field:'h',width:80,align:'center'">重货价格</th>
-				<th data-options="field:'i',width:80,align:'center'">重货单位</th>
-				<th data-options="field:'j',width:80,align:'center'">轻货价格</th>
-				<th data-options="field:'k',width:80,align:'center'">轻货单位</th>
-				<th data-options="field:'l',width:80,align:'center'">运输时效（X天/次）</th>
-				<th data-options="field:'m',width:80,align:'center'">发车频率</th>
+				<th data-options="field:'b',width:80,align:'center'">公司名称</th>
+				<th data-options="field:'c',width:80,align:'center'">公司电话</th>
+				<th data-options="field:'d',width:80,align:'center'">车队名称</th>
+				<th data-options="field:'e',width:80,align:'center'">车队电话</th>
+				<th data-options="field:'f',width:80,align:'center'">出发省份</th>
+				<th data-options="field:'g',width:80,align:'center'">出发城市</th>
+				<th data-options="field:'h',width:80,align:'center'">出发县</th>
+				<th data-options="field:'i',width:80,align:'center'">到达省份</th>
+				<th data-options="field:'j',width:80,align:'center'">到达城市</th>
+				<th data-options="field:'k',width:80,align:'center'">到达县</th>
+				<th data-options="field:'l',width:80,align:'center'">重货价格</th>
+				<th data-options="field:'m',width:80,align:'center'">重货单位</th>
+				<th data-options="field:'n',width:80,align:'center'">轻货价格</th>
+				<th data-options="field:'o',width:80,align:'center'">轻货单位</th>
+				<th data-options="field:'q',width:80,align:'center'">运输时效（X天/次）</th>
+				<th data-options="field:'p',width:80,align:'center'">发车频率</th>
 			</tr>
 		</thead>
 		<tbody>

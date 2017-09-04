@@ -107,7 +107,18 @@ public class DdServc extends CommonSevc<Dd,DdDaoImpl> {
 	}
 	
 	public List<Dd> findAllDdxx(String column,String ztid,String yhid) {
-		return daoImpl.findAll(column, ztid, yhid);
+		return daoImpl.findByDdzt(column, ztid, yhid);
 	}
 	
+	public List<Dd> findAllByYhlx(String column,String yhid){
+		return daoImpl.findAllByYhlx(column, yhid);
+	}
+	
+	public List<Dd> findAllFhAndSh(String arg){
+		return daoImpl.findAllFhAndSh(arg);
+	}
+	
+	public List<Dd> cysFindAll(String arg){
+		return daoImpl.cysFindAll(arg);
+	}
 }
