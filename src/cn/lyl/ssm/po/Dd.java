@@ -43,10 +43,19 @@ public class Dd {
 	private String bxfy;//保险费用
 	private String smth;//是否上门提货（1：是；2：否）
 	private String ysfs;//运输方式
+	private String fqsj;//订单发起时间
+	private String yjsdsj;//预计送达时间
+	private String sjsdsj;//实际送达时间
+	private Integer fkzt;//付款状态  1：未付款  2：已付款
+	private Integer fkf;//付款方   1：委托人    2：货运代理点（订单完成后，将从收货代理点将运费退还给发货代理点）
+	private Integer fhdldsf;//发货代理点收取的费用
+	private Integer shdldsf;//收货代理点收取的费用
+	private Integer cyssf;//承运商收取的费用
 	private Integer kz1;
 	private Integer kz2;
 	private String kz3;
 	private String kz4;
+	
 	private String kz5;	public Integer getId() {
 		return id;
 	}
@@ -256,6 +265,54 @@ public class Dd {
 	}
 	public void setJjlx(Integer jjlx) {
 		this.jjlx = jjlx;
+	}
+	public String getYjsdsj() {
+		return yjsdsj;
+	}
+	public void setYjsdsj(String yjsdsj) {
+		this.yjsdsj = yjsdsj;
+	}
+	public String getSjsdsj() {
+		return sjsdsj;
+	}
+	public void setSjsdsj(String sjsdsj) {
+		this.sjsdsj = sjsdsj;
+	}
+	public String getFqsj() {
+		return fqsj;
+	}
+	public void setFqsj(String fqsj) {
+		this.fqsj = fqsj;
+	}
+	public Integer getFkzt() {
+		return fkzt;
+	}
+	public void setFkzt(Integer fkzt) {
+		this.fkzt = fkzt;
+	}
+	public Integer getFkf() {
+		return fkf;
+	}
+	public void setFkf(Integer fkf) {
+		this.fkf = fkf;
+	}
+	public Integer getFhdldsf() {
+		return fhdldsf;
+	}
+	public void setFhdldsf(Integer fhdldsf) {
+		this.fhdldsf = fhdldsf;
+	}
+	public Integer getShdldsf() {
+		return shdldsf;
+	}
+	public void setShdldsf(Integer shdldsf) {
+		this.shdldsf = shdldsf;
+	}
+	public Integer getCyssf() {
+		return cyssf;
+	}
+	public void setCyssf(Integer cyssf) {
+		this.cyssf = cyssf;
 	}
 	
 	

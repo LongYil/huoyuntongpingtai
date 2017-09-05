@@ -11,6 +11,7 @@
 	<link rel="stylesheet" type="text/css" href="js/basic/demo/demo.css">
 	<script type="text/javascript" src="js/basic/jquery.min.js"></script>
 	<script type="text/javascript" src="js/basic/jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="js/basic/locale/easyui-lang-zh_CN.js"></script>	
 </head>
 <body style="padding-top:0px; padding-bottom:0px;">
 
@@ -41,6 +42,7 @@
 				<th data-options="field:'t',width:120,align:'center'">订单发起时间</th>
 				<th data-options="field:'u',width:120,align:'center'">预计到达时间</th>
 				<th data-options="field:'v',width:120,align:'center'">实际到达时间</th>
+				<th data-options="field:'w',width:120,align:'center'">操作</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -67,12 +69,31 @@
 					<td>${item.fqsj}</td>
 					<td>${item.yjsdsj}</td>
 					<td>${item.sjsdsj}</td>
+					<td><a href="javascript:void(0)" class="easyui-linkbutton" onClick="queren('${item.id}')">确认接单</a></td>
 				</tr>
 				</c:forEach>
 		</tbody>
 		</table>
 		</div>
 	</div>
-
+	<script type="text/javascript">
+		function queren(arg){
+			var row = $('#dg').datagrid('getSelected');
+			
+			var hwmc = row.g;
+			var fhrxm = row.p;
+			var shrxm = row.r;
+			var cfdz = row.i;
+			var dddz = row.j;
+			
+			var info = "货物名称:"+hwmc+"<br/>:"+cfdz+"<br/>到达地址:"+dddz+"<br/>";
+			$.messager.confirm('确认接单', '是否确认接单 ?<br/>'+info, function(r){
+				if (r){
+					window.location = "dd_hydldJd.action?id="+arg;
+				}
+			});
+		}
+	
+	</script>
 </body>
 </html>

@@ -27,7 +27,8 @@ public class Ysdw {
 	private String cyscddh;//承运商车队电话
 	
 	private Float yjfy;//预计费用
-
+	private Integer yssx;//运输时效
+	
 	
 	public String getFhdldmc() {
 		return fhdldmc;
@@ -100,6 +101,12 @@ public class Ysdw {
 	}
 	public void setId(Integer id) {
 		this.id = id;
+	}
+	public Integer getYssx() {
+		return yssx;
+	}
+	public void setYssx(Integer yssx) {
+		this.yssx = yssx;
 	}
 	
 }

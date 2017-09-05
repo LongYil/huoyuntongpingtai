@@ -80,6 +80,12 @@
 				&nbsp;&nbsp;<input class="easyui-textbox" name="shrdh" style="width:40%" data-options="label:'收货人电话',required:true">
 			</div>
 			<div style="margin-bottom:20px" id="area_address">
+				<span class="tou" style="margin-right:8px;">付款方式</span>
+				<select  class="mycombox" name="fkf" style="width:19%">
+					<option value="1">发付</option>
+					<option value="2">到付</option>
+				</select>
+				&nbsp;&nbsp;&nbsp;&nbsp;
 				<span class="tou" style="margin-right:8px;">是否代收货款</span>
 				<select  class="mycombox" name="dshk" style="width:19%">
 					<option value="1">是</option>

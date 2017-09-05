@@ -76,9 +76,9 @@ public class DdController extends BasicController<DdServc> {
 		dd.setWtrbh(Integer.parseInt(request.getSession().getAttribute("yhbh").toString()));
 		dd.setYjyf(Math.round(ysdw.getYjfy()));
 		dd.setDdzt(1);
-		servc.save(dd);
+		servc.saveDd(dd,String.valueOf(ysdw.getYssx()));
 	}
-		
+
 	@RequestMapping("dd_findAll")
 	public String findAll(Model model,String yhlx,String id,HttpServletRequest request){
 		listdd.clear();
@@ -86,7 +86,13 @@ public class DdController extends BasicController<DdServc> {
 		yhlx = getRealColumnName.getColumnName(yhlx);
 		listdd = servc.findAllDdxx(yhlx,id,request.getSession().getAttribute("yhbh").toString());
 		model.addAttribute("listdd",listdd);
-		return "ddxx";
+		
+		if(yhlx.equals("fhdld")&&id.equals("1")) {
+			return "hy_ddxx";
+		}else {
+			return "ddxx";
+		}
+		
 	}
 	
 	@RequestMapping("dd_findAllByYhlx")
@@ -103,6 +109,8 @@ public class DdController extends BasicController<DdServc> {
 		listdd.clear();
 		listdd = servc.findAllFhAndSh(request.getSession().getAttribute("yhbh").toString());
 		model.addAttribute("listdd",listdd);
+		
+		
 		return "ddxx";
 	}
 	
@@ -114,6 +122,12 @@ public class DdController extends BasicController<DdServc> {
 		return "ddxx";
 	}
 	
-	
+	@RequestMapping("dd_hydldJd")
+	public String hydldJd(String id) {//货运代理点用户确认接单
+		dd = servc.find(id);
+		dd.setDdzt(2);
+		servc.update(dd);
+		return "redirect:dd_findAll.action?yhlx=2&id=1";
+	}
 	
 }

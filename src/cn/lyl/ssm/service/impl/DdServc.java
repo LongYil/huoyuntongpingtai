@@ -15,6 +15,7 @@ import cn.lyl.ssm.po.Dd;
 import cn.lyl.ssm.po.Hygly;
 import cn.lyl.ssm.po.Wlx;
 import cn.lyl.ssm.po.Yscd;
+import cn.lyl.ssm.utils.GetDateAndTime;
 import cn.lyl.ssm.vo.Ysdw;
 
 @Transactional
@@ -44,11 +45,16 @@ public class DdServc extends CommonSevc<Dd,DdDaoImpl> {
 	public void save(Dd arg) {
 		daoImpl.save(arg);		
 	}
-
+	
+	public void saveDd(Dd arg,String time) {
+		System.out.println(daoImpl.getDateAndTime.getStandardDateAndTime());
+		arg.setFqsj(daoImpl.getDateAndTime.getStandardDateAndTime());
+		arg.setYjsdsj(daoImpl.getDateAndTime.getExpectTime(daoImpl.getDateAndTime.getStandardDateAndTime(),time));
+		daoImpl.save(arg);	
+	}
 	@Override
 	public Dd find(String arg) {
-		//
-		return null;
+		return daoImpl.find(arg);
 	}
 
 	@Override
@@ -81,6 +87,7 @@ public class DdServc extends CommonSevc<Dd,DdDaoImpl> {
 				cysgly = cysglyServc.findByGlyid(String.valueOf(listWlx.get(i).getCysbh()));
 				hygly = hyglyServc.find(String.valueOf(cysgly.getDlbh()));
 				yscd = yscdServc.find(String.valueOf(listWlx.get(i).getCdbh()));
+				ysdw.setYssx(listWlx.get(i).getYssx());
 				ysdw.setCysbh(cysgly.getCysbh());
 				ysdw.setCysmc(cysgly.getGsmc());
 				ysdw.setCysdz(cysgly.getSzsf()+"-"+cysgly.getSzcs()+"-"+cysgly.getSzx()+"-"+cysgly.getSzjdh());
@@ -120,5 +127,9 @@ public class DdServc extends CommonSevc<Dd,DdDaoImpl> {
 	
 	public List<Dd> cysFindAll(String arg){
 		return daoImpl.cysFindAll(arg);
+	}
+	
+	public void update(Dd dd) {
+		daoImpl.update(dd);
 	}
 }

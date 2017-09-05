@@ -27,7 +27,7 @@ public class Wlx {
 	private String zhdw;//重货单位
 	private Float qhjg;//轻货价格
 	private String qhdw;//轻货单位
-	private String yssx;//运输时效
+	private Integer yssx;//运输时效
 	private String fcpl;//发车频率
 	private Integer kz1;
 	private Integer kz2;
@@ -112,10 +112,10 @@ public class Wlx {
 	public void setQhdw(String qhdw) {
 		this.qhdw = qhdw;
 	}
-	public String getYssx() {
+	public Integer getYssx() {
 		return yssx;
 	}
-	public void setYssx(String yssx) {
+	public void setYssx(Integer yssx) {
 		this.yssx = yssx;
 	}
 	public String getFcpl() {

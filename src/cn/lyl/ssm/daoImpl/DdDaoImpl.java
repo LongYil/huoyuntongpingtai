@@ -19,8 +19,7 @@ public class DdDaoImpl extends CommonDaoImpl<Dd> implements DdDao {
 
 	@Override
 	public void update(Dd entity) {
-		//
-		
+		ht.update(entity);		
 	}
 
 	@Override
@@ -31,8 +30,7 @@ public class DdDaoImpl extends CommonDaoImpl<Dd> implements DdDao {
 
 	@Override
 	public Dd find(String arg) {
-		//
-		return null;
+		return ht.get(Dd.class,Integer.parseInt(arg));
 	}
 
 	@Override

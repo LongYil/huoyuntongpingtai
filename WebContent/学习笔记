@@ -23,3 +23,16 @@ form表单跳转保存
 				$.messager.alert('温馨提示','信息填写不完整，请填写完整信息!','warning');
 			}
 		}
+		
+
+easyui引入中文库；
+	<script type="text/javascript" src="js/basic/locale/easyui-lang-zh_CN.js"></script>	
+		
+		
+		
+		
+		
+		
+		
+		
+		

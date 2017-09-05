@@ -38,6 +38,14 @@
 		<property name="bxfy" length="150"/>
 		<property name="smth" length="150"/>
 		<property name="ysfs" length="150"/>
+		<property name="yjsdsj" length="150"/>
+		<property name="sjsdsj" length="150"/>
+		<property name="fqsj" length="150"/>
+		<property name="fkzt"/>
+		<property name="fkf"/>
+		<property name="fhdldsf"/>
+		<property name="shdldsf"/>
+		<property name="cyssf"/>
 		<property name="kz1"/>
 		<property name="kz2"/>
 		<property name="kz3" length="150"/>
