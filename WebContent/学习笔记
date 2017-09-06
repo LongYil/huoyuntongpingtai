@@ -28,7 +28,12 @@ form表单跳转保存
 easyui引入中文库；
 	<script type="text/javascript" src="js/basic/locale/easyui-lang-zh_CN.js"></script>	
 		
-		
+		var row = $('#dg').datagrid('getSelected');
+	$.messager.confirm("确认","是否删除帐号:"+name, function (r) {  
+        if (r) {  
+        	window.location = "cys_deleteGly.action?id="+id; 
+        }  
+    }); 	
 		
 		
 		

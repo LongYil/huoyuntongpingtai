@@ -29,7 +29,18 @@ public class Ysdw {
 	private Float yjfy;//预计费用
 	private Integer yssx;//运输时效
 	
+	private Float dlfhfy;//代理发货费用
+	private Float dlshfy;//代理收货费用
+	private Float ysfy;//运输费用
 	
+	private Float dsdlf;//代收货款代理费
+	private Float thfy;//发货代理点 提货费用
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
 	public String getFhdldmc() {
 		return fhdldmc;
 	}
@@ -96,17 +107,41 @@ public class Ysdw {
 	public void setYjfy(Float yjfy) {
 		this.yjfy = yjfy;
 	}
-	public Integer getId() {
-		return id;
-	}
-	public void setId(Integer id) {
-		this.id = id;
-	}
 	public Integer getYssx() {
 		return yssx;
 	}
 	public void setYssx(Integer yssx) {
 		this.yssx = yssx;
+	}
+	public Float getDlfhfy() {
+		return dlfhfy;
+	}
+	public void setDlfhfy(Float dlfhfy) {
+		this.dlfhfy = dlfhfy;
+	}
+	public Float getDlshfy() {
+		return dlshfy;
+	}
+	public void setDlshfy(Float dlshfy) {
+		this.dlshfy = dlshfy;
+	}
+	public Float getYsfy() {
+		return ysfy;
+	}
+	public void setYsfy(Float ysfy) {
+		this.ysfy = ysfy;
+	}
+	public Float getDsdlf() {
+		return dsdlf;
+	}
+	public void setDsdlf(Float dsdlf) {
+		this.dsdlf = dsdlf;
+	}
+	public Float getThfy() {
+		return thfy;
+	}
+	public void setThfy(Float thfy) {
+		this.thfy = thfy;
 	}
 	
 }

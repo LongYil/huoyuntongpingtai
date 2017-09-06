@@ -46,6 +46,10 @@ public class PtzhServc extends CommonSevc<Ptzh, PtzhDaoImpl> {
 		//
 	}
 	
+	public void update(Ptzh arg) {
+		daoImpl.update(arg);
+	}
+	
 	public boolean tixian(String num,String yhbh) throws Exception{
 		int tempnum = Integer.parseInt(num);
 		ptzh = this.find(yhbh);

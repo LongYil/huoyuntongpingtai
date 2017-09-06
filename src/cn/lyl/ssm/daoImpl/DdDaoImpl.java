@@ -24,8 +24,7 @@ public class DdDaoImpl extends CommonDaoImpl<Dd> implements DdDao {
 
 	@Override
 	public void delete(Dd entity) {
-		//
-		
+		ht.delete(entity);		
 	}
 
 	@Override
@@ -51,6 +50,11 @@ public class DdDaoImpl extends CommonDaoImpl<Dd> implements DdDao {
 	@Override
 	public List<Dd> cysFindAll(String yhid) {
 		return (List<Dd>) ht.find("from Dd where cys = "+yhid+"");
+	}
+
+	@Override
+	public List<Dd> wtrFindWfk(String yhbh) {
+		return (List<Dd>) ht.find("from Dd where wtrbh = "+yhbh+" and fkzt = 1");
 	}
 
 }

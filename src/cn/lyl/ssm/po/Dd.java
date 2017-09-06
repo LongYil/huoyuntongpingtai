@@ -48,9 +48,14 @@ public class Dd {
 	private String sjsdsj;//实际送达时间
 	private Integer fkzt;//付款状态  1：未付款  2：已付款
 	private Integer fkf;//付款方   1：委托人    2：货运代理点（订单完成后，将从收货代理点将运费退还给发货代理点）
+	
 	private Integer fhdldsf;//发货代理点收取的费用
 	private Integer shdldsf;//收货代理点收取的费用
 	private Integer cyssf;//承运商收取的费用
+	
+	private Integer dsdlf;//代收货款代理费
+	private Integer thfy;//提货费用   发货代理点上门提货费用
+	private Integer hkfy;//货款费用   货物的总费用，如不需收货代理点代收货款，此字段为0
 	private Integer kz1;
 	private Integer kz2;
 	private String kz3;
@@ -313,6 +318,24 @@ public class Dd {
 	}
 	public void setCyssf(Integer cyssf) {
 		this.cyssf = cyssf;
+	}
+	public Integer getDsdlf() {
+		return dsdlf;
+	}
+	public void setDsdlf(Integer dsdlf) {
+		this.dsdlf = dsdlf;
+	}
+	public Integer getThfy() {
+		return thfy;
+	}
+	public void setThfy(Integer thfy) {
+		this.thfy = thfy;
+	}
+	public Integer getHkfy() {
+		return hkfy;
+	}
+	public void setHkfy(Integer hkfy) {
+		this.hkfy = hkfy;
 	}
 	
 	

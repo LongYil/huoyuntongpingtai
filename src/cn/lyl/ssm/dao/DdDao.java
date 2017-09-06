@@ -9,4 +9,5 @@ public interface DdDao {
 	List<Dd> findAllByYhlx(String column,String yhid);
 	List<Dd> findAllFhAndSh(String yhid);
 	List<Dd> cysFindAll(String yhid);
+	List<Dd> wtrFindWfk(String yhbh);
 }

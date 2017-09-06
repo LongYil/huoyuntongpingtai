@@ -17,8 +17,7 @@ public class PtzhDaoImpl extends CommonDaoImpl<Ptzh> implements PtzhDao {
 
 	@Override
 	public void update(Ptzh entity) {
-		//
-		
+		ht.update(entity);		
 	}
 
 	@Override

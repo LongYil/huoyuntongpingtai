@@ -18,6 +18,7 @@
 	border-radius:4px;
 	font-size:12px;
 	}
+	
 	.tou{
 	margin-right:32px;
 	}
@@ -33,8 +34,10 @@
 			<div style="margin-bottom:20px">
 				<span class="tou">货物类型</span>
 				<select  class="mycombox" name="hwlx" style="width:30%">
-					<option value="1">服装类</option>
-					<option value="2">水果类</option>
+					<option value="1">水果类</option>
+					<option value="2">服装类</option>
+					<option value="3">电子产品类</option>
+					<option value="4">机械类</option>
 				</select>
 			</div>
 			<div style="margin-bottom:20px"   id="area_address1">
@@ -63,13 +66,9 @@
 				<input class="easyui-textbox" name="ddjd" style="width:40%" data-options="label:'到达街道',required:true">					
 			</div>
 			<div style="margin-bottom:20px">
-				<input class="easyui-textbox" name="zjs" style="width:40%" data-options="label:'总件数',required:true">(单位:件)						
-			</div>
-			<div style="margin-bottom:20px">
-				<input class="easyui-textbox" name="zzl" style="width:40%" data-options="label:'总重量',required:true">(单位:千克)						
-			</div>
-			<div style="margin-bottom:20px">
-				<input class="easyui-textbox" name="ztj" style="width:40%" data-options="label:'总体积',required:true">(单位:立方米)
+				<input class="easyui-textbox" name="zjs" style="width:20%" data-options="label:'总件数',required:true">&nbsp;(单位:件)						
+			    <input class="easyui-textbox" name="zzl" style="width:20%" data-options="label:'总重量',required:true">&nbsp;(单位:千克)
+			    <input class="easyui-textbox" name="ztj" style="width:20%" data-options="label:'总体积',required:true">&nbsp;(单位:立方米)
 			</div>
 			<div style="margin-bottom:20px">
 				<input class="easyui-textbox" name="fhrxm" style="width:40%" data-options="label:'发货人姓名',required:true">
@@ -80,22 +79,25 @@
 				&nbsp;&nbsp;<input class="easyui-textbox" name="shrdh" style="width:40%" data-options="label:'收货人电话',required:true">
 			</div>
 			<div style="margin-bottom:20px" id="area_address">
-				<span class="tou" style="margin-right:8px;">付款方式</span>
-				<select  class="mycombox" name="fkf" style="width:19%">
+				<span class="tou" style="margin-right:8px;">是否代收货款</span>
+				<select  class="mycombox" id="dshk" name="dshk" style="width:19%" onChange="daishouhuokuan()">
+					<option value="2">否</option>
+					<option value="1">是</option>
+				</select>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<span class="tou" id="hkfyt">货款费用:</span><input name="hkfy" id="hkfy" style="width:19%;border:1px #95b8e7 solid;height:20px;border-radius:4px;" data-options="label:'货款金额',required:true">	
+				<span id="hkfyw">(单位:元)</span>
+			</div>
+			<div style="margin-bottom:20px" id="area_address">
+				<span class="tou" style="margin-right:32px;">付款方式</span>
+				<select  class="mycombox" name="fkf" style="width:19%" >
 					<option value="1">发付</option>
 					<option value="2">到付</option>
 				</select>
 				&nbsp;&nbsp;&nbsp;&nbsp;
-				<span class="tou" style="margin-right:8px;">是否代收货款</span>
-				<select  class="mycombox" name="dshk" style="width:19%">
-					<option value="1">是</option>
-					<option value="2">否</option>
-				</select>
-				&nbsp;&nbsp;&nbsp;&nbsp;
 				<span class="tou" style="margin-right:8px;">是否上门提货</span>
 				<select  class="mycombox" name="smth" style="width:19%">
-					<option value="1">是</option>
 					<option value="2">否</option>
+					<option value="1">是</option>	
 				</select>
 			</div>
 			
@@ -115,7 +117,9 @@
 		</div>
 	</div>
 	<script>
-	
+	$("#hkfyt").hide();
+	$("#hkfy").hide(); 
+	$("#hkfyw").hide(); 
 	
     var cfsf;
     var cfcs;
@@ -161,6 +165,21 @@
 		function clearForm(){
 			$('#ff').form('clear');
 		}
+		
+		function daishouhuokuan(){
+			var temp = $("#dshk").val();
+			if(temp==1){
+				$("#hkfyt").show();
+				$("#hkfy").show();
+				$("#hkfyw").show();
+			}else{
+				$("#hkfyt").hide();
+				$("#hkfy").hide();
+				$("#hkfyw").hide();
+			}
+		}
+		
+
 	</script>
 </body>
 </html>

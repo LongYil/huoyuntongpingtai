@@ -29,7 +29,7 @@
 		<form id="ff" name="myform" action="${pageContext.request.contextPath}/dd_disanbu.action" class="easyui-form" method="post" data-options="novalidate:true">
 			<div style="margin-bottom:20px"   id="area_address1">
 				<span class="tou">选择：</span>
-				<select  class="mycombox" name="shid" style="width:50%">
+				<select  class="mycombox" name="shid" id="shid" style="width:50%">
 					<c:forEach items="${listhygly}" var="item" begin="0" step="1" varStatus="status">
 						<option value="${item.glybh}">${item.gsmc}公司——${item.szsf}-${item.szcs}-${item.szx}-${item.szjdh}-${item.lxdh}</option>
 					</c:forEach>
@@ -45,20 +45,52 @@
 
 	function submitForm(){
 		var a = $("#ff").form('enableValidation').form('validate');
-		$('#ff').form('submit',{
-			onSubmit:function(){
-				if(a){
-					$.messager.alert('提示','保存成功!');
-					return $(this).form('enableValidation').form('validate');
-				}else{
-					$.messager.alert('温馨提示','信息填写不完整，请填写完整信息!','warning');
-				}
-			}
-		});
+		if(a){
+			var shid = $("#shid").val();
+			tijiao(shid);
+		}else{
+			$.messager.alert('温馨提示','信息填写不完整，请填写完整信息!','warning');
+		}
 	}
 		function clearForm(){
 			$('#ff').form('clear');
 		}
+		
+		var rqt = null;
+		function tijiao(arg0){
+		if(window.XMLHttpRequest){//非IE浏览器
+			rqt = new XMLHttpRequest();
+		}else if(window.ActiveXObject){
+			try{
+				rqt = new ActiveXObject("Msxml2.XMLHTTP");
+			}catch(e){
+				try{
+					rqt = new ActiveXObject("Microsoft.XMLHTTP");
+				}catch(e){		
+				}
+			}
+		}
+		rqt.onreadystatechange = getresult;
+		rqt.open("POST","dd_disanbu.action?shid="+encodeURI(encodeURI(arg0)),false);
+		rqt.send("");
+	   };
+		
+	   function getresult(){
+		   if(rqt.readyState == 4){
+			   if(rqt.status == 200){
+				   var temp = rqt.responseText;
+				   if(temp=="1"){
+						$.messager.alert('提示','订单已成功提交并付款成功。');
+				   }else if(temp=="2"){
+					    $.messager.alert('提示','订单已成功提交，因您的账户余额不足，付款失败，你可以充值后再付款，或者在货运代理点现金付款。');
+				   }else{
+					    $.messager.alert('提示','订单已成功提交，您选择了到付业务，货款需收货人在收货时支付。');
+				   }
+				};
+			   }
+		}
+		
+		
 	</script>
 </body>
 </html>

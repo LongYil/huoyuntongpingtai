@@ -1,5 +1,6 @@
 package cn.lyl.ssm.controller;
 
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,20 +43,16 @@ public class DdController extends BasicController<DdServc> {
 	@RequestMapping("dd_diyibu")//第一步
 	public String diyibu(Model model,Dd dd,HttpServletRequest request) throws Exception{
 		listYsdw.clear();
-		
 		listYsdw.addAll(servc.findBestYsdw(dd));
-	
 		request.getSession().setAttribute("templistYsdw",listYsdw);
 		request.getSession().setAttribute("dd", dd);
 		model.addAttribute("listYsdw",listYsdw);
-
 		return "dd_xzly";
 	}
 	
 	@RequestMapping("dd_dierbu")//第二步
 	public String dierbu(Model model,String ysdwid,HttpServletRequest request){
-		listhygly.clear();
-		
+		listhygly.clear();	
 		request.getSession().setAttribute("ysdwid", ysdwid);
 		dd = (Dd) request.getSession().getAttribute("dd");
 		listhygly = hyglyServc.findByShdd(dd);
@@ -64,8 +61,7 @@ public class DdController extends BasicController<DdServc> {
 	}
 	
 	@RequestMapping("dd_disanbu")//第三步
-	public void disanbu(String shid,HttpServletRequest request){
-
+	public void disanbu(String shid,HttpServletRequest request,PrintWriter out) throws Exception{
 		listYsdw = (List<Ysdw>) request.getSession().getAttribute("templistYsdw");
 		String ysdwid = request.getSession().getAttribute("ysdwid").toString();
 		ysdw = listYsdw.get(Integer.parseInt(ysdwid));
@@ -76,7 +72,8 @@ public class DdController extends BasicController<DdServc> {
 		dd.setWtrbh(Integer.parseInt(request.getSession().getAttribute("yhbh").toString()));
 		dd.setYjyf(Math.round(ysdw.getYjfy()));
 		dd.setDdzt(1);
-		servc.saveDd(dd,String.valueOf(ysdw.getYssx()));
+		String result = servc.saveDd(dd,String.valueOf(ysdw.getYssx()),request.getSession().getAttribute("yhbh").toString());
+		out.write(result);
 	}
 
 	@RequestMapping("dd_findAll")
@@ -95,6 +92,14 @@ public class DdController extends BasicController<DdServc> {
 		
 	}
 	
+	@RequestMapping("dd_wtrFindWfk")//委托人查找未付款订单
+	public String wtrFindWfk(Model model,HttpServletRequest request){
+		listdd.clear();
+		listdd = servc.wtrFindWfk(request.getSession().getAttribute("yhbh").toString());
+		model.addAttribute("listdd",listdd);
+		return "wtr_ddxx";
+	}
+	
 	@RequestMapping("dd_findAllByYhlx")
 	public String findAllByYhlx(Model model,String yhlx,HttpServletRequest request) {
 		listdd.clear();
@@ -109,12 +114,10 @@ public class DdController extends BasicController<DdServc> {
 		listdd.clear();
 		listdd = servc.findAllFhAndSh(request.getSession().getAttribute("yhbh").toString());
 		model.addAttribute("listdd",listdd);
-		
-		
 		return "ddxx";
 	}
 	
-	@RequestMapping("dd_cysFindAll")
+	@RequestMapping("dd_cysFindAll")//承运商查找所有订单
 	public String cysFindAll(Model model,HttpServletRequest request) {
 		listdd.clear();
 		listdd = servc.cysFindAll(request.getSession().getAttribute("yhbh").toString());
@@ -122,12 +125,21 @@ public class DdController extends BasicController<DdServc> {
 		return "ddxx";
 	}
 	
-	@RequestMapping("dd_hydldJd")
-	public String hydldJd(String id) {//货运代理点用户确认接单
+	@RequestMapping("dd_wtrDelete")//委托人删除订单
+	public String wtrDelete(String id) {
+		dd = servc.find(id);
+		servc.delete(dd);
+		return "redirect:dd_wtrFindWfk";
+	}
+
+	
+	@RequestMapping("dd_hydldJd")//货运代理点用户确认接单
+	public String hydldJd(String id) {
 		dd = servc.find(id);
 		dd.setDdzt(2);
 		servc.update(dd);
 		return "redirect:dd_findAll.action?yhlx=2&id=1";
 	}
+	
 	
 }

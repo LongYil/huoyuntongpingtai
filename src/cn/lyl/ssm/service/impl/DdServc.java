@@ -1,9 +1,7 @@
 package cn.lyl.ssm.service.impl;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,9 +11,9 @@ import cn.lyl.ssm.daoImpl.DdDaoImpl;
 import cn.lyl.ssm.po.Cysgly;
 import cn.lyl.ssm.po.Dd;
 import cn.lyl.ssm.po.Hygly;
+import cn.lyl.ssm.po.Ptzh;
 import cn.lyl.ssm.po.Wlx;
 import cn.lyl.ssm.po.Yscd;
-import cn.lyl.ssm.utils.GetDateAndTime;
 import cn.lyl.ssm.vo.Ysdw;
 
 @Transactional
@@ -36,6 +34,10 @@ public class DdServc extends CommonSevc<Dd,DdDaoImpl> {
 	private Hygly hygly;
 	@Autowired
 	private HyglyServc hyglyServc;
+	@Autowired
+	private Ptzh ptzh;
+	@Autowired
+	private PtzhServc ptzhServc;
 	
 	private List<Wlx> listWlx = new ArrayList<Wlx>();
 	private List<Ysdw> listysdw1 = new ArrayList<Ysdw>();
@@ -46,11 +48,28 @@ public class DdServc extends CommonSevc<Dd,DdDaoImpl> {
 		daoImpl.save(arg);		
 	}
 	
-	public void saveDd(Dd arg,String time) {
-		System.out.println(daoImpl.getDateAndTime.getStandardDateAndTime());
+	public String saveDd(Dd arg,String time,String yhbh) throws Exception {
 		arg.setFqsj(daoImpl.getDateAndTime.getStandardDateAndTime());
-		arg.setYjsdsj(daoImpl.getDateAndTime.getExpectTime(daoImpl.getDateAndTime.getStandardDateAndTime(),time));
-		daoImpl.save(arg);	
+		arg.setYjsdsj(daoImpl.getDateAndTime.getExpectTime(daoImpl.getDateAndTime.getStandardDateAndTime(),time));	
+		if(arg.getFkf()==1) {//付款方式为   发付   付款成功返回1 付款状态更改为 已付款   付款失败 返回2 不修改付款状态 表示账户余额不足
+		    ptzh = ptzhServc.find(yhbh);
+			if(ptzh.getZhye()>=arg.getYjyf()) {
+				arg.setSfyf(arg.getYjyf());
+				arg.setFkzt(2);
+				ptzh.setZhye(ptzh.getZhye()-arg.getYjyf());
+				ptzhServc.update(ptzh);
+				daoImpl.save(arg);
+				return "1";	
+			}else {
+				arg.setFkzt(1);
+				daoImpl.save(arg);
+				return "2";
+			}
+		}else {//付款方式为  到付  返回3
+			arg.setFkzt(1);
+			daoImpl.save(arg);
+			return "3";
+		}
 	}
 	@Override
 	public Dd find(String arg) {
@@ -65,7 +84,7 @@ public class DdServc extends CommonSevc<Dd,DdDaoImpl> {
 
 	@Override
 	public void delete(Dd arg) {
-		
+		daoImpl.delete(arg);
 	}
 	
 	public List<Ysdw> findBestYsdw(Dd dd) throws Exception{
@@ -98,12 +117,16 @@ public class DdServc extends CommonSevc<Dd,DdDaoImpl> {
 				ysdw.setFhdldbh(hygly.getGlybh());
 				ysdw.setFhdh(hygly.getLxdh());
 				ysdw.setFhdz(hygly.getSzsf()+"-"+hygly.getSzcs()+"-"+hygly.getSzx()+"-"+hygly.getSzjdh());
-				
-				if(dd.getJjlx()==2){
-					ysdw.setYjfy(dd.getZzl()*listWlx.get(i).getZhjg());
-				}else{
-					ysdw.setYjfy(dd.getZtj()*listWlx.get(i).getQhjg());
+				if(dd.getJjlx()==2){//重货  费用按重量计价100
+					ysdw.setDlfhfy(dd.getZzl()*1.1f);
+					ysdw.setDlshfy(dd.getZzl()*0.6f);
+					ysdw.setYsfy(dd.getZzl()*listWlx.get(i).getZhjg());		
+				}else{//轻货  费用按轻货计价
+					ysdw.setDlfhfy(dd.getZzl()*8.2f);
+					ysdw.setDlshfy(dd.getZzl()*3.4f);
+					ysdw.setYsfy(dd.getZtj()*listWlx.get(i).getQhjg());	
 				}
+				ysdw.setYjfy(ysdw.getDlfhfy()+ysdw.getDlshfy()+ysdw.getYsfy());
 				listysdw1.add(ysdw);
 			}
 		}else {
@@ -131,5 +154,9 @@ public class DdServc extends CommonSevc<Dd,DdDaoImpl> {
 	
 	public void update(Dd dd) {
 		daoImpl.update(dd);
+	}
+	
+	public List<Dd> wtrFindWfk(String yhbh){
+		return daoImpl.wtrFindWfk(yhbh);
 	}
 }

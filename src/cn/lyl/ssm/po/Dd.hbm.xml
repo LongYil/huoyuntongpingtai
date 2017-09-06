@@ -46,6 +46,12 @@
 		<property name="fhdldsf"/>
 		<property name="shdldsf"/>
 		<property name="cyssf"/>
+		
+		<property name="dsdlf"/>
+		<property name="thfy"/>
+		<property name="hkfy"/>
+		
+		
 		<property name="kz1"/>
 		<property name="kz2"/>
 		<property name="kz3" length="150"/>
