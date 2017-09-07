@@ -35,9 +35,76 @@ easyui引入中文库；
         }  
     }); 	
 		
+
+function tijiao(arg0){
+		if(window.XMLHttpRequest){//非IE浏览器
+			rqt = new XMLHttpRequest();
+		}else if(window.ActiveXObject){
+			try{
+				rqt = new ActiveXObject("Msxml2.XMLHTTP");
+			}catch(e){
+				try{
+					rqt = new ActiveXObject("Microsoft.XMLHTTP");
+				}catch(e){		
+				}
+			}
+		}
+		rqt.onreadystatechange = getresult;
+		rqt.open("POST","bzj_cysFqjd.action?info="+encodeURI(encodeURI(arg0)),false);
+		rqt.send("");
+	   };
 		
+	   function getresult(){
+		   if(rqt.readyState == 4){
+			   if(rqt.status == 200){
+				   var temp = rqt.responseText;
+				   if(temp=="true"){
+						$.messager.alert('提示','保证金解冻申请已成功发起，我们将尽快对您的申请进行处理，请耐心等待。');
+				   }else{
+					   $.messager.alert('提示','解冻金额不得大于已缴纳保证金!','warning'); 
+				   }
+				};
+			   }
+		}		
 		
+		function tijiao2(arg0){
+		if(window.XMLHttpRequest){//非IE浏览器
+			rqt = new XMLHttpRequest();
+		}else if(window.ActiveXObject){
+			try{
+				rqt = new ActiveXObject("Msxml2.XMLHTTP");
+			}catch(e){
+				try{
+					rqt = new ActiveXObject("Microsoft.XMLHTTP");
+				}catch(e){		
+				}
+			}
+		}
+		rqt.onreadystatechange = getresult2;
+		rqt.open("POST","dd_wtrDelete.action?id="+encodeURI(encodeURI(arg0)),false);
+		rqt.send("");
+		};
 		
+		function getresult2(){
+		   if(rqt.readyState == 4){
+			   if(rqt.status == 200){
+				   var temp = rqt.responseText;
+				   if(temp=="true"){
+						var a = $.messager.alert('提示','订单删除成功。');
+						setTimeout("yanchishuaxin()",1500);
+				   }else{
+					    $.messager.alert('提示','订单删除失败，请重试!','warning'); 
+				   }
+					
+				};
+			   }
+		}
+
+		function yanchishuaxin()
+		{
+		window.location.href="dd_wtrFindWfk.action";
+		
+		}	
 		
 		
 		

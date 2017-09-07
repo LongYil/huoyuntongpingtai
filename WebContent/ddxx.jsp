@@ -13,7 +13,6 @@
 	<script type="text/javascript" src="js/basic/jquery.easyui.min.js"></script>
 </head>
 <body style="padding-top:0px; padding-bottom:0px;">
-
 	<div id="tt" class="easyui-tabs" data-options="tools:'#tab-tools'" style="padding:0px;width:835px;height:680px;margin-left:-20px;margin-bottom:0px;">
 	<div title="所有订单">
 		<table id="dg" class="easyui-datagrid" style="width:830px;height:645px"
@@ -32,6 +31,7 @@
 				<th data-options="field:'k',width:80,align:'center'">总件数</th>
 				<th data-options="field:'l',width:80,align:'center'">总重量</th>
 				<th data-options="field:'m',width:80,align:'center'">总体积</th>
+				<th data-options="field:'ni',width:80,align:'center'">货款费用</th>
 				<th data-options="field:'n',width:80,align:'center'">预计运费</th>
 				<th data-options="field:'o',width:80,align:'center'">实付运费</th>
 				<th data-options="field:'p',width:80,align:'center'">发货人姓名</th>
@@ -58,6 +58,7 @@
 					<td>${item.zjs}</td>
 					<td>${item.zzl}</td>
 					<td>${item.ztj}</td>
+					<td>${item.hkfy}</td>
 					<td>${item.yjyf}</td>
 					<td>${item.sfyf}</td>
 					<td>${item.fhrxm}</td>
@@ -73,6 +74,5 @@
 		</table>
 		</div>
 	</div>
-
 </body>
 </html>

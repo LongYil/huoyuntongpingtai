@@ -79,17 +79,16 @@ public class DdController extends BasicController<DdServc> {
 	@RequestMapping("dd_findAll")
 	public String findAll(Model model,String yhlx,String id,HttpServletRequest request){
 		listdd.clear();
-		
 		yhlx = getRealColumnName.getColumnName(yhlx);
 		listdd = servc.findAllDdxx(yhlx,id,request.getSession().getAttribute("yhbh").toString());
 		model.addAttribute("listdd",listdd);
-		
 		if(yhlx.equals("fhdld")&&id.equals("1")) {
 			return "hy_ddxx";
+		}else if(yhlx.equals("cys")&&id.equals("2")){
+			return "cys_ddxx";
 		}else {
 			return "ddxx";
 		}
-		
 	}
 	
 	@RequestMapping("dd_wtrFindWfk")//委托人查找未付款订单
@@ -98,6 +97,13 @@ public class DdController extends BasicController<DdServc> {
 		listdd = servc.wtrFindWfk(request.getSession().getAttribute("yhbh").toString());
 		model.addAttribute("listdd",listdd);
 		return "wtr_ddxx";
+	}
+	
+	@RequestMapping("dd_wtrQrfk")//委托人确认付款
+	public void wtrQrfk(Model model,String id,HttpServletRequest request,PrintWriter out) throws Exception{
+		listdd.clear();
+		String result = servc.wtrQrfk(id, request.getSession().getAttribute("yhbh").toString());
+		out.write(result);
 	}
 	
 	@RequestMapping("dd_findAllByYhlx")
@@ -126,20 +132,30 @@ public class DdController extends BasicController<DdServc> {
 	}
 	
 	@RequestMapping("dd_wtrDelete")//委托人删除订单
-	public String wtrDelete(String id) {
+	public void wtrDelete(String id,PrintWriter out) {
 		dd = servc.find(id);
 		servc.delete(dd);
-		return "redirect:dd_wtrFindWfk";
+		out.write("true");
 	}
 
-	
 	@RequestMapping("dd_hydldJd")//货运代理点用户确认接单
-	public String hydldJd(String id) {
-		dd = servc.find(id);
-		dd.setDdzt(2);
-		servc.update(dd);
-		return "redirect:dd_findAll.action?yhlx=2&id=1";
+	public void hydldJd(String id,PrintWriter out,HttpServletRequest request) throws Exception {
+		String result = servc.hydldQrjd(id,request.getSession().getAttribute("yhbh").toString());
+		out.write(result);
 	}
+	
+	@RequestMapping("dd_cysjd")//承运商处理订单，货物开始运输，更改订单状态为运输中
+	public String cysjd(String[] id) throws Exception {
+		servc.cysjd(id);
+		return "redirect:dd_findAll.action?yhlx=4&id=2";
+	}
+	
+	
+	
+	
+	
+	
+	
 	
 	
 }

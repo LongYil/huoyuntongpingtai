@@ -49,7 +49,8 @@
                 <li><a href="javascript:void(0)" onClick="To('dd_findAll.action?yhlx=1&id=1')"><img src="js/basic/icon/yijiedan.png" class="itemicon">待处理</a></li>
                 <li><a href="javascript:void(0)" onClick="To('dd_findAll.action?yhlx=1&id=2')"><img src="js/basic/icon/yijiedan.png" class="itemicon">已处理</a></li>
                 <li><a href="javascript:void(0)" onClick="To('dd_findAll.action?yhlx=1&id=3')"><img src="js/basic/icon/yunshuzhong.png" class="itemicon">运输中</a></li>
-                <li><a href="javascript:void(0)" onClick="To('dd_findAll.action?yhlx=1&id=4')"><img src="js/basic/icon/yiqinahsou.png" class="itemicon">已签收</a></li>
+                <li><a href="javascript:void(0)" onClick="To('dd_findAll.action?yhlx=1&id=4')"><img src="js/basic/icon/yunshuzhong.png" class="itemicon">已送达</a></li>
+                <li><a href="javascript:void(0)" onClick="To('dd_findAll.action?yhlx=1&id=5')"><img src="js/basic/icon/yiqinahsou.png" class="itemicon">已签收</a></li>
 				<li><a href="javascript:void(0)" onClick="To('dd_findAllByYhlx.action?yhlx=1')"><img src="js/basic/icon/quanbudingdan.png" class="itemicon">全部订单</a></li>
 			</ul>
 		</li>
@@ -80,13 +81,13 @@
 
 	</ul>
 	</div>
-
+	
 	<div data-options="region:'south',border:false" style="height:50px;background:#A9FACD;padding:10px;">south region</div>
 	<div data-options="region:'center'" style="margin-bottom:0px; padding-bottom:0px;">
     	<iframe class="zhuomian" frameborder="0" src="wtr_jbxx.jsp" style="width:835px;height:680px;">
         </iframe>    
     </div>
-
+    
 </body>
 <script>
 

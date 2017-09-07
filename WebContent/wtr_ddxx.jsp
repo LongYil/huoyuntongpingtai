@@ -89,8 +89,9 @@
 		var name = row.g;
 		var fhname = row.p;
 		var shname = row.r;
-		var info = "<br/>发货人:"+fhname+"<br/>收货人:"+shname;
-		$.messager.confirm("确认","是否删除订单:"+info, function (r) {  
+		var hwname = row.g;
+		var info = "<br/>货物名称:"+hwname+"<br/>发货人:"+fhname+"&nbsp;&nbsp;&nbsp;收货人:"+shname;
+		$.messager.confirm("确认","是否删除订单?"+info, function (r) {  
 	        if (r) {
 	        	tijiao2(arg);
 	        }else{
@@ -100,12 +101,12 @@
 	}
 	function fukuan(arg){
 		var row = $('#dg').datagrid('getSelected');
-		var row = $('#dg').datagrid('getSelected');
 		var name = row.g;
 		var fhname = row.p;
 		var shname = row.r;
-		var info = "<br/>发货人:"+fhname+"<br/>收货人:"+shname;
-		$.messager.confirm("确认","是否确认付款:"+info, function (r) {  
+		var hwname = row.g;
+		var info = "<br/>货物名称:"+hwname+"<br/>发货人:"+fhname+"&nbsp;&nbsp;&nbsp;收货人:"+shname;
+		$.messager.confirm("确认","是否确认付款?"+info, function (r) {  
 	        if (r) {  
 	        	tijiao1(arg);
 	        }else{
@@ -128,18 +129,28 @@
 		}
 	}
 	rqt.onreadystatechange = getresult1;
-	rqt.open("POST","dd_wtrDelete.action?id="+encodeURI(encodeURI(arg0)),false);
+	rqt.open("POST","dd_wtrQrfk.action?id="+encodeURI(encodeURI(arg0)),false);
 	rqt.send("");
 	};
 	
+	
 	function getresult1(){
 	   if(rqt.readyState == 4){
-		   if(rqt.status == 200){
-				$.messager.alert('提示','订单删除成功。');   
+		   if(rqt.status == 200){	
+			   var temp = rqt.responseText;
+			   if(temp=="1"){
+				    $.messager.alert('提示','订单付款成功。');  
+					setTimeout("yanchishuaxin()",1500);	
+			   }else{
+				    $.messager.alert('提示','对不起，你的账户余额不足，订单付款失败，请充值后重试!','warning'); 
+			   }
+			}else{
+				;
 			};
 		   }
 	}
 	
+
 	
 	function tijiao2(arg0){
 		if(window.XMLHttpRequest){//非IE浏览器
@@ -162,12 +173,23 @@
 		function getresult2(){
 		   if(rqt.readyState == 4){
 			   if(rqt.status == 200){
-					$.messager.alert('提示','订单删除成功。');
+				   var temp = rqt.responseText;
+				   if(temp=="true"){
+						var a = $.messager.alert('提示','订单删除成功。');
+						setTimeout("yanchishuaxin()",1500);
+				   }else{
+					    $.messager.alert('提示','订单删除失败，请重试!','warning'); 
+				   }
+					
 				};
 			   }
 		}
-	
 
+		function yanchishuaxin()
+		{
+		window.location.href="dd_wtrFindWfk.action";
+		
+		}
 
 </script>
 </html>

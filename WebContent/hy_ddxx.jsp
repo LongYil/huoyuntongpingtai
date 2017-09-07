@@ -26,6 +26,8 @@
 				<th data-options="field:'c',width:80,align:'center'" hidden="hidden">发货代理点编号</th>
 				<th data-options="field:'b',width:80,align:'center'" hidden="hidden">收货代理点编号</th>
 				<th data-options="field:'e',width:80,align:'center'" hidden="hidden">承运商编号</th>
+				<th data-options="field:'ei',width:80,align:'center'" hidden="hidden">付款方</th>
+				<th data-options="field:'ej',width:80,align:'center'" hidden="hidden">付款状态</th>
 				<th data-options="field:'f',width:80,align:'center'">订单状态</th>
 				<th data-options="field:'g',width:100,align:'center'">货物名称</th>
 				<th data-options="field:'i',width:200,align:'center'">出发地址</th>
@@ -53,6 +55,8 @@
 					<td hidden="hidden">${item.fhdld}</td>
 					<td hidden="hidden">${item.shdld}</td>
 					<td hidden="hidden">${item.cys}</td>
+					<td hidden="hidden">${item.fkf}</td>
+					<td hidden="hidden">${item.fkzt}</td>
 					<td>${item.ddzt}</td>
 					<td>${item.hwmc}</td>
 					<td>${item.cfsf}${item.cfcs}${item.cfx}${item.cfjd}</td>
@@ -79,21 +83,77 @@
 	<script type="text/javascript">
 		function queren(arg){
 			var row = $('#dg').datagrid('getSelected');
-			
 			var hwmc = row.g;
-			var fhrxm = row.p;
-			var shrxm = row.r;
+			var fhname = row.p;
 			var cfdz = row.i;
 			var dddz = row.j;
-			
-			var info = "货物名称:"+hwmc+"<br/>:"+cfdz+"<br/>到达地址:"+dddz+"<br/>";
+			var fkf = row.ei;
+			var fkzt = row.ej;
+			var info = "货物名称:"+hwmc+"<br/>发货人姓名:"+fhname+"<br/>出发地址:"+cfdz+"<br/>到达地址:"+dddz+"<br/>";
 			$.messager.confirm('确认接单', '是否确认接单 ?<br/>'+info, function(r){
 				if (r){
-					window.location = "dd_hydldJd.action?id="+arg;
+					if(fkf=="1"){//付款方式为 发付，无需代理点付款  检查是否已付款 若未付款  将从代理点账户扣除货款
+						if(fkzt=="2"){//用户已付款，直接提交   只需修改订单状态为 已接单 即可 
+							tijiao(arg);
+						}else{//用户未付款，确认提交订单将从 代理点 账户扣除货款费用
+							$.messager.confirm("确认","该订单未付款,请确认您已收到用户的现金货款,确认接单将从您的平台账户扣除货款。", function (r) {  
+						        if (r) {  
+						        	tijiao(arg);
+						        }else{
+						        	;
+						        }
+						    }); 	
+						}		
+					}else{//付款方式为到付 由发货代理点先代替付款   
+						$.messager.confirm("确认","该订单付款方式为到付,确认接单平台将从您的账户扣除货款，订单确认签收后，平台将退还该货款。", function (r) {  
+					        if (r) {  
+					        	tijiao(arg);
+					        }else{
+					        	;
+					        }
+					    });
+					}	
 				}
 			});
 		}
 	
+		
+		function tijiao(arg0){
+			if(window.XMLHttpRequest){//非IE浏览器
+				rqt = new XMLHttpRequest();
+			}else if(window.ActiveXObject){
+				try{
+					rqt = new ActiveXObject("Msxml2.XMLHTTP");
+				}catch(e){
+					try{
+						rqt = new ActiveXObject("Microsoft.XMLHTTP");
+					}catch(e){		
+					}
+				}
+			}
+			rqt.onreadystatechange = getresult;
+			rqt.open("POST","dd_hydldJd.action?id="+encodeURI(encodeURI(arg0)),false);
+			rqt.send("");
+			};
+			
+			function getresult(){
+			   if(rqt.readyState == 4){
+				   if(rqt.status == 200){
+					   var temp = rqt.responseText;
+					   if(temp=="1"){
+							var a = $.messager.alert('提示','接单成功。');
+							setTimeout("yanchishuaxin()",1500);
+					   }else{
+						    $.messager.alert('提示','您的账户余额不足，接单失败，请充值后重试!','warning'); 
+					   }
+					};
+				   }
+			}
+
+			function yanchishuaxin()
+			{
+			window.location.href="dd_findAll.action?yhlx=2&id=1";
+			}
 	</script>
 </body>
 </html>

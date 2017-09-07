@@ -33,10 +33,10 @@
 		<property name="fhrdh" length="150"/>
 		<property name="shrxm" length="150"/>
 		<property name="shrdh" length="150"/>
-		<property name="dshk" length="150"/>
+		<property name="dshk"/>
 		<property name="ddzt" />
 		<property name="bxfy" length="150"/>
-		<property name="smth" length="150"/>
+		<property name="smth"/>
 		<property name="ysfs" length="150"/>
 		<property name="yjsdsj" length="150"/>
 		<property name="sjsdsj" length="150"/>

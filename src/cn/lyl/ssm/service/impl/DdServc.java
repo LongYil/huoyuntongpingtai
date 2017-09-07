@@ -38,6 +38,8 @@ public class DdServc extends CommonSevc<Dd,DdDaoImpl> {
 	private Ptzh ptzh;
 	@Autowired
 	private PtzhServc ptzhServc;
+	@Autowired
+	private Dd dd;
 	
 	private List<Wlx> listWlx = new ArrayList<Wlx>();
 	private List<Ysdw> listysdw1 = new ArrayList<Ysdw>();
@@ -126,13 +128,33 @@ public class DdServc extends CommonSevc<Dd,DdDaoImpl> {
 					ysdw.setDlshfy(dd.getZzl()*3.4f);
 					ysdw.setYsfy(dd.getZtj()*listWlx.get(i).getQhjg());	
 				}
-				ysdw.setYjfy(ysdw.getDlfhfy()+ysdw.getDlshfy()+ysdw.getYsfy());
+				
+				if(dd.getDshk()==1) {//需要代收货款
+					dd.setDsdlf(dd.getHkfy()*0.1f);//收货代理点将按照代收款的  百分之一  收取代收代理费
+				}else {//不需要代收货款
+					dd.setDsdlf(0.0f);
+				}
+				
+				if(dd.getSmth()==1) {//需要上门提货
+					if(dd.getJjlx()==2){//重货  费用按重量计价
+						ysdw.setThfy(dd.getZzl()*1);		//重货 上门提货  1元一千克
+						dd.setThfy(ysdw.getThfy());
+					}else{//轻货  费用按轻货计价
+						ysdw.setThfy(dd.getZtj()*5);	   //轻货上门提货  5元一立方米
+						dd.setThfy(ysdw.getThfy());
+					}
+				}else {//不需要上门提货
+					ysdw.setThfy(0.0f);
+					dd.setThfy(0.0f);
+				}
+				
+				ysdw.setDsdlf(dd.getDsdlf());
+				ysdw.setYjfy(ysdw.getDlfhfy()+ysdw.getDlshfy()+ysdw.getYsfy()+ysdw.getThfy()+ysdw.getDsdlf());
 				listysdw1.add(ysdw);
 			}
 		}else {
 			;
 		}
-
 		return listysdw1;
 	}
 	
@@ -159,4 +181,63 @@ public class DdServc extends CommonSevc<Dd,DdDaoImpl> {
 	public List<Dd> wtrFindWfk(String yhbh){
 		return daoImpl.wtrFindWfk(yhbh);
 	}
+	
+	public String wtrQrfk(String id,String yhid) throws Exception {//委托人确认付款
+		dd = this.find(id);
+		ptzh = ptzhServc.find(yhid);
+		if(ptzh.getZhye()>=dd.getYjyf()) {
+			dd.setFkzt(2);
+			dd.setSfyf(dd.getYjyf());
+			ptzh.setZhye(ptzh.getZhye()-dd.getYjyf());
+			this.update(dd);
+			ptzhServc.update(ptzh);
+			return "1";
+		}else {
+			return "2";
+		}
+	}
+	
+	public String hydldQrjd(String id,String yhbh) throws Exception {
+		dd = this.find(id);
+		ptzh = ptzhServc.find(yhbh);
+		if(dd.getFkf()==1) {//发付  委托人付款
+			if(dd.getFkzt()==1) {//未付款  确认接单将从代理点账户扣除货款
+				if(ptzh.getZhye()>=dd.getYjyf()) {//代理点账户费用足够支付
+					ptzh.setZhye(ptzh.getZhye()-dd.getYjyf());
+					dd.setSfyf(dd.getYjyf());
+					dd.setDdzt(2);
+					this.update(dd);
+					ptzhServc.update(ptzh);
+					return "1";
+				}else {//代理点账户余额不足，接单失败
+					return "2";
+				}
+			}else {//已付款  修改订单的订单状态即可
+				dd.setDdzt(2);
+				this.update(dd);
+				return "1";
+			}
+		}else {//到付  货运代理点代付货款
+			if(ptzh.getZhye()>=dd.getYjyf()) {//代理点账户费用足够支付
+				ptzh.setZhye(ptzh.getZhye()-dd.getYjyf());
+				dd.setSfyf(dd.getYjyf());
+				dd.setDdzt(2);
+				this.update(dd);
+				ptzhServc.update(ptzh);
+				return "1";
+			}else {//代理点账户余额不足，接单失败
+				return "2";
+			}
+		}
+	}
+	
+	public void cysjd(String[] id) {
+		for(int i=0;i<id.length;i++) {
+			dd = this.find(id[i]);
+			dd.setDdzt(3);
+			this.update(dd);
+		}
+	}
+	
+	
 }

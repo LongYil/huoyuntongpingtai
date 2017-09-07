@@ -38,10 +38,10 @@ public class Dd {
 	private String fhrdh;//发货人电话
 	private String shrxm;//收货人姓名
 	private String shrdh;//收货人电话
-	private String dshk;//是否代收货款（1：是；2：否）
-	private Integer ddzt;//订单状态   1:待处理   2：已处理  3：运输中  4：已签收
+	private Integer dshk;//是否代收货款（1：是；2：否）
+	private Integer ddzt;//订单状态   1:待处理   2：已处理  3：运输中  4：已送达  5：已签收
 	private String bxfy;//保险费用
-	private String smth;//是否上门提货（1：是；2：否）
+	private Integer smth;//是否上门提货（1：是；2：否）
 	private String ysfs;//运输方式
 	private String fqsj;//订单发起时间
 	private String yjsdsj;//预计送达时间
@@ -53,9 +53,9 @@ public class Dd {
 	private Integer shdldsf;//收货代理点收取的费用
 	private Integer cyssf;//承运商收取的费用
 	
-	private Integer dsdlf;//代收货款代理费
-	private Integer thfy;//提货费用   发货代理点上门提货费用
-	private Integer hkfy;//货款费用   货物的总费用，如不需收货代理点代收货款，此字段为0
+	private Float dsdlf;//代收货款代理费
+	private Float thfy;//提货费用   发货代理点上门提货费用
+	private Integer hkfy;//货款费用   货物的总费用，如不需收货代理点代收货款，此字段为
 	private Integer kz1;
 	private Integer kz2;
 	private String kz3;
@@ -205,10 +205,10 @@ public class Dd {
 	public void setShrdh(String shrdh) {
 		this.shrdh = shrdh;
 	}
-	public String getDshk() {
+	public Integer getDshk() {
 		return dshk;
 	}
-	public void setDshk(String dshk) {
+	public void setDshk(Integer dshk) {
 		this.dshk = dshk;
 	}
 	public Integer getDdzt() {
@@ -223,10 +223,10 @@ public class Dd {
 	public void setBxfy(String bxfy) {
 		this.bxfy = bxfy;
 	}
-	public String getSmth() {
+	public Integer getSmth() {
 		return smth;
 	}
-	public void setSmth(String smth) {
+	public void setSmth(Integer smth) {
 		this.smth = smth;
 	}
 	public String getYsfs() {
@@ -319,16 +319,16 @@ public class Dd {
 	public void setCyssf(Integer cyssf) {
 		this.cyssf = cyssf;
 	}
-	public Integer getDsdlf() {
+	public Float getDsdlf() {
 		return dsdlf;
 	}
-	public void setDsdlf(Integer dsdlf) {
+	public void setDsdlf(Float dsdlf) {
 		this.dsdlf = dsdlf;
 	}
-	public Integer getThfy() {
+	public Float getThfy() {
 		return thfy;
 	}
-	public void setThfy(Integer thfy) {
+	public void setThfy(Float thfy) {
 		this.thfy = thfy;
 	}
 	public Integer getHkfy() {

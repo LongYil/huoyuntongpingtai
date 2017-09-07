@@ -33,8 +33,8 @@ public class Ysdw {
 	private Float dlshfy;//代理收货费用
 	private Float ysfy;//运输费用
 	
-	private Float dsdlf;//代收货款代理费
-	private Float thfy;//发货代理点 提货费用
+	private Float dsdlf;//代收货款代理费      
+	private Float thfy;//发货代理点              提货费用
 	public Integer getId() {
 		return id;
 	}
