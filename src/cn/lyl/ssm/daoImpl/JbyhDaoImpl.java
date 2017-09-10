@@ -82,5 +82,10 @@ public class JbyhDaoImpl extends CommonDaoImpl<Jbyh> implements JbyhDao {
 		}
 		return list;
 	}
+
+	@Override
+	public int appLogin(Jbyh jbyh) {
+		return ht.find("from Jbyh where yhsj = ? and yhmm = ?", jbyh.getYhsj(),jbyh.getYhmm()).size();
+	}
 	
 }

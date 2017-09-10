@@ -41,7 +41,7 @@
 				</select>
 			</div>
 			<div style="margin-bottom:20px">
-				<input class="easyui-textbox" value="${hygly.yhbz}" name="info" style="width:91%;height:60px" data-options="label:'备注:',multiline:true">
+				<input class="easyui-textbox" value="${hygly.szjdh}" name="info" style="width:91%;height:60px" data-options="label:'备注:',multiline:true">
 			</div>
                 
 		</form>

@@ -18,6 +18,7 @@ public class Dd {
 	private Integer fhdld;//发货代理点编号
 	private Integer shdld;//收货代理点编号
 	private Integer cys;//承运商编号
+	private Integer cdbh;//车队编号
 	private Integer jjlx;//订单计价类型 1：轻货（按体积计价），2：重货（按重量计价）
 	private String hwmc;//货物名称
 	private String hwlx;//货物类型
@@ -337,8 +338,11 @@ public class Dd {
 	public void setHkfy(Integer hkfy) {
 		this.hkfy = hkfy;
 	}
+	public Integer getCdbh() {
+		return cdbh;
+	}
+	public void setCdbh(Integer cdbh) {
+		this.cdbh = cdbh;
+	}
 	
-	
-
-
 }

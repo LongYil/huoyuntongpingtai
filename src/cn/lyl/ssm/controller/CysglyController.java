@@ -1,12 +1,16 @@
 package cn.lyl.ssm.controller;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -37,6 +41,8 @@ public class CysglyController extends BasicController<CysglyServc> {
 	private JbyhServc jbyhServc;
 	@Autowired
 	private CysServc cysServc;
+	@Autowired
+	private CysglyServc cysglyServc;
 	@Autowired
 	private PtzhServc ptzhServc;
 	@Autowired
@@ -105,6 +111,7 @@ public class CysglyController extends BasicController<CysglyServc> {
 		cysgly.setSzsf(info[3]);
 		cysgly.setSzcs(info[4]);
 		cysgly.setSzx(info[5]);
+		cysgly.setSzjdh(info[6]);
 		jbyhServc.update(jbyh);
 		servc.update(cysgly);
 		return "redirect:cys_findCysInfo.action";
@@ -196,9 +203,54 @@ public class CysglyController extends BasicController<CysglyServc> {
 		listvo = assembleCysgly.getAllVo(listjbyh, listgly);
 		model.addAttribute("listvo", listvo);
 		
-		
 		model.addAttribute("mc1", mc1);
 		model.addAttribute("mc2", mc2);
 		return "hy_zhcys";
 	}
+	
+	@RequestMapping("yscd_cdLogin")//运输车队用户  移动端登录验证
+	public void cdLogin(String tel,String pwd,HttpServletResponse response) throws IOException, JSONException {
+			jbyh.setYhsj(tel);
+			jbyh.setYhmm(pwd);
+			
+		    response.setContentType("text/plain");
+			response.setCharacterEncoding("UTF-8");
+			PrintWriter out = response.getWriter();
+			JSONObject job = new JSONObject();
+			
+			int result = jbyhServc.appLogin(jbyh);
+			
+			if(result==0) {
+				job.put("result",false);
+			}else {
+				int[] info = jbyhServc.login(jbyh);
+				jbyh = jbyhServc.find(String.valueOf(info[1]));
+				cysgly = cysglyServc.find(String.valueOf(info[1]));
+				job.put("result",true);
+				job.put("yhbh", cysgly.getYhbh());
+				job.put("cysbh",cysgly.getCysbh());
+				job.put("yhm",jbyh.getYhm());
+				job.put("yhmc",jbyh.getYhxm());
+				job.put("yhmm", jbyh.getYhmm());
+				job.put("yhsj",jbyh.getYhsj());
+				job.put("dlbh",cysgly.getDlbh());
+				job.put("gsmc", cysgly.getGsmc());
+				job.put("szdz",cysgly.getSzsf()+cysgly.getSzcs()+cysgly.getSzx());
+			}
+			
+			
+			
+
+
+			out.write(job.toString());
+			out.flush();
+			out.close();
+	}
+	
 }
+
+
+
+
+
+

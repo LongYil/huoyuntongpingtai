@@ -1,11 +1,16 @@
 package cn.lyl.ssm.controller;
 
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +21,7 @@ import cn.lyl.ssm.po.Hygly;
 import cn.lyl.ssm.service.impl.DdServc;
 import cn.lyl.ssm.service.impl.HyglyServc;
 import cn.lyl.ssm.utils.GetRealColumnName;
+import cn.lyl.ssm.vo.DdVo;
 import cn.lyl.ssm.vo.Ysdw;
 
 /**
@@ -31,6 +37,7 @@ public class DdController extends BasicController<DdServc> {
 	private List<Ysdw> listYsdw = new ArrayList<Ysdw>();
 	private List<Hygly> listhygly = new ArrayList<Hygly>();
 	private List<Dd> listdd = new ArrayList<Dd>();
+	private List<DdVo> listddvo = new ArrayList<DdVo>();
 	@Autowired
 	private Dd dd;
 	@Autowired
@@ -51,7 +58,7 @@ public class DdController extends BasicController<DdServc> {
 	}
 	
 	@RequestMapping("dd_dierbu")//第二步
-	public String dierbu(Model model,String ysdwid,HttpServletRequest request){
+	public String dierbu(Model model,String ysdwid,HttpServletRequest request) throws Exception{
 		listhygly.clear();	
 		request.getSession().setAttribute("ysdwid", ysdwid);
 		dd = (Dd) request.getSession().getAttribute("dd");
@@ -67,7 +74,11 @@ public class DdController extends BasicController<DdServc> {
 		ysdw = listYsdw.get(Integer.parseInt(ysdwid));
 		dd = (Dd) request.getSession().getAttribute("dd");
 		dd.setCys(ysdw.getCysbh());
+		dd.setCdbh(ysdw.getCyscd());
 		dd.setFhdld(ysdw.getFhdldbh());
+		dd.setFhdldsf(Math.round(ysdw.getDlfhfy()));
+		dd.setShdldsf(Math.round(ysdw.getDlshfy()));
+		dd.setCyssf(Math.round(ysdw.getYsfy()));
 		dd.setShdld(Integer.parseInt(shid));
 		dd.setWtrbh(Integer.parseInt(request.getSession().getAttribute("yhbh").toString()));
 		dd.setYjyf(Math.round(ysdw.getYjfy()));
@@ -86,6 +97,8 @@ public class DdController extends BasicController<DdServc> {
 			return "hy_ddxx";
 		}else if(yhlx.equals("cys")&&id.equals("2")){
 			return "cys_ddxx";
+		}else if(yhlx.equals("shdld")&&id.equals("4")){
+			return "hy_dshqs";
 		}else {
 			return "ddxx";
 		}
@@ -150,10 +163,50 @@ public class DdController extends BasicController<DdServc> {
 		return "redirect:dd_findAll.action?yhlx=4&id=2";
 	}
 	
+	@RequestMapping("dd_shdldQs")//收货代理点确认收货
+	public void shdldQs(String id,PrintWriter out,HttpServletRequest request) throws Exception {
+		String result = servc.shdldQs(id,request.getSession().getAttribute("yhbh").toString());
+		out.write(result);
+	}
+
+	@RequestMapping("dd_cysFindAllDd")//承运商移动端查询订单  id为订单状态码，yhbh为承运商编号
+	public void cysFindAllDd(String id,String yhbh,HttpServletResponse response) throws Exception {
+		    listddvo.clear();
+		    
+		    response.setContentType("text/plain");
+			response.setCharacterEncoding("UTF-8");
+			PrintWriter out = response.getWriter();
+			JSONArray array = new JSONArray();
+			listddvo = servc.cysFindAllDd(id,yhbh);
+			
+		    for(DdVo bean:listddvo){
+		         //单个用户JSON对象 
+				   JSONObject obj = new JSONObject();
+				   try{
+					   obj.put("jyzt",bean.getJyzt());
+					   obj.put("hwmc", bean.getHwmc());
+					   obj.put("shdldmc", bean.getShdldmc());
+					   obj.put("shdlddz", bean.getShdlddz());
+					   obj.put("spjs", bean.getSpjs());
+					   obj.put("zfy", bean.getZfy());
+					   obj.put("ysfy", bean.getYsfy());
+					   obj.put("qt", bean.getQt());
+					   obj.put("id", bean.getId());
+				   }catch (Exception e) {
+				}
+				   array.put(obj); 
+			   }
+			out.write(array.toString());
+			out.flush();
+			out.close();
+	}
 	
-	
-	
-	
+	@RequestMapping("dd_cysQrsd")//承运商在App签收
+	public void cysQrsd(String id) {
+		dd = servc.find(id);
+		dd.setDdzt(4);
+		servc.update(dd);
+	}
 	
 	
 	

@@ -23,7 +23,7 @@ public class Ysdw {
 	private String cysdh;//承运商电话
 	private String cysdz;//承运商地址
 	private Integer cysbh;//承运商编号
-	private String cyscd;//承运商车队编号
+	private Integer cyscd;//承运商车队编号
 	private String cyscddh;//承运商车队电话
 	
 	private Float yjfy;//预计费用
@@ -89,10 +89,10 @@ public class Ysdw {
 	public void setCysbh(Integer cysbh) {
 		this.cysbh = cysbh;
 	}
-	public String getCyscd() {
+	public Integer getCyscd() {
 		return cyscd;
 	}
-	public void setCyscd(String cyscd) {
+	public void setCyscd(Integer cyscd) {
 		this.cyscd = cyscd;
 	}
 	public String getCyscddh() {

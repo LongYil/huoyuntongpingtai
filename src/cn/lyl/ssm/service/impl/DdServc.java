@@ -14,6 +14,7 @@ import cn.lyl.ssm.po.Hygly;
 import cn.lyl.ssm.po.Ptzh;
 import cn.lyl.ssm.po.Wlx;
 import cn.lyl.ssm.po.Yscd;
+import cn.lyl.ssm.vo.DdVo;
 import cn.lyl.ssm.vo.Ysdw;
 
 @Transactional
@@ -37,12 +38,17 @@ public class DdServc extends CommonSevc<Dd,DdDaoImpl> {
 	@Autowired
 	private Ptzh ptzh;
 	@Autowired
+	private Ptzh ptzhi;
+	@Autowired
 	private PtzhServc ptzhServc;
 	@Autowired
 	private Dd dd;
 	
+	private DdVo ddvo;
 	private List<Wlx> listWlx = new ArrayList<Wlx>();
 	private List<Ysdw> listysdw1 = new ArrayList<Ysdw>();
+	private List<Dd> listdd = new ArrayList<Dd>();
+	private List<DdVo> listddvo = new ArrayList<DdVo>();
 	
 	private Ysdw ysdw;
 	@Override
@@ -113,7 +119,7 @@ public class DdServc extends CommonSevc<Dd,DdDaoImpl> {
 				ysdw.setCysmc(cysgly.getGsmc());
 				ysdw.setCysdz(cysgly.getSzsf()+"-"+cysgly.getSzcs()+"-"+cysgly.getSzx()+"-"+cysgly.getSzjdh());
 				ysdw.setCysdh(cysgly.getLxdh());
-				ysdw.setCyscd(yscd.getCdmc());
+				ysdw.setCyscd(listWlx.get(i).getCdbh());
 				ysdw.setCyscddh(yscd.getCdlxdh());
 				ysdw.setFhdldmc(hygly.getGsmc());
 				ysdw.setFhdldbh(hygly.getGlybh());
@@ -231,7 +237,7 @@ public class DdServc extends CommonSevc<Dd,DdDaoImpl> {
 		}
 	}
 	
-	public void cysjd(String[] id) {
+	public void cysjd(String[] id) {//承运商接单
 		for(int i=0;i<id.length;i++) {
 			dd = this.find(id[i]);
 			dd.setDdzt(3);
@@ -239,5 +245,57 @@ public class DdServc extends CommonSevc<Dd,DdDaoImpl> {
 		}
 	}
 	
+	public String shdldQs(String id,String yhbh) throws Exception {
+		dd = this.find(id);
+		
+		if(dd.getDshk()==1) {
+			ptzh = ptzhServc.find(yhbh);
+			ptzhi = ptzhServc.find(String.valueOf(dd.getWtrbh()));
+			ptzh.setZhye(ptzh.getZhye()-dd.getHkfy());
+			ptzhi.setZhye(ptzhi.getZhye()+dd.getHkfy());
+			ptzhServc.update(ptzh);
+			ptzhServc.update(ptzhi);
+		}else {
+			;
+		}
+		dd.setDdzt(5);
+		this.update(dd);
+		return "1";
+	}
+	
+	public List<DdVo> cysFindAllDd(String id,String glybh) throws Exception{
+		listdd.clear();
+		listdd = daoImpl.cysFindAllDd(id,glybh);
+		for(int i=0;i<listdd.size();i++) {
+			dd = listdd.get(i);
+			hygly = hyglyServc.find(String.valueOf(dd.getShdld()));
+			ddvo = new DdVo();
+			switch(dd.getDdzt()) {
+			case 1:
+				ddvo.setJyzt("待处理");
+				break;
+			case 2:
+				ddvo.setJyzt("已处理");
+				break;
+			case 3:
+				ddvo.setJyzt("运输中");
+				break;
+			case 4:
+				ddvo.setJyzt("已送达");
+				break;
+			}
+			ddvo.setId(String.valueOf(dd.getId()));
+			ddvo.setHwmc(dd.getHwmc());
+			ddvo.setShdlddz(hygly.getSzsf()+hygly.getSzcs()+hygly.getSzx()+hygly.getSzjdh());
+			ddvo.setShdldmc(hygly.getGsmc());
+			ddvo.setSpjs(String.valueOf(dd.getZjs()));
+			ddvo.setZfy(String.valueOf(dd.getYjyf()));
+			ddvo.setYsfy(String.valueOf(dd.getCyssf()));
+			ddvo.setQt(dd.getYjsdsj());
+			listddvo.add(ddvo);
+		}
+		
+		return listddvo;
+	}
 	
 }

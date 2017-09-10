@@ -13,6 +13,7 @@
 		<property name="fhdld"/>
 		<property name="shdld"/>
 		<property name="cys"/>
+		<property name="cdbh"/>
 		<property name="jjlx"/>
 		<property name="hwmc" length="150"/>
 		<property name="hwlx" length="150"/>

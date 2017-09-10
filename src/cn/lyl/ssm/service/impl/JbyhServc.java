@@ -48,4 +48,8 @@ public class JbyhServc extends CommonSevc<Jbyh,JbyhDaoImpl> {
 	public List<Jbyh> getJbyhByHygly(List<Hygly> arg){
 		return daoImpl.getJbyhByHygly(arg);
 	}
+	
+	public int appLogin(Jbyh jbyh) {
+		return daoImpl.appLogin(jbyh);
+	}
 }

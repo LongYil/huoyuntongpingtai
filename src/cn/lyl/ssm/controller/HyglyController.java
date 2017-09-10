@@ -103,7 +103,7 @@ public class HyglyController extends BasicController<HyglyServc> {
 		hygly = servc.find(request.getSession().getAttribute("yhbh").toString());
 		hydld = hydldServc.find(request.getSession().getAttribute("yhbh").toString());
 		jbyh.setYhxm(info[0]);
-		hygly.setYhbz(info[6]);
+		hygly.setYhbz("");
 		hygly.setYhyx(info[2]);
 		hydld.setGsmc(info[1]);
 		hygly.setGsmc(info[1]);
@@ -113,6 +113,8 @@ public class HyglyController extends BasicController<HyglyServc> {
 		hygly.setSzcs(info[4]);
 		hydld.setSzx(info[5]);
 		hygly.setSzx(info[5]);
+		hydld.setSzjdh(info[6]);
+		hygly.setSzjdh(info[6]);
 		jbyhServc.save(jbyh);
 		hydldServc.save(hydld);
 		servc.save(hygly);		
