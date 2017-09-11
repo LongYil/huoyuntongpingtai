@@ -18,11 +18,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import cn.lyl.ssm.po.Bzj;
 import cn.lyl.ssm.po.Cys;
 import cn.lyl.ssm.po.Cysgly;
+import cn.lyl.ssm.po.Cysjs;
+import cn.lyl.ssm.po.Cysqx;
 import cn.lyl.ssm.po.Jbyh;
 import cn.lyl.ssm.po.Ptzh;
 import cn.lyl.ssm.service.impl.BzjServc;
 import cn.lyl.ssm.service.impl.CysServc;
 import cn.lyl.ssm.service.impl.CysglyServc;
+import cn.lyl.ssm.service.impl.CysjsServc;
+import cn.lyl.ssm.service.impl.CysqxServc;
 import cn.lyl.ssm.service.impl.JbyhServc;
 import cn.lyl.ssm.service.impl.PtzhServc;
 import cn.lyl.ssm.utils.AssembleCysgly;
@@ -57,14 +61,22 @@ public class CysglyController extends BasicController<CysglyServc> {
 	private Cysgly cysgly;
 	@Autowired
 	private AssembleCysgly assembleCysgly;
+	@Autowired
+	private Cysjs cysjs;
+	@Autowired
+	private CysjsServc cysjsServc;
+	@Autowired
+	private Cysqx cysqx;
+	@Autowired
+	private CysqxServc cysqxServc;
 	
 	private List<Cysgly> listgly = new ArrayList<Cysgly>();
 	private List<Jbyh> listjbyh = new ArrayList<Jbyh>();
 	private List<CysglyVo> listvo = new ArrayList<CysglyVo>();
-	
+
 	//承运商的保存方法
 	@RequestMapping("/cysgly_save")
-	public String save(Jbyh jbyh,Cys cys,Cysgly cysgly,HttpServletRequest request){
+	public String save(Model model,Jbyh jbyh,Cys cys,Cysgly cysgly,HttpServletRequest request){
 		int type = jbyh.getYhlx();
 		jbyhServc.save(jbyh);
 		cys.setLxdh(jbyh.getYhsj());
@@ -72,14 +84,29 @@ public class CysglyController extends BasicController<CysglyServc> {
 		cysgly.setDlbh(0);
 		cys.setYhbh(jbyh.getYhbh());
 		cysgly.setYhbh(jbyh.getYhbh());
-		if(type==3){
+		if(type==3){//如果用户是个人承运商
 			cys.setHylx(1);
 			cysgly.setHylx(1);
-		}else{
+		}else{//如果用户是运输车队承运商  默认赋予具有超级管理员的角色
 			cys.setHylx(2);
 			cysgly.setHylx(2);
 			cysgly.setCysbh(jbyh.getYhbh());
+			
+			cysjs.setYhbh(jbyh.getYhbh());
+			cysjs.setGlybh(cysgly.getCysbh());
+			cysjs.setJsmc("超级管理员");
+			cysjsServc.save(cysjs);
+			
+			cysqx.setJsbh(cysjs.getId());
+			cysqx.setCdgl("block");
+			cysqx.setJsgl("block");
+			cysqx.setSzdld("block");
+			cysqx.setXtrz("block");
+			cysqx.setZhgl("block");
+			cysqxServc.save(cysqx);
+			cysgly.setJsbh(cysjs.getId());
 		}
+		
 		cysServc.save(cys);
 		servc.save(cysgly);
 		ptzh.setYhbh(jbyh.getYhbh());
@@ -90,16 +117,17 @@ public class CysglyController extends BasicController<CysglyServc> {
 		bzj.setYsqje(0);
 		bzjServc.save(bzj);
 		ptzhServc.save(ptzh);
+
 		request.getSession().setAttribute("yhbh", jbyh.getYhbh());
 		request.getSession().setAttribute("jbyh", jbyh);
 		request.getSession().setAttribute("cysgly", cysgly);
-		
+		model.addAttribute("cysqx",cysqx);
 		if(type==3){
 			return "cys_grindex";
 		}else{
 			return "cys_cdindex";
 		}
-
+		
 	}
 	@RequestMapping("/cys_updategly")
 	public String updategly(String[] info,HttpServletRequest request){
@@ -237,10 +265,6 @@ public class CysglyController extends BasicController<CysglyServc> {
 				job.put("gsmc", cysgly.getGsmc());
 				job.put("szdz",cysgly.getSzsf()+cysgly.getSzcs()+cysgly.getSzx());
 			}
-			
-			
-			
-
 
 			out.write(job.toString());
 			out.flush();

@@ -13,6 +13,7 @@
 		<property name="dlbh"/>
 		<property name="cysbh"/>
 		<property name="hylx"/>
+		<property name="jsbh"/>
 		<property name="gsmc" length="150"/>
 		<property name="yhyx" length="150"/>
 		<property name="lxdh" length="150"/>

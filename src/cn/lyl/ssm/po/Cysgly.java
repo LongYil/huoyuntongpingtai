@@ -14,6 +14,7 @@ import org.springframework.stereotype.Component;
 @Scope(value="prototype")
 public class Cysgly {
 	private Integer id;//序号
+	private Integer jsbh;//角色编号
 	private Integer yhbh;//用户编号
 	private Integer dlbh;//所属代理点编号   默认值为0，表示没有所属的代理点
 	private Integer cysbh;//承运商编号
@@ -139,6 +140,12 @@ public class Cysgly {
 	}
 	public void setYhbz(String yhbz) {
 		this.yhbz = yhbz;
+	}
+	public Integer getJsbh() {
+		return jsbh;
+	}
+	public void setJsbh(Integer jsbh) {
+		this.jsbh = jsbh;
 	}
 
 }

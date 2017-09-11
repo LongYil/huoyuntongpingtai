@@ -46,12 +46,21 @@
 			<div style="margin-bottom:20px">
 				<input class="easyui-textbox" name="yhyx" style="width:40%" data-options="label:'Email:',required:true,validType:'email'">
 			</div>
+			
+			<div style="margin-bottom:20px">
+				<span class="tou">帐号角色</span>
+				<select  class="mycombox" name="jsbh" style="width:19%">
+					<option value="1">超级管理员</option>
+					<option value="2">普通管理员</option>
+				</select>
+			</div>
+			
 			<div style="margin-bottom:20px"   id="area_address1">
 				<span class="tou">用户地址</span>
 				<select  class="mycombox" name="province" style="width:19%">
 				</select>
 				<select  class="mycombox" name="city" style="width:19%">
-				</select>	
+				</select>
 				<select  class="mycombox" name="area" style="width:19%">
 				</select>
 			</div>
@@ -94,6 +103,7 @@
 					return $(this).form('enableValidation').form('validate');
 				}else{
 					$.messager.alert('温馨提示','信息填写不完整，请填写完整信息!','warning');
+					return false;
 				}
 			}
 		});

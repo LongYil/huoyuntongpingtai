@@ -57,6 +57,9 @@ public class AssembleJyjl {
 			case 5:
 				jyjlvo.setJylx("解冻保证金");
 				break;
+			case 6:
+				jyjlvo.setJylx("支付运费");
+				break;
 			}
 
 			switch(jyzt){

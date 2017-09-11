@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.hibernate.tutorial.hbm">
+
+	<class name="cn.lyl.ssm.po.Cysqx" table="Cysqx">
+		<id name="id">
+			<generator class="native"></generator>
+		</id>
+		<property name="jsbh" />
+		<property name="zhgl" length="150"/>
+		<property name="szdld" length="150"/>
+		<property name="cdgl" length="150"/>
+		<property name="jsgl" length="150"/>
+		<property name="xtrz" length="150"/>
+	</class>
+
+</hibernate-mapping>

@@ -65,9 +65,17 @@ public class DdServc extends CommonSevc<Dd,DdDaoImpl> {
 				arg.setSfyf(arg.getYjyf());
 				arg.setFkzt(2);
 				ptzh.setZhye(ptzh.getZhye()-arg.getYjyf());
+				
 				ptzhServc.update(ptzh);
 				daoImpl.save(arg);
-				return "1";	
+				
+				jyjl.setYhbh(Integer.parseInt(yhbh));
+				jyjl.setJyje(arg.getYjyf());
+				jyjl.setJyzt(2);
+				jyjl.setJysj(getDateAndTime.getNowDate());
+				jyjl.setJylx(6);
+				jyjlServc.save(jyjl);
+				return "1";
 			}else {
 				arg.setFkzt(1);
 				daoImpl.save(arg);
@@ -196,6 +204,14 @@ public class DdServc extends CommonSevc<Dd,DdDaoImpl> {
 			dd.setSfyf(dd.getYjyf());
 			ptzh.setZhye(ptzh.getZhye()-dd.getYjyf());
 			this.update(dd);
+			
+			jyjl.setYhbh(Integer.parseInt(yhid));
+			jyjl.setJyje(dd.getYjyf());
+			jyjl.setJyzt(2);
+			jyjl.setJysj(getDateAndTime.getNowDate());
+			jyjl.setJylx(6);
+			jyjlServc.save(jyjl);
+			
 			ptzhServc.update(ptzh);
 			return "1";
 		}else {

@@ -16,7 +16,7 @@ public class Jyjl {
 	private Integer id;//序号
 	private Integer yhbh;//用户编号
 	private String jysj;//交易时间
-	private Integer jylx;//交易类型 1：物流币充值；2：物流币提现；3:营业收入；4：缴纳保证金；5：解冻保证金；
+	private Integer jylx;//交易类型 1：物流币充值；2：物流币提现；3:营业收入；4：缴纳保证金；5：解冻保证金，6：支付运费
 	private Integer jyje;//交易金额
 	private Integer jyzt;//交易状态   1：申请已发起；2：交易成功；3：交易失败
 	private String jyrxm;//交易人姓名（此字段仅在用户申请充值物流币时使用）

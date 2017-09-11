@@ -205,6 +205,7 @@ public class DdController extends BasicController<DdServc> {
 	public void cysQrsd(String id) {
 		dd = servc.find(id);
 		dd.setDdzt(4);
+		dd.setSjsdsj(getDateAndTime.getStandardDateAndTime());
 		servc.update(dd);
 	}
 	
