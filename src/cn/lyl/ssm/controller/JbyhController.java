@@ -8,9 +8,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import cn.lyl.ssm.po.Cysgly;
+import cn.lyl.ssm.po.Cysqx;
 import cn.lyl.ssm.po.Hygly;
 import cn.lyl.ssm.po.Jbyh;
 import cn.lyl.ssm.service.impl.CysglyServc;
+import cn.lyl.ssm.service.impl.CysqxServc;
 import cn.lyl.ssm.service.impl.HyglyServc;
 import cn.lyl.ssm.service.impl.JbyhServc;
 
@@ -26,6 +28,10 @@ public class JbyhController extends BasicController<JbyhServc> {
 	
 	@Autowired
 	private Jbyh jbyh;
+	@Autowired
+	private Cysqx cysqx;
+	@Autowired
+	private CysqxServc cysqxServc;
 	@Autowired
 	private Cysgly cysgly;
 	@Autowired
@@ -53,10 +59,14 @@ public class JbyhController extends BasicController<JbyhServc> {
 		case 4:
 			cysgly = cysglyServc.find(String.valueOf(info[1]));
 			request.getSession().setAttribute("cysgly",cysgly);
+			cysqx = cysqxServc.find(String.valueOf(cysgly.getJsbh()));
+			model.addAttribute("cysqx",cysqx);
 			return "cys_cdindex";
 		case 5:
 			cysgly = cysglyServc.find(String.valueOf(info[1]));
 			request.getSession().setAttribute("cysgly",cysgly);
+			cysqx = cysqxServc.find(String.valueOf(cysgly.getJsbh()));
+			model.addAttribute("cysqx",cysqx);
 			return "cys_cdindex";
 		case 6:
 			hygly = hyglyServc.find(String.valueOf(info[1]));

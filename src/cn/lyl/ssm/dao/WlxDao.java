@@ -11,7 +11,9 @@ public interface WlxDao {
 	List<Wlx> findAll(String arg);
 	List<Wlx> findByCdid(String arg);
 	List<WlxVo> findByCysYhid(String arg);
+	List<WlxVo> findByCysglyid(String arg);
 	List<Wlx> findBestWlx(Dd dd);
 	List<WlxVo> findByGlyid(List<Cysgly> listgly);
 	List<Wlx> findByCysid(String arg);
+	
 }

@@ -53,6 +53,9 @@ public class WlxServc extends CommonSevc<Wlx, WlxDaoImpl> {
 	public List<WlxVo> findByCysYhid(String arg){
 		return daoImpl.findByCysYhid(arg);
 	}
+	public List<WlxVo> findByCysglyid(String arg){
+		return daoImpl.findByCysglyid(arg);
+	}
 	
 	public List<Wlx> dldFindByYhbh(String yhbh) throws Exception{
 		listYscd.clear();

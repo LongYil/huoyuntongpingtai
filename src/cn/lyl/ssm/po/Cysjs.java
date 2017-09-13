@@ -15,7 +15,6 @@ import org.springframework.stereotype.Component;
 public class Cysjs {
 	private Integer id;//角色编号
 	private Integer yhbh;//用户编号
-	private Integer glybh;//管理员编号
 	
 	private String jsmc;//角色名称
 	
@@ -36,12 +35,6 @@ public class Cysjs {
 	}
 	public void setYhbh(Integer yhbh) {
 		this.yhbh = yhbh;
-	}
-	public Integer getGlybh() {
-		return glybh;
-	}
-	public void setGlybh(Integer glybh) {
-		this.glybh = glybh;
 	}
 		
 }

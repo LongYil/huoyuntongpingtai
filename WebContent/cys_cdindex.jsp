@@ -34,7 +34,7 @@
 			<ul class="menu1">
 				<li><a href="javascript:void(0)" onClick="To('cys_findCysInfo.action')"><img src="js/basic/icon/jibenxinxi.png" class="itemicon">基本信息</a></li>
 				<li name="zhgl" style="display:${cysqx.zhgl}"><a href="javascript:void(0)" onClick="To('cys_findAllGly.action')"><img src="js/basic/icon/zhanghaoguanli.png" class="itemicon">帐号管理</a></li>
-                <li><a href="javascript:void(0)" onClick="To('yhzh_find.action')"><img src="js/basic/icon/zhanghuguanli.png" class="itemicon">我的账户</a></li>
+                <li style="display:none;"><a href="javascript:void(0)" onClick="To('yhzh_find.action')"><img src="js/basic/icon/zhanghuguanli.png" class="itemicon">我的账户</a></li>
                 <li name="szdld"><a href="javascript:void(0)" onClick="To('hy_cysFindDld.action')"><img src="js/basic/icon/dailidian.png" class="itemicon">设置代理点</a></li>
 			</ul>
 		</li>
@@ -47,8 +47,10 @@
             </dl>
 			<ul class="menu1">
 				<li name="cdgl" style="display:${cysqx.cdgl}"><a href="javascript:void(0)" onClick="To('yscd_cysFindAll.action')"><img src="js/basic/icon/chedui.png" class="itemicon">车队管理</a></li>
-                <li><a href="javascript:void(0)" onClick="To('wlx_glyfindByYhbh.action')"><img src="js/basic/icon/yunshuxianlu.png" class="itemicon">所有线路</a></li>
-                <li><a href="javascript:void(0)" onClick="To('clxx_yhFindAll.action')"><img src="js/basic/icon/chenliang.png" class="itemicon">所有车辆</a></li>
+                <li name="wdxl" style="display:${cysqx.wdxl}"v><a href="javascript:void(0)" onClick="To('wlx_cysFindAll.action')"><img src="js/basic/icon/yunshuxianlu.png" class="itemicon">我的线路</a></li>
+                <li name="wdcl" style="display:${cysqx.wdcl}"><a href="javascript:void(0)" onClick="To('clxx_yhFindAll.action')"><img src="js/basic/icon/chenliang.png" class="itemicon">我的车辆</a></li>
+                <li name="syxl" style="display:${cysqx.syxl}"><a href="javascript:void(0)" onClick="To('wlx_glyfindByYhbh.action')"><img src="js/basic/icon/yunshuxianlu.png" class="itemicon">所有线路</a></li>
+                <li name="sycl" style="display:${cysqx.sycl}"><a href="javascript:void(0)" onClick="To('clxx_yhFindAll.action')"><img src="js/basic/icon/chenliang.png" class="itemicon">所有车辆</a></li>
 			</ul>
 		</li>
 
@@ -89,7 +91,7 @@
             </li>
             </dl>
 			<ul class="menu1">
-				<li name="jsgl" style="display:${cysqx.jsgl}"><a href="javascript:void(0)" onClick="To('cys_jsgl.jsp')"><img src="js/basic/icon/jueseguanli.png" class="itemicon">角色管理</a></li>
+				<li name="jsgl" style="display:${cysqx.jsgl}"><a href="javascript:void(0)" onClick="To('cysjs_findAllJs.action')"><img src="js/basic/icon/jueseguanli.png" class="itemicon">角色管理</a></li>
                 <li name="xtrz" style="display:${cysqx.xtrz}"><a href="javascript:void(0)"><img src="js/basic/icon/xitongrizhi.png" class="itemicon">系统日志</a></li>
 				<li><a href="javascript:void(0)"><img src="js/basic/icon/tuichu.png" class="itemicon">退出</a></li>
 			</ul>
@@ -111,7 +113,6 @@
 function To(url){
 	$(".zhuomian").attr("src",url);
 }
-
 
 $(function m(){
 	$(".biaotia1").nextAll().hide();
@@ -153,8 +154,6 @@ function m(){
 	$(".biaotia4").nextAll().hide();
 	$(".biaotia5").nextAll().hide();
 }
-
-
 
 </script>
 </html>

@@ -15,6 +15,13 @@
 		<property name="cdgl" length="150"/>
 		<property name="jsgl" length="150"/>
 		<property name="xtrz" length="150"/>
+		<property name="wdxl" length="150"/>
+		<property name="wdcl" length="150"/>
+		<property name="syxl" length="150"/>
+		<property name="sycl" length="150"/>
+		<property name="szbdld" length="150"/>
+		<property name="szsydld" length="150"/>
+		
 	</class>
 
 </hibernate-mapping>

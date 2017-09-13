@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
 <!DOCTYPE html>
 <html>
 <head>
@@ -50,8 +51,9 @@
 			<div style="margin-bottom:20px">
 				<span class="tou">帐号角色</span>
 				<select  class="mycombox" name="jsbh" style="width:19%">
-					<option value="1">超级管理员</option>
-					<option value="2">普通管理员</option>
+					<c:forEach items="${listjs}" var="item" begin="0" step="1" varStatus="status">
+						<option value="${item.id}">${item.jsmc}</option>
+					</c:forEach>
 				</select>
 			</div>
 			

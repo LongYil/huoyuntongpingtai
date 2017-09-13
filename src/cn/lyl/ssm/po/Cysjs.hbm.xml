@@ -9,7 +9,6 @@
 			<generator class="native"></generator>
 		</id>
 		<property name="yhbh"/>
-		<property name="glybh"/>
 		<property name="jsmc" length="150"/>
 	</class>
 </hibernate-mapping>

@@ -142,7 +142,16 @@ public class WlxController extends BasicController<WlxServc> {
 		return "hy_zhsyxl";
 	}
 	
-	
+	@RequestMapping("wlx_cysFindAll")
+	public String cysFindAll(Model model,HttpServletRequest request) {
+		listwlxvo.clear();
+		
+		cysgly = (Cysgly)request.getSession().getAttribute("cysgly");
+		listwlxvo = servc.findByCysglyid(cysgly.getCysbh().toString());
+		
+		model.addAttribute("listwlxvo",listwlxvo);
+		return "cys_cdsyxl";
+	}
 	
 	
 	

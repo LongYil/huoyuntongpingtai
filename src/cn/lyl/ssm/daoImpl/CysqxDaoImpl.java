@@ -29,8 +29,7 @@ public class CysqxDaoImpl extends CommonDaoImpl<Cysqx> implements CysqxDao{
 
 	@Override
 	public Cysqx find(String arg) throws Exception {
-		//
-		return null;
+		return (Cysqx) getEntity.getEntity("Cysqx", "jsbh", arg, Cysqx.class);
 	}
 
 }

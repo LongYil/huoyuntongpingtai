@@ -28,8 +28,8 @@ public class CysglyDaoImpl extends CommonDaoImpl<Cysgly> implements CysglyDao {
 	}
 
 	@Override
-	public Cysgly find(String arg) {
-		return (Cysgly) ht.find("from Cysgly where yhbh = "+Integer.parseInt(arg)+"").get(0);
+	public Cysgly find(String arg) throws Exception {
+		return (Cysgly) getEntity.getEntity("Cysgly", "cysbh", arg, Cysgly.class);
 	}
 
 	@Override

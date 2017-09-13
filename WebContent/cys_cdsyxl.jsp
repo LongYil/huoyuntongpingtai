@@ -18,9 +18,9 @@
 <section style="width:760px;height:40px;line-height:40px;margin-top:10px;margin-bottom:10px;padding-left:40px;">
 <a href="javascript:void(0)" class="easyui-linkbutton" style="width:80px;margin-right:20px;" onclick="sxxl()">刷新</a>
 </section>
-	<div id="tt" class="easyui-tabs" data-options="tools:'#tab-tools'" style="padding:0px;width:835px;height:620px;margin-left:-20px;margin-bottom:0px;">
+	<div id="tt" class="easyui-tabs" data-options="tools:'#tab-tools'" style="padding:0px;width:835px;height:610px;margin-left:-20px;margin-bottom:0px;">
 	<div title="所有线路">
-		<table id="dg" class="easyui-datagrid" title="运输线路" style="width:1040px;height:590px"
+		<table id="dg" class="easyui-datagrid" title="运输线路" style="width:828px;height:570px"
 			data-options="singleSelect:true,url:'datagrid_data1.json',method:'get'">
 		<thead>
 			<tr>

@@ -36,8 +36,7 @@ public class WlxDaoImpl extends CommonDaoImpl<Wlx> implements WlxDao {
 
 	@Override
 	public void update(Wlx entity) {
-		//
-		
+		ht.update(entity);		
 	}
 
 	@Override
@@ -62,6 +61,7 @@ public class WlxDaoImpl extends CommonDaoImpl<Wlx> implements WlxDao {
 		return (List<Wlx>) ht.find("from Wlx where cdbh = "+arg+"");
 	}
 
+	/////////////////////////////////
 	@Override
 	public List<WlxVo> findByCysYhid(String arg) {
 		listwlx.clear();
@@ -77,6 +77,20 @@ public class WlxDaoImpl extends CommonDaoImpl<Wlx> implements WlxDao {
 		return listwlxvo;
 	}
 
+	@Override
+	public List<WlxVo> findByCysglyid(String arg) {
+		listwlx.clear();
+		listwlxvo.clear();
+		listwlx = (List<Wlx>) ht.find("from Wlx where cysbh ="+arg+"");
+		for(int i=0;i<listwlx.size();i++){
+			yscd = (Yscd) ht.find("from Yscd where cdbh = "+listwlx.get(i).getCdbh()+"").get(0);
+			wlxvo = new WlxVo();
+			wlxvo.setWlx(listwlx.get(i));
+			wlxvo.setCdmc(yscd.getCdmc());
+			listwlxvo.add(wlxvo);
+		}
+		return listwlxvo;
+	}
 	@Override
 	public List<Wlx> findBestWlx(Dd dd) {
 		return  (List<Wlx>) ht.find("from Wlx where cfsf = ? and cfcs = ? and cfx = ? and ddsf = ? and ddcs = ? and ddx = ?",dd.getCfsf().trim(),dd.getCfcs().trim(),dd.getCfx().trim(),dd.getDdsf().trim(),dd.getDdcs().trim(),dd.getDdx().trim());
@@ -115,6 +129,8 @@ public class WlxDaoImpl extends CommonDaoImpl<Wlx> implements WlxDao {
 	public List<Wlx> findByCysid(String arg) {
 		return (List<Wlx>) ht.find("from Wlx where cysbh = "+arg+"");
 	}
+
+
 	
 	
 	

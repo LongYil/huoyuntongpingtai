@@ -60,6 +60,8 @@ public class CysglyController extends BasicController<CysglyServc> {
 	@Autowired
 	private Cysgly cysgly;
 	@Autowired
+	private Cysgly tempcysgly;
+	@Autowired
 	private AssembleCysgly assembleCysgly;
 	@Autowired
 	private Cysjs cysjs;
@@ -93,7 +95,6 @@ public class CysglyController extends BasicController<CysglyServc> {
 			cysgly.setCysbh(jbyh.getYhbh());
 			
 			cysjs.setYhbh(jbyh.getYhbh());
-			cysjs.setGlybh(cysgly.getCysbh());
 			cysjs.setJsmc("超级管理员");
 			cysjsServc.save(cysjs);
 			
@@ -130,7 +131,7 @@ public class CysglyController extends BasicController<CysglyServc> {
 		
 	}
 	@RequestMapping("/cys_updategly")
-	public String updategly(String[] info,HttpServletRequest request){
+	public String updategly(String[] info,HttpServletRequest request) throws Exception{
 		jbyh = jbyhServc.find(request.getSession().getAttribute("yhbh").toString());
 		cysgly = servc.find(request.getSession().getAttribute("yhbh").toString());
 		jbyh.setYhxm(info[0]);
@@ -146,7 +147,7 @@ public class CysglyController extends BasicController<CysglyServc> {
 	}
 	//查询承运商信息
 	@RequestMapping("/cys_findCysInfo")
-	public String findCysInfo(Model model,String yhbh,HttpServletRequest request){
+	public String findCysInfo(Model model,String yhbh,HttpServletRequest request) throws Exception{
 		jbyh = (Jbyh) request.getSession().getAttribute("jbyh");
 		cysgly = servc.find(request.getSession().getAttribute("yhbh").toString());
 		model.addAttribute("jbyh",jbyh);
@@ -162,21 +163,24 @@ public class CysglyController extends BasicController<CysglyServc> {
 	
 	@RequestMapping("/cys_addGly")
 	public void addGly(Jbyh jbyh,Cysgly cysgly,HttpServletRequest request){
+		tempcysgly = (Cysgly) request.getSession().getAttribute("cysgly");
 		jbyhServc.save(jbyh);
 		cysgly.setCysbh(jbyh.getYhbh());
 		cysgly.setDlbh(0);
 		cysgly.setLxdh(jbyh.getYhsj());
 		cysgly.setHylx(3);//会员类型为3，表示该管理员是承运商分管理员
-		cysgly.setYhbh(Integer.parseInt(request.getSession().getAttribute("yhbh").toString()));
+		cysgly.setYhbh(tempcysgly.getYhbh());
 		servc.save(cysgly);
 	}
 	//查询所有管理员
 	@RequestMapping("/cys_findAllGly")
-	public String findAllGly(Model model,HttpServletRequest request){
+	public String findAllGly(Model model,HttpServletRequest request) throws Exception{
+		tempcysgly = (Cysgly) request.getSession().getAttribute("cysgly");
+		
 		listgly.clear();
 		listjbyh.clear();
 		listvo.clear();
-		listgly = servc.findAll(request.getSession().getAttribute("yhbh").toString());
+		listgly = servc.findAll(String.valueOf(tempcysgly.getYhbh()));
 		listjbyh = jbyhServc.findAllGly(listgly);
 		listvo = assembleCysgly.getAllVo(listjbyh, listgly);
 		model.addAttribute("listvo", listvo);
@@ -217,7 +221,7 @@ public class CysglyController extends BasicController<CysglyServc> {
 	}
 	
 	@RequestMapping("hy_hyglyFindAllCysByglyid")//货运代理点用户根据管理员id查找该管理员的所有承运商
-	public String hyglyFindAllCysByglyid(Model model,String id,String mc1,String mc2,HttpServletRequest request) {
+	public String hyglyFindAllCysByglyid(Model model,String id,String mc1,String mc2,HttpServletRequest request) throws Exception {
 		listgly.clear();
 		listjbyh.clear();
 		listvo.clear();
@@ -237,7 +241,7 @@ public class CysglyController extends BasicController<CysglyServc> {
 	}
 	
 	@RequestMapping("yscd_cdLogin")//运输车队用户  移动端登录验证
-	public void cdLogin(String tel,String pwd,HttpServletResponse response) throws IOException, JSONException {
+	public void cdLogin(String tel,String pwd,HttpServletResponse response) throws Exception {
 			jbyh.setYhsj(tel);
 			jbyh.setYhmm(pwd);
 			

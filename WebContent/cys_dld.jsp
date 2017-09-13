@@ -26,8 +26,8 @@
 <body style="padding-top:0px; padding-bottom:0px;">
 
 <section style="width:500px;height:40px;margin-top:20px;padding-left:40px;">
-<a href="javascript:void(0)" class="easyui-linkbutton" style="width:130px;margin-right:20px;" onclick="ben()">设置本账号代理点</a>
-<a href="javascript:void(0)" class="easyui-linkbutton" style="width:130px;margin-right:20px;" onclick="suoyou()">设置所有账号代理点</a>
+<a href="javascript:void(0)" class="easyui-linkbutton" style="display:${cysqx.szbdld};width:130px;margin-right:20px;" onclick="ben()">设置本账号代理点</a>
+<a href="javascript:void(0)" class="easyui-linkbutton" style="display:${cysqx.szsydld};width:130px;margin-right:20px;" onclick="suoyou()">设置所有账号代理点</a>
 </section>
 
 	<div id="tt" class="easyui-tabs" data-options="tools:'#tab-tools'" style="padding:0px;width:835px;height:620px;margin-left:-20px;margin-bottom:0px;">

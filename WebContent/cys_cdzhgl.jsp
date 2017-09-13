@@ -15,12 +15,13 @@
 </head>
 <body style="padding-top:0px; padding-bottom:0px;">
 
-<section style="width:700px;height:40px;margin-top:20px;padding-left:40px;">
-<a href="javascript:void(0)" class="easyui-linkbutton" style="width:80px;margin-right:20px;" onclick="addPanel()">添加帐号</a>
-<a href="javascript:void(0)" class="easyui-linkbutton" style="width:80px;margin-right:20px;" onclick="shanchu()">删除帐号</a>
-<a href="javascript:void(0)" class="easyui-linkbutton" style="width:110px;margin-right:20px;" onclick="chakanchedui()">查看所有车队</a>
-<a href="javascript:void(0)" class="easyui-linkbutton" style="width:110px;margin-right:20px;" onclick="chakandailidian()">查看所属代理点</a>
-<a href="javascript:void(0)" class="easyui-linkbutton" style="width:110px;margin-right:20px;" onclick="shezhidailidian()">设置代理点</a>
+<section style="width:780px;height:40px;margin-top:20px;padding-left:10px;">
+<a href="javascript:void(0)" class="easyui-linkbutton" style="width:80px;margin-right:14px;" onclick="addPanel()">添加帐号</a>
+<a href="javascript:void(0)" class="easyui-linkbutton" style="width:80px;margin-right:14px;" onclick="shanchu()">删除帐号</a>
+<a href="javascript:void(0)" class="easyui-linkbutton" style="width:80px;margin-right:14px;" onclick="shezhijuese()">设置角色</a>
+<a href="javascript:void(0)" class="easyui-linkbutton" style="width:110px;margin-right:14px;" onclick="chakanchedui()">查看所有车队</a>
+<a href="javascript:void(0)" class="easyui-linkbutton" style="width:110px;margin-right:14px;" onclick="chakandailidian()">查看所属代理点</a>
+<a href="javascript:void(0)" class="easyui-linkbutton" style="width:110px;margin-right:14px;" onclick="shezhidailidian()">设置代理点</a>
 <a href="javascript:void(0)" class="easyui-linkbutton" style="width:80px;" onclick="shuaxin()">刷新</a>
 </section>
 
@@ -31,8 +32,9 @@
 		<thead>
 			<tr>
 				<th data-options="field:'a',width:40,align:'center'">序号</th>
-				<th data-options="field:'id',width:60,align:'center'">用户id</th>
+				<th data-options="field:'id',width:60,align:'center'" hidden="hidden">用户id</th>
 				<th data-options="field:'b',width:120,align:'center'">用户名(帐户名)</th>
+				<th data-options="field:'ba',width:120,align:'center'">用户角色</th>
 				<th data-options="field:'c',width:120,align:'center'">用户手机号</th>
 				<th data-options="field:'d',width:120,align:'center'">用户姓名</th>
 				<th data-options="field:'e',width:120,align:'center'">公司名称</th>
@@ -46,8 +48,9 @@
 				<c:forEach items="${listvo}" var="item" begin="0" step="1" varStatus="status">
 				<tr>
 				    <td>${status.index+1}</td>
-					<td>${item.yhbh}</td>
+					<td hidden="hidden">${item.yhbh}</td>
 					<td>${item.yhm}</td>
+					<td>${item.jsmc}</td>
 					<td>${item.yhsj}</td>
 					<td>${item.yhxm}</td>
 					<td>${item.gsmc}</td>
@@ -70,7 +73,7 @@
 			index++;
 			$('#tt').tabs('add',{
 				title: '添加帐号',
-				content: '<iframe src="cys_cdtjzh.jsp" frameborder="0" style="padding:5px;width:820px;height:500px;"></iframe>',
+				content: '<iframe src="cysjs_findAllYhjs.action" frameborder="0" style="padding:5px;width:820px;height:500px;"></iframe>',
 				closable: true
 			});
 		}
@@ -80,6 +83,18 @@
 				var id = row.id;
 				var mc = row.b;
 				window.location = "yscd_cysFindByGlyid.action?id="+id+"&mc="+mc;
+			}
+		}
+		
+		function shezhijuese(){
+			var row = $('#dg').datagrid('getSelected');
+			var id = row.id;
+			if (row){
+				$('#tt').tabs('add',{
+					title: '设置角色',
+					content: '<iframe src="cysjs_szjs.action?id='+id+'" frameborder="0" style="padding:5px;width:820px;height:500px;"></iframe>',
+					closable: true
+				});
 			}
 		}
 		

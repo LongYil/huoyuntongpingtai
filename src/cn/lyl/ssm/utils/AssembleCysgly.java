@@ -4,11 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import cn.lyl.ssm.po.Cysgly;
+import cn.lyl.ssm.po.Cysjs;
 import cn.lyl.ssm.po.Jbyh;
+import cn.lyl.ssm.service.impl.CysjsServc;
 import cn.lyl.ssm.vo.CysglyVo;
 
 /**
@@ -18,19 +20,26 @@ import cn.lyl.ssm.vo.CysglyVo;
  *		2017年8月18日
  *		下午5:11:46
  */
-@Component(value="assembleCysgly")
-@Scope(value="prototype")
+@Transactional
+@Service(value="assembleCysgly")
 public class AssembleCysgly {
 	private List<Jbyh> listjbyh = new ArrayList<Jbyh>();
 	private List<Cysgly> listgly = new ArrayList<Cysgly>();
 	private List<CysglyVo> listglyvo = new ArrayList<CysglyVo>();
 
+	@Autowired
+	private Cysjs cysjs;
+	@Autowired
+	private CysjsServc cysjsServc;
+	
 	private CysglyVo cv;
-	public List<CysglyVo> getAllVo(List<Jbyh> list1,List<Cysgly> list2){
+	public List<CysglyVo> getAllVo(List<Jbyh> list1,List<Cysgly> list2) throws Exception{
 		int size = list1.size();
 		for(int i=0;i<size;i++){
 			cv = new CysglyVo();
+			cysjs = cysjsServc.find(String.valueOf(list2.get(i).getJsbh()));
 			cv.setId(i);
+			cv.setJsmc(cysjs.getJsmc());
 			cv.setYhbh(list1.get(i).getYhbh());
 			cv.setYhm(list1.get(i).getYhm());
 			cv.setYhxm(list1.get(i).getYhxm());

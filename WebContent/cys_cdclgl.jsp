@@ -34,7 +34,7 @@
 
 	<div id="tt" class="easyui-tabs" data-options="tools:'#tab-tools'" style="padding:0px;width:835px;height:620px;margin-left:-20px;margin-bottom:0px;">
 	<div title="所有车辆">
-		<table id="dg" class="easyui-datagrid" title="车辆信息" style="width:1040px;height:590px"
+		<table id="dg" class="easyui-datagrid" title="车辆信息" style="width:1040px;height:567px"
 			data-options="singleSelect:true,url:'datagrid_data1.json',method:'get'">
 		<thead>
 			<tr>
@@ -82,7 +82,7 @@
 			index++;
 			$('#tt').tabs('add',{
 				title: '添加车辆',
-				content: '<iframe src="cys_cdtjcl.jsp" frameborder="0" style="padding:5px;width:830px;height:500px;"></iframe>',
+				content: '<iframe src="cys_cdtjcl.jsp" frameborder="0" style="padding:5px;width:820px;height:555px;"></iframe>',
 				closable: true
 			});
 		}

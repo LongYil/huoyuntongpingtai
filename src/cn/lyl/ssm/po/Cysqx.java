@@ -20,6 +20,12 @@ public class Cysqx {
 	private String cdgl;//车队管理
 	private String jsgl;//角色管理
 	private String xtrz;//系统日志
+	private String wdxl;//我的线路
+	private String wdcl;//我的车辆
+	private String syxl;//所有线路
+	private String sycl;//所有车辆
+	private String szbdld;//设置本帐号代理点
+	private String szsydld;//设置所有帐号代理点
 	
 	public String getZhgl() {
 		return zhgl;
@@ -62,6 +68,42 @@ public class Cysqx {
 	}
 	public void setJsbh(Integer jsbh) {
 		this.jsbh = jsbh;
+	}
+	public String getWdxl() {
+		return wdxl;
+	}
+	public void setWdxl(String wdxl) {
+		this.wdxl = wdxl;
+	}
+	public String getWdcl() {
+		return wdcl;
+	}
+	public void setWdcl(String wdcl) {
+		this.wdcl = wdcl;
+	}
+	public String getSyxl() {
+		return syxl;
+	}
+	public void setSyxl(String syxl) {
+		this.syxl = syxl;
+	}
+	public String getSycl() {
+		return sycl;
+	}
+	public void setSycl(String sycl) {
+		this.sycl = sycl;
+	}
+	public String getSzbdld() {
+		return szbdld;
+	}
+	public void setSzbdld(String szbdld) {
+		this.szbdld = szbdld;
+	}
+	public String getSzsydld() {
+		return szsydld;
+	}
+	public void setSzsydld(String szsydld) {
+		this.szsydld = szsydld;
 	}
 
 }

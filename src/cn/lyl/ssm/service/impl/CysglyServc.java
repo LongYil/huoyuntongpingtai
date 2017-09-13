@@ -30,7 +30,7 @@ public class CysglyServc extends CommonSevc<Cysgly, CysglyDaoImpl> {
 	}
 
 	@Override
-	public Cysgly find(String arg){
+	public Cysgly find(String arg) throws Exception{
 		return daoImpl.find(arg);
 	}
 

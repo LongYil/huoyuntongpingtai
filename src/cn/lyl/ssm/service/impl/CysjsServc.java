@@ -7,6 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import cn.lyl.ssm.daoImpl.CysjsDaoImpl;
 import cn.lyl.ssm.po.Cysjs;
+import cn.lyl.ssm.vo.CysjsVo;
 
 @Transactional
 @Service(value="cysjsServc")
@@ -15,19 +16,16 @@ public class CysjsServc extends CommonSevc<Cysjs, CysjsDaoImpl> {
 	@Override
 	public void save(Cysjs arg) {
 		daoImpl.save(arg);
-		
 	}
 
 	@Override
 	public Cysjs find(String arg) throws Exception {
-		//
-		return null;
+		return daoImpl.find(arg);
 	}
 
 	@Override
 	public List<Cysjs> findAll(String arg) {
-		//
-		return null;
+		return daoImpl.findByCysId(arg);
 	}
 
 	@Override
@@ -36,4 +34,11 @@ public class CysjsServc extends CommonSevc<Cysjs, CysjsDaoImpl> {
 		
 	}
 
+	public List<Cysjs> findByCysId(String arg){
+		return daoImpl.findByCysId(arg);
+	}
+	
+	public List<CysjsVo> findAllCysjs(String arg) throws Exception{
+		return daoImpl.findAllCysjs(arg);
+	}
 }

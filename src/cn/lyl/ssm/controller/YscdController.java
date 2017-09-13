@@ -1,15 +1,10 @@
 package cn.lyl.ssm.controller;
 
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
-import org.json.JSONArray;
-import org.json.JSONException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -42,11 +37,15 @@ public class YscdController extends BasicController<YscdServc> {
 	@Autowired
 	private CysglyServc cysglyServc;
 	@Autowired
+	private Cysgly tempcysgly;
+	@Autowired
 	private AssembleYscd assembleYscd;
 	@RequestMapping("/yscd_save")
 	public void save(Yscd yscd,HttpServletRequest request){//承运商保存运输车队的方法
-		yscd.setYhbh(Integer.parseInt(request.getSession().getAttribute("yhbh").toString()));
-		yscd.setCysbh(Integer.parseInt(request.getSession().getAttribute("yhbh").toString()));
+		tempcysgly = (Cysgly) request.getSession().getAttribute("cysgly");
+		
+		yscd.setYhbh(tempcysgly.getYhbh());
+		yscd.setCysbh(tempcysgly.getYhbh());
 		yscd.setFpzt(0);
 		servc.save(yscd);
 	}
@@ -90,11 +89,12 @@ public class YscdController extends BasicController<YscdServc> {
 	
 	
 	
-	@RequestMapping("yscd_jbyhFindAllCd")
+	@RequestMapping("yscd_jbyhFindAllCd")//承运商用户查找所有没有分配管理员的车队
 	public String jbyhFindAllCd(Model model,HttpServletRequest request){
+		tempcysgly = (Cysgly) request.getSession().getAttribute("cysgly");
 		listcd.clear();
 		
-		listcd = servc.cysFindAll(request.getSession().getAttribute("yhbh").toString());
+		listcd = servc.cysFindAll(String.valueOf(tempcysgly.getYhbh()));
 		model.addAttribute("listcd",listcd);
 		return "cys_cdzhtjcd";
 	}
@@ -127,5 +127,5 @@ public class YscdController extends BasicController<YscdServc> {
 		model.addAttribute("mc2",mc2);
 		return "hy_zhcd";
 	}
-		
+	
 }

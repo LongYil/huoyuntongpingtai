@@ -19,8 +19,7 @@ public class CysqxServc extends CommonSevc<Cysqx, CysqxDaoImpl> {
 
 	@Override
 	public Cysqx find(String arg) throws Exception {
-		//
-		return null;
+		return daoImpl.find(arg);
 	}
 
 	@Override

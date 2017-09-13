@@ -8,6 +8,7 @@ package cn.lyl.ssm.vo;
  *		下午5:01:50
  */
 public class CysglyVo {
+	private String jsmc;
 	private Integer id;
 	private Integer yhbh;
 	private String yhm;
@@ -78,6 +79,12 @@ public class CysglyVo {
 	public void setYhbh(Integer yhbh) {
 		this.yhbh = yhbh;
 	}
-	
+	public String getJsmc() {
+		return jsmc;
+	}
+	public void setJsmc(String jsmc) {
+		this.jsmc = jsmc;
+	}
+
 	
 }

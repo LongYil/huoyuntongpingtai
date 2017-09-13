@@ -6,19 +6,20 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import cn.lyl.ssm.po.Bzj;
 import cn.lyl.ssm.po.Cysgly;
+import cn.lyl.ssm.po.Cysqx;
 import cn.lyl.ssm.po.Hydld;
 import cn.lyl.ssm.po.Hygly;
 import cn.lyl.ssm.po.Jbyh;
 import cn.lyl.ssm.po.Ptzh;
 import cn.lyl.ssm.service.impl.BzjServc;
 import cn.lyl.ssm.service.impl.CysglyServc;
+import cn.lyl.ssm.service.impl.CysqxServc;
 import cn.lyl.ssm.service.impl.HydldServc;
 import cn.lyl.ssm.service.impl.HyglyServc;
 import cn.lyl.ssm.service.impl.JbyhServc;
@@ -59,6 +60,11 @@ public class HyglyController extends BasicController<HyglyServc> {
 	private CysglyServc cysglyServc;
 	@Autowired
 	private AssembleHygly assembleHygly;
+	@Autowired
+	private Cysqx cysqx;
+	@Autowired
+	private CysqxServc cysqxServc;
+	
 	private List<Jbyh> listJbyh = new ArrayList<Jbyh>();
 	private List<Hygly> listdld = new ArrayList<Hygly>();
 	private List<Hygly> listgly = new ArrayList<Hygly>();
@@ -133,6 +139,9 @@ public class HyglyController extends BasicController<HyglyServc> {
 	public String cysFindDld(Model model,HttpServletRequest request) throws Exception{
 		cysgly = (Cysgly) request.getSession().getAttribute("cysgly");
 		hygly = servc.find(String.valueOf(cysgly.getDlbh()));
+		
+		cysqx = cysqxServc.find(String.valueOf(cysgly.getJsbh()));
+		model.addAttribute("cysqx",cysqx);
 		model.addAttribute("hygly",hygly);
 		return "cys_dld";
 	}
