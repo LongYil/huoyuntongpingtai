@@ -26,7 +26,7 @@
 </head>
 <body style="padding:0px;margin:0px;">
 	<div class="easyui-panel"  style="width:100%;max-width:830px;max-height:678px;padding:30px 60px;" title="添加角色">
-		<form id="ff" name="myform" action="${pageContext.request.contextPath}/cysqx_bcjs.action" class="easyui-form" method="post" data-options="novalidate:true">
+		<form id="ff" name="myform" action="${pageContext.request.contextPath}/hyjs_save.action" class="easyui-form" method="post" data-options="novalidate:true">
 			
 			<div style="margin-bottom:20px">
 				<input class="easyui-textbox" name="jsmc" style="width:35%" data-options="label:'角色名称',required:true">
@@ -37,64 +37,51 @@
 					<option value="inline-block">可用</option>
 					<option value="none">不可用</option>
 				</select>
-				<span class="tou">我的车辆</span>
-				<select  class="mycombox" name="wdcl" style="width:10%">
+				<span class="tou">账户信息</span>
+				<select  class="mycombox" name="zhxx" style="width:10%">
 					<option value="inline-block">可用</option>
 					<option value="none">不可用</option>
 				</select>
-				<span class="tou">我的线路</span>
-				<select  class="mycombox" name="wdxl" style="width:10%">
+				<span class="tou">所有车队</span>
+				<select  class="mycombox" name="sycd" style="width:10%">
 					<option value="inline-block">可用</option>
 					<option value="none">不可用</option>
 				</select>
 			</div>
 			<div style="margin-bottom:20px">
-				<span class="tou">设置货代</span>
-				<select  class="mycombox" name="szdld" style="width:10%">
-					<option value="inline-block">可用</option>
-					<option value="none">不可用</option>
-				</select>
 				<span class="tou">所有线路</span>
 				<select  class="mycombox" name="syxl" style="width:10%">
 					<option value="inline-block">可用</option>
 					<option value="none">不可用</option>
 				</select>
-				<span class="tou">所有车辆</span>
-				<select  class="mycombox" name="sycl" style="width:10%">
+				<span class="tou">物流币</span>
+				<select  class="mycombox" name="wlb" style="width:10%">
+					<option value="inline-block">可用</option>
+					<option value="none">不可用</option>
+				</select>
+				<span class="tou">保证金</span>
+				<select  class="mycombox" name="bzj" style="width:10%">
 					<option value="inline-block">可用</option>
 					<option value="none">不可用</option>
 				</select>
 			</div>
-			<div style="margin-bottom:20px">
-				<span class="tou">车队管理</span>
-				<select  class="mycombox" name="cdgl" style="width:10%">
-					<option value="inline-block">可用</option>
-					<option value="none">不可用</option>
-				</select>
+			<div style="margin-bottom:20px">								
 				<span class="tou">角色管理</span>
 				<select  class="mycombox" name="jsgl" style="width:10%">
 					<option value="inline-block">可用</option>
 					<option value="none">不可用</option>
-				</select>
+				</select>								
 				<span class="tou">系统日志</span>
 				<select  class="mycombox" name="xtrz" style="width:10%">
 					<option value="inline-block">可用</option>
 					<option value="none">不可用</option>
-				</select>								
-			</div>
-			<div style="margin-bottom:20px">
-				<span class="tou">设置本帐号代理点</span>
-				<select  class="mycombox" name="szbdld" style="width:10%">
-					<option value="inline-block">可用</option>
-					<option value="none">不可用</option>
 				</select>
-				<span class="tou">设置所有帐号代理</span>
-				<select  class="mycombox" name="szsydld" style="width:10%">
+				<span class="tou">所有承运商</span>
+				<select  class="mycombox" name="sycys" style="width:10%">
 					<option value="inline-block">可用</option>
 					<option value="none">不可用</option>
 				</select>
 			</div>
-
 
 		</form>
 		<div style="text-align:center;padding:5px 0">

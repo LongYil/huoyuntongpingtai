@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.hibernate.tutorial.hbm">
+
+	<class name="cn.lyl.ssm.po.Hyjs" table="Hyjs">
+		<id name="id">
+			<generator class="native"></generator>
+		</id>
+		<property name="yhbh" />
+		<property name="jsmc" length="150"/>
+		<property name="zhgl" length="150"/>
+		<property name="zhxx" length="150"/>
+		<property name="sycys" length="150"/>
+		<property name="sycd" length="150"/>
+		<property name="syxl" length="150"/>
+		<property name="bzj" length="150"/>
+		<property name="wlb" length="150"/>	
+		<property name="jsgl" length="150"/>	
+		<property name="xtrz" length="150"/>	
+	</class>
+
+</hibernate-mapping>

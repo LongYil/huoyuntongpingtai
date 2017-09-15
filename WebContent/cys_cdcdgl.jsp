@@ -11,12 +11,13 @@
 	<link rel="stylesheet" type="text/css" href="js/basic/demo/demo.css">
 	<script type="text/javascript" src="js/basic/jquery.min.js"></script>
 	<script type="text/javascript" src="js/basic/jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="js/basic/locale/easyui-lang-zh_CN.js"></script>	
 </head>
 <body style="padding-top:0px; padding-bottom:0px;">
 
 <section style="width:700px;height:40px;margin-top:20px;padding-left:20px;">
 <a href="javascript:void(0)" class="easyui-linkbutton" style="width:80px;margin-right:20px;" onclick="addPanel()">添加车队</a>
-<a href="javascript:void(0)" class="easyui-linkbutton" style="width:80px;margin-right:20px;" onclick="addPanel()">删除车队</a>
+<a href="javascript:void(0)" class="easyui-linkbutton" style="width:80px;margin-right:20px;" onclick="shanchu()">删除车队</a>
 <a href="javascript:void(0)" class="easyui-linkbutton" style="width:100px;margin-right:20px;" onclick="chakancheliang()">查看所有车辆</a>
 <a href="javascript:void(0)" class="easyui-linkbutton" style="width:100px;margin-right:20px;" onclick="chakanxianlu()">查看所有线路</a>
 <a href="javascript:void(0)" class="easyui-linkbutton" style="width:100px;" onclick="sxcd()">刷新</a>
@@ -29,7 +30,7 @@
 		<thead>
 			<tr>
 				<th data-options="field:'a',width:40,align:'center'">序号</th>
-				<th data-options="field:'id',width:100,align:'center'">车队编号</th>
+				<th data-options="field:'id',width:100,align:'center'" hidden="hidden">车队编号</th>
 				<th data-options="field:'b',width:150,align:'center'">车队名称</th>
 				<th data-options="field:'c',width:150,align:'center'">车队联系人</th>
 				<th data-options="field:'d',width:150,align:'center'">车队联系电话</th>
@@ -39,7 +40,7 @@
 				<c:forEach items="${listcd}" var="item" begin="0" step="1" varStatus="status">
 				<tr>
 				    <td>${status.index+1}</td>
-					<td>${item.cdbh}</td>
+					<td hidden="hidden">${item.cdbh}</td>
 					<td>${item.cdmc}</td>
 					<td>${item.cdlxr}</td>
 					<td>${item.cdlxdh}</td>
@@ -63,8 +64,14 @@
 
 		function shanchu(){
 			var row = $('#dg').datagrid('getSelected');
+			var id = row.id;
+			var name = row.b;
 			if (row){
-				$.messager.alert('Info', row.a+":"+row.b+":"+row.c);
+				$.messager.confirm("确认","是否删除车队:"+name+"<br/>点击确认将删除该车队及该车队的所有车辆信息和线路信息。", function (r) {  
+			        if (r) {  
+			        	tijiao(id);
+			        }  
+			    });
 			}
 		}
 
@@ -87,6 +94,43 @@
 		function sxcd(){
 			window.location = "yscd_cysFindAll.action";
 		}
+		
+		
+		function tijiao(arg0){
+			if(window.XMLHttpRequest){//非IE浏览器
+				rqt = new XMLHttpRequest();
+			}else if(window.ActiveXObject){
+				try{
+					rqt = new ActiveXObject("Msxml2.XMLHTTP");
+				}catch(e){
+					try{
+						rqt = new ActiveXObject("Microsoft.XMLHTTP");
+					}catch(e){		
+					}
+				}
+			}
+			rqt.onreadystatechange = getresult;
+			rqt.open("POST","yscd_cysyhSccd.action?id="+encodeURI(encodeURI(arg0)),false);
+			rqt.send("");
+			};
+			
+			function getresult(){
+			   if(rqt.readyState == 4){
+				   if(rqt.status == 200){
+					   var temp = rqt.responseText;
+					   if(temp=="true"){
+							var a = $.messager.alert('提示','车队删除成功。');
+							setTimeout("yanchishuaxin()",1500);
+					   }else{
+						    $.messager.alert('提示','车队删除失败，请重试!','warning'); 
+					   }
+					};
+				   }
+			}
+
+			function yanchishuaxin(){
+			window.location.href="yscd_cysFindAll.action";
+			}	
 	</script>
 </body>
 </html>

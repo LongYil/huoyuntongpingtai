@@ -99,11 +99,18 @@ public class CysglyController extends BasicController<CysglyServc> {
 			cysjsServc.save(cysjs);
 			
 			cysqx.setJsbh(cysjs.getId());
-			cysqx.setCdgl("block");
-			cysqx.setJsgl("block");
-			cysqx.setSzdld("block");
-			cysqx.setXtrz("block");
-			cysqx.setZhgl("block");
+			cysqx.setCdgl("inline-block");
+			cysqx.setJsgl("inline-block");
+			cysqx.setSycl("inline-block");
+			cysqx.setSyxl("inline-block");
+			cysqx.setSzbdld("inline-block");
+			cysqx.setSzdld("inline-block");
+			cysqx.setSzsydld("inline-block");
+			cysqx.setWdcl("inline-block");
+			cysqx.setWdxl("inline-block");
+			cysqx.setXtrz("inline-block");
+			cysqx.setZhgl("inline-block");
+
 			cysqxServc.save(cysqx);
 			cysgly.setJsbh(cysjs.getId());
 		}
@@ -140,7 +147,8 @@ public class CysglyController extends BasicController<CysglyServc> {
 		cysgly.setSzsf(info[3]);
 		cysgly.setSzcs(info[4]);
 		cysgly.setSzx(info[5]);
-		cysgly.setSzjdh(info[6]);
+		cysgly.setXxdz(info[6]);
+		
 		jbyhServc.update(jbyh);
 		servc.update(cysgly);
 		return "redirect:cys_findCysInfo.action";

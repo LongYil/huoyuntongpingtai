@@ -43,7 +43,7 @@ public class ClxxDaoImpl extends CommonDaoImpl<Clxx> implements ClxxDao {
 
 	@Override
 	public void delete(Clxx entity) {
-		//
+		ht.delete(entity);
 		
 	}
 
@@ -58,6 +58,9 @@ public class ClxxDaoImpl extends CommonDaoImpl<Clxx> implements ClxxDao {
 		}
 	}
 
+	public Clxx findByCdbh(String arg) throws Exception {
+		return (Clxx) getEntity.getEntity("Clxx", "cdbh", arg, Clxx.class);
+	}
 	@Override
 	public List<Clxx> findByCdid(String arg) {
 		return (List<Clxx>) ht.find("from Clxx where cdbh = "+arg+"");

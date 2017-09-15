@@ -24,7 +24,8 @@ public class WlxServc extends CommonSevc<Wlx, WlxDaoImpl> {
 	private List<Yscd> listYscd = new ArrayList<Yscd>();
 	private List<Wlx> listWlx = new ArrayList<Wlx>();
 	private List<Wlx> templistWlx = new ArrayList<Wlx>();
-	
+	@Autowired
+	private Wlx wlx;
 	@Override
 	public void save(Wlx arg) {
 		daoImpl.save(arg);		
@@ -32,8 +33,7 @@ public class WlxServc extends CommonSevc<Wlx, WlxDaoImpl> {
 
 	@Override
 	public Wlx find(String arg) {
-		//
-		return null;
+		return daoImpl.find(arg);
 	}
 
 	@Override
@@ -43,9 +43,13 @@ public class WlxServc extends CommonSevc<Wlx, WlxDaoImpl> {
 
 	@Override
 	public void delete(Wlx arg) {
-
+		daoImpl.delete(arg);
 	}
 	
+	public String cysyhDelete(Wlx arg) {
+		daoImpl.delete(arg);
+		return "true";
+	}
 	public List<Wlx> findByCdid(String arg){
 		return daoImpl.findByCdid(arg);
 	}
@@ -104,6 +108,25 @@ public class WlxServc extends CommonSevc<Wlx, WlxDaoImpl> {
 	public List<Wlx> findByCysid(String arg){
 		return daoImpl.findByCysid(arg);
 	}
+	
+	public void cysScwlx(String arg,String yhbh) {//承运商删除帐号的物流线
+		listWlx.clear();
+		listWlx = this.findByCdid(arg);
+		for(int i=0;i<listWlx.size();i++) {
+			wlx = listWlx.get(i);
+			wlx.setCysbh(Integer.parseInt(yhbh));
+			this.update(wlx);
+		}		
+	}
+	
+	public void cysyhScwlx(String arg) {//承运商用户删除物流线
+		listWlx.clear();
+		listWlx = this.findByCdid(arg);
+		for (Wlx wlx : listWlx) {
+			daoImpl.delete(wlx);
+		}
+	}
+	
 	
 	
 }	

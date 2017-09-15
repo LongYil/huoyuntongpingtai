@@ -11,7 +11,19 @@
 	<link rel="stylesheet" type="text/css" href="js/basic/demo/demo.css">
 	<script type="text/javascript" src="js/basic/jquery.min.js"></script>
 	<script type="text/javascript" src="js/basic/jquery.easyui.min.js"></script>
-
+	<script type="text/javascript" src="js/lzx/area.js"></script>
+	<style type="text/css">
+		.mycombox{
+		border:1px #95b8e7 solid;
+		height:25px;
+		border-radius:4px;
+		font-size:12px;
+		}
+		.tou{
+		margin-right:10px;
+		margin-left:20px;
+		}
+	</style>
 </head>
 <body style="padding:0px;margin:0px;">
 
@@ -28,19 +40,19 @@
 				<input class="easyui-textbox" name="info"  value="${wtr.yhyx}" style="width:40%" data-options="label:'Email:',required:true,validType:'email'">
 			</div>
 			<div style="margin-bottom:20px" id="area_address">
-				<select class="easyui-combobox" name="info" label="个人地址-省" style="width:30%">
-				<option value="ar">${wtr.yhsf}</option><option value="bg">英国</option>
-				<option value="ca">俄罗斯</option><option value="zh-cht">美国</option>
+				<input class="easyui-textbox" id="gsdz" value="${wtr.yhsf}${wtr.yhcs}${wtr.yhx}" style="width:40%" data-options="label:'公司地址:',required:true">
+				<span class="tou">修改</span>
+				<select  class="mycombox" name="province" style="width:15%">
 				</select>
-				<select class="easyui-combobox" name="info" label="个人地址-市" style="width:30%">
-				<option value="ar">${wtr.yhcs}</option><option value="bg">英国</option>
-				<option value="ca">俄罗斯</option><option value="zh-cht">美国</option>
-				</select>
-				<select class="easyui-combobox" name="info" label="个人地址-县" style="width:30%">
-				<option value="ar">${wtr.yhx}</option><option value="bg">英国</option>
-				<option value="ca">俄罗斯</option><option value="zh-cht">美国</option>
+				<select  class="mycombox" name="city" style="width:15%">
+				</select>	
+				<select  class="mycombox" name="area" style="width:15%">
 				</select>
 			</div>
+			
+			<input type="hidden" name="info" class="szsf" value="${wtr.yhsf}">
+			<input type="hidden" name="info" class="szcs" value="${wtr.yhcs}">
+			<input type="hidden" name="info" class="szx" value="${wtr.yhx}">
 			
 			<div style="margin-bottom:20px">
 				<input class="easyui-textbox" name="info" value="${wtr.yhbz}" style="width:91%;height:60px" data-options="label:'备注:',multiline:true">
@@ -54,6 +66,26 @@
 		
 	</div>
 	<script>
+	var cfsf ;
+	var cfcs ;
+	var cfx ;
+	
+	var dz;
+	$('#area_address').citys({
+        required:false,
+        nodata:'disabled',
+        onChange:function(data){
+        	cfsf = data['province'];
+        	cfcs = data['city'];
+        	cfx = data['area'];
+			dz = cfsf+""+cfcs+""+cfx;
+			
+			$('#gsdz').textbox('setValue',dz);
+			$(".szsf").val(cfsf);
+			$(".szcs").val(cfcs);
+			$(".szx").val(cfx);
+        }
+	});
 	
 	function submitForm(){
 		var a = $("#ff").form('enableValidation').form('validate');
@@ -64,6 +96,7 @@
 					return $(this).form('enableValidation').form('validate');
 				}else{
 					$.messager.alert('温馨提示','信息填写不完整，请填写完整信息!','warning');
+					return false;
 				}
 			}
 		});

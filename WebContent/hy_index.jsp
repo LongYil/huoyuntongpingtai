@@ -30,8 +30,8 @@
             </dl>
 			<ul class="menu1">
 				<li><a href="javascript:void(0)"  onClick="To('hy_dld_findInfo.action')"><img src="js/basic/icon/jibenxinxi.png" class="itemicon">基本信息</a></li>
-                <li><a href="javascript:void(0)"  onClick="To('hy_hyFindAllGly.action')"><img src="js/basic/icon/zhanghaoguanli.png" class="itemicon">帐号管理</a></li>
-                <li><a href="javascript:void(0)" onClick="To('yhzh_find.action')"><img src="js/basic/icon/zhanghuguanli.png" class="itemicon">账户管理</a></li>
+                <li name="zhgl" style="display:${hyjs.zhgl}"><a href="javascript:void(0)"  onClick="To('hy_hyFindAllGly.action')"><img src="js/basic/icon/zhanghaoguanli.png" class="itemicon">帐号管理</a></li>
+                <li name="zhxx" style="display:${hyjs.zhxx}"><a href="javascript:void(0)" onClick="To('yhzh_find.action')"><img src="js/basic/icon/zhanghuguanli.png" class="itemicon">账户信息</a></li>
 			</ul>
 		</li>
 
@@ -42,9 +42,12 @@
             </li>
             </dl>
 			<ul class="menu1">
-				<li><a href="javascript:void(0)" onClick="To('cys_hyglyFindAllCys.action')"><img src="js/basic/icon/yunshuchedui.png" class="itemicon">所有承运商</a></li>
-                <li><a href="javascript:void(0)" onClick="To('yscd_hyFindAllYscd.action')"><img src="js/basic/icon/chengyunshang.png" class="itemicon">所有车队</a></li>
-                <li><a href="javascript:void(0)" onClick="To('wlx_dldFindByYhbh.action')"><img src="js/basic/icon/yunshuxianlu.png" class="itemicon">所有线路</a></li>
+				<li name="sycys" style="display:${hyjs.sycys}"><a href="javascript:void(0)" onClick="To('cys_hyglyFindAllCys.action')"><img src="js/basic/icon/yunshuchedui.png" class="itemicon">所有承运商</a></li>
+                <li name="sycd" style="display:${hyjs.sycd}"><a href="javascript:void(0)" onClick="To('yscd_hyFindAllYscd.action')"><img src="js/basic/icon/chengyunshang.png" class="itemicon">所有车队</a></li>
+                <li name="syxl" style="display:${hyjs.syxl}"><a href="javascript:void(0)" onClick="To('wlx_dldFindByYhbh.action')"><img src="js/basic/icon/yunshuxianlu.png" class="itemicon">所有线路</a></li>
+				<li><a href="javascript:void(0)" onClick="To('cys_hyglyFindAllCys.action')"><img src="js/basic/icon/yunshuchedui.png" class="itemicon">我的承运商</a></li>
+                <li><a href="javascript:void(0)" onClick="To('yscd_hyFindAllYscd.action')"><img src="js/basic/icon/chengyunshang.png" class="itemicon">我的车队</a></li>
+                <li><a href="javascript:void(0)" onClick="To('wlx_dldFindByYhbh.action')"><img src="js/basic/icon/yunshuxianlu.png" class="itemicon">我的线路</a></li>
 			</ul>
 		</li>
 
@@ -75,8 +78,8 @@
             </dl>
 			<ul class="menu1">
 				<li><a href="javascript:void(0)" onClick="To('ptzh_cysfind.action')"><img src="js/basic/icon/yuechaxun.png" class="itemicon">余额查询</a></li>
-				<li><a href="javascript:void(0)"  onClick="To('bzj_cysFind.action')"><img src="js/basic/icon/baozhengjin.png" class="itemicon">保证金</a></li>
-				<li><a href="javascript:void(0)"  onClick="To('ptzh_find.action')"><img src="js/basic/icon/baozhengjin.png" class="itemicon">物流币</a></li>
+				<li name="bzj" style="display:${hyjs.bzj}"><a href="javascript:void(0)"  onClick="To('bzj_cysFind.action')"><img src="js/basic/icon/baozhengjin.png" class="itemicon">保证金</a></li>
+				<li name="wlb" style="display:${hyjs.wlb}"><a href="javascript:void(0)"  onClick="To('ptzh_find.action')"><img src="js/basic/icon/baozhengjin.png" class="itemicon">物流币</a></li>
 				<li><a href="javascript:void(0)" onClick="To('jyjl_cysFindAll.action')"><img src="js/basic/icon/chongzhi.png" class="itemicon">交易记录</a></li>
 			</ul>
 		</li>
@@ -88,8 +91,8 @@
             </li>
             </dl>
 			<ul class="menu1">
-				<li><a href="javascript:void(0)"><img src="js/basic/icon/jueseguanli.png" class="itemicon">角色管理</a></li>
-                <li><a href="javascript:void(0)"><img src="js/basic/icon/xitongrizhi.png" class="itemicon">系统日志</a></li>
+				<li name="jsgl" style="display:${hyjs.jsgl}"><a href="javascript:void(0)" onClick="To('hyjs_findAll.action')"><img src="js/basic/icon/jueseguanli.png" class="itemicon">角色管理</a></li>
+                <li name="xtrz" style="display:${hyjs.xtrz}"><a href="javascript:void(0)"><img src="js/basic/icon/xitongrizhi.png" class="itemicon">系统日志</a></li>
                 <li><a href="javascript:void(0)"><img src="js/basic/icon/tuichu.png" class="itemicon">退出</a></li>
 			</ul>
 		</li>
@@ -99,7 +102,7 @@
 	<div data-options="region:'south',border:false" style="height:50px;background:#A9FACD;padding:10px;">south region</div>
 	<div data-options="region:'center',title:'我的桌面'">
     	<iframe class="zhuomian" frameborder="0" style="width:835px;height:680px;">
-        </iframe>    
+        </iframe> 
     </div>
 
 </body>

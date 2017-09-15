@@ -25,6 +25,8 @@ public class YscdServc extends CommonSevc<Yscd, YscdDaoImpl> {
 	private List<Yscd> templistYscd = new ArrayList<Yscd>();
 	
 	@Autowired
+	private WlxServc wlxServc;
+	@Autowired
 	private HyglyServc hyglyServc;
 	@Autowired
 	private CysglyServc cysglyServc;
@@ -53,7 +55,11 @@ public class YscdServc extends CommonSevc<Yscd, YscdDaoImpl> {
 	}
 	@Override
 	public void delete(Yscd arg) {
-		//	
+		daoImpl.delete(arg);	
+	}
+	
+	public void update(Yscd yscd) {
+		daoImpl.update(yscd);
 	}
 	
 	public List<Yscd> cysFindByGlyid(String arg){
@@ -88,6 +94,22 @@ public class YscdServc extends CommonSevc<Yscd, YscdDaoImpl> {
 	
 	public List<YscdVo> findYscdByCysgly(List<Cysgly> list) throws Exception{
 		return daoImpl.findYscdByCysgly(list);
+	}
+	
+	public String cysSccd(String arg,String yhbh) throws Exception {//承运商删除指定帐号的运输车队
+		yscd = daoImpl.find(arg);
+		yscd.setCysbh(Integer.parseInt(yhbh));
+		yscd.setFpzt(0);
+		this.update(yscd);
+		wlxServc.cysScwlx(arg, yhbh);		
+		return "true";
+	}
+	
+	public String cysyhSccd(String arg) throws Exception {
+		yscd = daoImpl.find(arg);
+		this.delete(yscd);
+		wlxServc.cysyhScwlx(arg);
+		return "true";
 	}
 	
 	

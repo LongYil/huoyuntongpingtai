@@ -10,7 +10,19 @@
 	<link rel="stylesheet" type="text/css" href="js/basic/demo/demo.css">
 	<script type="text/javascript" src="js/basic/jquery.min.js"></script>
 	<script type="text/javascript" src="js/basic/jquery.easyui.min.js"></script>
-
+	<script type="text/javascript" src="js/lzx/area.js"></script>
+	<style type="text/css">
+		.mycombox{
+		border:1px #95b8e7 solid;
+		height:25px;
+		border-radius:4px;
+		font-size:12px;
+		}
+		.tou{
+		margin-right:10px;
+		margin-left:20px;
+		}
+	</style>
 </head>
 <body style="padding:0px;margin:0px;">
 
@@ -27,23 +39,23 @@
 				<input class="easyui-textbox" name="info"  value="${cysgly.yhyx}" style="width:40%" data-options="label:'Email:',required:true,validType:'email'">
 			</div>
 			<div style="margin-bottom:20px" id="area_address">
-				<select class="easyui-combobox" name="info" label="个人地址-省" style="width:30%">
-				<option value="ar">${cysgly.szsf}</option><option value="bg">英国</option>
-				<option value="ca">俄罗斯</option><option value="zh-cht">美国</option>
+				<input class="easyui-textbox" id="gsdz" value="${cysgly.szsf}${cysgly.szcs}${cysgly.szx}" style="width:40%" data-options="label:'公司地址:',required:true">
+				<span class="tou">修改</span>
+				<select  class="mycombox" name="province" style="width:15%">
 				</select>
-				<select class="easyui-combobox" name="info" label="个人地址-市" style="width:30%">
-				<option value="ar">${cysgly.szcs}</option><option value="bg">英国</option>
-				<option value="ca">俄罗斯</option><option value="zh-cht">美国</option>
-				</select>
-				<select class="easyui-combobox" name="info" label="个人地址-县/区" style="width:30%">
-				<option value="ar">${cysgly.szx}</option><option value="bg">英国</option>
-				<option value="ca">俄罗斯</option><option value="zh-cht">美国</option>
+				<select  class="mycombox" name="city" style="width:15%">
+				</select>	
+				<select  class="mycombox" name="area" style="width:15%">
 				</select>
 			</div>
+			<input type="hidden" name="info" class="szsf" value="${cysgly.szsf}">
+			<input type="hidden" name="info" class="szcs" value="${cysgly.szcs}">
+			<input type="hidden" name="info" class="szx" value="${cysgly.szx}">
+			
 			<div style="margin-bottom:20px">
-				<input class="easyui-textbox" name="info" style="width:91%;height:60px" data-options="label:'详细地址:',multiline:true">
+				<input class="easyui-textbox" name="info" value="${cysgly.xxdz}" style="width:91%;height:60px" data-options="label:'详细地址:',multiline:true">
 			</div>
-               
+			
 		</form>
 		<div style="text-align:center;padding:5px 0">
 			<a href="javascript:void(0)" class="easyui-linkbutton" onclick="submitForm()" style="width:80px">提交</a>
@@ -51,7 +63,28 @@
 		</div>
 	</div>
 	<script>
+	var cfsf ;
+	var cfcs ;
+	var cfx ;
 	
+	var dz;
+	$('#area_address').citys({
+        required:false,
+        nodata:'disabled',
+        onChange:function(data){
+        	cfsf = data['province'];
+        	cfcs = data['city'];
+        	cfx = data['area'];
+			dz = cfsf+""+cfcs+""+cfx;
+			
+			$('#gsdz').textbox('setValue',dz);
+			$(".szsf").val(cfsf);
+			$(".szcs").val(cfcs);
+			$(".szx").val(cfx);
+        }
+	});
+	
+
 	function submitForm(){
 		var a = $("#ff").form('enableValidation').form('validate');
 		$('#ff').form('submit',{

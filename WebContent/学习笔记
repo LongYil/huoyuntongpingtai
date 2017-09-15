@@ -68,7 +68,7 @@ function tijiao(arg0){
 			   }
 		}		
 		
-		function tijiao2(arg0){
+		function tijiao(arg0){
 		if(window.XMLHttpRequest){//非IE浏览器
 			rqt = new XMLHttpRequest();
 		}else if(window.ActiveXObject){
@@ -81,12 +81,12 @@ function tijiao(arg0){
 				}
 			}
 		}
-		rqt.onreadystatechange = getresult2;
+		rqt.onreadystatechange = getresult;
 		rqt.open("POST","dd_wtrDelete.action?id="+encodeURI(encodeURI(arg0)),false);
 		rqt.send("");
 		};
 		
-		function getresult2(){
+		function getresult(){
 		   if(rqt.readyState == 4){
 			   if(rqt.status == 200){
 				   var temp = rqt.responseText;
@@ -101,10 +101,8 @@ function tijiao(arg0){
 			   }
 		}
 
-		function yanchishuaxin()
-		{
+		function yanchishuaxin(){
 		window.location.href="dd_wtrFindWfk.action";
-		
 		}	
 		
 		

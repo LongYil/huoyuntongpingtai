@@ -1,5 +1,6 @@
 package cn.lyl.ssm.controller;
 
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -126,6 +127,19 @@ public class YscdController extends BasicController<YscdServc> {
 		model.addAttribute("mc1",mc1);
 		model.addAttribute("mc2",mc2);
 		return "hy_zhcd";
+	}
+	
+	@RequestMapping("yscd_cysSccd")
+	public void cysSccd(String id,HttpServletRequest request,PrintWriter out) throws Exception {//承运商删除指定帐号的运输车队
+		tempcysgly = (Cysgly) request.getSession().getAttribute("cysgly");
+		String result = servc.cysSccd(id,String.valueOf(tempcysgly.getYhbh()));
+		out.write(result);
+	}
+	
+	@RequestMapping("yscd_cysyhSccd")//承运商用户删除所有车队
+	public void cysyhSccd(String id,PrintWriter out) throws Exception {
+		String result = servc.cysyhSccd(id);
+		out.write(result);
 	}
 	
 }

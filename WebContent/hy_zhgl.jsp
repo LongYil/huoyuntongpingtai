@@ -33,6 +33,7 @@
 				<th data-options="field:'a',width:40,align:'center'">序号</th>
 				<th data-options="field:'id',width:60,align:'center'" hidden="hidden">用户id</th>
 				<th data-options="field:'b',width:120,align:'center'">用户名(帐户名)</th>
+				<th data-options="field:'bc',width:120,align:'center'">用户角色</th>
 				<th data-options="field:'c',width:120,align:'center'">用户手机号</th>
 				<th data-options="field:'d',width:120,align:'center'">用户姓名</th>
 				<th data-options="field:'e',width:120,align:'center'">公司名称</th>
@@ -48,6 +49,7 @@
 				    <td>${status.index+1}</td>
 					<td hidden="hidden">${item.hygly.glybh}</td>
 					<td>${item.yhm}</td>
+					<td>${item.jsmc}</td>
 					<td>${item.hygly.lxdh}</td>
 					<td>${item.yhxm}</td>
 					<td>${item.hygly.gsmc}</td>
@@ -70,7 +72,7 @@
 			index++;
 			$('#tt').tabs('add',{
 				title: '添加帐号',
-				content: '<iframe src="hy_tjzh.jsp" frameborder="0" style="padding:5px;width:820px;height:500px;"></iframe>',
+				content: '<iframe src="hyjs_xzjs.action" frameborder="0" style="padding:5px;width:820px;height:500px;"></iframe>',
 				closable: true
 			});
 		}

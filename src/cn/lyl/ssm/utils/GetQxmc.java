@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 @Scope(value="prototype")
 public class GetQxmc {
 	public String G(String arg) {
-		if(arg.equals("block")) {
+		if(arg.equals("inline-block")) {
 			return "有";
 		}else {
 			return "无";

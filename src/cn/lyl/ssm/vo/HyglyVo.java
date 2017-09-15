@@ -13,6 +13,8 @@ public class HyglyVo {
 	private Hygly hygly;//货运代理点管理员
 	private String yhm;//用户名
 	private String yhxm;//用户姓名
+	private String jsmc;//角色名称
+	
 	public Hygly getHygly() {
 		return hygly;
 	}
@@ -30,6 +32,12 @@ public class HyglyVo {
 	}
 	public void setYhxm(String yhxm) {
 		this.yhxm = yhxm;
+	}
+	public String getJsmc() {
+		return jsmc;
+	}
+	public void setJsmc(String jsmc) {
+		this.jsmc = jsmc;
 	}
 
 }

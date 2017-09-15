@@ -1,8 +1,5 @@
 package cn.lyl.ssm.po;
 
-import java.util.HashSet;
-import java.util.Set;
-
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
@@ -22,13 +19,12 @@ public class Hydld {
 	private String szsf;//所在省份
 	private String szcs;//所在城市
 	private String szx;//所在县
-	private String szjdh;//所在街道号
+	private String xxdz;//所在街道号
 	private Integer kz1;
 	private Integer kz2;
 	private String kz3;
 	private String kz4;
 	private String kz5;
-
 	public Integer getId() {
 		return id;
 	}
@@ -65,11 +61,11 @@ public class Hydld {
 	public void setSzx(String szx) {
 		this.szx = szx;
 	}
-	public String getSzjdh() {
-		return szjdh;
+	public String getXxdz() {
+		return xxdz;
 	}
-	public void setSzjdh(String szjdh) {
-		this.szjdh = szjdh;
+	public void setXxdz(String xxdz) {
+		this.xxdz = xxdz;
 	}
 	public Integer getKz1() {
 		return kz1;
@@ -101,5 +97,6 @@ public class Hydld {
 	public void setKz5(String kz5) {
 		this.kz5 = kz5;
 	}
+
 	
 }

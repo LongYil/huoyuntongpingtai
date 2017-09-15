@@ -29,10 +29,13 @@ public class ClxxServc extends CommonSevc<Clxx, ClxxDaoImpl>{
 		//
 		return null;
 	}
+	public Clxx findByCdbh(String arg) throws Exception {
+		return daoImpl.findByCdbh(arg);
+	}
 	
-	@Override
-	public void delete(Clxx arg) {
-		//
+	public String deleteCl(Clxx arg) {
+		daoImpl.delete(arg);
+		return "true";
 	}
 
 	public List<Clxx> findByCdid(String arg) {
@@ -40,6 +43,12 @@ public class ClxxServc extends CommonSevc<Clxx, ClxxDaoImpl>{
 	}
 	public List<ClxxVo> findByYhbh(String arg){
 		return daoImpl.findByYhbh(arg);
+	}
+
+	@Override
+	public void delete(Clxx arg) {
+		//
+		
 	}
 	
 	

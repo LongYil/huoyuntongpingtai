@@ -11,6 +11,7 @@
 	<link rel="stylesheet" type="text/css" href="js/basic/demo/demo.css">
 	<script type="text/javascript" src="js/basic/jquery.min.js"></script>
 	<script type="text/javascript" src="js/basic/jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="js/basic/locale/easyui-lang-zh_CN.js"></script>	
 	<style>
 		.cdmc{
 		margin-left:140px;
@@ -24,7 +25,7 @@
 
 <section style="width:760px;height:40px;margin-top:20px;padding-left:40px;">
 <a href="javascript:void(0)" class="easyui-linkbutton" style="width:80px;margin-right:20px;" onclick="addPanel()">添加车辆</a>
-<a href="javascript:void(0)" class="easyui-linkbutton" style="width:80px;margin-right:20px;" onclick="getSelected()">删除车辆</a>
+<a href="javascript:void(0)" class="easyui-linkbutton" style="width:80px;margin-right:20px;" onclick="shanchu()">删除车辆</a>
 <a href="javascript:void(0)" class="easyui-linkbutton" style="width:80px;margin-right:20px;" onclick="shuaxin()">刷新</a>
 <a href="javascript:void(0)" class="easyui-linkbutton" style="width:80px;" onclick="sxcd()">返回</a>
 <span class="cdmc">车队名称:${cdmc}</span>
@@ -77,29 +78,78 @@
 
 
 	<script type="text/javascript">
-		var index = 0;
-		function addPanel(){
-			index++;
-			$('#tt').tabs('add',{
-				title: '添加车辆',
-				content: '<iframe src="cys_cdtjcl.jsp" frameborder="0" style="padding:5px;width:820px;height:555px;"></iframe>',
-				closable: true
-			});
+	var index = 0;
+	function addPanel(){
+		index++;
+		$('#tt').tabs('add',{
+			title: '添加车辆',
+			content: '<iframe src="cys_cdtjcl.jsp" frameborder="0" style="padding:5px;width:820px;height:555px;"></iframe>',
+			closable: true
+		});
+	}
+	
+	function shanchu(){
+		var row = $('#dg').datagrid('getSelected');
+		var name = row.d;
+		var id = row.b;
+		if (row){
+			$.messager.confirm("确认","是否删除车辆:"+name, function (r) {  
+		        if (r) {
+		        	tijiao(id);			        	
+		        }  
+		    }); 
 		}
-		function getSelected(){
-			var row = $('#dg').datagrid('getSelected');
-			if (row){
-				$.messager.alert('Info', row.a+":"+row.b+":"+row.c);
+	}
+	
+	function shuaxin(){
+		var id = $(".cdclid").val();
+		var mc = $(".cdclmc").val();
+		window.location="clxx_glyFindById.action?id="+id+"&&mc="+mc;
+	}
+	
+	function sxcd(){
+		window.location = "yscd_cysFindAll.action";
+	}
+	
+	var rqt = null;
+	function tijiao(arg0){
+		if(window.XMLHttpRequest){//非IE浏览器
+			rqt = new XMLHttpRequest();
+		}else if(window.ActiveXObject){
+			try{
+				rqt = new ActiveXObject("Msxml2.XMLHTTP");
+			}catch(e){
+				try{
+					rqt = new ActiveXObject("Microsoft.XMLHTTP");
+				}catch(e){		
+				}
 			}
 		}
-		function shuaxin(){
-			var id = $(".cdclid").val();
-			var mc = $(".cdclmc").val();
-			window.location="clxx_glyFindById.action?id="+id+"&&mc="+mc;
+		rqt.onreadystatechange = getresult;
+		rqt.open("POST","clxx_cysyhSccl.action?id="+encodeURI(encodeURI(arg0)),false);
+		rqt.send("");
+	};
+			
+	function getresult(){
+	   if(rqt.readyState == 4){
+		   if(rqt.status == 200){
+			   var temp = rqt.responseText;
+			   if(temp=="true"){
+					var a = $.messager.alert('提示','车辆删除成功。');
+					setTimeout("yanchishuaxin()",1500);
+			   }else{
+				    $.messager.alert('提示','车辆删除失败，请重试!','warning'); 
+			   }
+			};
 		}
-		function sxcd(){
-			window.location = "yscd_cysFindAll.action";
-		}
+	}
+
+	function yanchishuaxin(){
+		var id = $(".cdclid").val();
+		var mc = $(".cdclmc").val();
+		window.location="clxx_glyFindById.action?id="+id+"&&mc="+mc;
+	}
+	
 	</script>
 </body>
 </html>

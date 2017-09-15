@@ -24,7 +24,7 @@
 
 <section style="width:700px;height:40px;margin-top:20px;padding-left:20px;">
 <a href="javascript:void(0)" class="easyui-linkbutton" style="width:80px;margin-right:20px;" onclick="addPanel()">添加车队</a>
-<a href="javascript:void(0)" class="easyui-linkbutton" style="width:80px;margin-right:20px;" onclick="addPanel()">删除车队</a>
+<a href="javascript:void(0)" class="easyui-linkbutton" style="width:80px;margin-right:20px;" onclick="shanchu()">删除车队</a>
 <a href="javascript:void(0)" class="easyui-linkbutton" style="width:80px;margin-right:20px;" onclick="sxcd()">刷新</a>
 <a href="javascript:void(0)" class="easyui-linkbutton" style="width:80px;" onclick="fanhui()">返回</a>
 
@@ -74,8 +74,10 @@
 
 		function shanchu(){
 			var row = $('#dg').datagrid('getSelected');
+			var id = row.id;
 			if (row){
-				$.messager.alert('Info', row.a+":"+row.b+":"+row.c);
+				tijiao(id);
+				setTimeout("yanchishuaxin()",1500);
 			}
 		}
 
@@ -88,6 +90,45 @@
 			var mc = $(".zhmc").val();
 			window.location = "yscd_cysFindByGlyid.action?id="+id+"&mc="+mc;
 		}
+		
+		
+		var rqt = null;
+		function tijiao(arg0){
+		if(window.XMLHttpRequest){//非IE浏览器
+			rqt = new XMLHttpRequest();
+		}else if(window.ActiveXObject){
+			try{
+				rqt = new ActiveXObject("Msxml2.XMLHTTP");
+			}catch(e){
+				try{
+					rqt = new ActiveXObject("Microsoft.XMLHTTP");
+				}catch(e){		
+				}
+			}
+		}
+		rqt.onreadystatechange = getresult;
+		rqt.open("POST","yscd_cysSccd.action?id="+encodeURI(encodeURI(arg0)),false);
+		rqt.send("");
+	   };
+		
+	   function getresult(){
+		   if(rqt.readyState == 4){
+			   if(rqt.status == 200){
+				   var temp = rqt.responseText;
+				   if(temp=="true"){
+						$.messager.alert('提示','该车队已从该帐号移除!');
+				   }else{
+					   $.messager.alert('提示','删除失败，请重试!','warning'); 
+				   }
+				};
+			   }
+		}
+	   
+		function yanchishuaxin(){
+			var id = $(".glyid").val();
+			var mc = $(".zhmc").val();
+			window.location = "yscd_cysFindByGlyid.action?id="+id+"&mc="+mc;
+		}	
 	</script>
 </body>
 </html>

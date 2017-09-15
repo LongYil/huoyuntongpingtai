@@ -132,7 +132,7 @@ public class DdServc extends CommonSevc<Dd,DdDaoImpl> {
 				ysdw.setFhdldmc(hygly.getGsmc());
 				ysdw.setFhdldbh(hygly.getGlybh());
 				ysdw.setFhdh(hygly.getLxdh());
-				ysdw.setFhdz(hygly.getSzsf()+"-"+hygly.getSzcs()+"-"+hygly.getSzx()+"-"+hygly.getSzjdh());
+				ysdw.setFhdz(hygly.getSzsf()+"-"+hygly.getSzcs()+"-"+hygly.getSzx()+"-"+hygly.getXxdz());
 				if(dd.getJjlx()==2){//重货  费用按重量计价100
 					ysdw.setDlfhfy(dd.getZzl()*1.1f);
 					ysdw.setDlshfy(dd.getZzl()*0.6f);
@@ -302,7 +302,7 @@ public class DdServc extends CommonSevc<Dd,DdDaoImpl> {
 			}
 			ddvo.setId(String.valueOf(dd.getId()));
 			ddvo.setHwmc(dd.getHwmc());
-			ddvo.setShdlddz(hygly.getSzsf()+hygly.getSzcs()+hygly.getSzx()+hygly.getSzjdh());
+			ddvo.setShdlddz(hygly.getSzsf()+hygly.getSzcs()+hygly.getSzx()+hygly.getXxdz());
 			ddvo.setShdldmc(hygly.getGsmc());
 			ddvo.setSpjs(String.valueOf(dd.getZjs()));
 			ddvo.setZfy(String.valueOf(dd.getYjyf()));

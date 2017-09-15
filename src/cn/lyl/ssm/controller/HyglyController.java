@@ -15,6 +15,7 @@ import cn.lyl.ssm.po.Cysgly;
 import cn.lyl.ssm.po.Cysqx;
 import cn.lyl.ssm.po.Hydld;
 import cn.lyl.ssm.po.Hygly;
+import cn.lyl.ssm.po.Hyjs;
 import cn.lyl.ssm.po.Jbyh;
 import cn.lyl.ssm.po.Ptzh;
 import cn.lyl.ssm.service.impl.BzjServc;
@@ -22,6 +23,7 @@ import cn.lyl.ssm.service.impl.CysglyServc;
 import cn.lyl.ssm.service.impl.CysqxServc;
 import cn.lyl.ssm.service.impl.HydldServc;
 import cn.lyl.ssm.service.impl.HyglyServc;
+import cn.lyl.ssm.service.impl.HyjsServc;
 import cn.lyl.ssm.service.impl.JbyhServc;
 import cn.lyl.ssm.service.impl.PtzhServc;
 import cn.lyl.ssm.utils.AssembleHygly;
@@ -64,6 +66,10 @@ public class HyglyController extends BasicController<HyglyServc> {
 	private Cysqx cysqx;
 	@Autowired
 	private CysqxServc cysqxServc;
+	@Autowired
+	private Hyjs hyjs;
+	@Autowired
+	private HyjsServc hyjsServc;
 	
 	private List<Jbyh> listJbyh = new ArrayList<Jbyh>();
 	private List<Hygly> listdld = new ArrayList<Hygly>();
@@ -92,24 +98,41 @@ public class HyglyController extends BasicController<HyglyServc> {
 			hygly.setGlylx(1);
 			hygly.setGlybh(jbyh.getYhbh());
 			hygly.setLxdh(jbyh.getYhsj());
+
+			hyjs.setBzj("inline-block");
+			hyjs.setSycd("inline-block");
+			hyjs.setSycys("inline-block");
+			hyjs.setSyxl("inline-block");
+			hyjs.setWlb("inline-block");
+			hyjs.setZhgl("inline-block");
+			hyjs.setZhxx("inline-block");
+			hyjs.setJsgl("inline-block");
+			hyjs.setXtrz("inline-block");
+			hyjs.setJsmc("超级管理员");
+			hyjs.setYhbh(jbyh.getYhbh());
+			hyjsServc.save(hyjs);
+			
+			hygly.setJsbh(hyjs.getId());
 			servc.save(hygly);
 			hydldServc.save(hydld);
+			
 			request.getSession().setAttribute("jbyh", jbyh);
 			request.getSession().setAttribute("yhbh", jbyh.getYhbh());
+			request.getSession().setAttribute("hygly", hygly);
 			model.addAttribute("jbyh",jbyh);
+			model.addAttribute("hyjs",hyjs);
 		}else{
 			;
 		}
-		
 		return "hy_index";
 	}
+	
 	@RequestMapping("/hy_dld_update")
 	public void update(String info[],HttpServletRequest request) throws Exception{
 		jbyh = (Jbyh) request.getSession().getAttribute("jbyh");
 		hygly = servc.find(request.getSession().getAttribute("yhbh").toString());
 		hydld = hydldServc.find(request.getSession().getAttribute("yhbh").toString());
 		jbyh.setYhxm(info[0]);
-		hygly.setYhbz("");
 		hygly.setYhyx(info[2]);
 		hydld.setGsmc(info[1]);
 		hygly.setGsmc(info[1]);
@@ -119,8 +142,8 @@ public class HyglyController extends BasicController<HyglyServc> {
 		hygly.setSzcs(info[4]);
 		hydld.setSzx(info[5]);
 		hygly.setSzx(info[5]);
-		hydld.setSzjdh(info[6]);
-		hygly.setSzjdh(info[6]);
+		hydld.setXxdz(info[6]);
+		hygly.setXxdz(info[6]);
 		jbyhServc.save(jbyh);
 		hydldServc.save(hydld);
 		servc.save(hygly);		
@@ -204,7 +227,7 @@ public class HyglyController extends BasicController<HyglyServc> {
 	}
 	
 	@RequestMapping("hy_hyFindAllGly")
-	public String hyFindAllGly(Model model,HttpServletRequest request){//货运代理点用户查找所有管理员帐户
+	public String hyFindAllGly(Model model,HttpServletRequest request) throws Exception{//货运代理点用户查找所有管理员帐户
 		listgly.clear();
 		listJbyh.clear();
 		listvo.clear();

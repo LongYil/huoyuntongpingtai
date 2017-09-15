@@ -26,7 +26,7 @@ public class Cysgly {
 	private String szcs;//所在城市
 	private String szx;//所在县
 	private String szjdh;//所在街道号
-	private String yhbz;//用户备注
+	private String xxdz;//用户备注
 	private Integer kz1;
 	private Integer kz2;
 	private String kz3;
@@ -38,6 +38,12 @@ public class Cysgly {
 	}
 	public void setId(Integer id) {
 		this.id = id;
+	}
+	public Integer getJsbh() {
+		return jsbh;
+	}
+	public void setJsbh(Integer jsbh) {
+		this.jsbh = jsbh;
 	}
 	public Integer getYhbh() {
 		return yhbh;
@@ -105,6 +111,12 @@ public class Cysgly {
 	public void setSzjdh(String szjdh) {
 		this.szjdh = szjdh;
 	}
+	public String getXxdz() {
+		return xxdz;
+	}
+	public void setXxdz(String xxdz) {
+		this.xxdz = xxdz;
+	}
 	public Integer getKz1() {
 		return kz1;
 	}
@@ -134,18 +146,6 @@ public class Cysgly {
 	}
 	public void setKz5(String kz5) {
 		this.kz5 = kz5;
-	}
-	public String getYhbz() {
-		return yhbz;
-	}
-	public void setYhbz(String yhbz) {
-		this.yhbz = yhbz;
-	}
-	public Integer getJsbh() {
-		return jsbh;
-	}
-	public void setJsbh(Integer jsbh) {
-		this.jsbh = jsbh;
 	}
 
 }

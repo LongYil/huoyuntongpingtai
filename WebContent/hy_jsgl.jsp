@@ -37,37 +37,34 @@
 				<th data-options="field:'a',width:80,align:'center'">序号</th>
 				<th data-options="field:'b',width:80,align:'center'" hidden="hidden">角色编号</th>
 				<th data-options="field:'c',width:80,align:'center'">角色名称</th>
-				<th data-options="field:'d',width:80,align:'center'">账号管理</th>
-				<th data-options="field:'e',width:80,align:'center'">设置货代</th>
-				<th data-options="field:'f',width:80,align:'center'">车队管理</th>
-				<th data-options="field:'g',width:80,align:'center'">角色管理</th>
-				<th data-options="field:'h',width:80,align:'center'">系统日志</th>
-				<th data-options="field:'i',width:80,align:'center'">我的线路</th>
-				<th data-options="field:'j',width:80,align:'center'">我的车辆</th>
-				<th data-options="field:'k',width:80,align:'center'">所有线路</th>
-				<th data-options="field:'l',width:80,align:'center'">所有车辆</th>
-				<th data-options="field:'m',width:120,align:'center'">设置本帐号代理点</th>
-				<th data-options="field:'n',width:120,align:'center'">设置所有帐号代理点</th>
+				<th data-options="field:'d',width:80,align:'center'">帐号管理</th>
+				<th data-options="field:'e',width:80,align:'center'">账户信息</th>
+				<th data-options="field:'f',width:80,align:'center'">所有承运商</th>
+				<th data-options="field:'g',width:80,align:'center'">所有车队</th>
+				<th data-options="field:'h',width:80,align:'center'">所有线路</th>
+				<th data-options="field:'i',width:80,align:'center'">保证金</th>
+				<th data-options="field:'j',width:80,align:'center'">物流币</th>
+				<th data-options="field:'k',width:80,align:'center'">角色管理</th>
+				<th data-options="field:'l',width:80,align:'center'">系统日志</th>
 				
 			</tr>
 		</thead>
 		<tbody>
-				<c:forEach items="${listjsvo}" var="item" begin="0" step="1" varStatus="status">
+				<c:forEach items="${listjs}" var="item" begin="0" step="1" varStatus="status">
 				<tr>
 				    <td>${status.index+1}</td>
 				    <td hidden="hidden">${item.id}</td>
 				    <td>${item.jsmc}</td>
-				    <td>${item.cysqx.zhgl}权限</td>
-					<td>${item.cysqx.szdld}权限</td>
-					<td>${item.cysqx.cdgl}权限</td>
-					<td>${item.cysqx.jsgl}权限</td>
-					<td>${item.cysqx.xtrz}权限</td>
-					<td>${item.cysqx.wdxl}权限</td>
-					<td>${item.cysqx.wdcl}权限</td>
-					<td>${item.cysqx.syxl}权限</td>
-					<td>${item.cysqx.sycl}权限</td>
-					<td>${item.cysqx.szbdld}权限</td>
-					<td>${item.cysqx.szsydld}权限</td>
+				    <td>${item.zhgl}权限</td>
+					<td>${item.zhxx}权限</td>
+					<td>${item.sycys}权限</td>
+					<td>${item.sycd}权限</td>
+					<td>${item.sycd}权限</td>
+					<td>${item.syxl}权限</td>
+					<td>${item.bzj}权限</td>
+					<td>${item.wlb}权限</td>
+					<td>${item.jsgl}权限</td>
+					<td>${item.xtrz}权限</td>
 				</tr>
 				</c:forEach>
 		</tbody>
@@ -83,7 +80,7 @@
 			index++;
 			$('#tt').tabs('add',{
 				title: '添加角色',
-				content: '<iframe src="cys_tjjs.jsp" frameborder="0" style="padding:5px;width:818px;height:500px;"></iframe>',
+				content: '<iframe src="hy_tjjs.jsp" frameborder="0" style="padding:5px;width:818px;height:500px;"></iframe>',
 				closable: true
 			});
 		}
@@ -97,19 +94,16 @@
 				}else{
 					$('#tt').tabs('add',{
 						title: '重置角色',
-						content: '<iframe src="cysjs_xgjs1.action?id='+id+'" frameborder="0" style="padding:5px;width:818px;height:500px;"></iframe>',
+						content: '<iframe src="hyjs_cszj1.action?id='+id+'" frameborder="0" style="padding:5px;width:818px;height:500px;"></iframe>',
 						closable: true
 					});	
 				}
 			}
 		}
 		function shuaxin(){
+			window.location="hyjs_findAll.action";
+		}
 
-			window.location="cysjs_findAllJs.action";
-		}
-		function sxcd(){
-			window.location = "yscd_cysFindAll.action";
-		}
 	</script>
 </body>
 </html>

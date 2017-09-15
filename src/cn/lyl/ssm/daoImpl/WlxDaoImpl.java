@@ -41,14 +41,12 @@ public class WlxDaoImpl extends CommonDaoImpl<Wlx> implements WlxDao {
 
 	@Override
 	public void delete(Wlx entity) {
-		//
-		
+		ht.delete(entity);		
 	}
 
 	@Override
 	public Wlx find(String arg) {
-		//
-		return null;
+		return ht.get(Wlx.class,Integer.parseInt(arg));
 	}
 
 	@Override

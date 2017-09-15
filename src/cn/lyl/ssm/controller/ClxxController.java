@@ -1,5 +1,6 @@
 package cn.lyl.ssm.controller;
 
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -86,4 +87,10 @@ public class ClxxController extends BasicController<ClxxServc> {
 		return "cys_cdsycl";
 	}
 	
+	@RequestMapping("clxx_cysyhSccl")
+	public void cysyhSccl(String id,PrintWriter out) throws Exception {
+		clxx = servc.findByCdbh(id);
+		servc.deleteCl(clxx);
+		out.write("true");
+	}
 }

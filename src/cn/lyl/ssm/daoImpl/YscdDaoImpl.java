@@ -42,14 +42,12 @@ public class YscdDaoImpl extends CommonDaoImpl<Yscd> implements YscdDao{
 
 	@Override
 	public void update(Yscd entity) {
-		//
-		
+		ht.update(entity);		
 	}
 
 	@Override
 	public void delete(Yscd entity) {
-		//
-		
+		ht.delete(entity);		
 	}
 
 	@Override

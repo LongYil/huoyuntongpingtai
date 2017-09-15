@@ -14,6 +14,7 @@ import org.springframework.stereotype.Component;
 @Scope(value="prototype")
 public class Hygly {
 	private Integer id;//序号
+	private Integer jsbh;//角色编号
 	private Integer yhbh;//用户编号
 	private Integer glybh;//管理员编号
 	private Integer glylx;//管理员类型   1：总代理  2：分代理
@@ -22,20 +23,26 @@ public class Hygly {
 	private String szsf;//所在省份
 	private String szcs;//所在城市
 	private String szx;//所在县
-	private String szjdh;//所在街道号
-	private String yhbz;//用户备注
+	private String xxdz;//所在街道号
 	private String yhyx;//用户邮箱
 	private Integer kz1;
 	private Integer kz2;
 	private String kz3;
 	private String kz4;
 	private String kz5;
-
+	
+	
 	public Integer getId() {
 		return id;
 	}
 	public void setId(Integer id) {
 		this.id = id;
+	}
+	public Integer getJsbh() {
+		return jsbh;
+	}
+	public void setJsbh(Integer jsbh) {
+		this.jsbh = jsbh;
 	}
 	public Integer getYhbh() {
 		return yhbh;
@@ -48,6 +55,12 @@ public class Hygly {
 	}
 	public void setGlybh(Integer glybh) {
 		this.glybh = glybh;
+	}
+	public Integer getGlylx() {
+		return glylx;
+	}
+	public void setGlylx(Integer glylx) {
+		this.glylx = glylx;
 	}
 	public String getGsmc() {
 		return gsmc;
@@ -79,11 +92,17 @@ public class Hygly {
 	public void setSzx(String szx) {
 		this.szx = szx;
 	}
-	public String getSzjdh() {
-		return szjdh;
+	public String getXxdz() {
+		return xxdz;
 	}
-	public void setSzjdh(String szjdh) {
-		this.szjdh = szjdh;
+	public void setXxdz(String xxdz) {
+		this.xxdz = xxdz;
+	}
+	public String getYhyx() {
+		return yhyx;
+	}
+	public void setYhyx(String yhyx) {
+		this.yhyx = yhyx;
 	}
 	public Integer getKz1() {
 		return kz1;
@@ -114,24 +133,6 @@ public class Hygly {
 	}
 	public void setKz5(String kz5) {
 		this.kz5 = kz5;
-	}
-	public String getYhbz() {
-		return yhbz;
-	}
-	public void setYhbz(String yhbz) {
-		this.yhbz = yhbz;
-	}
-	public String getYhyx() {
-		return yhyx;
-	}
-	public void setYhyx(String yhyx) {
-		this.yhyx = yhyx;
-	}
-	public Integer getGlylx() {
-		return glylx;
-	}
-	public void setGlylx(Integer glylx) {
-		this.glylx = glylx;
 	}
 	
 }

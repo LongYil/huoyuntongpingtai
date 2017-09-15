@@ -33,35 +33,63 @@
 			<div style="margin-bottom:20px">
 				<span class="tou">帐号管理</span>
 				<select  class="mycombox" name="zhgl" style="width:10%">
-					<option value="block">可用</option>
+					<option value="inline-block">可用</option>
+					<option value="none">不可用</option>
+				</select>
+				<span class="tou">我的车辆</span>
+				<select  class="mycombox" name="wdcl" style="width:10%">
+					<option value="inline-block">可用</option>
+					<option value="none">不可用</option>
+				</select>
+				<span class="tou">我的线路</span>
+				<select  class="mycombox" name="wdxl" style="width:10%">
+					<option value="inline-block">可用</option>
 					<option value="none">不可用</option>
 				</select>
 			</div>
 			<div style="margin-bottom:20px">
 				<span class="tou">设置货代</span>
 				<select  class="mycombox" name="szdld" style="width:10%">
-					<option value="block">可用</option>
+					<option value="inline-block">可用</option>
+					<option value="none">不可用</option>
+				</select>
+				<span class="tou">所有线路</span>
+				<select  class="mycombox" name="syxl" style="width:10%">
+					<option value="inline-block">可用</option>
+					<option value="none">不可用</option>
+				</select>
+				<span class="tou">所有车辆</span>
+				<select  class="mycombox" name="sycl" style="width:10%">
+					<option value="inline-block">可用</option>
 					<option value="none">不可用</option>
 				</select>
 			</div>
 			<div style="margin-bottom:20px">
 				<span class="tou">车队管理</span>
 				<select  class="mycombox" name="cdgl" style="width:10%">
-					<option value="block">可用</option>
+					<option value="inline-block">可用</option>
 					<option value="none">不可用</option>
 				</select>
-			</div>
-			<div style="margin-bottom:20px">
 				<span class="tou">角色管理</span>
 				<select  class="mycombox" name="jsgl" style="width:10%">
-					<option value="block">可用</option>
+					<option value="inline-block">可用</option>
 					<option value="none">不可用</option>
 				</select>
-			</div>
-			<div style="margin-bottom:20px">
 				<span class="tou">系统日志</span>
 				<select  class="mycombox" name="xtrz" style="width:10%">
-					<option value="block">可用</option>
+					<option value="inline-block">可用</option>
+					<option value="none">不可用</option>
+				</select>								
+			</div>
+			<div style="margin-bottom:20px">
+				<span class="tou">设置本帐号代理点</span>
+				<select  class="mycombox" name="szbdld" style="width:10%">
+					<option value="inline-block">可用</option>
+					<option value="none">不可用</option>
+				</select>
+				<span class="tou">设置所有帐号代理</span>
+				<select  class="mycombox" name="szsydld" style="width:10%">
+					<option value="inline-block">可用</option>
 					<option value="none">不可用</option>
 				</select>
 			</div>

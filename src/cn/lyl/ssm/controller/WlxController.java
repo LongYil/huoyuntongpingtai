@@ -1,5 +1,6 @@
 package cn.lyl.ssm.controller;
 
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,7 +36,8 @@ public class WlxController extends BasicController<WlxServc> {
 	private CysglyServc cysglyServc;
 	@Autowired
 	private AssembleWlx assembleWlx;
-	
+	@Autowired
+	private Wlx wlx;
 	@RequestMapping("/wlx_save")
 	public void save(Wlx wlx,HttpServletRequest request){
 		wlx.setYhbh(Integer.parseInt(request.getSession().getAttribute("yhbh").toString()));
@@ -153,6 +155,11 @@ public class WlxController extends BasicController<WlxServc> {
 		return "cys_cdsyxl";
 	}
 	
-	
+	@RequestMapping("wlx_cysyhScxl")
+	public void cysyhScxl(String id,PrintWriter out) {
+		wlx = servc.find(id);
+		String result = servc.cysyhDelete(wlx);
+		out.print(result);
+	}
 	
 }
