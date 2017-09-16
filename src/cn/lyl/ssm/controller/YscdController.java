@@ -1,11 +1,15 @@
 package cn.lyl.ssm.controller;
 
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +20,7 @@ import cn.lyl.ssm.po.Yscd;
 import cn.lyl.ssm.service.impl.CysglyServc;
 import cn.lyl.ssm.service.impl.YscdServc;
 import cn.lyl.ssm.utils.AssembleYscd;
+import cn.lyl.ssm.vo.DdVo;
 import cn.lyl.ssm.vo.YscdVo;
 
 /**
@@ -142,4 +147,30 @@ public class YscdController extends BasicController<YscdServc> {
 		out.write(result);
 	}
 	
+	
+	@RequestMapping("/yscd_cysyhFindAll")//APP承运商移动端查找所拥有的运输车队
+	public void cysyhFindAll(String id,HttpServletRequest request,HttpServletResponse response) throws IOException{
+		listcd.clear();
+		listcd = servc.jbyhFindAll(id);
+		
+		response.setContentType("text/plain");
+		response.setCharacterEncoding("UTF-8");
+		PrintWriter out = response.getWriter();
+		JSONArray array = new JSONArray();
+
+	    for(Yscd bean:listcd){
+	         //单个用户JSON对象 
+			   JSONObject obj = new JSONObject();
+			   try{
+				   obj.put("cdmc",bean.getCdmc());
+				   obj.put("lxr", bean.getCdlxr());
+				   obj.put("lxdh", bean.getCdlxdh());
+			   }catch (Exception e) {
+			}
+			   array.put(obj); 
+		   }
+		out.write(array.toString());
+		out.flush();
+		out.close();	
+	}
 }

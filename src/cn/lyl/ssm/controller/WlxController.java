@@ -1,11 +1,15 @@
 package cn.lyl.ssm.controller;
 
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +20,7 @@ import cn.lyl.ssm.po.Wlx;
 import cn.lyl.ssm.service.impl.CysglyServc;
 import cn.lyl.ssm.service.impl.WlxServc;
 import cn.lyl.ssm.utils.AssembleWlx;
+import cn.lyl.ssm.vo.ClxxVo;
 import cn.lyl.ssm.vo.WlxVo;
 
 /**
@@ -110,7 +115,7 @@ public class WlxController extends BasicController<WlxServc> {
 		wlx.setCysbh(cysgly.getCysbh());
 		servc.save(wlx);
 	}
-	@RequestMapping("wlx_glyfindByYhbh")
+	@RequestMapping("wlx_glyfindByYhbh")//承运商用户查找所有运输线路
 	public String glyfindByYhbh(Model model,HttpServletRequest request){
 		listwlxvo.clear();
 		
@@ -119,6 +124,35 @@ public class WlxController extends BasicController<WlxServc> {
 		model.addAttribute("listwlxvo",listwlxvo);
 		return "cys_cdsyxl";
 	}
+	
+	
+	@RequestMapping("wlx_cysyhfindByYhbh")//App承运商用户移动端查询所有线路
+	public void cysyhfindByYhbh(String id,HttpServletResponse response) throws IOException{
+		listwlxvo.clear();
+		listwlxvo = servc.findByCysYhid(id);
+		
+		response.setContentType("text/plain");
+		response.setCharacterEncoding("UTF-8");
+		PrintWriter out = response.getWriter();
+		JSONArray array = new JSONArray();
+
+	    for(WlxVo bean:listwlxvo){
+	         //单个用户JSON对象 
+			   JSONObject obj = new JSONObject();
+			   try{
+				   obj.put("cfdz",bean.getWlx().getCfcs()+bean.getWlx().getCfcs()+bean.getWlx().getCfx());
+				   obj.put("dddz", bean.getWlx().getDdsf()+bean.getWlx().getDdcs()+bean.getWlx().getDdx());
+				   obj.put("zhjg", bean.getWlx().getZhjg());
+				   obj.put("qhjg", bean.getWlx().getQhjg());
+			   }catch (Exception e) {
+			}
+			   array.put(obj); 
+		   }
+		out.write(array.toString());
+		out.flush();
+		out.close();
+	}
+	
 	
 	@RequestMapping("wlx_dldFindByYhbh")//货运代理点:查找所拥有的运输线路
 	public String dldFindByYhbh(Model model,HttpServletRequest request) throws Exception{
