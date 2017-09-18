@@ -108,7 +108,7 @@
 <a href="javascript:void(0)" class="easyui-linkbutton" style="width:80px;margin-right:20px;" onclick="shuaxin()">刷新</a>
 </section>
 
-	<div id="tt" class="easyui-tabs" data-options="tools:'#tab-tools'" style="padding:0px;width:835px;height:620px;margin-left:-20px;margin-bottom:0px;">
+	<div id="tt" class="easyui-tabs" data-options="tools:'#tab-tools'" style="padding:0px;width:830px;height:570px;margin-left:-20px;margin-bottom:0px;">
 		<div title="保证金">
 		<div class="zhyediv" >
         <div class="zhyediv_header">
@@ -171,7 +171,7 @@
 			index++;
 			$('#tt').tabs('add',{
 				title: '缴纳保证金',
-				content: '<iframe src="cys_bzjjn.jsp" frameborder="0" style="padding:5px;width:820px;height:500px;"></iframe>',
+				content: '<iframe src="cys_bzjjn.jsp" frameborder="0" style="padding:5px;width:815px;height:400px;"></iframe>',
 				closable: true
 			});
 		}
@@ -179,7 +179,7 @@
 			index++;
 			$('#tt').tabs('add',{
 				title: '缴纳记录',
-				content: '<iframe src="jyjl_FindJnjl.action" frameborder="0" style="width:828px;height:580px;"></iframe>',
+				content: '<iframe src="jyjl_FindJnjl.action" frameborder="0" style="width:820px;height:530px;"></iframe>',
 				closable: true
 			});
 		}
@@ -188,7 +188,7 @@
 			index++;
 			$('#tt').tabs('add',{
 				title: '申请解冻',
-				content: '<iframe src="bzj_cysSqjd.action" frameborder="0" style="width:828px;height:580px;"></iframe>',
+				content: '<iframe src="bzj_cysSqjd.action" frameborder="0" style="width:820px;height:400px;"></iframe>',
 				closable: true
 			});
 		}
@@ -197,7 +197,7 @@
 			index++;
 			$('#tt').tabs('add',{
 				title: '解冻记录',
-				content: '<iframe src="jyjl_FindJdjl.action" frameborder="0" style="width:828px;height:580px;"></iframe>',
+				content: '<iframe src="jyjl_FindJdjl.action" frameborder="0" style="width:820px;height:530px;"></iframe>',
 				closable: true
 			});
 		}

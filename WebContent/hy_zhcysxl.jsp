@@ -32,9 +32,9 @@
 <input type="hidden" class="hy_mc1" value="${hy_mc1}">
 <input type="hidden" class="hy_mc2" value="${hy_mc2}">
 </section>
-	<div id="tt" class="easyui-tabs" data-options="tools:'#tab-tools'" style="padding:0px;width:835px;height:620px;margin-left:-20px;margin-bottom:0px;">
+	<div id="tt" class="easyui-tabs" data-options="tools:'#tab-tools'" style="padding:0px;width:830px;height:570px;margin-left:-20px;margin-bottom:0px;">
 	<div title="所有线路">
-		<table id="dg" class="easyui-datagrid" style="width:1040px;height:590px"
+		<table id="dg" class="easyui-datagrid" style="width:825px;height:530px"
 			data-options="singleSelect:true,url:'datagrid_data1.json',method:'get'">
 		<thead>
 			<tr>

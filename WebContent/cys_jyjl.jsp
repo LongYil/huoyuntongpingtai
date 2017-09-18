@@ -13,9 +13,9 @@
 	<script type="text/javascript" src="js/basic/jquery.easyui.min.js"></script>
 </head>
 <body style="padding-top:0px; padding-bottom:0px;">
-	<div id="tt" class="easyui-tabs" data-options="tools:'#tab-tools'" style="padding:0px;width:835px;height:670px;margin-left:-20px;margin-bottom:0px;">
+	<div id="tt" class="easyui-tabs" data-options="tools:'#tab-tools'" style="padding:0px;width:830px;height:635px;margin-left:-20px;margin-bottom:0px;">
 	<div title="交易记录">
-		<table id="dg" class="easyui-datagrid" style="width:830px;height:630px"
+		<table id="dg" class="easyui-datagrid" style="width:820px;height:600px"
 			data-options="singleSelect:true,url:'datagrid_data1.json',method:'get'">
 		<thead>
 			<tr>

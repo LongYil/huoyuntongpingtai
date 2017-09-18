@@ -24,9 +24,9 @@
 <a href="javascript:void(0)" class="easyui-linkbutton" style="width:80px;" onclick="shuaxin()">刷新</a>
 </section>
 
-	<div id="tt" class="easyui-tabs" data-options="tools:'#tab-tools'" style="padding:0px;width:835px;height:620px;margin-left:-20px;margin-bottom:0px;">
+	<div id="tt" class="easyui-tabs" data-options="tools:'#tab-tools'" style="padding:0px;width:830px;height:580px;margin-left:-20px;margin-bottom:0px;">
 	<div title="所有帐号">
-		<table id="dg" class="easyui-datagrid" style="width:830px;height:580px"
+		<table id="dg" class="easyui-datagrid" style="width:825px;height:540px"
 			data-options="singleSelect:true,url:'datagrid_data1.json',method:'get'">
 		<thead>
 			<tr>
@@ -72,7 +72,7 @@
 			index++;
 			$('#tt').tabs('add',{
 				title: '添加帐号',
-				content: '<iframe src="hyjs_xzjs.action" frameborder="0" style="padding:5px;width:820px;height:500px;"></iframe>',
+				content: '<iframe src="hyjs_xzjs.action" frameborder="0" style="padding:5px;width:815px;height:500px;"></iframe>',
 				closable: true
 			});
 		}

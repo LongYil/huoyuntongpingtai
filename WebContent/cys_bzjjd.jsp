@@ -29,10 +29,10 @@
 </head>
 <body style="padding:0px;margin:0px;">
 
-	<div class="easyui-panel" style="width:100%;max-width:840px;max-height:600px;padding:30px 60px;" title="解冻保证金">
+	<div class="easyui-panel" style="width:100%;max-width:820px;max-height:300px;" title="解冻保证金">
 		<form id="ff" name="myform" class="easyui-form" method="post" data-options="novalidate:true">
 			
-			<div style="margin-bottom:20px">
+			<div style="margin-bottom:20px;margin-top:40px;margin-left:80px;">
 				<input class="easyui-textbox" name="zhjg" id="jine" style="width:40%;margin-left:100px;" data-options="label:'解冻金额：',required:true">&nbsp;&nbsp;(单位：物流币)
 				最大解冻金额为:&nbsp;<span class="maxnum">${bzj.ksqje}</span>&nbsp;物流币				
 			</div>

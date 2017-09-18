@@ -26,7 +26,7 @@
 </head>
 <body style="padding:0px;margin:0px;">
 
-	<div class="easyui-panel" style="width:100%;max-width:840px;max-height:600px;padding:30px 60px;" title="会员基本信息">
+	<div class="easyui-panel" style="width:100%;max-width:835px;max-height:600px;padding:30px 60px;" title="会员基本信息">
 		<form id="ff" name="myform" action="${pageContext.request.contextPath}/hy_dld_update.action" class="easyui-form" method="post" data-options="novalidate:true">
 
 			<div style="margin-bottom:20px">
@@ -54,7 +54,7 @@
 			<input type="hidden" name="info" class="szx" value="${hygly.szx}"">
 			
 			<div style="margin-bottom:20px">
-				<input class="easyui-textbox" value="${hygly.xxdz}" name="info" style="width:91%;height:60px" data-options="label:'备注:',multiline:true">
+				<input class="easyui-textbox" value="${hygly.xxdz}" name="info" style="width:91%;height:60px" data-options="label:'详细地址:',multiline:true">
 			</div>
                 
 		</form>

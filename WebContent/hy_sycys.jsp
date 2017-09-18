@@ -14,7 +14,7 @@
 	<style>
 		.cdmc{
 		margin-left:140px;
-		font-size:24px;
+		font-size:18px;
 		color:#0248b5;
 		font-weight:bold;
 		}
@@ -26,9 +26,9 @@
 <a href="javascript:void(0)" class="easyui-linkbutton" style="width:100px;margin-right:20px;" onclick="chakanchedui()">查看所有车队</a>
 
 </section>
-	<div id="tt" class="easyui-tabs" data-options="tools:'#tab-tools'" style="padding:0px;width:835px;height:620px;margin-left:-20px;margin-bottom:0px;">
+	<div id="tt" class="easyui-tabs" data-options="tools:'#tab-tools'" style="padding:0px;width:830px;height:570px;margin-left:-20px;margin-bottom:0px;">
 	<div title="所有承运商">
-		<table id="dg" class="easyui-datagrid" style="width:1078px;height:560px"
+		<table id="dg" class="easyui-datagrid" style="width:825px;height:535px"
 			data-options="singleSelect:true,url:'datagrid_data1.json',method:'get'">
 		<thead>
 			<tr>
@@ -40,7 +40,7 @@
 				<th data-options="field:'f',width:150,align:'center'">所在省份</th>
 				<th data-options="field:'g',width:150,align:'center'">所在城市</th>
 				<th data-options="field:'h',width:150,align:'center'">所在县</th>
-				<th data-options="field:'i',width:150,align:'center'">所在街道号</th>
+				<th data-options="field:'i',width:150,align:'center'">详细地址</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -54,7 +54,7 @@
 					<td>${item.szsf}</td>
 					<td>${item.szcs}</td>
 					<td>${item.szx}</td>
-					<td>${item.szjdh}</td>
+					<td>${item.xxdz}</td>
 				</tr>
 				</c:forEach>
 		</tbody>

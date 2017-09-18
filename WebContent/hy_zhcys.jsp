@@ -30,9 +30,9 @@
 
 <span class="cdmc">帐号:${mc1}_${mc2}</span>
 </section>
-	<div id="tt" class="easyui-tabs" data-options="tools:'#tab-tools'" style="padding:0px;width:835px;height:620px;margin-left:-20px;margin-bottom:0px;">
+	<div id="tt" class="easyui-tabs" data-options="tools:'#tab-tools'" style="padding:0px;width:830px;height:580px;margin-left:-20px;margin-bottom:0px;">
 	<div title="所有承运商">
-		<table id="dg" class="easyui-datagrid" style="width:830px;height:580px"
+		<table id="dg" class="easyui-datagrid" style="width:820px;height:540px"
 			data-options="singleSelect:true,url:'datagrid_data1.json',method:'get'">
 		<thead>
 			<tr>

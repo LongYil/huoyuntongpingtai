@@ -100,8 +100,8 @@
 	</div>
 
 	<div data-options="region:'south',border:false" style="height:50px;background:#A9FACD;padding:10px;">south region</div>
-	<div data-options="region:'center',title:'我的桌面'">
-    	<iframe class="zhuomian" frameborder="0" style="width:835px;height:680px;">
+	<div data-options="region:'center',title:'我的桌面'" style="padding:0px;">
+    	<iframe class="zhuomian" frameborder="0" style="width:830px;height:640px;margin:0px;pading:0px;" scrolling="0">
         </iframe> 
     </div>
 

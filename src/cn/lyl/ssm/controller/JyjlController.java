@@ -30,7 +30,6 @@ public class JyjlController extends BasicController<JyjlServc>{
 	@RequestMapping("jyjl_cysFindAll")//承运商查找所有交易记录
 	public String cysFindAll(Model model,HttpServletRequest request){
 		listvo.clear();
-		
 		listvo = servc.cysFindAll(request.getSession().getAttribute("yhbh").toString());
 		model.addAttribute("listvo",listvo);
 		return "cys_jyjl";

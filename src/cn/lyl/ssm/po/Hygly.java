@@ -23,7 +23,7 @@ public class Hygly {
 	private String szsf;//所在省份
 	private String szcs;//所在城市
 	private String szx;//所在县
-	private String xxdz;//所在街道号
+	private String xxdz;//详细地址
 	private String yhyx;//用户邮箱
 	private Integer kz1;
 	private Integer kz2;

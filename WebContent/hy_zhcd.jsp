@@ -29,13 +29,13 @@
 
 </section>
 
-	<div id="tt" class="easyui-tabs" data-options="tools:'#tab-tools'" style="padding:0px;width:835px;height:620px;margin-left:-20px;margin-bottom:0px;">
+	<div id="tt" class="easyui-tabs" data-options="tools:'#tab-tools'" style="width:830px;height:580px;margin-left:-20px;margin-bottom:0px;">
 	<div title="所有车队">
-		<table id="dg" class="easyui-datagrid" style="width:830px;height:580px"
+		<table id="dg" class="easyui-datagrid" style="width:820px;height:540px"
 			data-options="singleSelect:true,url:'datagrid_data1.json',method:'get'">
 		<thead>
 			<tr>
-				<th data-options="field:'a',width:40,align:'center'">序号</th>
+				<th data-options="field:'a',width:60,align:'center'">序号</th>
 				<th data-options="field:'b',width:100,align:'center'">承运商名称</th>
 				<th data-options="field:'c',width:100,align:'center'">承运商地址</th>
 				<th data-options="field:'d',width:100,align:'center'">承运商电话</th>

@@ -14,7 +14,7 @@
 	<style>
 		.cdmc{
 		margin-left:140px;
-		font-size:24px;
+		font-size:18px;
 		color:#0248b5;
 		font-weight:bold;
 		}
@@ -28,9 +28,9 @@
 <a href="javascript:void(0)" class="easyui-linkbutton" style="width:80px;margin-right:20px;" onclick="shuaxin()">刷新</a>
 </section>
 
-	<div id="tt" class="easyui-tabs" data-options="tools:'#tab-tools'" style="padding:0px;width:830px;height:620px;margin-left:-20px;margin-bottom:0px;">
+	<div id="tt" class="easyui-tabs" data-options="tools:'#tab-tools'" style="padding:0px;width:830px;height:500px;margin-left:-20px;margin-bottom:0px;">
 	<div title="所有角色">
-		<table id="dg" class="easyui-datagrid" title="角色信息" style="width:820px;height:580px"
+		<table id="dg" class="easyui-datagrid" title="角色信息" style="width:820px;height:500px"
 			data-options="singleSelect:true,url:'datagrid_data1.json',method:'get'">
 		<thead>
 			<tr>

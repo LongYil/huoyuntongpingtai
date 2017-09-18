@@ -108,7 +108,7 @@
 <a href="javascript:void(0)" class="easyui-linkbutton" style="width:80px;margin-right:20px;" onclick="tixianjilu()">提现记录</a>
 </section>
 
-	<div id="tt" class="easyui-tabs" data-options="tools:'#tab-tools'" style="padding:0px;width:835px;height:620px;margin-left:-20px;margin-bottom:0px;">
+	<div id="tt" class="easyui-tabs" data-options="tools:'#tab-tools'" style="padding:0px;width:830px;height:570px;margin-left:-20px;margin-bottom:0px;">
 		<div title="物流币">
 		<div class="zhyediv" >
         <div class="zhyediv_header">
@@ -164,7 +164,7 @@
 			index++;
 			$('#tt').tabs('add',{
 				title: '充值物流币',
-				content: '<iframe src="cys_czwlb.jsp" frameborder="0" style="padding:5px;width:820px;height:500px;"></iframe>',
+				content: '<iframe src="cys_czwlb.jsp" frameborder="0" style="padding:5px;width:815px;height:400px;"></iframe>',
 				closable: true
 			});
 		}
@@ -172,7 +172,7 @@
 			index++;
 			$('#tt').tabs('add',{
 				title: '充值记录',
-				content: '<iframe src="jyjl_FindCzjl.action" frameborder="0" style="width:828px;height:580px;"></iframe>',
+				content: '<iframe src="jyjl_FindCzjl.action" frameborder="0" style="width:820px;height:530px;"></iframe>',
 				closable: true
 			});
 		}
@@ -181,7 +181,7 @@
 			index++;
 			$('#tt').tabs('add',{
 				title: '申请提现',
-				content: '<iframe src="ptzh_fqtx.action" frameborder="0" style="width:828px;height:580px;"></iframe>',
+				content: '<iframe src="ptzh_fqtx.action" frameborder="0" style="width:820px;height:400px;"></iframe>',
 				closable: true
 			});
 		}
@@ -190,7 +190,7 @@
 			index++;
 			$('#tt').tabs('add',{
 				title: '提现记录',
-				content: '<iframe src="jyjl_FindTxjl.action" frameborder="0" style="width:828px;height:580px;"></iframe>',
+				content: '<iframe src="jyjl_FindTxjl.action" frameborder="0" style="width:820px;height:530px;"></iframe>',
 				closable: true
 			});
 		}

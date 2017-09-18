@@ -15,7 +15,7 @@
 	<style type="text/css">
 		.cdmc{
 		margin-left:140px;
-		font-size:24px;
+		font-size:18px;
 		color:#0248b5;
 		font-weight:bold;
 		height:40px;

@@ -31,7 +31,7 @@
 				<span class="tou">选择：</span>
 				<select  class="mycombox" name="shid" id="shid" style="width:50%">
 					<c:forEach items="${listhygly}" var="item" begin="0" step="1" varStatus="status">
-						<option value="${item.glybh}">${item.gsmc}公司——${item.szsf}-${item.szcs}-${item.szx}-${item.szjdh}-${item.lxdh}</option>
+						<option value="${item.glybh}">${item.gsmc}公司——${item.szsf}-${item.szcs}-${item.szx}-${item.xxdz}-${item.lxdh}</option>
 					</c:forEach>
 				</select>
 			</div>

@@ -162,7 +162,6 @@ public class HyglyController extends BasicController<HyglyServc> {
 	public String cysFindDld(Model model,HttpServletRequest request) throws Exception{
 		cysgly = (Cysgly) request.getSession().getAttribute("cysgly");
 		hygly = servc.find(String.valueOf(cysgly.getDlbh()));
-		
 		cysqx = cysqxServc.find(String.valueOf(cysgly.getJsbh()));
 		model.addAttribute("cysqx",cysqx);
 		model.addAttribute("hygly",hygly);
