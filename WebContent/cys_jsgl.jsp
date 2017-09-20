@@ -30,7 +30,7 @@
 
 	<div id="tt" class="easyui-tabs" data-options="tools:'#tab-tools'" style="padding:0px;width:830px;height:500px;margin-left:-20px;margin-bottom:0px;">
 	<div title="所有角色">
-		<table id="dg" class="easyui-datagrid" title="角色信息" style="width:820px;height:500px"
+		<table id="dg" class="easyui-datagrid" border="0" title="角色信息" style="width:820px;height:500px"
 			data-options="singleSelect:true,url:'datagrid_data1.json',method:'get'">
 		<thead>
 			<tr>

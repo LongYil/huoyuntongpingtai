@@ -79,57 +79,69 @@ public class CysglyController extends BasicController<CysglyServc> {
 	//承运商的保存方法
 	@RequestMapping("/cysgly_save")
 	public String save(Model model,Jbyh jbyh,Cys cys,Cysgly cysgly,HttpServletRequest request){
-		int type = jbyh.getYhlx();
-		jbyhServc.save(jbyh);
-		cys.setLxdh(jbyh.getYhsj());
-		cysgly.setLxdh(jbyh.getYhsj());
-		cysgly.setDlbh(0);
-		cys.setYhbh(jbyh.getYhbh());
-		cysgly.setYhbh(jbyh.getYhbh());
-		if(type==3){//如果用户是个人承运商
-			cys.setHylx(1);
-			cysgly.setHylx(1);
-		}else{//如果用户是运输车队承运商  默认赋予具有超级管理员的角色
-			cys.setHylx(2);
-			cysgly.setHylx(2);
-			cysgly.setCysbh(jbyh.getYhbh());
-			
-			cysjs.setYhbh(jbyh.getYhbh());
-			cysjs.setJsmc("超级管理员");
-			cysjsServc.save(cysjs);
-			
-			cysqx.setJsbh(cysjs.getId());
-			cysqx.setCdgl("inline-block");
-			cysqx.setJsgl("inline-block");
-			cysqx.setSycl("inline-block");
-			cysqx.setSyxl("inline-block");
-			cysqx.setSzbdld("inline-block");
-			cysqx.setSzdld("inline-block");
-			cysqx.setSzsydld("inline-block");
-			cysqx.setWdcl("inline-block");
-			cysqx.setWdxl("inline-block");
-			cysqx.setXtrz("inline-block");
-			cysqx.setZhgl("inline-block");
+		int type;
+		Cysgly tempjbyh = (Cysgly) request.getSession().getAttribute("cysgly");
+		
+		if(tempjbyh!=null) {
+			if(tempjbyh.getHylx()==1) {
+				return "cys_grindex";
+			}else {
+				return "cys_cdindex";
+			}
+		}else {
+			type = jbyh.getYhlx();
+			jbyhServc.save(jbyh);
+			cys.setLxdh(jbyh.getYhsj());
+			cysgly.setLxdh(jbyh.getYhsj());
+			cysgly.setDlbh(0);
+			cys.setYhbh(jbyh.getYhbh());
+			cysgly.setYhbh(jbyh.getYhbh());
+			if(type==3){//如果用户是个人承运商
+				cys.setHylx(1);
+				cysgly.setHylx(1);
+			}else{//如果用户是运输车队承运商  默认赋予具有超级管理员的角色
+				cys.setHylx(2);
+				cysgly.setHylx(2);
+				cysgly.setCysbh(jbyh.getYhbh());
+				
+				cysjs.setYhbh(jbyh.getYhbh());
+				cysjs.setJsmc("超级管理员");
+				cysjsServc.save(cysjs);
+				
+				cysqx.setJsbh(cysjs.getId());
+				cysqx.setCdgl("inline-block");
+				cysqx.setJsgl("inline-block");
+				cysqx.setSycl("inline-block");
+				cysqx.setSyxl("inline-block");
+				cysqx.setSzbdld("inline-block");
+				cysqx.setSzdld("inline-block");
+				cysqx.setSzsydld("inline-block");
+				cysqx.setWdcl("inline-block");
+				cysqx.setWdxl("inline-block");
+				cysqx.setXtrz("inline-block");
+				cysqx.setZhgl("inline-block");
 
-			cysqxServc.save(cysqx);
-			cysgly.setJsbh(cysjs.getId());
+				cysqxServc.save(cysqx);
+				cysgly.setJsbh(cysjs.getId());
+			}
+			
+			cysServc.save(cys);
+			servc.save(cysgly);
+			ptzh.setYhbh(jbyh.getYhbh());
+			ptzh.setZhye(2000.0f);
+			bzj.setYhbh(jbyh.getYhbh());
+			bzj.setBzjje(0);
+			bzj.setKsqje(0);
+			bzj.setYsqje(0);
+			bzjServc.save(bzj);
+			ptzhServc.save(ptzh);
+
+			request.getSession().setAttribute("yhbh", jbyh.getYhbh());
+			request.getSession().setAttribute("jbyh", jbyh);
+			request.getSession().setAttribute("cysgly", cysgly);
+			model.addAttribute("cysqx",cysqx);
 		}
 		
-		cysServc.save(cys);
-		servc.save(cysgly);
-		ptzh.setYhbh(jbyh.getYhbh());
-		ptzh.setZhye(2000.0f);
-		bzj.setYhbh(jbyh.getYhbh());
-		bzj.setBzjje(0);
-		bzj.setKsqje(0);
-		bzj.setYsqje(0);
-		bzjServc.save(bzj);
-		ptzhServc.save(ptzh);
-
-		request.getSession().setAttribute("yhbh", jbyh.getYhbh());
-		request.getSession().setAttribute("jbyh", jbyh);
-		request.getSession().setAttribute("cysgly", cysgly);
-		model.addAttribute("cysqx",cysqx);
 		if(type==3){
 			return "cys_grindex";
 		}else{

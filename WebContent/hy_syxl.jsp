@@ -17,7 +17,7 @@
 <body style="padding-top:0px; padding-bottom:0px;">
 	<div id="tt" class="easyui-tabs" data-options="tools:'#tab-tools'" style="padding:0px;width:830px;height:637px;margin-left:-20px;margin-bottom:0px;">
 	<div title="所有线路">
-		<table id="dg" class="easyui-datagrid" style="width:820px;height:600px"
+		<table id="dg" class="easyui-datagrid" border="0" style="width:820px;height:600px"
 			data-options="singleSelect:true,url:'datagrid_data1.json',method:'get'">
 		<thead>
 			<tr>

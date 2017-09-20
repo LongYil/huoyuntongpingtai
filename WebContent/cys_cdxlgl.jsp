@@ -35,9 +35,9 @@
 <input type="hidden" value="${cdxlmc}" class="cdxlmc"/>
 </section>
 
-	<div id="tt" class="easyui-tabs" data-options="tools:'#tab-tools'" style="padding:0px;width:830px;height:620px;margin-left:-20px;margin-bottom:0px;">
+	<div id="tt" class="easyui-tabs" data-options="tools:'#tab-tools'" style="padding:0px;width:840px;height:580px;margin-left:-20px;margin-bottom:0px;">
 	<div title="所有线路">
-		<table id="dg" class="easyui-datagrid" title="运输线路" style="width:820px;height:567px"
+		<table id="dg" class="easyui-datagrid" border="0" title="运输线路" style="width:835px;height:545px"
 			data-options="singleSelect:true,url:'datagrid_data1.json',method:'get'">
 		<thead>
 			<tr>
@@ -87,7 +87,7 @@
 		index++;
 		$('#tt').tabs('add',{
 			title: '添加线路',
-			content: '<iframe src="cys_cdtjxl.jsp" frameborder="0" style="padding:5px;width:815px;height:500px;"></iframe>',
+			content: '<iframe src="cys_cdtjxl.jsp" frameborder="0" style="margin-left:10px;padding:5px;width:815px;height:500px;"></iframe>',
 			closable: true
 		});
 	}

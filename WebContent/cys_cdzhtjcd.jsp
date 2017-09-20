@@ -26,9 +26,9 @@
 </head>
 <body style="padding:0px;margin:0px;">
 
-	<div class="easyui-panel" style="width:100%;max-width:820px;max-height:600px;padding:10px 10px;">
-		<form id="ff" name="myform" action="${pageContext.request.contextPath}/yscd_jbyhAddCdToGly.action" class="easyui-form" method="post" data-options="novalidate:true">
-			<table id="dg" class="easyui-datagrid" style="width:785px;height:500px"
+	<div class="easyui-panel" style="width:100%;max-width:824px;max-height:530px;border:0px solid #fff;">
+		<form id="ff" name="myform" style="border:0px solid #fff;" action="${pageContext.request.contextPath}/yscd_jbyhAddCdToGly.action" class="easyui-form" method="post" data-options="novalidate:true">
+			<table id="dg" class="easyui-datagrid" border="0" style="width:820px;height:460px;"
 				data-options="singleSelect:true,url:'datagrid_data1.json',method:'get'">
 			<thead>
 				<tr>

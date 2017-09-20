@@ -101,7 +101,7 @@
 
 	<div data-options="region:'south',border:false" style="height:50px;background:#A9FACD;padding:10px;">south region</div>
 	<div data-options="region:'center',title:'我的桌面'">
-    	<iframe class="zhuomian" frameborder="0" style="width:839px;height:680px;">
+    	<iframe class="zhuomian" frameborder="0" style="width:840px;height:640px;margin:0px;pading:0px;">
         
         
 		

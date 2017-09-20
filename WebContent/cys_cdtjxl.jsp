@@ -25,7 +25,7 @@
 </head>
 <body style="padding:0px;margin:0px;">
 
-	<div class="easyui-panel" style="width:100%;max-width:810px;max-height:600px;padding:30px 60px;" title="添加线路">
+	<div class="easyui-panel" style="width:100%;max-width:810px;max-height:600px;padding:30px 60px;border:0px solid #ffffff;">
 		<form id="ff" name="myform" action="${pageContext.request.contextPath}/wlx_glySave.action" class="easyui-form" method="post" data-options="novalidate:true">
 			<div style="margin-bottom:20px"   id="area_address1">
 				<span class="tou">出发地址</span>

@@ -100,7 +100,7 @@
     </style>
 </head>
 <body style="padding:0px;margin:0px;">
-<div class="easyui-panel" style="width:100%;height:678px;max-width:830px;max-height:540px;">
+<div class="easyui-panel" style="width:100%;height:678px;max-width:830px;max-height:540px;border:0px solid #ffffff;">
     <div class="zhyediv" >
         <div class="zhyediv_header">
             	财务信息

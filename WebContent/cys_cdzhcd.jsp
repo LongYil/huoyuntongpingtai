@@ -33,9 +33,9 @@
 <input type="hidden" class="zhmc" value="${zhmc}"/>
 </section>
 
-	<div id="tt" class="easyui-tabs" data-options="tools:'#tab-tools'" style="padding:0px;width:835px;height:620px;margin-left:-20px;margin-bottom:0px;">
+	<div id="tt" class="easyui-tabs" data-options="tools:'#tab-tools'" style="padding:0px;width:840px;height:575px;margin-left:-20px;margin-bottom:0px;">
 	<div title="所有车队">
-		<table id="dg" class="easyui-datagrid" style="width:830px;height:580px"
+		<table id="dg" class="easyui-datagrid" border="0" style="width:835px;height:535px"
 			data-options="singleSelect:true,url:'datagrid_data1.json',method:'get'">
 		<thead>
 			<tr>
@@ -67,7 +67,7 @@
 			index++;
 			$('#tt').tabs('add',{
 				title: '添加车队',
-				content: '<iframe src="yscd_jbyhFindAllCd.action" frameborder="0" style="padding:5px;width:820px;height:575px;"></iframe>',
+				content: '<iframe src="yscd_jbyhFindAllCd.action" frameborder="0" style="padding:5px;width:825px;height:530px;"></iframe>',
 				closable: true
 			});
 		}

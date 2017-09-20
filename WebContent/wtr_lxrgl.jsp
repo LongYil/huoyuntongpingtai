@@ -21,7 +21,7 @@
 
 	<div id="tt" class="easyui-tabs" data-options="tools:'#tab-tools'" style="padding:0px;width:835px;height:620px;margin-left:-20px;margin-bottom:0px;">
 	<div title="所有联系人">
-		<table id="dg" class="easyui-datagrid" title="联系人" style="width:810px;height:590px"
+		<table id="dg" class="easyui-datagrid" border="0" title="联系人" style="width:810px;height:590px"
 			data-options="singleSelect:true,url:'datagrid_data1.json',method:'get'">
 		<thead>
 			<tr>

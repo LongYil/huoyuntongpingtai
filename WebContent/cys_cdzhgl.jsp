@@ -25,9 +25,9 @@
 <a href="javascript:void(0)" class="easyui-linkbutton" style="width:80px;" onclick="shuaxin()">刷新</a>
 </section>
 
-	<div id="tt" class="easyui-tabs" data-options="tools:'#tab-tools'" style="padding:0px;width:835px;height:620px;margin-left:-20px;margin-bottom:0px;">
+	<div id="tt" class="easyui-tabs" data-options="tools:'#tab-tools'" style="padding:0px;width:838px;height:580px;margin-left:-20px;margin-bottom:0px;">
 	<div title="所有帐号">
-		<table id="dg" class="easyui-datagrid" style="width:830px;height:580px"
+		<table id="dg" class="easyui-datagrid" border="0px" style="width:830px;height:540px"
 			data-options="singleSelect:true,url:'datagrid_data1.json',method:'get'">
 		<thead>
 			<tr>
@@ -65,8 +65,6 @@
 		</div>
 	</div>
 
-
-
 	<script type="text/javascript">
 		var index = 0;
 		function addPanel(){
@@ -85,7 +83,7 @@
 				window.location = "yscd_cysFindByGlyid.action?id="+id+"&mc="+mc;
 			}
 		}
-		
+
 		function shezhijuese(){
 			var row = $('#dg').datagrid('getSelected');
 			var id = row.id;

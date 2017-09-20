@@ -30,11 +30,11 @@
 <a href="javascript:void(0)" class="easyui-linkbutton" style="display:${cysqx.szsydld};width:130px;margin-right:20px;" onclick="suoyou()">设置所有账号代理点</a>
 </section>
 
-	<div id="tt" class="easyui-tabs" data-options="tools:'#tab-tools'" style="padding:0px;width:835px;height:620px;margin-left:-20px;margin-bottom:0px;">
+	<div id="tt" class="easyui-tabs" data-options="tools:'#tab-tools'" style="padding:0px;width:830px;height:570px;margin-left:-20px;margin-bottom:0px;">
 	<div title="本账号代理点" style="padding-top:30px;">
 		
 		<p><span>代理点名称:</span><span class="info">${hygly.gsmc}</span></p>
-		<p><span>代理点地址:</span><span class="info">${hygly.szsf}${hygly.szcs}${hygly.szx}${hygly.szjdh}</span></p>
+		<p><span>代理点地址:</span><span class="info">${hygly.szsf}${hygly.szcs}${hygly.szx}${hygly.xxdz}</span></p>
 		<p><span>代理点电话:</span><span class="info">${hygly.lxdh}</span></p>
 		<p><span>代理点邮箱:</span><span class="info">${hygly.yhyx }</span></p>
 		
@@ -45,7 +45,7 @@
 			index++;
 			$('#tt').tabs('add',{
 				title: '设置本账号代理点',
-				content: '<iframe src="hy_findAllDldb.action" frameborder="0" style="padding:5px;width:820px;height:500px;"></iframe>',
+				content: '<iframe src="hy_findAllDldb.action" frameborder="0" style="padding:5px;width:810px;height:500px;"></iframe>',
 				closable: true
 			});
 		}
@@ -54,7 +54,7 @@
 			index++;
 			$('#tt').tabs('add',{
 				title: '设置所有账号代理点',
-				content: '<iframe src="hy_findAllDldsy.action" frameborder="0" style="padding:5px;width:820px;height:500px;"></iframe>',
+				content: '<iframe src="hy_findAllDldsy.action" frameborder="0" style="padding:5px;width:810px;height:500px;"></iframe>',
 				closable: true
 			});
 		}		

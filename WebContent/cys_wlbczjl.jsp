@@ -19,7 +19,7 @@
 <body style="padding:0px;margin:0px;">
 
 	<div class="easyui-panel" style="width:100%;max-width:820px;max-height:560px;">
-		<table id="dg" class="easyui-datagrid" style="width:810px;height:525px"
+		<table id="dg" class="easyui-datagrid" border="0" style="width:810px;height:525px"
 			data-options="singleSelect:true,url:'datagrid_data1.json',method:'get'">
 		<thead>
 			<tr>
