@@ -1,5 +1,7 @@
 package cn.lyl.ssm.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,23 +22,32 @@ import cn.lyl.ssm.service.impl.PtyyfServc;
  */
 @Controller
 public class PtyyfController extends BasicController<PtyyfServc> {
-	@Autowired
-	Ptgly ptgly;
+	
 	@Autowired
 	private PtglyServc ptglyServc;
 	@Autowired
 	private JbyhServc jbyhServc;
 	
 	@RequestMapping("/ptyyf_save")
-	public String save(Jbyh jbyh,Ptyyf ptyyf){
+	public String save(Jbyh jbyh,Ptyyf ptyyf,Ptgly ptgly,HttpServletRequest request){
 		
-		ptyyf.setYhbh(jbyh.getYhbh());
-		ptgly.setGlybh(jbyh.getYhbh());
-		ptgly.setGlylx("超级管理员");
+		if(jbyh.getYhm()!=""&&jbyh.getYhm()!=null) {
+			jbyhServc.save(jbyh);
+			ptyyf.setYhbh(jbyh.getYhbh());
+			ptgly.setGlybh(jbyh.getYhbh());
+			ptgly.setYhbh(jbyh.getYhbh());
+			
+			ptgly.setGlylx(1);
+			servc.save(ptyyf);
+			ptglyServc.save(ptgly);
+
+			request.getSession().setAttribute("jbyh", jbyh);
+			request.getSession().setAttribute("ptgly", ptgly);
+			request.getSession().setAttribute("tempptgly", ptgly);
+		}else {
+			;
+		}
 		
-		jbyhServc.save(jbyh);
-		servc.save(ptyyf);
-		ptglyServc.save(ptgly);
-		return "pt_ptgly";
+		return "pt_index";
 	}
 }

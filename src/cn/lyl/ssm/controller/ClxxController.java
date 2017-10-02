@@ -40,16 +40,20 @@ public class ClxxController extends BasicController<ClxxServc> {
 	
 	@RequestMapping("/clxx_save")//个人车主保存车辆信息
 	public void save(Clxx clxx,HttpServletRequest request){
-		clxx.setYhbh(Integer.parseInt(request.getSession().getAttribute("yhbh").toString()));
+		cysgly = (Cysgly) request.getSession().getAttribute("cysgly");
+		clxx.setYhbh(cysgly.getYhbh());
+		clxx.setCysbh(cysgly.getCysbh());
 		servc.save(clxx);
 	}
 	
 	@RequestMapping("/clxx_gr_find")//个人车主查询车辆信息
 	public String find(Model model,HttpServletRequest request){
-		clxx = servc.find(request.getSession().getAttribute("yhbh").toString());
+		cysgly = (Cysgly) request.getSession().getAttribute("cysgly");
+		clxx = servc.find(String.valueOf(cysgly.getYhbh()));
 		model.addAttribute("clxx",clxx);
 		return "cys_grclgl";
 	}
+	
 	@RequestMapping("/clxx_glyFindById")//根据车队id查询该车队的所有车辆
 	public String glyFindById(String id,String mc,Model model,HttpServletRequest request){
 		listclxx.clear();
@@ -85,10 +89,21 @@ public class ClxxController extends BasicController<ClxxServc> {
 		servc.save(clxx);
 	}
 	
-	@RequestMapping("clxx_yhFindAll")
+	@RequestMapping("clxx_yhFindAll")//承运商用户查找所有车辆
 	public String yhFindAll(Model model,HttpServletRequest request){
+		cysgly = (Cysgly) request.getSession().getAttribute("cysgly");
 		listclxxvo.clear();
-		listclxxvo = servc.findByYhbh(request.getSession().getAttribute("yhbh").toString());
+		listclxxvo = servc.findByYhbh(String.valueOf(cysgly.getYhbh()));
+		model.addAttribute("listclxxvo",listclxxvo);
+		return "cys_cdsycl";
+	}
+	
+	@RequestMapping("clxx_glyFindAll")//承运商管理员查找所有车辆
+	public String glyFindAll(Model model,HttpServletRequest request){
+		cysgly = (Cysgly) request.getSession().getAttribute("cysgly");
+		
+		listclxxvo.clear();
+		listclxxvo = servc.findByGlybh(String.valueOf(cysgly.getCysbh()));
 		model.addAttribute("listclxxvo",listclxxvo);
 		return "cys_cdsycl";
 	}

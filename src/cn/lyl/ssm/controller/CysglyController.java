@@ -1,6 +1,5 @@
 package cn.lyl.ssm.controller;
 
-import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
@@ -8,7 +7,6 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,7 +27,9 @@ import cn.lyl.ssm.service.impl.CysjsServc;
 import cn.lyl.ssm.service.impl.CysqxServc;
 import cn.lyl.ssm.service.impl.JbyhServc;
 import cn.lyl.ssm.service.impl.PtzhServc;
+import cn.lyl.ssm.utils.AssembleCys;
 import cn.lyl.ssm.utils.AssembleCysgly;
+import cn.lyl.ssm.vo.CysVo;
 import cn.lyl.ssm.vo.CysglyVo;
 
 /**
@@ -64,6 +64,8 @@ public class CysglyController extends BasicController<CysglyServc> {
 	@Autowired
 	private AssembleCysgly assembleCysgly;
 	@Autowired
+	private AssembleCys assembleCys;
+	@Autowired
 	private Cysjs cysjs;
 	@Autowired
 	private CysjsServc cysjsServc;
@@ -71,19 +73,28 @@ public class CysglyController extends BasicController<CysglyServc> {
 	private Cysqx cysqx;
 	@Autowired
 	private CysqxServc cysqxServc;
-	
+
 	private List<Cysgly> listgly = new ArrayList<Cysgly>();
+	private List<Cys> listcys = new ArrayList<Cys>();
 	private List<Jbyh> listjbyh = new ArrayList<Jbyh>();
 	private List<CysglyVo> listvo = new ArrayList<CysglyVo>();
-
+	private List<CysVo> listcysvo = new ArrayList<CysVo>();
+	
 	//承运商的保存方法
-	@RequestMapping("/cysgly_save")
+	@RequestMapping("cysgly_save")
 	public String save(Model model,Jbyh jbyh,Cys cys,Cysgly cysgly,HttpServletRequest request){
 		int type;
-		Cysgly tempjbyh = (Cysgly) request.getSession().getAttribute("cysgly");
+		boolean tempflag = false;
 		
-		if(tempjbyh!=null) {
-			if(tempjbyh.getHylx()==1) {
+		if(jbyh.getYhm()==null) {
+			tempflag = true;
+			tempcysgly = (Cysgly) request.getSession().getAttribute("tempcysgly");
+		}else {
+			;
+		}
+		
+		if(tempflag) {
+			if(tempcysgly.getHylx()==1) {
 				return "cys_grindex";
 			}else {
 				return "cys_cdindex";
@@ -118,6 +129,7 @@ public class CysglyController extends BasicController<CysglyServc> {
 				cysqx.setSzsydld("inline-block");
 				cysqx.setWdcl("inline-block");
 				cysqx.setWdxl("inline-block");
+				cysqx.setWdcd("inline-block");
 				cysqx.setXtrz("inline-block");
 				cysqx.setZhgl("inline-block");
 
@@ -139,6 +151,7 @@ public class CysglyController extends BasicController<CysglyServc> {
 			request.getSession().setAttribute("yhbh", jbyh.getYhbh());
 			request.getSession().setAttribute("jbyh", jbyh);
 			request.getSession().setAttribute("cysgly", cysgly);
+			request.getSession().setAttribute("tempcysgly", cysgly);
 			model.addAttribute("cysqx",cysqx);
 		}
 		
@@ -149,7 +162,7 @@ public class CysglyController extends BasicController<CysglyServc> {
 		}
 		
 	}
-	@RequestMapping("/cys_updategly")
+	@RequestMapping("cys_updategly")
 	public String updategly(String[] info,HttpServletRequest request) throws Exception{
 		jbyh = jbyhServc.find(request.getSession().getAttribute("yhbh").toString());
 		cysgly = servc.find(request.getSession().getAttribute("yhbh").toString());
@@ -166,7 +179,7 @@ public class CysglyController extends BasicController<CysglyServc> {
 		return "redirect:cys_findCysInfo.action";
 	}
 	//查询承运商信息
-	@RequestMapping("/cys_findCysInfo")
+	@RequestMapping("cys_findCysInfo")
 	public String findCysInfo(Model model,String yhbh,HttpServletRequest request) throws Exception{
 		jbyh = (Jbyh) request.getSession().getAttribute("jbyh");
 		cysgly = servc.find(request.getSession().getAttribute("yhbh").toString());
@@ -174,14 +187,14 @@ public class CysglyController extends BasicController<CysglyServc> {
 		model.addAttribute("cysgly",cysgly);
 		return "cys_grjbxx";
 	}
-	@RequestMapping("/cys_findCysZhxx")
+	@RequestMapping("cys_findCysZhxx")
 	public String findCysZhxx(Model model,HttpServletRequest request){
 		jbyh = (Jbyh) request.getSession().getAttribute("jbyh");
 		model.addAttribute("jbyh",jbyh);
 		return "cys_zhxx";
 	}
 	
-	@RequestMapping("/cys_addGly")
+	@RequestMapping("cys_addGly")
 	public void addGly(Jbyh jbyh,Cysgly cysgly,HttpServletRequest request){
 		tempcysgly = (Cysgly) request.getSession().getAttribute("cysgly");
 		jbyhServc.save(jbyh);
@@ -192,8 +205,9 @@ public class CysglyController extends BasicController<CysglyServc> {
 		cysgly.setYhbh(tempcysgly.getYhbh());
 		servc.save(cysgly);
 	}
+	
 	//查询所有管理员
-	@RequestMapping("/cys_findAllGly")
+	@RequestMapping("cys_findAllGly")
 	public String findAllGly(Model model,HttpServletRequest request) throws Exception{
 		tempcysgly = (Cysgly) request.getSession().getAttribute("cysgly");
 		
@@ -293,6 +307,32 @@ public class CysglyController extends BasicController<CysglyServc> {
 			out.write(job.toString());
 			out.flush();
 			out.close();
+	}
+
+	//平台管理员查找所有承运商
+	@RequestMapping("cys_findAll")
+	public String ptFindAll(Model model) {
+		listcys.clear();
+		listcysvo.clear();
+		
+		listcys = servc.ptFindAll();
+		listcysvo = assembleCys.getCysVo(listcys);
+		
+		model.addAttribute("listcysvo",listcysvo);
+		return "pt_sycys";
+	}
+	
+	@RequestMapping("cys_ptFindCysgly")
+	public String ptFindCysgly(Model model,String id,String mc) throws Exception {
+		listgly.clear();
+		listjbyh.clear();
+		listvo.clear();
+		listgly = servc.findAll(id);
+		listjbyh = jbyhServc.findAllGly(listgly);
+		listvo = assembleCysgly.getAllVo(listjbyh, listgly);
+		model.addAttribute("listvo", listvo);
+		model.addAttribute("cysmc",mc);
+		return "pt_syzcys";
 	}
 	
 }

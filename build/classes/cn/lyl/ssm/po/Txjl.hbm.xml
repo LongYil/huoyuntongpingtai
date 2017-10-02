@@ -13,13 +13,7 @@
 		<property name="fqsj"/>
 		<property name="txje"/>
 		<property name="txzt"/>
-		<property name="tgsj"/>
-		<property name="kz1"/>
-		<property name="kz2"/>
-		<property name="kz3" length="150"/>
-		<property name="kz4" length="150"/>
-		<property name="kz5" length="150"/>
-		
+		<property name="tgsj"/>		
 	</class>
 
 </hibernate-mapping>

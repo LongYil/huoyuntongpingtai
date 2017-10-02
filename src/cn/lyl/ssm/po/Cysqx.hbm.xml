@@ -17,6 +17,7 @@
 		<property name="xtrz" length="150"/>
 		<property name="wdxl" length="150"/>
 		<property name="wdcl" length="150"/>
+		<property name="wdcd" length="150"/>
 		<property name="syxl" length="150"/>
 		<property name="sycl" length="150"/>
 		<property name="szbdld" length="150"/>

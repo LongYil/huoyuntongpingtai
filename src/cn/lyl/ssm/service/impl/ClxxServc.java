@@ -41,10 +41,15 @@ public class ClxxServc extends CommonSevc<Clxx, ClxxDaoImpl>{
 	public List<Clxx> findByCdid(String arg) {
 		return daoImpl.findByCdid(arg);
 	}
+	
 	public List<ClxxVo> findByYhbh(String arg){
 		return daoImpl.findByYhbh(arg);
 	}
-
+    
+	public List<ClxxVo> findByGlybh(String arg){
+		return daoImpl.findByGlybh(arg);
+	}
+	
 	@Override
 	public void delete(Clxx arg) {
 		//

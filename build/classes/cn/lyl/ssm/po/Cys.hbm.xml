@@ -15,14 +15,8 @@
 		<property name="gsmc" length="150"/>
 		<property name="lxdh" length="150"/>
 		<property name="szsf" length="150"/>
+		<property name="szcs" length="150"/>
 		<property name="szx" length="150"/>
-		<property name="szjdh" length="150"/>
-		<property name="kz1"/>
-		<property name="kz2"/>
-		<property name="kz3" length="150"/>
-		<property name="kz4" length="150"/>
-		<property name="kz5" length="150"/>
-		
 	</class>
 
 </hibernate-mapping>

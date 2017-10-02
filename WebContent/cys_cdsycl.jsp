@@ -25,9 +25,9 @@
 <!-- <a href="javascript:void(0)" class="easyui-linkbutton" style="width:80px;margin-right:20px;" onclick="addPanel()">添加车辆</a> -->
 <a href="javascript:void(0)" class="easyui-linkbutton" style="width:80px;margin-right:20px;" onclick="shuaxin()">刷新</a>
 </section>
-	<div id="tt" class="easyui-tabs" data-options="tools:'#tab-tools'" style="padding:0px;width:835px;height:620px;margin-left:-20px;margin-bottom:0px;">
+	<div id="tt" class="easyui-tabs" data-options="tools:'#tab-tools'" style="padding:0px;width:840px;height:580px;margin-left:-20px;margin-bottom:0px;">
 	<div title="所有车辆">
-		<table id="dg" class="easyui-datagrid" border="0" title="车辆信息" style="width:828px;height:570px"
+		<table id="dg" class="easyui-datagrid" border="0" title="车辆信息" style="width:835px;height:540px"
 			data-options="singleSelect:true,url:'datagrid_data1.json',method:'get'">
 		<thead>
 			<tr>

@@ -19,12 +19,6 @@ public class Jbyh {
 	private String yhmm;//用户密码
 	private Integer yhlx;//用户类型
 	private String yhsj;//用户手机号
-	private Integer kz1;
-	private Integer kz2;
-	private String kz3;
-	private String kz4;
-	private String kz5;
-	
 	public Integer getYhbh() {
 		return yhbh;
 	}
@@ -61,35 +55,6 @@ public class Jbyh {
 	public void setYhsj(String yhsj) {
 		this.yhsj = yhsj;
 	}
-	public Integer getKz1() {
-		return kz1;
-	}
-	public void setKz1(Integer kz1) {
-		this.kz1 = kz1;
-	}
-	public Integer getKz2() {
-		return kz2;
-	}
-	public void setKz2(Integer kz2) {
-		this.kz2 = kz2;
-	}
-	public String getKz3() {
-		return kz3;
-	}
-	public void setKz3(String kz3) {
-		this.kz3 = kz3;
-	}
-	public String getKz4() {
-		return kz4;
-	}
-	public void setKz4(String kz4) {
-		this.kz4 = kz4;
-	}
-	public String getKz5() {
-		return kz5;
-	}
-	public void setKz5(String kz5) {
-		this.kz5 = kz5;
-	}
+
 	
 }

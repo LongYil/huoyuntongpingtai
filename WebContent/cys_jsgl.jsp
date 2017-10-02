@@ -28,9 +28,9 @@
 <a href="javascript:void(0)" class="easyui-linkbutton" style="width:80px;margin-right:20px;" onclick="shuaxin()">刷新</a>
 </section>
 
-	<div id="tt" class="easyui-tabs" data-options="tools:'#tab-tools'" style="padding:0px;width:830px;height:500px;margin-left:-20px;margin-bottom:0px;">
+	<div id="tt" class="easyui-tabs" data-options="tools:'#tab-tools'" style="padding:0px;width:840px;height:580px;margin-left:-20px;margin-bottom:0px;">
 	<div title="所有角色">
-		<table id="dg" class="easyui-datagrid" border="0" title="角色信息" style="width:820px;height:500px"
+		<table id="dg" class="easyui-datagrid" border="0" title="角色信息" style="width:835px;height:540px"
 			data-options="singleSelect:true,url:'datagrid_data1.json',method:'get'">
 		<thead>
 			<tr>
@@ -42,6 +42,7 @@
 				<th data-options="field:'f',width:80,align:'center'">车队管理</th>
 				<th data-options="field:'g',width:80,align:'center'">角色管理</th>
 				<th data-options="field:'h',width:80,align:'center'">系统日志</th>
+				<th data-options="field:'o',width:80,align:'center'">我的车队</th>
 				<th data-options="field:'i',width:80,align:'center'">我的线路</th>
 				<th data-options="field:'j',width:80,align:'center'">我的车辆</th>
 				<th data-options="field:'k',width:80,align:'center'">所有线路</th>
@@ -62,6 +63,7 @@
 					<td>${item.cysqx.cdgl}权限</td>
 					<td>${item.cysqx.jsgl}权限</td>
 					<td>${item.cysqx.xtrz}权限</td>
+					<td>${item.cysqx.wdcd}权限</td>
 					<td>${item.cysqx.wdxl}权限</td>
 					<td>${item.cysqx.wdcl}权限</td>
 					<td>${item.cysqx.syxl}权限</td>

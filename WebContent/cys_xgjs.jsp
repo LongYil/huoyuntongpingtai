@@ -31,8 +31,8 @@
 				<input class="easyui-textbox" name="jsmc" value="${cysjsVo.jsmc}" style="width:35%" data-options="label:'角色名称',required:true">
 			</div>
 			<div style="margin-bottom:20px">
-				<span class="tou">帐号管理</span>
-				<select  class="mycombox" name="zhgl" style="width:10%">
+				<span class="tou">我的车队</span>
+				<select  class="mycombox" name="wdcd" style="width:10%">
 					<option value="inline-block">可用</option>
 					<option value="none">不可用</option>
 				</select>
@@ -82,6 +82,11 @@
 				</select>								
 			</div>
 			<div style="margin-bottom:20px">
+				<span class="tou">帐号管理</span>
+				<select  class="mycombox" name="zhgl" style="width:10%">
+					<option value="inline-block">可用</option>
+					<option value="none">不可用</option>
+				</select>			
 				<span class="tou">设置本帐号代理点</span>
 				<select  class="mycombox" name="szbdld" style="width:10%">
 					<option value="inline-block">可用</option>

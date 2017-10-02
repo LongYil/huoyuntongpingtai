@@ -28,9 +28,9 @@
 <input type="hidden" value="${zhmc}" class="zhmc"/>
 </section>
 
-	<div id="tt" class="easyui-tabs" data-options="tools:'#tab-tools'" style="padding:0px;width:835px;height:610px;margin-left:-20px;margin-bottom:0px;">
+	<div id="tt" class="easyui-tabs" data-options="tools:'#tab-tools'" style="padding:0px;width:830px;height:580px;margin-left:-20px;margin-bottom:0px;">
 	<div title="所有车辆">
-		<table id="dg" class="easyui-datagrid" border="0" title="车辆信息" style="width:1040px;height:560px"
+		<table id="dg" class="easyui-datagrid" border="0" title="车辆信息" style="width:820px;height:540px"
 			data-options="singleSelect:true,url:'datagrid_data1.json',method:'get'">
 		<thead>
 			<tr>

@@ -113,6 +113,11 @@ public class YscdDaoImpl extends CommonDaoImpl<Yscd> implements YscdDao{
 		}
 		return listvo;
 	}
+
+	@Override
+	public List<Yscd> cysglyFindAll(String arg) {
+		return (List<Yscd>) ht.find("from Yscd where cysbh = "+arg+"");
+	}
 	
 	
 	

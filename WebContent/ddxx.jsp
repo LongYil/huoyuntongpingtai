@@ -24,7 +24,6 @@
 				<th data-options="field:'c',width:80,align:'center'" hidden="hidden">发货代理点编号</th>
 				<th data-options="field:'b',width:80,align:'center'" hidden="hidden">收货代理点编号</th>
 				<th data-options="field:'e',width:80,align:'center'" hidden="hidden">承运商编号</th>
-				<th data-options="field:'f',width:80,align:'center'">订单状态</th>
 				<th data-options="field:'g',width:100,align:'center'">货物名称</th>
 				<th data-options="field:'i',width:200,align:'center'">出发地址</th>
 				<th data-options="field:'j',width:200,align:'center'">到达地址</th>
@@ -51,7 +50,6 @@
 					<td hidden="hidden">${item.fhdld}</td>
 					<td hidden="hidden">${item.shdld}</td>
 					<td hidden="hidden">${item.cys}</td>
-					<td>${item.ddzt}</td>
 					<td>${item.hwmc}</td>
 					<td>${item.cfsf}${item.cfcs}${item.cfx}${item.cfjd}</td>
 					<td>${item.ddsf}${item.ddcs}${item.ddx}${item.ddjd}</td>

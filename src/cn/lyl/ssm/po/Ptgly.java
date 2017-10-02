@@ -14,97 +14,74 @@ import org.springframework.stereotype.Component;
 @Scope(value="prototype")
 public class Ptgly {
 	private Integer id;//序号
+	private Integer yhbh;//用户编号
 	private Integer glybh;//管理员编号
-	private String glylx;//管理员类型
-	private Integer glyjs;//管理员角色
-	private Integer kz1;
-	private Integer kz2;
-	private String kz3;
-	private String kz4;
-	private String kz5;
-	
-	//在平台管理员里面表示所属的平台运营方，一个平台管理员只能属于一个平台运营方
-	private Ptyyf ptyyf;
-
+	private Integer glylx;//管理员类型 1：超级管理员  2：管理员
+	private String gsmc;//公司名称
+	private String gssf;//公司省份
+	private String gscs;//公司城市
+	private String gsx;//公司县
+	private String xxdz;//详细地址
+	private String yhyx;//用户邮箱
 	public Integer getId() {
 		return id;
 	}
-
 	public void setId(Integer id) {
 		this.id = id;
 	}
-
+	public Integer getYhbh() {
+		return yhbh;
+	}
+	public void setYhbh(Integer yhbh) {
+		this.yhbh = yhbh;
+	}
 	public Integer getGlybh() {
 		return glybh;
 	}
-
 	public void setGlybh(Integer glybh) {
 		this.glybh = glybh;
 	}
-
-	public String getGlylx() {
+	public Integer getGlylx() {
 		return glylx;
 	}
-
-	public void setGlylx(String glylx) {
+	public void setGlylx(Integer glylx) {
 		this.glylx = glylx;
 	}
-
-	public Integer getGlyjs() {
-		return glyjs;
+	public String getGsmc() {
+		return gsmc;
 	}
-
-	public void setGlyjs(Integer glyjs) {
-		this.glyjs = glyjs;
+	public void setGsmc(String gsmc) {
+		this.gsmc = gsmc;
 	}
-
-	public Integer getKz1() {
-		return kz1;
+	public String getGssf() {
+		return gssf;
 	}
-
-	public void setKz1(Integer kz1) {
-		this.kz1 = kz1;
+	public void setGssf(String gssf) {
+		this.gssf = gssf;
 	}
-
-	public Integer getKz2() {
-		return kz2;
+	public String getGscs() {
+		return gscs;
 	}
-
-	public void setKz2(Integer kz2) {
-		this.kz2 = kz2;
+	public void setGscs(String gscs) {
+		this.gscs = gscs;
 	}
-
-	public String getKz3() {
-		return kz3;
+	public String getGsx() {
+		return gsx;
 	}
-
-	public void setKz3(String kz3) {
-		this.kz3 = kz3;
+	public void setGsx(String gsx) {
+		this.gsx = gsx;
 	}
-
-	public String getKz4() {
-		return kz4;
+	public String getXxdz() {
+		return xxdz;
 	}
-
-	public void setKz4(String kz4) {
-		this.kz4 = kz4;
+	public void setXxdz(String xxdz) {
+		this.xxdz = xxdz;
 	}
-
-	public String getKz5() {
-		return kz5;
+	public String getYhyx() {
+		return yhyx;
 	}
-
-	public void setKz5(String kz5) {
-		this.kz5 = kz5;
+	public void setYhyx(String yhyx) {
+		this.yhyx = yhyx;
 	}
-
-	public Ptyyf getPtyyf() {
-		return ptyyf;
-	}
-
-	public void setPtyyf(Ptyyf ptyyf) {
-		this.ptyyf = ptyyf;
-	}
-
 
 }

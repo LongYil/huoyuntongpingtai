@@ -12,13 +12,7 @@
 		<property name="yhbh"/>
 		<property name="ckrxm" length="150"/>
 		<property name="yhlx" length="150"/>
-		<property name="yhzh" length="150"/>
-		<property name="kz1"/>
-		<property name="kz2"/>
-		<property name="kz3" length="150"/>
-		<property name="kz4" length="150"/>
-		<property name="kz5" length="150"/>
-		
+		<property name="yhzh" length="150"/>		
 	</class>
 
 </hibernate-mapping>

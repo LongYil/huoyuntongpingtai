@@ -10,13 +10,7 @@
 			<generator class="native"></generator>
 		</id>
 		<property name="yhbh"/>
-		<property name="zhye"/>		
-		<property name="kz1"/>
-		<property name="kz2"/>
-		<property name="kz3" length="150"/>
-		<property name="kz4" length="150"/>
-		<property name="kz5" length="150"/>
-		
+		<property name="zhye"/>			
 	</class>
 
 </hibernate-mapping>

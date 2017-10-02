@@ -1,6 +1,7 @@
 package cn.lyl.ssm.controller;
 
 import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -49,6 +50,8 @@ public class HyglyController extends BasicController<HyglyServc> {
 	@Autowired
 	private Hygly hygly;
 	@Autowired
+	private Hygly temphygly;
+	@Autowired
 	private Bzj bzj;
 	@Autowired
 	private BzjServc bzjServc;
@@ -78,12 +81,14 @@ public class HyglyController extends BasicController<HyglyServc> {
 	
 	@RequestMapping("/hy_save")//货运代理点用户注册方法
 	public String save(Model model,Jbyh jbyh,Hydld hydld,Hygly hygly,HttpServletRequest request){
-		boolean temp = false;
-		try{
-			String info = request.getSession().getAttribute("jbyh").toString();
-		}catch(Exception e){
-			temp = true;
+		boolean temp = true;
+
+		if(jbyh.getYhm()==null) {
+			temp = false;
+		}else {
+			;
 		}
+		
 		if(temp){
 			jbyhServc.save(jbyh);
 			bzj.setYhbh(jbyh.getYhbh());

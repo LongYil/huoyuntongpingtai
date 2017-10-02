@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import cn.lyl.ssm.dao.CysglyDao;
+import cn.lyl.ssm.po.Cys;
 import cn.lyl.ssm.po.Cysgly;
 
 @Component(value="cysglyDao")
@@ -56,6 +57,12 @@ public class CysglyDaoImpl extends CommonDaoImpl<Cysgly> implements CysglyDao {
 	public List<Cysgly> findByHyglyid(String arg) {//根据代理点id查找承运商
 		return (List<Cysgly>) ht.find("from Cysgly where dlbh = "+arg+"");
 	}
+
+	@Override
+	public List<Cys> ptFindAll() {
+		return (List<Cys>) ht.find("from Cys");
+	}
+	
 	
 	
 	

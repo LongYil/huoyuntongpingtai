@@ -8,4 +8,5 @@ import cn.lyl.ssm.vo.ClxxVo;
 public interface ClxxDao {
 	List<Clxx> findByCdid(String arg);
 	List<ClxxVo> findByYhbh(String arg);
+	List<ClxxVo> findByGlybh(String arg);
 }

@@ -16,11 +16,6 @@
 		<property name="yhx" length="100"/>
 		<property name="yhbz" length="100"/>
 		<property name="yhyx" length="100"/>
-		<property name="kz1"/>
-		<property name="kz2"/>
-		<property name="kz3" length="150"/>
-		<property name="kz4" length="150"/>
-		<property name="kz5" length="150"/>
 	</class>
 
 </hibernate-mapping>

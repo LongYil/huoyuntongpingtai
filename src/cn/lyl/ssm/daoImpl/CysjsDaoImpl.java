@@ -81,6 +81,7 @@ public class CysjsDaoImpl extends CommonDaoImpl<Cysjs> implements CysjsDao{
 			cysjsVo.getCysqx().setSycl(Q.G(cysqx.getSycl()));
 			cysjsVo.getCysqx().setSzbdld(Q.G(cysqx.getSzbdld()));
 			cysjsVo.getCysqx().setSzsydld(Q.G(cysqx.getSzsydld()));
+			cysjsVo.getCysqx().setWdcd(Q.G(cysqx.getWdcd()));
 			
 			listvo.add(cysjsVo);
 		}

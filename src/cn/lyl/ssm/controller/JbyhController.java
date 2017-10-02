@@ -11,10 +11,12 @@ import cn.lyl.ssm.po.Cysgly;
 import cn.lyl.ssm.po.Cysqx;
 import cn.lyl.ssm.po.Hygly;
 import cn.lyl.ssm.po.Jbyh;
+import cn.lyl.ssm.po.Ptgly;
 import cn.lyl.ssm.service.impl.CysglyServc;
 import cn.lyl.ssm.service.impl.CysqxServc;
 import cn.lyl.ssm.service.impl.HyglyServc;
 import cn.lyl.ssm.service.impl.JbyhServc;
+import cn.lyl.ssm.service.impl.PtglyServc;
 
 /**
  * <p>Title:JbyhController</p>
@@ -40,18 +42,26 @@ public class JbyhController extends BasicController<JbyhServc> {
 	private Hygly hygly;
 	@Autowired
 	private HyglyServc hyglyServc;
-	
+	@Autowired
+	private Ptgly ptgly;
+	@Autowired
+	private PtglyServc ptglyServc;
 	
 	@RequestMapping("/jbyh_login")
 	public String login(Model model,Jbyh jbyh,HttpServletRequest request) throws Exception{
+		request.getSession().invalidate();	
 		int[] info = servc.login(jbyh);
 		this.jbyh = servc.find(String.valueOf(info[1]));
-		model.addAttribute("jbyh", this.jbyh);
+		model.addAttribute("jbyh",this.jbyh);
 		request.getSession().setAttribute("jbyh", this.jbyh);
 		request.getSession().setAttribute("yhbh", info[1]);
 		switch(info[0]){
 		case 1:
-			return "pt_ptgly";
+			ptgly = ptglyServc.find(String.valueOf(this.jbyh.getYhbh()));
+			request.getSession().setAttribute("ptgly", ptgly);
+			request.getSession().setAttribute("tempptgly", ptgly);
+			System.out.println(ptgly);
+			return "pt_index";
 		case 2:
 			return "wtr_index";
 		case 3:
@@ -61,12 +71,14 @@ public class JbyhController extends BasicController<JbyhServc> {
 			request.getSession().setAttribute("cysgly",cysgly);
 			cysqx = cysqxServc.find(String.valueOf(cysgly.getJsbh()));
 			model.addAttribute("cysqx",cysqx);
+			
 			return "cys_cdindex";
 		case 5:
 			cysgly = cysglyServc.find(String.valueOf(info[1]));
 			request.getSession().setAttribute("cysgly",cysgly);
 			cysqx = cysqxServc.find(String.valueOf(cysgly.getJsbh()));
 			model.addAttribute("cysqx",cysqx);
+			
 			return "cys_cdindex";
 		case 6:
 			hygly = hyglyServc.find(String.valueOf(info[1]));
@@ -74,7 +86,6 @@ public class JbyhController extends BasicController<JbyhServc> {
 			return "hy_index";
 		default:
 			return "success";
-			
 		}
 	}
 	

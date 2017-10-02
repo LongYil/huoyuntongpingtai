@@ -22,6 +22,7 @@ public class Cysqx {
 	private String xtrz;//系统日志
 	private String wdxl;//我的线路
 	private String wdcl;//我的车辆
+	private String wdcd;//我的车队
 	private String syxl;//所有线路
 	private String sycl;//所有车辆
 	private String szbdld;//设置本帐号代理点
@@ -104,6 +105,12 @@ public class Cysqx {
 	}
 	public void setSzsydld(String szsydld) {
 		this.szsydld = szsydld;
+	}
+	public String getWdcd() {
+		return wdcd;
+	}
+	public void setWdcd(String wdcd) {
+		this.wdcd = wdcd;
 	}
 
 }

@@ -19,21 +19,27 @@ public class PtglyServc extends CommonSevc<Ptgly, PtglyDaoImpl> {
 	}
 
 	@Override
-	public Ptgly find(String arg) {
-		//
-		return null;
+	public Ptgly find(String arg) throws Exception {
+		return daoImpl.find(arg);
 	}
 
 	@Override
 	public List<Ptgly> findAll(String arg) {
-		//
-		return null;
+		return daoImpl.findAll(arg);
 	}
 
 	@Override
 	public void delete(Ptgly arg) {
-		//
-		
+		daoImpl.delete(arg);		
 	}
-
+	
+	public void update(Ptgly arg) {
+		daoImpl.update(arg);
+	}
+	
+	public Ptgly findById(String arg) {
+		return daoImpl.findById(arg);
+	}
+	
+	
 }

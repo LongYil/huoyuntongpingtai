@@ -18,7 +18,7 @@
 </head>
 <body style="padding:0px;margin:0px;">
 
-	<div class="easyui-panel" style="width:100%;max-width:820px;max-height:570px;">
+	<div class="easyui-panel" style="width:100%;max-width:820px;max-height:570px;border:0px solid #ffffff;">
 		<table id="dg" class="easyui-datagrid" border="0" style="width:810px;height:520px"
 			data-options="singleSelect:true,url:'datagrid_data1.json',method:'get'">
 		<thead>

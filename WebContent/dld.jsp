@@ -35,7 +35,7 @@
 			</c:if>
 			<c:if test="${hygly.gsmc!=''}">
 				<p><span>代理点名称:</span><span class="info">${hygly.gsmc}</span></p>
-				<p><span>代理点地址:</span><span class="info">${hygly.szsf}${hygly.szcs}${hygly.szx}${hygly.szjdh}</span></p>
+				<p><span>代理点地址:</span><span class="info">${hygly.szsf}${hygly.szcs}${hygly.szx}${hygly.xxdz}</span></p>
 				<p><span>代理点电话:</span><span class="info">${hygly.lxdh}</span></p>
 				<p><span>代理点邮箱:</span><span class="info">${hygly.yhyx }</span></p>		
 			</c:if>

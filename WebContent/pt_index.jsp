@@ -31,16 +31,43 @@
             </li>
             </dl>
 			<ul class="menu1">
-				<li><a href="javascript:void(0)"><img src="js/basic/icon/jibenxinxi.png" class="itemicon">基本信息</a></li>
-                <li><a href="javascript:void(0)"><img src="js/basic/icon/zhanghaoguanli.png" class="itemicon">帐号管理</a></li>
-				<li><a href="javascript:void(0)"><img src="js/basic/icon/zhanghuguanli.png" class="itemicon">账户管理</a></li>
+				<li><a href="javascript:void(0)" onClick="To('pt_findPtglyInfo.action')"><img src="js/basic/icon/jibenxinxi.png" class="itemicon">基本信息</a></li>
+                <li><a href="javascript:void(0)" onClick="To('pt_findAll.action')"><img src="js/basic/icon/zhanghaoguanli.png" class="itemicon">帐号管理</a></li>
+				<li><a href="javascript:void(0)" onClick="To('#')"><img src="js/basic/icon/zhanghuguanli.png" class="itemicon">账户管理</a></li>
 			</ul>
 		</li>
- 
+
 		<li class="fatheritem">
         	<dl class="biaotia2">
             <li style="background-color:#dce8f3;">
             <a href="javascript:void(0)" ><img src="js/basic/caidanicon.png" class="menuicon">会员管理</a>
+            </li>
+            </dl>
+			<ul class="menu1">
+				<li><a href="javascript:void(0)"  onClick="To('cys_findAll.action')"><img src="js/basic/icon/chengyunshang.png" class="itemicon">承运商</a></li>
+                <li><a href="javascript:void(0)"><img src="js/basic/icon/huoyundailidian.png" class="itemicon">货运代理点</a></li>
+                <li><a href="javascript:void(0)"><img src="js/basic/icon/weituoren.png" class="itemicon">委托人</a></li>
+			</ul>
+		</li>
+		
+		<li class="fatheritem">
+        	<dl class="biaotia2">
+            <li style="background-color:#dce8f3;">
+            <a href="javascript:void(0)" ><img src="js/basic/caidanicon.png" class="menuicon">订单处理</a>
+            </li>
+            </dl>
+			<ul class="menu1">
+				<li><a href="javascript:void(0)"><img src="js/basic/icon/chengyunshang.png" class="itemicon">申诉订单</a></li>
+                <li><a href="javascript:void(0)"><img src="js/basic/icon/huoyundailidian.png" class="itemicon">货运代理点</a></li>
+                <li><a href="javascript:void(0)"><img src="js/basic/icon/weituoren.png" class="itemicon">委托人</a></li>
+			</ul>
+		</li>
+		
+
+		<li class="fatheritem">
+        	<dl class="biaotia2">
+            <li style="background-color:#dce8f3;">
+            <a href="javascript:void(0)" ><img src="js/basic/caidanicon.png" class="menuicon">财务管理</a>
             </li>
             </dl>
 			<ul class="menu1">
@@ -69,15 +96,19 @@
 
 	<div data-options="region:'south',border:false" style="height:50px;background:#A9FACD;padding:10px;">south region</div>
 	<div data-options="region:'center',title:'我的桌面'">
-    	<iframe class="zhuomian" frameborder="0">
+    	<iframe class="zhuomian" frameborder="0" style="width:840px;height:640px;margin:0px;pading:0px;">
         
         
-        
-        </iframe>    
+		
+        </iframe>
     </div>
 
 </body>
 <script>
+
+function To(url){
+	$(".zhuomian").attr("src",url);
+}
 
 $(function m(){
 	$(".biaotia1").nextAll().hide();

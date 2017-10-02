@@ -21,12 +21,6 @@ public class Jyjl {
 	private Integer jyzt;//交易状态   1：申请已发起；2：交易成功；3：交易失败
 	private String jyrxm;//交易人姓名（此字段仅在用户申请充值物流币时使用）
 	private String jyrid;//交易人身份证号（此字段仅在用户申请充值物流币时使用）
-	private Integer kz1;
-	private Integer kz2;
-	private String kz3;
-	private String kz4;
-	private String kz5;
-	
 	public Integer getId() {
 		return id;
 	}
@@ -62,36 +56,6 @@ public class Jyjl {
 	}
 	public void setJyzt(Integer jyzt) {
 		this.jyzt = jyzt;
-	}
-	public Integer getKz1() {
-		return kz1;
-	}
-	public void setKz1(Integer kz1) {
-		this.kz1 = kz1;
-	}
-	public Integer getKz2() {
-		return kz2;
-	}
-	public void setKz2(Integer kz2) {
-		this.kz2 = kz2;
-	}
-	public String getKz3() {
-		return kz3;
-	}
-	public void setKz3(String kz3) {
-		this.kz3 = kz3;
-	}
-	public String getKz4() {
-		return kz4;
-	}
-	public void setKz4(String kz4) {
-		this.kz4 = kz4;
-	}
-	public String getKz5() {
-		return kz5;
-	}
-	public void setKz5(String kz5) {
-		this.kz5 = kz5;
 	}
 	public String getJyrxm() {
 		return jyrxm;

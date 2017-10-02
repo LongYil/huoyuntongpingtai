@@ -47,7 +47,7 @@
 				<th data-options="field:'f',width:80,align:'center'">车辆长度</th>
 				<th data-options="field:'g',width:80,align:'center'">车辆宽度</th>
 				<th data-options="field:'h',width:80,align:'center'">车辆高度</th>
-				<th data-options="field:'i',width:80,align:'center'">车辆体积</th>
+				<th data-options="field:'i',width:80,align:'center'">载物体积</th>
 				<th data-options="field:'j',width:80,align:'center'">随车联系人</th>
 				<th data-options="field:'k',width:80,align:'center'">随车联系电话</th>
 				<th data-options="field:'l',width:80,align:'center'">车辆品牌</th>

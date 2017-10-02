@@ -27,12 +27,6 @@ public class Cysgly {
 	private String szx;//所在县
 	private String szjdh;//所在街道号
 	private String xxdz;//用户备注
-	private Integer kz1;
-	private Integer kz2;
-	private String kz3;
-	private String kz4;
-	private String kz5;
-	//在承运商管理员里面表示所属承运商，一个管理员是能属于一个承运商
 	public Integer getId() {
 		return id;
 	}
@@ -117,35 +111,6 @@ public class Cysgly {
 	public void setXxdz(String xxdz) {
 		this.xxdz = xxdz;
 	}
-	public Integer getKz1() {
-		return kz1;
-	}
-	public void setKz1(Integer kz1) {
-		this.kz1 = kz1;
-	}
-	public Integer getKz2() {
-		return kz2;
-	}
-	public void setKz2(Integer kz2) {
-		this.kz2 = kz2;
-	}
-	public String getKz3() {
-		return kz3;
-	}
-	public void setKz3(String kz3) {
-		this.kz3 = kz3;
-	}
-	public String getKz4() {
-		return kz4;
-	}
-	public void setKz4(String kz4) {
-		this.kz4 = kz4;
-	}
-	public String getKz5() {
-		return kz5;
-	}
-	public void setKz5(String kz5) {
-		this.kz5 = kz5;
-	}
 
+	
 }

@@ -22,7 +22,7 @@
 </head>
 <body style="padding:0px;margin:0px;">
 
-	<div class="easyui-panel" style="width:100%;max-width:840px;max-height:600px;padding:30px 60px;" title="添加联系人">
+	<div class="easyui-panel" style="width:100%;max-width:820px;max-height:600px;padding:30px 60px;border:0px solid #ffffff;" >
 		<form id="ff" name="myform" action="${pageContext.request.contextPath}/lxr_save.action" class="easyui-form" method="post" data-options="novalidate:true">
 			<div style="margin-bottom:20px">
 				<input class="easyui-textbox" name="lxrxm" style="width:40%" data-options="label:'姓名',required:true">	

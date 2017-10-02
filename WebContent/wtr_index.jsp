@@ -83,8 +83,8 @@
 	</div>
 	
 	<div data-options="region:'south',border:false" style="height:50px;background:#A9FACD;padding:10px;">south region</div>
-	<div data-options="region:'center'" style="margin-bottom:0px; padding-bottom:0px;">
-    	<iframe class="zhuomian" frameborder="0" src="wtr_jbxx.jsp" style="width:835px;height:680px;">
+	<div data-options="region:'center',title:'我的桌面'" style="margin-bottom:0px; padding-bottom:0px;">
+    	<iframe class="zhuomian" title="我的桌面" frameborder="0" style="width:840px;height:640px;margin:0px;pading:0px;">
         </iframe>    
     </div>
     

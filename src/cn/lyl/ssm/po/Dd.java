@@ -57,12 +57,7 @@ public class Dd {
 	private Float dsdlf;//代收货款代理费
 	private Float thfy;//提货费用   发货代理点上门提货费用
 	private Integer hkfy;//货款费用   货物的总费用，如不需收货代理点代收货款，此字段为
-	private Integer kz1;
-	private Integer kz2;
-	private String kz3;
-	private String kz4;
-	
-	private String kz5;	public Integer getId() {
+	public Integer getId() {
 		return id;
 	}
 	public void setId(Integer id) {
@@ -91,6 +86,18 @@ public class Dd {
 	}
 	public void setCys(Integer cys) {
 		this.cys = cys;
+	}
+	public Integer getCdbh() {
+		return cdbh;
+	}
+	public void setCdbh(Integer cdbh) {
+		this.cdbh = cdbh;
+	}
+	public Integer getJjlx() {
+		return jjlx;
+	}
+	public void setJjlx(Integer jjlx) {
+		this.jjlx = jjlx;
 	}
 	public String getHwmc() {
 		return hwmc;
@@ -236,41 +243,11 @@ public class Dd {
 	public void setYsfs(String ysfs) {
 		this.ysfs = ysfs;
 	}
-	public Integer getKz1() {
-		return kz1;
+	public String getFqsj() {
+		return fqsj;
 	}
-	public void setKz1(Integer kz1) {
-		this.kz1 = kz1;
-	}
-	public Integer getKz2() {
-		return kz2;
-	}
-	public void setKz2(Integer kz2) {
-		this.kz2 = kz2;
-	}
-	public String getKz3() {
-		return kz3;
-	}
-	public void setKz3(String kz3) {
-		this.kz3 = kz3;
-	}
-	public String getKz4() {
-		return kz4;
-	}
-	public void setKz4(String kz4) {
-		this.kz4 = kz4;
-	}
-	public String getKz5() {
-		return kz5;
-	}
-	public void setKz5(String kz5) {
-		this.kz5 = kz5;
-	}
-	public Integer getJjlx() {
-		return jjlx;
-	}
-	public void setJjlx(Integer jjlx) {
-		this.jjlx = jjlx;
+	public void setFqsj(String fqsj) {
+		this.fqsj = fqsj;
 	}
 	public String getYjsdsj() {
 		return yjsdsj;
@@ -283,12 +260,6 @@ public class Dd {
 	}
 	public void setSjsdsj(String sjsdsj) {
 		this.sjsdsj = sjsdsj;
-	}
-	public String getFqsj() {
-		return fqsj;
-	}
-	public void setFqsj(String fqsj) {
-		this.fqsj = fqsj;
 	}
 	public Integer getFkzt() {
 		return fkzt;
@@ -337,12 +308,6 @@ public class Dd {
 	}
 	public void setHkfy(Integer hkfy) {
 		this.hkfy = hkfy;
-	}
-	public Integer getCdbh() {
-		return cdbh;
-	}
-	public void setCdbh(Integer cdbh) {
-		this.cdbh = cdbh;
 	}
 	
 }

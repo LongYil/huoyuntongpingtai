@@ -2,6 +2,7 @@ package cn.lyl.ssm.dao;
 
 import java.util.List;
 
+import cn.lyl.ssm.po.Cys;
 import cn.lyl.ssm.po.Cysgly;
 
 public interface CysglyDao {
@@ -10,4 +11,5 @@ public interface CysglyDao {
 	Cysgly findByGlyid(String arg) throws Exception;
 	List<Cysgly> findByDlbh(String arg);
 	List<Cysgly> findByHyglyid(String arg);
+	List<Cys> ptFindAll();
 }

@@ -81,4 +81,19 @@ public class ClxxDaoImpl extends CommonDaoImpl<Clxx> implements ClxxDao {
 		return listvo;
 	}
 
+	@Override
+	public List<ClxxVo> findByGlybh(String arg) {
+		list.clear();
+		listvo.clear();
+		list = (List<Clxx>) ht.find("from Clxx where cysbh = "+arg+"");
+		for(int i=0;i<list.size();i++){
+			clxxvo = new ClxxVo();
+			yscd = (Yscd) ht.find("from Yscd where cdbh = "+(list.get(i).getCdbh())+"").get(0);
+			clxxvo.setClxx(list.get(i));
+			clxxvo.setCdmc(yscd.getCdmc());
+			listvo.add(clxxvo);
+		}
+		return listvo;
+	}
+
 }

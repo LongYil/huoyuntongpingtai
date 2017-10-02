@@ -19,9 +19,9 @@
 <a href="#" class="easyui-linkbutton" style="width:80px;" onclick="addPanel()">删除联系人</a>
 </section>
 
-	<div id="tt" class="easyui-tabs" data-options="tools:'#tab-tools'" style="padding:0px;width:835px;height:620px;margin-left:-20px;margin-bottom:0px;">
+	<div id="tt" class="easyui-tabs" data-options="tools:'#tab-tools'" style="padding:0px;width:840px;height:560px;margin-left:-20px;margin-bottom:0px;">
 	<div title="所有联系人">
-		<table id="dg" class="easyui-datagrid" border="0" title="联系人" style="width:810px;height:590px"
+		<table id="dg" class="easyui-datagrid" border="0" title="联系人" style="width:830px;height:510px"
 			data-options="singleSelect:true,url:'datagrid_data1.json',method:'get'">
 		<thead>
 			<tr>
@@ -51,7 +51,7 @@
 			index++;
 			$('#tt').tabs('add',{
 				title: '添加联系人',
-				content: '<iframe src="wtr_tjlxr.jsp" frameborder="0" style="padding:5px;width:830px;height:500px;"></iframe>',
+				content: '<iframe src="wtr_tjlxr.jsp" frameborder="0" style="padding:5px;width:820px;height:500px;"></iframe>',
 				closable: true
 			});
 		}

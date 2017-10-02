@@ -92,6 +92,7 @@ public class DdController extends BasicController<DdServc> {
 		listdd.clear();
 		yhlx = getRealColumnName.getColumnName(yhlx);
 		listdd = servc.findAllDdxx(yhlx,id,request.getSession().getAttribute("yhbh").toString());
+		
 		model.addAttribute("listdd",listdd);
 		if(yhlx.equals("fhdld")&&id.equals("1")) {
 			return "hy_ddxx";
@@ -209,7 +210,14 @@ public class DdController extends BasicController<DdServc> {
 		servc.update(dd);
 	}
 	
-	
+	@RequestMapping("dd_ptFindCysDd")
+	public String ptFindCysDd(Model model,String id,String mc){
+		listdd.clear();
+		listdd = servc.cysFindAll(id);
+		model.addAttribute("listdd",listdd);
+		model.addAttribute("cysmc",mc);
+		return "pt_sydd";
+	}
 	
 	
 }

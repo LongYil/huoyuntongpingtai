@@ -65,7 +65,17 @@ public class YscdController extends BasicController<YscdServc> {
 		model.addAttribute("listcd",listcd);
 		return "cys_cdcdgl";
 	}
-
+	
+	@RequestMapping("/yscd_cysglyFindAll")//承运商管理员查找所拥有的运输车队
+	public String cysglyFindAll(Model model,HttpServletRequest request){
+		listcd.clear();
+		
+		cysgly = (Cysgly) request.getSession().getAttribute("cysgly");
+		listcd = servc.cysglyFindAll(String.valueOf(cysgly.getCysbh()));
+		model.addAttribute("listcd",listcd);
+		
+		return "cys_wdcd";
+	}
 
 	@RequestMapping("/yscd_cysFindByGlyid")//查找运输车队管理员的所有车队，id为管理员的管理员编号
 	public String cysFindByGlyid(Model model,String id,String mc,HttpServletRequest request){

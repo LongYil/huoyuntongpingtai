@@ -53,6 +53,9 @@ public class YscdServc extends CommonSevc<Yscd, YscdDaoImpl> {
 	public List<Yscd> jbyhFindAll(String arg){
 		return daoImpl.jbyhFindAll(arg);
 	}
+	public List<Yscd> cysglyFindAll(String arg){
+		return daoImpl.cysglyFindAll(arg);
+	}
 	@Override
 	public void delete(Yscd arg) {
 		daoImpl.delete(arg);	

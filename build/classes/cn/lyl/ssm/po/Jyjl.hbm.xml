@@ -16,12 +16,6 @@
 		<property name="jyzt"/>
 		<property name="jyrxm" length="150"/>
 		<property name="jyrid" length="150"/>
-		<property name="kz1"/>
-		<property name="kz2"/>
-		<property name="kz3" length="150"/>
-		<property name="kz4" length="150"/>
-		<property name="kz5" length="150"/>
-		
 	</class>
 
 </hibernate-mapping>

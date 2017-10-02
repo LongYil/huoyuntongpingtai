@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import cn.lyl.ssm.daoImpl.CysglyDaoImpl;
+import cn.lyl.ssm.po.Cys;
 import cn.lyl.ssm.po.Cysgly;
 import cn.lyl.ssm.po.Hygly;
 
@@ -90,5 +90,7 @@ public class CysglyServc extends CommonSevc<Cysgly, CysglyDaoImpl> {
 		return daoImpl.findByHyglyid(arg);	
 	}
 	
-	
+	public List<Cys> ptFindAll(){
+		return daoImpl.ptFindAll();
+	}
 }

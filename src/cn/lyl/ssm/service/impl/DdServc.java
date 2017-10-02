@@ -125,14 +125,14 @@ public class DdServc extends CommonSevc<Dd,DdDaoImpl> {
 				ysdw.setYssx(listWlx.get(i).getYssx());
 				ysdw.setCysbh(cysgly.getCysbh());
 				ysdw.setCysmc(cysgly.getGsmc());
-				ysdw.setCysdz(cysgly.getSzsf()+"-"+cysgly.getSzcs()+"-"+cysgly.getSzx()+"-"+cysgly.getSzjdh());
+				ysdw.setCysdz(cysgly.getSzsf()+"-"+cysgly.getSzcs()+"-"+cysgly.getSzx()+(cysgly.getXxdz()!=null?"-"+cysgly.getXxdz():""));
 				ysdw.setCysdh(cysgly.getLxdh());
 				ysdw.setCyscd(listWlx.get(i).getCdbh());
 				ysdw.setCyscddh(yscd.getCdlxdh());
 				ysdw.setFhdldmc(hygly.getGsmc());
 				ysdw.setFhdldbh(hygly.getGlybh());
 				ysdw.setFhdh(hygly.getLxdh());
-				ysdw.setFhdz(hygly.getSzsf()+"-"+hygly.getSzcs()+"-"+hygly.getSzx()+"-"+hygly.getXxdz());
+				ysdw.setFhdz(hygly.getSzsf()+"-"+hygly.getSzcs()+"-"+hygly.getSzx()+"-"+(cysgly.getXxdz()!=null?"-"+cysgly.getXxdz():""));
 				if(dd.getJjlx()==2){//重货  费用按重量计价100
 					ysdw.setDlfhfy(dd.getZzl()*1.1f);
 					ysdw.setDlshfy(dd.getZzl()*0.6f);
