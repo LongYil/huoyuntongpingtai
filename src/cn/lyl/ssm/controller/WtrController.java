@@ -1,5 +1,8 @@
 package cn.lyl.ssm.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +18,8 @@ import cn.lyl.ssm.service.impl.BzjServc;
 import cn.lyl.ssm.service.impl.JbyhServc;
 import cn.lyl.ssm.service.impl.PtzhServc;
 import cn.lyl.ssm.service.impl.WtrServc;
+import cn.lyl.ssm.utils.AssembleWtr;
+import cn.lyl.ssm.vo.WtrVo;
 
 /**
  * <p>Title:WtrController</p>
@@ -40,6 +45,11 @@ public class WtrController extends BasicController<WtrServc> {
 	private Ptzh ptzh;
 	@Autowired
 	private PtzhServc ptzhServc;
+	@Autowired
+	private AssembleWtr assembleWtr;
+	
+	private List<Wtr> listwtr = new ArrayList<Wtr>();
+	private List<WtrVo> listvo = new ArrayList<WtrVo>();
 
 	@RequestMapping("/wtr_save")
 	public String save(Model model,Jbyh jbyh,Wtr wtr,HttpServletRequest request){
@@ -77,8 +87,23 @@ public class WtrController extends BasicController<WtrServc> {
 		wtr.setYhsf(info[3]);
 		wtr.setYhcs(info[4]);
 		wtr.setYhx(info[5]);
-		wtr.setYhbz(info[6]);
+		wtr.setXxdz(info[6]);
 		jbyhServc.update(jbyh);
 		servc.update(wtr);
 	}
+	
+	@RequestMapping("wtr_findAllWtr")
+	public String findAllWtr(Model model,String mc) {
+		listwtr.clear();
+		listvo.clear();
+		listwtr = servc.findAll("");
+		listvo = assembleWtr.getWtrVo(listwtr);
+		model.addAttribute("listvo",listvo);
+		model.addAttribute("wtrmc",mc);
+		
+		return "pt_sywtr";
+	}
+	
+	
+	
 }

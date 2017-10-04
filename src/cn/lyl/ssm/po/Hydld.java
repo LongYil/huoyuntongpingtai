@@ -61,6 +61,5 @@ public class Hydld {
 	}
 	public void setXxdz(String xxdz) {
 		this.xxdz = xxdz;
-	}
-
+	}	
 }

@@ -18,7 +18,7 @@
     <div style="width:1040px; height:75px;background-image:url(js/basic/ads1.png);"></div>
 	<div style="width:1040px; height:75px;background-image:url(js/basic/head.png);">
     	<a href="javascript:void(0)" class="logo"></a>
-    	<div class="info"><span class="info1">平台管理员：</span><span class="info2">李银龙</span>&nbsp;&nbsp;<span class="info3">您好！</span></div>
+    	<div class="info"><span class="info1">平台管理员：</span><span class="info2">${jbyh.yhxm}</span>&nbsp;&nbsp;<span class="info3">您好！</span></div>
     </div>
     </div>
 	
@@ -45,8 +45,8 @@
             </dl>
 			<ul class="menu1">
 				<li><a href="javascript:void(0)"  onClick="To('cys_findAll.action')"><img src="js/basic/icon/chengyunshang.png" class="itemicon">承运商</a></li>
-                <li><a href="javascript:void(0)"><img src="js/basic/icon/huoyundailidian.png" class="itemicon">货运代理点</a></li>
-                <li><a href="javascript:void(0)"><img src="js/basic/icon/weituoren.png" class="itemicon">委托人</a></li>
+                <li><a href="javascript:void(0)" onClick="To('hy_findAll.action')"><img src="js/basic/icon/huoyundailidian.png" class="itemicon">货运代理点</a></li>
+                <li><a href="javascript:void(0)" onClick="To('wtr_findAllWtr.action')"><img src="js/basic/icon/weituoren.png" class="itemicon">委托人</a></li>
 			</ul>
 		</li>
 		
@@ -58,12 +58,9 @@
             </dl>
 			<ul class="menu1">
 				<li><a href="javascript:void(0)"><img src="js/basic/icon/chengyunshang.png" class="itemicon">申诉订单</a></li>
-                <li><a href="javascript:void(0)"><img src="js/basic/icon/huoyundailidian.png" class="itemicon">货运代理点</a></li>
-                <li><a href="javascript:void(0)"><img src="js/basic/icon/weituoren.png" class="itemicon">委托人</a></li>
 			</ul>
 		</li>
 		
-
 		<li class="fatheritem">
         	<dl class="biaotia2">
             <li style="background-color:#dce8f3;">

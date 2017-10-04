@@ -1,7 +1,6 @@
 package cn.lyl.ssm.controller;
 
 import java.util.ArrayList;
-import java.util.Enumeration;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -27,6 +26,7 @@ import cn.lyl.ssm.service.impl.HyglyServc;
 import cn.lyl.ssm.service.impl.HyjsServc;
 import cn.lyl.ssm.service.impl.JbyhServc;
 import cn.lyl.ssm.service.impl.PtzhServc;
+import cn.lyl.ssm.utils.AssembleHydld;
 import cn.lyl.ssm.utils.AssembleHygly;
 import cn.lyl.ssm.vo.HyglyVo;
 
@@ -66,6 +66,8 @@ public class HyglyController extends BasicController<HyglyServc> {
 	@Autowired
 	private AssembleHygly assembleHygly;
 	@Autowired
+	private AssembleHydld assembleHydld;
+	@Autowired
 	private Cysqx cysqx;
 	@Autowired
 	private CysqxServc cysqxServc;
@@ -77,6 +79,7 @@ public class HyglyController extends BasicController<HyglyServc> {
 	private List<Jbyh> listJbyh = new ArrayList<Jbyh>();
 	private List<Hygly> listdld = new ArrayList<Hygly>();
 	private List<Hygly> listgly = new ArrayList<Hygly>();
+	private List<Hydld> listhydld = new ArrayList<Hydld>();
 	private List<HyglyVo> listvo = new ArrayList<HyglyVo>();
 	
 	@RequestMapping("/hy_save")//货运代理点用户注册方法
@@ -184,7 +187,6 @@ public class HyglyController extends BasicController<HyglyServc> {
 	@RequestMapping("hy_findAllDldsy")
 	public String findAllDldsy(Model model){//查找所有代理点
 		listdld.clear();
-		
 		listdld = servc.findAll("");
 		model.addAttribute("listdld",listdld);
 		return "cys_dldszsydld";
@@ -248,12 +250,31 @@ public class HyglyController extends BasicController<HyglyServc> {
 		jbyh = jbyhServc.find(id);
 		servc.delete(hygly);
 		jbyhServc.delete(jbyh);
-		
 		return "redirect:hy_hyFindAllGly.action";
 	}
 	
+	@RequestMapping("hy_findAll")
+	public String findAll(Model model) {
+		listhydld.clear();
+		listvo.clear();
+		listhydld = hydldServc.findAll("");
+		listvo = assembleHydld.getHydldVo(listhydld);
+		model.addAttribute("listvo",listvo);
+		return "pt_hydld";
+	}
 	
-	
+	@RequestMapping("hy_ptFndHygly")
+	public String ptFndHygly(Model model,String id,String mc) throws Exception {
+		listgly.clear();
+		listJbyh.clear();
+		listvo.clear();
+		listgly = servc.yhFindAllGly(id);
+		listJbyh = jbyhServc.getJbyhByHygly(listgly);
+		listvo = assembleHygly.getGlyvoList(listJbyh, listgly);
+		model.addAttribute("listvo",listvo);
+		model.addAttribute("dldmc",mc);
+		return "pt_syzdld";
+	}
 	
 	
 	

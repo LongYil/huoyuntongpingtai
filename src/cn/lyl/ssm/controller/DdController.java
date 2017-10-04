@@ -100,6 +100,8 @@ public class DdController extends BasicController<DdServc> {
 			return "cys_ddxx";
 		}else if(yhlx.equals("shdld")&&id.equals("4")){
 			return "hy_dshqs";
+		}else if(yhlx.equals("wtrbh")&&id.equals("5")){
+			return "wtr_yqsdd";
 		}else {
 			return "ddxx";
 		}
@@ -219,5 +221,21 @@ public class DdController extends BasicController<DdServc> {
 		return "pt_sydd";
 	}
 	
+	@RequestMapping("hy_ptFindHydd")
+	public String ptFindHydd(Model model) {
+		listdd.clear();
+		listdd = servc.findAllFhAndSh("");
+		model.addAttribute("listdd",listdd);
+		return "pt_hysydd";
+	}
+	
+	@RequestMapping("dd_ptFindWtrdd")
+	public String ptFindWtrdd(Model model,String id,String mc) {
+		listdd.clear();
+		listdd = servc.findAllByYhlx("wtrbh",id);
+		model.addAttribute("listdd",listdd);
+		model.addAttribute("wtrmc",mc);
+		return "pt_wtrsydd";
+	}
 	
 }

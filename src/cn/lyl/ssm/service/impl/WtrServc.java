@@ -25,8 +25,7 @@ public class WtrServc extends CommonSevc<Wtr, WtrDaoImpl> {
 
 	@Override
 	public List<Wtr> findAll(String arg) {
-		//
-		return null;
+		return daoImpl.findAll();
 	}
 
 	@Override

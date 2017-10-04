@@ -27,8 +27,7 @@ public class HydldServc extends CommonSevc<Hydld, HydldDaoImpl> {
 
 	@Override
 	public List<Hydld> findAll(String arg) {
-		//
-		return null;
+		return daoImpl.findAll();
 	}
 
 	@Override

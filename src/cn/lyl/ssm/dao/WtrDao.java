@@ -1,5 +1,9 @@
 package cn.lyl.ssm.dao;
 
-public interface WtrDao {
+import java.util.List;
 
+import cn.lyl.ssm.po.Wtr;
+
+public interface WtrDao {
+	List<Wtr> findAll();
 }

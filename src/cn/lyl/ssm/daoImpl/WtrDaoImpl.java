@@ -42,4 +42,9 @@ public class WtrDaoImpl extends CommonDaoImpl<Wtr> implements WtrDao {
 		}
 	}
 
+	@Override
+	public List<Wtr> findAll() {
+		return (List<Wtr>) ht.find("from Wtr");
+	}
+
 }

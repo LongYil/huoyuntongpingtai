@@ -1,5 +1,6 @@
 package cn.lyl.ssm.vo;
 
+import cn.lyl.ssm.po.Hydld;
 import cn.lyl.ssm.po.Hygly;
 
 /**
@@ -11,9 +12,11 @@ import cn.lyl.ssm.po.Hygly;
  */
 public class HyglyVo {
 	private Hygly hygly;//货运代理点管理员
+	private Hydld hydld;//货运代理点
 	private String yhm;//用户名
 	private String yhxm;//用户姓名
 	private String jsmc;//角色名称
+	private String lxdh;//联系电话
 	
 	public Hygly getHygly() {
 		return hygly;
@@ -38,6 +41,18 @@ public class HyglyVo {
 	}
 	public void setJsmc(String jsmc) {
 		this.jsmc = jsmc;
+	}
+	public Hydld getHydld() {
+		return hydld;
+	}
+	public void setHydld(Hydld hydld) {
+		this.hydld = hydld;
+	}
+	public String getLxdh() {
+		return lxdh;
+	}
+	public void setLxdh(String lxdh) {
+		this.lxdh = lxdh;
 	}
 
 }

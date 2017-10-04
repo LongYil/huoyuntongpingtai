@@ -23,7 +23,7 @@ public class Wtr {
 	private String yhx;//用户县
 	private String gsmc;//公司名称
 	private String yhyx;//用户邮箱
-	private String yhbz;//用户备注
+	private String xxdz;//用户备注
 	public Integer getId() {
 		return id;
 	}
@@ -66,11 +66,12 @@ public class Wtr {
 	public void setYhyx(String yhyx) {
 		this.yhyx = yhyx;
 	}
-	public String getYhbz() {
-		return yhbz;
+	public String getXxdz() {
+		return xxdz;
 	}
-	public void setYhbz(String yhbz) {
-		this.yhbz = yhbz;
+	public void setXxdz(String xxdz) {
+		this.xxdz = xxdz;
 	}
+
 
 }
