@@ -86,7 +86,7 @@
             </dl>
 			<ul class="menu1">
                 <li><a href="javascript:void(0)"><img src="js/basic/icon/xitongrizhi.png" class="itemicon">系统日志</a></li>
-				<li><a href="javascript:void(0)"><img src="js/basic/icon/tuichu.png" class="itemicon">退出</a></li>
+				<li><a href="javascript:void(0)"   onClick="Go('jbyh_logOff.action')"><img src="js/basic/icon/tuichu.png" class="itemicon">退出</a></li>
 			</ul>
 		</li> 				
 	</ul>
@@ -103,6 +103,9 @@
 <script>
 function To(url){
 	$(".zhuomian").attr("src",url);
+}
+function Go(url){
+	window.location=url;
 }
 	$(function m(){
 		$(".biaotia1").nextAll().hide();

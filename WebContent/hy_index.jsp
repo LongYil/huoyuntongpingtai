@@ -93,7 +93,7 @@
 			<ul class="menu1">
 				<li name="jsgl" style="display:${hyjs.jsgl}"><a href="javascript:void(0)" onClick="To('hyjs_findAll.action')"><img src="js/basic/icon/jueseguanli.png" class="itemicon">角色管理</a></li>
                 <li name="xtrz" style="display:${hyjs.xtrz}"><a href="javascript:void(0)"><img src="js/basic/icon/xitongrizhi.png" class="itemicon">系统日志</a></li>
-                <li><a href="javascript:void(0)"><img src="js/basic/icon/tuichu.png" class="itemicon">退出</a></li>
+                <li><a href="javascript:void(0)" onClick="Go('jbyh_logOff.action')"><img src="js/basic/icon/tuichu.png" class="itemicon">退出</a></li>
 			</ul>
 		</li>
 	</ul>
@@ -113,6 +113,9 @@
 
 function To(url){
 	$(".zhuomian").attr("src",url);
+}
+function Go(url){
+	window.location=url;
 }
 
 $(function m(){

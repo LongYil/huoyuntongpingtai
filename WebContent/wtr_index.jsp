@@ -51,6 +51,7 @@
                 <li><a href="javascript:void(0)" onClick="To('dd_findAll.action?yhlx=1&id=3')"><img src="js/basic/icon/yunshuzhong.png" class="itemicon">运输中</a></li>
                 <li><a href="javascript:void(0)" onClick="To('dd_findAll.action?yhlx=1&id=4')"><img src="js/basic/icon/yunshuzhong.png" class="itemicon">已送达</a></li>
                 <li><a href="javascript:void(0)" onClick="To('dd_findAll.action?yhlx=1&id=5')"><img src="js/basic/icon/yiqianshou.png" class="itemicon">已签收</a></li>
+                <li><a href="javascript:void(0)" onClick="To('dd_findAll.action?yhlx=1&id=6')"><img src="js/basic/icon/yiqianshou.png" class="itemicon">申诉订单</a></li>
 				<li><a href="javascript:void(0)" onClick="To('dd_findAllByYhlx.action?yhlx=1')"><img src="js/basic/icon/quanbudingdan.png" class="itemicon">全部订单</a></li>
 			</ul>
 		</li>
@@ -75,7 +76,7 @@
             </dl>
 			<ul class="menu1">
 				<li><a href="javascript:void(0)"><img src="js/basic/icon/xitongrizhi.png" class="itemicon">系统日志</a></li>
-                <li><a href="javascript:void(0)"><img src="js/basic/icon/tuichu.png" class="itemicon">退出</a></li>
+                <li><a href="javascript:void(0)" onClick="To('jbyh_logOff.action')"><img src="js/basic/icon/tuichu.png" class="itemicon">退出</a></li>
 			</ul>
 		</li>
 

@@ -65,6 +65,5 @@ public class BzjController extends BasicController<BzjServc> {
 		boolean result = servc.cysFqjd(info, request.getSession().getAttribute("yhbh").toString());
 		out.write(String.valueOf(result));
 	}
-	
-	
+
 }

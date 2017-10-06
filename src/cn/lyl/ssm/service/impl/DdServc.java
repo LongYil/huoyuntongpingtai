@@ -314,4 +314,17 @@ public class DdServc extends CommonSevc<Dd,DdDaoImpl> {
 		return listddvo;
 	}
 	
+	public List<Dd> ptFindAllYcdd(String arg){
+		return daoImpl.ptFindAllYcdd(arg);
+	}
+	
+	public boolean ptFindAllWwcDd(String yhbh) {
+		if(daoImpl.ptFindAllWwcDd(yhbh).size()>0) {
+			return false;
+		}else {
+			return true;
+		}
+	}
+	
+	
 }

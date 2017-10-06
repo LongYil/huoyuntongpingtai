@@ -62,5 +62,15 @@ public class DdDaoImpl extends CommonDaoImpl<Dd> implements DdDao {
 		return (List<Dd>) ht.find("from Dd where cys = "+glybh+" and  ddzt = "+id+"");
 	}
 
+	@Override
+	public List<Dd> ptFindAllYcdd(String arg) {
+		return (List<Dd>) ht.find("from Dd where ddzt = "+arg+"");
+	}
+
+	@Override
+	public List<Dd> ptFindAllWwcDd(String yhbh) {
+		return (List<Dd>) ht.find("from Dd where ddzt<7 and yhbh = "+yhbh+"");
+	}
+	
 
 }

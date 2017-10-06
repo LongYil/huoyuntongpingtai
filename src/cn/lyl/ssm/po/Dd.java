@@ -40,7 +40,7 @@ public class Dd {
 	private String shrxm;//收货人姓名
 	private String shrdh;//收货人电话
 	private Integer dshk;//是否代收货款（1：是；2：否）
-	private Integer ddzt;//订单状态   1:待处理   2：已处理  3：运输中  4：已送达  5：已签收
+	private Integer ddzt;//订单状态   1:待处理   2：已处理  3：运输中  4：已送达  5：已签收  6:退款中  7：退款成功  8：退款失败
 	private String bxfy;//保险费用
 	private Integer smth;//是否上门提货（1：是；2：否）
 	private String ysfs;//运输方式

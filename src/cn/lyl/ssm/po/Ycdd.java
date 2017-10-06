@@ -18,6 +18,7 @@ public class Ycdd {
 	private Float sjje;//实际赔偿金额
 	private String xxyy;//详细原因
 	private String fqsj;//发起时间
+	private String clsj;//处理时间
 	private Integer ddzt;//处理状态  1:未处理   2：已处理
 	
 	public Integer getId() {
@@ -68,6 +69,11 @@ public class Ycdd {
 	public void setDdzt(Integer ddzt) {
 		this.ddzt = ddzt;
 	}
-
+	public String getClsj() {
+		return clsj;
+	}
+	public void setClsj(String clsj) {
+		this.clsj = clsj;
+	}
 	
 }

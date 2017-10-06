@@ -1,6 +1,11 @@
 package cn.lyl.ssm.vo;
 
+import cn.lyl.ssm.po.Dd;
+import cn.lyl.ssm.po.Ycdd;
+
 public class DdVo {
+	private Dd dd;
+	private Ycdd ycdd;
 	private String id;//订单id
 	private String jyzt;//交易状态
 	private String hwmc;//货物名称
@@ -10,7 +15,21 @@ public class DdVo {
 	private String spjs;//商品件数
 	private String zfy;//总费用
 	private String ysfy;//运输费用
+
 	
+	
+	public Ycdd getYcdd() {
+		return ycdd;
+	}
+	public void setYcdd(Ycdd ycdd) {
+		this.ycdd = ycdd;
+	}
+	public Dd getDd() {
+		return dd;
+	}
+	public void setDd(Dd dd) {
+		this.dd = dd;
+	}
 	public String getJyzt() {
 		return jyzt;
 	}

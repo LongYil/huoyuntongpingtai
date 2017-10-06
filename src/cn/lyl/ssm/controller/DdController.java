@@ -1,6 +1,5 @@
 package cn.lyl.ssm.controller;
 
-import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +8,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,6 +18,7 @@ import cn.lyl.ssm.po.Dd;
 import cn.lyl.ssm.po.Hygly;
 import cn.lyl.ssm.service.impl.DdServc;
 import cn.lyl.ssm.service.impl.HyglyServc;
+import cn.lyl.ssm.utils.AssembleDd;
 import cn.lyl.ssm.utils.GetRealColumnName;
 import cn.lyl.ssm.vo.DdVo;
 import cn.lyl.ssm.vo.Ysdw;
@@ -46,6 +45,8 @@ public class DdController extends BasicController<DdServc> {
 	private HyglyServc hyglyServc;
 	@Autowired
 	private GetRealColumnName getRealColumnName;
+	@Autowired
+	private AssembleDd assembleDd;
 	
 	@RequestMapping("dd_diyibu")//第一步
 	public String diyibu(Model model,Dd dd,HttpServletRequest request) throws Exception{
@@ -88,8 +89,9 @@ public class DdController extends BasicController<DdServc> {
 	}
 
 	@RequestMapping("dd_findAll")
-	public String findAll(Model model,String yhlx,String id,HttpServletRequest request){
+	public String findAll(Model model,String yhlx,String id,HttpServletRequest request) throws Exception{
 		listdd.clear();
+		listddvo.clear();
 		yhlx = getRealColumnName.getColumnName(yhlx);
 		listdd = servc.findAllDdxx(yhlx,id,request.getSession().getAttribute("yhbh").toString());
 		
@@ -102,10 +104,18 @@ public class DdController extends BasicController<DdServc> {
 			return "hy_dshqs";
 		}else if(yhlx.equals("wtrbh")&&id.equals("5")){
 			return "wtr_yqsdd";
+		}else if(yhlx.equals("wtrbh")&&id.equals("6")){
+			listdd.addAll(servc.findAllDdxx(yhlx,"6",request.getSession().getAttribute("yhbh").toString()));
+			listdd.addAll(servc.findAllDdxx(yhlx,"7",request.getSession().getAttribute("yhbh").toString()));
+			listdd.addAll(servc.findAllDdxx(yhlx,"8",request.getSession().getAttribute("yhbh").toString()));
+			listddvo = assembleDd.getDdvo(listdd);
+			model.addAttribute("listddvo",listddvo);
+			return "wtr_ssdd";
 		}else {
 			return "ddxx";
 		}
 	}
+	
 	
 	@RequestMapping("dd_wtrFindWfk")//委托人查找未付款订单
 	public String wtrFindWfk(Model model,HttpServletRequest request){
@@ -236,6 +246,21 @@ public class DdController extends BasicController<DdServc> {
 		model.addAttribute("listdd",listdd);
 		model.addAttribute("wtrmc",mc);
 		return "pt_wtrsydd";
+	}
+	
+	@RequestMapping("dd_ptFindAllYcdd")
+	public String ptFindAllYcdd(Model model,String id) throws Exception {
+		listdd.clear();
+		listddvo.clear();
+		listdd = servc.ptFindAllYcdd(id);
+		listddvo = assembleDd.getDdvo(listdd);
+		if(id.equals("7")) {
+			model.addAttribute("temp","2");
+		}else {
+			model.addAttribute("temp","1");
+		}
+		model.addAttribute("listddvo",listddvo);
+		return "pt_ssdd";
 	}
 	
 }

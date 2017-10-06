@@ -57,7 +57,8 @@
             </li>
             </dl>
 			<ul class="menu1">
-				<li><a href="javascript:void(0)"><img src="js/basic/icon/chengyunshang.png" class="itemicon">申诉订单</a></li>
+				<li><a href="javascript:void(0)"  onClick="To('dd_ptFindAllYcdd.action?id=6')"><img src="js/basic/icon/chengyunshang.png" class="itemicon">申诉订单</a></li>
+				<li><a href="javascript:void(0)"  onClick="To('dd_ptFindAllYcdd.action?id=7')"><img src="js/basic/icon/chengyunshang.png" class="itemicon">已处理</a></li>
 			</ul>
 		</li>
 		
@@ -68,12 +69,10 @@
             </li>
             </dl>
 			<ul class="menu1">
-				<li><a href="javascript:void(0)"><img src="js/basic/icon/chengyunshang.png" class="itemicon">承运商</a></li>
-                <li><a href="javascript:void(0)"><img src="js/basic/icon/huoyundailidian.png" class="itemicon">货运代理点</a></li>
-                <li><a href="javascript:void(0)"><img src="js/basic/icon/weituoren.png" class="itemicon">委托人</a></li>
+				<li><a href="javascript:void(0)" onClick="To('dd_ptFindAllYcdd.action')"><img src="js/basic/icon/chengyunshang.png" class="itemicon">解冻保证金</a></li>
+                <li><a href="javascript:void(0)" onClick="To('dd_ptFindAllYcdd.action')"><img src="js/basic/icon/huoyundailidian.png" class="itemicon">充值物流币</a></li>
 			</ul>
 		</li>
-     
  		<li class="fatheritem">
         	<dl class="biaotia3">
             <li style="background-color:#dce8f3;">
@@ -83,20 +82,14 @@
 			<ul class="menu1">
 				<li><a href="javascript:void(0)"><img src="js/basic/icon/jueseguanli.png" class="itemicon">角色管理</a></li>
                 <li><a href="javascript:void(0)"><img src="js/basic/icon/xitongrizhi.png" class="itemicon">系统日志</a></li>
-                <li><a href="javascript:void(0)"><img src="js/basic/icon/tuichu.png" class="itemicon">退出</a></li>
+                <li><a href="javascript:void(0)"   onClick="To('jbyh_logOff.action')"><img src="js/basic/icon/tuichu.png" class="itemicon">退出</a></li>
 			</ul>
-		</li>       
-  
-                
+		</li>                
 	</ul>
 	</div>
-
 	<div data-options="region:'south',border:false" style="height:50px;background:#A9FACD;padding:10px;">south region</div>
 	<div data-options="region:'center',title:'我的桌面'">
-    	<iframe class="zhuomian" frameborder="0" style="width:840px;height:640px;margin:0px;pading:0px;">
-        
-        
-		
+    	<iframe class="zhuomian" frameborder="0" style="width:840px;height:640px;margin:0px;pading:0px;">	
         </iframe>
     </div>
 
@@ -105,6 +98,10 @@
 
 function To(url){
 	$(".zhuomian").attr("src",url);
+}
+
+function Go(url){
+	window.location=url;
 }
 
 $(function m(){

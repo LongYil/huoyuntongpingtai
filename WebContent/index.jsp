@@ -1,5 +1,8 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>   
+<!DOCTYPE html >
+<html >
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>主页</title>
@@ -30,13 +33,12 @@
     <!--随屏滚动的图片漂浮广告 结束-->
   	<div class="topadbanner"><img src="images/zym/topadbanner.jpg" /></div>
      <div id="top_protools">
-    
-    
+
     	<div class="welcome">
                     <div id="FnoLogin" class="fl" style="display: block;">
                         <span class="fl">欢迎来到中国物通网！</span>
-                        <span class="fl"><a  href="login.html" class="colory">请登录</a></span>
-                        <span class="fl"><a  href="preregister.html">免费注册</a></span>
+                        <span class="fl"><a  href="${pageContext.request.contextPath}/jbyh_logOn.action" class="colory">请登录</a></span>
+                        <span class="fl"><a  href="${pageContext.request.contextPath}/jbyh_preregister.action">免费注册</a></span>
                         <span class="fl"><a  href="#">忘记密码？</a></span>
                     </div>
                     <div id="FhasLogin" class="fl" style="display: none;">

@@ -16,6 +16,7 @@
 		<property name="sjje" />
 		<property name="xxyy" length="150"/>
 		<property name="fqsj" length="150"/>
+		<property name="clsj" length="150"/>
 		
 	</class>
 

@@ -11,4 +11,6 @@ public interface DdDao {
 	List<Dd> cysFindAll(String yhid);
 	List<Dd> wtrFindWfk(String yhbh);
 	List<Dd> cysFindAllDd(String id,String glybh);
+	List<Dd> ptFindAllYcdd(String arg);
+	List<Dd> ptFindAllWwcDd(String yhbh);
 }

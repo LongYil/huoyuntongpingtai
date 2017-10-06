@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>   
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,26 +33,26 @@
         <div class="container_right">
             <div class="login_list01">
                 <div class="login_box">会员登录</div>
-                <div class="extra_r fr"><a href="#" target="_blank">免费注册</a></div>
+                <div class="extra_r fr"><a href="${pageContext.request.contextPath}/jbyh_preregister.action" target="_blank">免费注册</a></div>
             </div>
             <div class="text_uid cl">
                 <form method="POST" name="frm1" onsubmit="return checkform(this)">
                     <ul class="login_namewar">
                         <li>
                             <label class="login_name"></label>
-                            <input name="txtUid" id="txtUid" class="login_text" placeholder="请输入您的用户名" autocomplete="off" type="text">
+                            <input name="yhsj" id="txtUid" class="login_text" placeholder="请输入您的用户名" autocomplete="off" type="text">
                         </li>
                         <li>
                             <label class="login_pwd"></label>
-                            <input name="txtPwd" id="txtPwd" class="login_text2" type="password" placeholder="请输入您的密码">
+                            <input name="yhmm" id="txtPwd" class="login_text2" type="password" placeholder="请输入您的密码">
                         </li>
-                        <li style="overflow: hidden;">
-                            <input name="txtCode" id="txtCode"  class="login_text3 fl" placeholder="请输入验证码" type="text">
-                            <div class="login_text4 fl">
-                                <img class="code" id="checkCode" style="float: left;" onclick="createCode()">
-                                <a style="cursor:pointer;" onclick="createCode()">换一张</a>
-                            </div>
-                        </li>
+<!--                         <li style="overflow: hidden;"> -->
+<!--                             <input name="txtCode" id="txtCode"  class="login_text3 fl" placeholder="请输入验证码" type="text"> -->
+<!--                             <div class="login_text4 fl"> -->
+<!--                                 <img class="code" id="checkCode" style="float: left;" onclick="createCode()"> -->
+<!--                                 <a style="cursor:pointer;" onclick="createCode()">换一张</a> -->
+<!--                             </div> -->
+<!--                         </li> -->
                     </ul>
                     <div class="rem_password">
                         <div class="fl remember">

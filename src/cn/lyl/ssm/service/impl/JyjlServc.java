@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import cn.lyl.ssm.daoImpl.JyjlDaoImpl;
 import cn.lyl.ssm.po.Jyjl;
@@ -73,4 +75,7 @@ public class JyjlServc extends CommonSevc<Jyjl, JyjlDaoImpl> {
 		return this.listvo;
 	}
 	
+	public List<Jyjl> ptFindAllJdsq() {
+		return daoImpl.FindAllJdsq();	
+	}
 }

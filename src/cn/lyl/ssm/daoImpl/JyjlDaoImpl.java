@@ -61,4 +61,10 @@ public class JyjlDaoImpl extends CommonDaoImpl<Jyjl> implements JyjlDao {
 		return (List<Jyjl>) ht.find("from Jyjl where yhbh="+arg+" and jylx = 2");
 	}
 
+	@Override
+	public List<Jyjl> FindAllJdsq() {
+		return (List<Jyjl>) ht.find("from Jyjl where jylx = 5");
+	}
+	
+	
 }

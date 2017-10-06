@@ -89,6 +89,19 @@ public class JbyhController extends BasicController<JbyhServc> {
 		}
 	}
 	
+	@RequestMapping("jbyh_logOff")//注销离开
+	public String logOff(HttpServletRequest request) {
+		request.getSession().invalidate();
+		return "index";
+	}
 	
+	@RequestMapping("jbyh_logOn")
+	public String logOn() {//登录
+		return "login";
+	}
 	
+	@RequestMapping("jbyh_preregister")
+	public String preregister() {
+		return "preregister";
+	}
 }
