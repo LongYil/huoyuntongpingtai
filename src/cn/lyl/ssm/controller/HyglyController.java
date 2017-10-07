@@ -93,6 +93,7 @@ public class HyglyController extends BasicController<HyglyServc> {
 		}
 		
 		if(temp){
+			jbyh.setYhmm(md5Encrypt.to32MD5(jbyh.getYhmm()));
 			jbyhServc.save(jbyh);
 			bzj.setYhbh(jbyh.getYhbh());
 			bzj.setBzjje(0);

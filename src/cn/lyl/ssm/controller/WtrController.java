@@ -49,6 +49,7 @@ public class WtrController extends BasicController<WtrServc> {
 
 	@RequestMapping("/wtr_save")
 	public String save(Model model,Jbyh jbyh,Wtr wtr,HttpServletRequest request){
+		jbyh.setYhmm(md5Encrypt.to32MD5(jbyh.getYhmm()));
 		jbyhServc.save(jbyh);
 		ptzh.setYhbh(jbyh.getYhbh());
 		ptzh.setZhye(2000.0f);

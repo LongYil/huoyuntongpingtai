@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 @Component(value="hyjs")
 @Scope(value="prototype")
 public class Hyjs {
-	private Integer id;
+	private Integer id;//序号
 	private Integer yhbh;//货运代理点用户编号
 	private String jsmc;//角色名称
 	private String zhgl;//帐号管理

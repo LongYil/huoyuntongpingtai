@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 @Component(value="yscd")
 @Scope(value="prototype")
 public class Yscd {
-	private Integer id;
+	private Integer id;//序号
 	private Integer cdbh;//车队编号
 	private Integer cysbh;//承运商管理员编号
 	private Integer yhbh;//承运商用户编号

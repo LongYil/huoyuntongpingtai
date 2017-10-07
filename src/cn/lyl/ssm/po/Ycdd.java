@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
  */
 @Component(value="ycdd")
 public class Ycdd {
-	private Integer id;
+	private Integer id;//序号
 	private Integer ddbh;//订单编号
 	private String sqly;//申请理由
 	private Float sqje;//申请赔偿金额

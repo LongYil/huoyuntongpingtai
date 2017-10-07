@@ -101,6 +101,7 @@ public class CysglyController extends BasicController<CysglyServc> {
 			}
 		}else {
 			type = jbyh.getYhlx();
+			jbyh.setYhmm(md5Encrypt.to32MD5(jbyh.getYhmm()));
 			jbyhServc.save(jbyh);
 			cys.setLxdh(jbyh.getYhsj());
 			cysgly.setLxdh(jbyh.getYhsj());

@@ -37,6 +37,7 @@ public class PtglyController extends BasicController<PtglyServc> {
 	@RequestMapping("pt_save")
 	public void save(Model model,Jbyh jbyh,Ptgly ptgly,HttpServletRequest request) {
 		tempptgly = (Ptgly) request.getSession().getAttribute("ptgly");
+		jbyh.setYhmm(md5Encrypt.to32MD5(jbyh.getYhmm()));
 		jbyhServc.save(jbyh);
 		ptgly.setYhbh(tempptgly.getYhbh());
 		ptgly.setGlybh(jbyh.getYhbh());

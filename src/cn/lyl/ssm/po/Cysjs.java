@@ -15,7 +15,6 @@ import org.springframework.stereotype.Component;
 public class Cysjs {
 	private Integer id;//角色编号
 	private Integer yhbh;//用户编号
-	
 	private String jsmc;//角色名称
 	
 	public Integer getId() {

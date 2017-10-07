@@ -50,6 +50,7 @@ public class JbyhController extends BasicController<JbyhServc> {
 	@RequestMapping("/jbyh_login")
 	public String login(Model model,Jbyh jbyh,HttpServletRequest request) throws Exception{
 		request.getSession().invalidate();	
+		jbyh.setYhmm(md5Encrypt.to32MD5(jbyh.getYhmm()));
 		int[] info = servc.login(jbyh);
 		this.jbyh = servc.find(String.valueOf(info[1]));
 		model.addAttribute("jbyh",this.jbyh);
