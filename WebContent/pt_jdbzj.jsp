@@ -26,9 +26,9 @@
 				<th data-options="field:'d',width:100,align:'center'">联系电话</th>
 				<th data-options="field:'e',width:100,align:'center'">未完成订单</th>
 				<th data-options="field:'f',width:100,align:'center'">申请时间</th>
-				<th data-options="field:'g',width:200,align:'center'">解冻金额</th>
-				<th data-options="field:'h',width:200,align:'center'">已缴纳金额</th>
-				<th data-options="field:'v',width:80,align:'center'">操作</th>
+				<th data-options="field:'g',width:80,align:'center'">解冻金额</th>
+				<th data-options="field:'h',width:80,align:'center'">已缴纳金额</th>
+				<th data-options="field:'v',width:200,align:'center'">操作</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -41,12 +41,12 @@
 					<td>${item.jbyh.yhsj}</td>
 					<td>${item.zzjydd}</td>
 					<td>${item.jyjl.jysj}</td>
+					<td>${item.jyjl.jyje}</td>
 					<td>${item.bzj.bzjje}</td>
-					<td>${item.bzj.jyje}</td>
 					<td>
-					<a href="javascript:void(0)" class="easyui-linkbutton" onClick="chuli('${item.dd.id}')">批准通过</a>
-					<a href="javascript:void(0)" class="easyui-linkbutton" onClick="chuli('${item.dd.id}')">驳回</a>
-					</td>							
+					<a href="javascript:void(0)" class="easyui-linkbutton" onClick="tongyi('${item.jyjl.id}')">同意申请</a>
+					<a href="javascript:void(0)" class="easyui-linkbutton" onClick="bohui('${item.jyjl.id}')">驳回申请</a>
+					</td>			
 				</tr>
 				</c:forEach>
 		</tbody>
@@ -54,22 +54,77 @@
 		</div>
 	</div>
 </body>
-<script type="text/javascript">
-		var index = 0;
-		function chuli(id){
-			var row = $('#dg').datagrid('getSelected');
-			if (row){
-				index++;
-				$('#tt').tabs('add',{
-					title: '处理此单',
-					content: '<iframe src="ycdd_fqcl.action?id='+(id)+'" frameborder="0" style="padding:5px;width:810px;height:500px;"></iframe>',
-					closable: true
-				});
+	<script type="text/javascript">
+	var rqt;
+	function tongyi(arg0){
+		if(window.XMLHttpRequest){//非IE浏览器
+			rqt = new XMLHttpRequest();
+		}else if(window.ActiveXObject){
+			try{
+				rqt = new ActiveXObject("Msxml2.XMLHTTP");
+			}catch(e){
+				try{
+					rqt = new ActiveXObject("Microsoft.XMLHTTP");
+				}catch(e){		
+				}
 			}
 		}
-		
-		function shuaxin(){
-			window.location = "dd_ptFindAllYcdd.action?id=6";
+		rqt.onreadystatechange = getresult;
+		rqt.open("POST","jyjl_ptJdbzj.action?id="+encodeURI(encodeURI(arg0)),false);
+		rqt.send("");
+	   };
+	   function getresult(){
+		   if(rqt.readyState == 4){
+			   if(rqt.status == 200){
+				   var temp = rqt.responseText;
+				   if(temp=="true"){
+						$.messager.alert('提示','操作成功');
+						setTimeout("yanchishuaxin()",1500);
+				   }else{
+					   $.messager.alert('提示','操作失败!','warning'); 
+				   }
+				};
+			   }
+		}		
+	   
+	   
+	function bohui(arg0){
+		if(window.XMLHttpRequest){//非IE浏览器
+			rqt = new XMLHttpRequest();
+		}else if(window.ActiveXObject){
+			try{
+				rqt = new ActiveXObject("Msxml2.XMLHTTP");
+			}catch(e){
+				try{
+					rqt = new ActiveXObject("Microsoft.XMLHTTP");
+				}catch(e){		
+				}
+			}
 		}
+		rqt.onreadystatechange = getresult1;
+		rqt.open("POST","jyjl_ptBhsq.action?id="+encodeURI(encodeURI(arg0)),false);
+		rqt.send("");
+	   };
+	   function getresult1(){
+		   if(rqt.readyState == 4){
+			   if(rqt.status == 200){
+				   var temp = rqt.responseText;
+				   if(temp=="true"){
+						$.messager.alert('提示','操作成功');
+						setTimeout("yanchishuaxin()",1500);
+				   }else{
+					   $.messager.alert('提示','操作失败!','warning'); 
+				   }
+				};
+			   }
+		}		
+	
+	
+	   
+	   function yanchishuaxin(){
+		   window.location="Jyjl_ptFindAllJdsq.action";
+	   }
+	   
+	   
 	</script>
 </html>

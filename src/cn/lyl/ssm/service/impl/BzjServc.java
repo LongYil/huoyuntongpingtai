@@ -75,7 +75,7 @@ public class BzjServc extends CommonSevc<Bzj,BzjDaoImpl> {
 	}
 	
 	public boolean cysFqjd(String num,String yhbh) throws Exception{
-		bzj = this.find("yhbh");
+		bzj = this.find(yhbh);
 		int tempnum = bzj.getYsqje()+Integer.parseInt(num);
 		if(bzj.getBzjje()>tempnum|bzj.getBzjje()==tempnum){
 			jyjl.setJyje(Integer.parseInt(num));

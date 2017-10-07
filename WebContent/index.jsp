@@ -36,7 +36,7 @@
 
     	<div class="welcome">
                     <div id="FnoLogin" class="fl" style="display: block;">
-                        <span class="fl">欢迎来到中国物通网！</span>
+                        <span class="fl">欢迎来到货运通物流平台！</span>
                         <span class="fl"><a  href="${pageContext.request.contextPath}/jbyh_logOn.action" class="colory">请登录</a></span>
                         <span class="fl"><a  href="${pageContext.request.contextPath}/jbyh_preregister.action">免费注册</a></span>
                         <span class="fl"><a  href="#">忘记密码？</a></span>
@@ -187,8 +187,8 @@
     	<!--右-->
         <div class="right">
            <div class="right_01">
-            	<a href="#" class="reg" target="_blank" >免费注册</a>
-                <a href="#" class="login" target="_blank" >登录</a>
+            	<a href="${pageContext.request.contextPath}/jbyh_preregister.action" class="reg" target="_blank" >免费注册</a>
+                <a href="${pageContext.request.contextPath}/jbyh_logOn.action" class="login" target="_blank" >登录</a>
             </div>
             
             <div class="right_02">
@@ -199,7 +199,7 @@
             	<a class="news">网站公告</a>
             	<ul>
                 	<li><p><a class="news_text" href="#"  target="_blank" >关于落实《中华人民共和国网络安全法》的公告</a></p></li>
-                    <li><p><a class="news_text" href="#" target="_blank" >中国物通网关于修改服务规则的重要提示</a></p></li>
+                    <li><p><a class="news_text" href="#" target="_blank" >货运通物流平台关于修改服务规则的重要提示</a></p></li>
                 </ul>
             </div>
             <div class="right_04">
@@ -541,11 +541,9 @@
             	<span>免责声明：本站只起到物流信息平台作用，内容的真实准确性以及物流过程中出现的任何风险均由发布者负责，与平台无关。</span>
             </p>
             <p>
-            	<span class="pr5"> 备案：<a href="#">京ICP备08010544号</a></span>
+            	<span class="pr5"> 备案：<a href="#">粤ICP备17120651号</a></span>
                 <span class="h_ge">|</span>
-                <span class="pr5">京公网安备<a href="#">11011502001423</a></span>
-                <span class="h_ge">|</span>
-                <span class="pr5 red"> 增值电信业务许可证：<a href="#" class="red">京ICP证110597号</a></span>
+                <span class="pr5 red"> 增值电信业务许可证：<a href="#" class="red">粤ICP备17120651号</a></span>
             </p>
             <p>
             	<span class="pr5">客服1：<img src="images/zym/a01.png" /></span>
@@ -554,9 +552,8 @@
                 <span class="pr5">商务洽谈：<img src="images/zym/a01.png" /></span>
             </p>
             <p>
-            	<span class="pr5">Copyright © 2007-2017 chinawutong.com All rights reserved.</span>
-                <span class="pr5">建议使用1440*900分辨率访问中国物流网</span>
-                <span class="pr5">访问手机版</span>
+            	<span class="pr5">Copyright © 2007-2017 www.huoyuntong.top All rights reserved.</span>
+                <span class="pr5">建议使用1440*900分辨率访问货运通物流平台</span>
             </p>
         </div>
    </div>

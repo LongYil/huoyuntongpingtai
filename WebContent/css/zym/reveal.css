@@ -20,7 +20,7 @@
 		left: 50%;
 		margin-left: -300px;
 		width: 520px;
-		background: #eee url(modal-gloss.png) no-repeat -200px -80px;
+		background: #eee;
 		position: absolute;
 		z-index: 101;
 		padding: 30px 40px 34px;
@@ -47,4 +47,43 @@
 		text-shadow: 0 -1px 1px rbga(0,0,0,.6);
 		font-weight: bold;
 		cursor: pointer;
-		} 
+		}
+/*弹出的选择框*/
+.select-pca{
+	width:100px;
+	height:30px;
+}
+.province{
+	border-radius:3px;
+	-webkit-border-radius:3px;
+	-moz-border-radius :3px;
+	border:thin;
+	width:100px;
+	height:38px;
+}
+.city{
+	border-radius:3px;
+	-webkit-border-radius:3px;
+	-moz-border-radius :3px;
+	border:thin;
+	width:100px;
+	height:38px;
+}
+.area{
+	border-radius:3px;
+	-webkit-border-radius:3px;
+	-moz-border-radius :3px;
+	border:thin;
+	width:100px;
+	height:38px;
+}
+.qr{
+	float:right;
+	width:60px;
+	height:38px;
+	background-color:#FFF;
+}
+.qr:hover{
+	background-color:#fa5000;;
+	color:#FFF;
+}

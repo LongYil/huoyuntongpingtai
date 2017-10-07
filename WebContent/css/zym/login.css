@@ -4,12 +4,16 @@ body{
     padding:0px;
     font-size: 12px;
     line-height: 22px;
-    font-family: Tahoma,Arial,"å®‹ä½“";
+    font-family: Tahoma,Arial,"ËÎÌå";
     color: #333333;
 }
 * {
     margin: 0;
     padding: 0;
+}
+.hopemodelpage{
+    width:1040px;
+    margin:0 auto;
 }
 a{
     text-decoration: none;
@@ -30,7 +34,7 @@ header{
     float: left;
     font-size: 24px;
     color: #5e5e5e;
-    font-family: "å¾®è½¯é›…é»‘";
+    font-family: "Î¢ÈíÑÅºÚ";
     padding-top: 80px;
     letter-spacing: 3px;
 }
@@ -40,7 +44,7 @@ header{
     margin-right: 10%;
 }
 .header_right a {
-    font-family: "å®‹ä½“";
+    font-family: "ËÎÌå";
     font-size: 12px;
     color: #6c6c6c;
 }
@@ -53,12 +57,12 @@ header{
 }
 .container_left {
     height:400px;
-    width:40%;
+    width:420px;
     padding-top: 90px;
     float: left;
 }
 .container_text{
-    font-family: "å¾®è½¯é›…é»‘ ";
+    font-family: "Î¢ÈíÑÅºÚ ";
     font-size: 22px;
     color: #FFFFFF;
     float: right;
@@ -85,7 +89,7 @@ header{
 }
 .login_box {
     font-size: 18px;
-    font-family: "å¾®è½¯é›…é»‘";
+    font-family: "Î¢ÈíÑÅºÚ";
     color: #3c3c3c;
     margin-top: 16px;
     float: left;
@@ -104,7 +108,7 @@ header{
 .extra_r a {
     color: #0f93d5;
 }
-/*è¡¨å•*/
+/*±íµ¥*/
 .code
 {
     font-family:Arial;
@@ -144,7 +148,7 @@ header{
 }
 .text_uid input {
     font-size: 14px;
-    font-family: "å¾®è½¯é›…é»‘";
+    font-family: "Î¢ÈíÑÅºÚ";
 }
 .login_text, .login_text2 {
     width: 220px;
@@ -178,7 +182,7 @@ header{
 }
 .text_uid input {
     font-size: 14px;
-    font-family: "å¾®è½¯é›…é»‘";
+    font-family: "Î¢ÈíÑÅºÚ";
 }
 .jzmm {
     margin-right: 5px;
@@ -199,7 +203,7 @@ header{
 }
 .remember label {
     font-size: 12px;
-    font-family: "å¾®è½¯é›…é»‘";
+    font-family: "Î¢ÈíÑÅºÚ";
     color: #6c6c6c;
 }
 .login_pwd {
@@ -215,7 +219,7 @@ header{
 }
 .rememr a {
     font-size: 12px;
-    font-family: "å¾®è½¯é›…é»‘";
+    font-family: "Î¢ÈíÑÅºÚ";
     color: #0f93d5;
 }
 .btnnew {
@@ -238,12 +242,12 @@ footer{
     color: #F83636;
 }
 .foot_login a {
-    font-family: Arial,å®‹ä½“, Helvetica, sans-serif;
+    font-family: Arial,ËÎÌå, Helvetica, sans-serif;
     font-size: 12px;
     color: #1f1f1f;
 }
 .foot_login3 span {
-    font-family: Arial,å®‹ä½“, Helvetica, sans-serif;
+    font-family: Arial,ËÎÌå, Helvetica, sans-serif;
     font-size: 12px;
     color: #999999;
     margin: 15px 0px 38px 0px;

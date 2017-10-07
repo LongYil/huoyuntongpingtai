@@ -1,5 +1,6 @@
 package cn.lyl.ssm.controller;
 
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,8 +11,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import cn.lyl.ssm.po.Bzj;
 import cn.lyl.ssm.po.Jyjl;
+import cn.lyl.ssm.po.Ptzh;
+import cn.lyl.ssm.service.impl.BzjServc;
 import cn.lyl.ssm.service.impl.JyjlServc;
+import cn.lyl.ssm.service.impl.PtzhServc;
 import cn.lyl.ssm.utils.AssembleJyjl;
 import cn.lyl.ssm.vo.JyjlVo;
 
@@ -22,6 +27,19 @@ public class JyjlController extends BasicController<JyjlServc>{
 	private List<Jyjl> listjyjl = new ArrayList<Jyjl>();
 	@Autowired
 	private AssembleJyjl assembleJyjl;
+	@Autowired
+	private Jyjl jyjl;
+	@Autowired
+	private JyjlServc jyjlServc;
+	@Autowired
+	private Ptzh ptzh;
+	@Autowired
+	private PtzhServc ptzhServc;
+	@Autowired
+	private Bzj bzj;
+	@Autowired
+	private BzjServc bzjServc;
+	
 	
 	@RequestMapping("jyjl_cysSave")
 	public void cysSave(Jyjl jyjl,Model model,HttpServletRequest request){
@@ -82,6 +100,31 @@ public class JyjlController extends BasicController<JyjlServc>{
 		return "pt_jdbzj";
 	}
 	
-	
+	@RequestMapping("jyjl_ptJdbzj")//同意解冻申请
+	public void ptJdbzj(String id,PrintWriter out) throws Exception {
+		jyjl = jyjlServc.find(id);
+		ptzh = ptzhServc.find(String.valueOf(jyjl.getYhbh()));
+		bzj = bzjServc.find(String.valueOf(jyjl.getYhbh()));
+		bzj.setBzjje(bzj.getBzjje()-jyjl.getJyje());
+		bzj.setYsqje(bzj.getYsqje()-jyjl.getJyje());
+		bzjServc.save(bzj);
+		
+		ptzh.setZhye(ptzh.getZhye()+jyjl.getJyje());
+		ptzhServc.update(ptzh);
+		
+		jyjl.setJyzt(2);
+		jyjlServc.save(jyjl);
+		
+		out.write("true");
+	}
+	@RequestMapping("jyjl_ptBhsq")//驳回解冻申请
+	public void ptBhsq(String id,PrintWriter out) throws Exception {
+		jyjl = jyjlServc.find(id);
+		
+		jyjl.setJyzt(3);
+		jyjlServc.save(jyjl);
+		
+		out.write("false");
+	}
 	
 }

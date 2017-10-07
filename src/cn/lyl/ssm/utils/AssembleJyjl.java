@@ -46,7 +46,7 @@ public class AssembleJyjl {
 		listvo.clear();
 		for(int i=0;i<listjyjl.size();i++){
 			jyjl = listjyjl.get(i);
-			
+			jyjlvo = new JyjlVo();
 			jyjlvo.setId(i);
 			jyjlvo.setJysj(jyjl.getJysj());
 			
@@ -107,6 +107,7 @@ public class AssembleJyjl {
 			jbyh = jbyhServc.find(String.valueOf(jyjl.getYhbh()));
 			jyjlvo.setJyjl(jyjl);
 			jyjlvo.setJbyh(jbyh);
+			jyjlvo.setBzj(bzj);
 			
 			boolean temp = ddServc.ptFindAllWwcDd(String.valueOf(jyjl.getYhbh()));
 			if(temp) {

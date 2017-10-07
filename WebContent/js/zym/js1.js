@@ -2,6 +2,8 @@
  * jquery.citys.js 1.0
  * http://jquerywidget.com
  */
+
+
 ;(function (factory) {
     if (typeof define === "function" && (define.amd || define.cmd) && !jQuery) {
         // AMD或CMD

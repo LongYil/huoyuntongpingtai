@@ -77,6 +77,7 @@ body{height:200%;}
 	overflow: hidden;
 	}
 .header_img img{
+    width:200px;
 	float:left;
 	}
 /*图片轮换css开始*/
@@ -279,44 +280,6 @@ ul#tabfirst .aa{
     color: #fa6400;
     font-weight: bold;
 }
-.select-pca{
-	width:100px;
-	height:30px;
-	}
-.province{
-border-radius:3px;
--webkit-border-radius:3px;
--moz-border-radius :3px;
-border:thin;
-width:100px;
-height:38px;
-}
-.city{
-border-radius:3px;
--webkit-border-radius:3px;
--moz-border-radius :3px;
-border:thin;
-width:100px;
-height:38px;
-}
-.area{
-border-radius:3px;
--webkit-border-radius:3px;
--moz-border-radius :3px;
-border:thin;
-width:100px;
-height:38px;
-}
-.qr{
-	float:right;
-	width:60px;
-	height:38px;
-	background-color:#FFF;
-	}
-.qr:hover{
-	background-color:#fa5000;;
-	color:#FFF;
-	}
 /*选择地址框结束*/
 /*右*/
 .main_box .right{

@@ -15,7 +15,7 @@ public class JyjlDaoImpl extends CommonDaoImpl<Jyjl> implements JyjlDao {
 
 	@Override
 	public void save(Jyjl entity) {
-		ht.save(entity);
+		ht.saveOrUpdate(entity);
 	}
 
 	@Override
@@ -32,8 +32,7 @@ public class JyjlDaoImpl extends CommonDaoImpl<Jyjl> implements JyjlDao {
 
 	@Override
 	public Jyjl find(String arg) throws Exception {
-		//
-		return null;
+		return (Jyjl) getEntity.getEntity("Jyjl", "id", arg, Jyjl.class);
 	}
 
 	@Override
@@ -63,7 +62,7 @@ public class JyjlDaoImpl extends CommonDaoImpl<Jyjl> implements JyjlDao {
 
 	@Override
 	public List<Jyjl> FindAllJdsq() {
-		return (List<Jyjl>) ht.find("from Jyjl where jylx = 5");
+		return (List<Jyjl>) ht.find("from Jyjl where jylx = 5 and jyzt = 1");
 	}
 	
 	

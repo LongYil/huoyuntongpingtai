@@ -1,0 +1,472 @@
+body{
+    margin:0px;
+    padding:0px;
+    font-size: 12px;
+    line-height: 22px;
+    font-family: Tahoma,Arial,"宋体";
+    color: #333333;
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+.hopemodelpage{
+    width:1040px;
+    margin:0 auto;
+}
+a{
+    text-decoration: none;
+}
+ul li{
+    list-style: none;
+}
+header{
+    padding-top:30px;
+    padding-bottom: 8px;
+    margin:0 auto;
+    width:1040px;
+}
+input {
+    height: 28px;
+    line-height: 32px;
+    border: #c7c7c7 solid 1px;
+    margin-right: 3px;
+    font-size: 14px;
+    padding-left: 3px;
+}
+/*图片轮换css开始*/
+#picture{
+    height:90px;
+    overflow:hidden;
+    position:relative;
+    float:right;
+}
+#picture .picture_img img{
+    width:800px;
+    height:90px;
+}
+.picture_img{
+    width:800px;
+    height:90px;
+    margin:0;}
+/*图片轮换css结束*/
+.huoyun_logo{
+    height:100px;
+    float: left;
+}
+.welcome a:link, .welcome a:visited {
+    color: #666;
+    text-decoration: none;
+}
+.welcome a.colory{
+    color: #fa5000;
+    text-decoration: none;
+}
+.welcome a:hover, .welcome a:active {
+    color: #fa5000;
+    text-decoration: underline;
+}
+.welcome{
+    float: left;
+    height: 23px;
+    overflow: hidden;
+    padding-left:120px;
+    padding-top:80px;
+}
+.head_right {
+    height: 23px;
+    background-color: #FFFFFF;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top:80px;
+}
+.head_right span {
+    padding-left: 25px;
+    padding-right:4px;
+    line-height: 23px;
+}
+.head_right .shouye {
+    background: url('../../images/zym/ico_bg2.png') 0px -144px no-repeat;
+}
+.head_right .rj {
+    background: url('../../images/zym/ico_bg2.png') 0px 0px no-repeat;
+}
+.head_right .shj {
+    background: url('../../images/zym/ico_bg2.png') 0px -25px no-repeat;
+}
+.head_right .wxt {
+    background: url('../../images/zym/ico_bg2.png') 0px -74px no-repeat;
+}
+.head_right .jj {
+    padding-left: 8px;
+}
+.head_right  a:link,.head_right  a:visited {
+    color: #000;
+    text-decoration: none;
+}
+.head_right a:hover, .head_right a:active {
+    color: #fa5000;
+    text-decoration: underline;
+}
+.container .blue_list{
+    width:1040px;
+    height: 45px;
+    line-height: 45px;
+    background-color: #3986f0;
+    margin-bottom: 10px;
+}
+.bule_list_txt{
+    font-size: 14px;
+    font-weight: bold;
+    color: #FFFFFF;
+    margin-left:50px;
+}
+.notice {
+    width: 1040px;
+    margin: 0 auto;
+    border: 1px solid #FFBA00;
+    margin-bottom: 3px;
+    background-color: #FFFFE6;
+    color: #6E6E6E;
+    height:21px;
+    line-height: 1.5;
+    font-size: 14px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+.notice_img{
+    background: url('../../images/zym/fh-zttb.png') no-repeat  -50px -20px;
+    width: 15px;
+    height: 15px;
+    margin-top: 5px;
+    float: left;
+    margin-left:10px;
+}
+.line{
+    background: #fff;
+    width: 1040px;
+    height:140px;
+    margin: 0 auto;
+    border: 1px solid #e8e8e8;
+    padding: 15px 50px 8px;
+    box-sizing: border-box;
+}
+.title {
+    font-size: 14px;
+    font-weight: bold;
+    color: #353535;
+    padding-bottom: 10px;
+    float: left;
+}
+.tips{
+    padding-left: 10px;
+    color: #fa4402;
+    font-weight: normal;
+}
+.fl {
+    float: left;
+}
+.w281 {
+    width: 280px;
+    background: url('../../images/zym/fh-zttb.png') 0px -228px no-repeat;
+    padding-left: 5px;
+    color: #222222;
+    margin-right: 100px;
+}
+.w2800 {
+    width: 280px;
+    padding-left: 5px;
+    color: #222222;
+    margin-right: 30px;
+}
+.h35{
+    height: 35px;
+}
+.maps-icon {
+    background: url('../../images/zym/maps-icon.png') no-repeat;
+    margin-top: 3px;
+    width: 23px;
+    height: 22px;
+    line-height: 35px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+/*选择物流公司*/
+.company{
+    background: #fff;
+    width: 1040px;
+    margin: 5px auto;
+    border: 1px solid #e8e8e8;
+    padding: 15px 50px 8px;
+    box-sizing: border-box;
+}
+.company ul#content{
+    display: block;
+}
+.company_table{
+    text-align: center;
+    width: 980px;
+}
+.company_table td{
+    height: 18px;
+    border-bottom: #E2E2E2 1px dashed;
+}
+.company_table a{
+    text-decoration:underline;
+}
+.price{
+    color: #fa6400;
+    font-size:16px;
+    font-family:"微软雅黑 Light";
+}
+.why{
+    width:14px;
+    height:14px;
+    border:none;
+}
+.title_color {
+    background: #f8f8f8;
+}
+.title_color_last{
+    border-right: #E2E2E2 1px solid;
+}
+.price_detail{
+    display:none;
+    position: absolute;
+    background-color: #FFFECF;
+    z-index: 100;
+    width: 200px;
+    border: 1px solid #999;
+    margin-top: 10px;
+    margin-left: 25px;
+    _margin-top: 20px;
+    _margin-left: -125px;
+    *margin-top: 28px;
+    *margin-left: -125px;
+}
+.border_last_td{
+    border-right: #E2E2E2 1px solid
+}
+.company_tr{
+    border-top: #E2E2E2 1px solid
+}
+
+/*
+  @@ Pagination
+*/
+.holder{
+    text-align: center;
+}
+.holder a {
+    font-size: 12px;
+    cursor: pointer;
+    margin: 0 5px;
+    color: #333;
+}
+
+.holder a:hover {
+    background-color: #222;
+    color: #fff;
+}
+
+.holder a.jp-previous { margin-right: 15px; }
+.holder a.jp-next {  margin-left: 15px;  }
+
+.holder a.jp-current, a.jp-current:hover {
+    color: #ed4e2a;
+    font-weight: bold;
+}
+.holder a.jp-disabled, a.jp-disabled:hover { color: #bbb; }
+
+.holder a.jp-current, a.jp-current:hover,
+.holder a.jp-disabled, a.jp-disabled:hover {
+    cursor: default;
+    background: none;
+}
+.msg{
+    background: #fff;
+    width: 1040px;
+    margin: 5px auto;
+    border: 1px solid #e8e8e8;
+    padding: 15px 50px 8px;
+    box-sizing: border-box;
+}
+.usually{
+    display: block;
+    background: url('../../images/zym/fh-zttb.png') no-repeat;
+    background-position: -100px -20px;
+    width: 105px;
+    height: 20px;
+    cursor: pointer;
+    float: right;
+}
+/*表格*/
+.msg_top{
+    background: #fbfbfb;
+    height: 25px;
+    line-height: 25px;
+}
+table tr td {
+    border-collapse: collapse;
+    border: none;
+}
+.f1{
+    border: 1px solid #ccc;
+    z-index: 1;
+    height: 27px;
+    width: 50px;
+    padding-left: 4px;
+    text-align: left;
+    font-size: 12px;
+    color: #333333;
+    position: relative;
+    float: left;
+    line-height: 27px;
+}
+.msg_type{
+    border: 1px solid #ccc;
+    z-index: 1;
+    height: 29px;
+    padding-left: 4px;
+    text-align: left;
+    font-size: 12px;
+    color: #333333;
+    position: relative;
+    float: left;
+    line-height: 27px;
+}
+.msg_type_01 {
+    width: 200px;
+}
+.msg_type_02 {
+    width: 80px;
+}
+.msg_type_03{
+    width: 50px;
+}
+.lh30{
+    height: 30px;
+    line-height: 30px;
+}
+.msg_name{
+    border: 1px solid #ccc;
+    z-index: 1;
+    height: 27px;
+    width: 50px;
+    padding-left: 4px;
+    text-align: left;
+    font-size: 12px;
+    color: #333333;
+    position: relative;
+    float: left;
+    line-height: 27px;
+}
+.add {
+    width: 120px;
+    color: #3982f5;
+    float: left;
+    height:40px;
+    line-height: 40px;
+    cursor: pointer;
+}
+.add_img {
+    display: block;
+    background: url('../../images/zym/fh-zttb.png') no-repeat;
+    background-position: -100px -46px;
+    width: 20px;
+    height: 40px;
+    cursor: pointer;
+    float: left;
+}
+.del{
+    color:blue;
+}
+.connect{
+    background: #fff;
+    width: 1040px;
+    height:131px;
+    margin: 5px auto;
+    border: 1px solid #e8e8e8;
+    padding: 15px 50px 8px;
+    box-sizing: border-box;
+}
+.connect_box{
+
+}
+.clear {
+    clear: both;
+    height: 0;
+    overflow: hidden;
+}
+.connect_txt{
+    float: left;
+    height:35px;
+    width: 300px;
+    padding-top:3px;
+    box-sizing: border-box;
+}
+.red {
+    color: red;
+    margin-right: 5px;
+}
+.lh35 {
+    line-height: 35px;
+    float: left;
+    font-size: 14px;
+}
+.connect_txt input {
+    height: 28px;
+    line-height: 35px;
+    border: #c7c7c7 solid 1px;
+    margin-right:5px;
+    font-size: 14px;
+    padding-left: 3px;
+    float: left;
+    margin-left: 5px;
+}
+.choose_send {
+    background: url('../../images/zym/fh-zttb.png') no-repeat;
+    background-position: -50px -100px;
+    width: 100px;
+    height: 35px;
+    cursor: pointer;
+    float: left;
+}
+.choose_receiver{
+    background: url('../../images/zym/fh-zttb.png') no-repeat;
+    background-position: -50px -160px;
+    width: 100px;
+    height: 35px;
+    cursor: pointer;
+    float: left;
+}
+.save{
+    height: 35px;
+    box-sizing: border-box;
+    float: left;
+    line-height: 35px;
+}
+.middle{
+    vertical-align:middle;
+}
+footer{
+    width: 1040px;
+    height: 40px;
+    margin:  0 auto;
+    line-height: 40px;
+    text-align: center;
+    color: #666666;
+    border-top: #3986f0 solid 2px;
+    margin-top: 30px;
+}
+footer a{
+    color: #000;
+}
+footer a:hover{
+    color: red;
+}
+
+
+
+
+

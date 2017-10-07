@@ -30,8 +30,7 @@ public class JyjlServc extends CommonSevc<Jyjl, JyjlDaoImpl> {
 
 	@Override
 	public Jyjl find(String arg) throws Exception {
-		//
-		return null;
+		return daoImpl.find(arg);
 	}
 
 	@Override

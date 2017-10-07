@@ -33,7 +33,7 @@
 			<ul class="menu1">
 				<li><a href="javascript:void(0)" onClick="To('pt_findPtglyInfo.action')"><img src="js/basic/icon/jibenxinxi.png" class="itemicon">基本信息</a></li>
                 <li><a href="javascript:void(0)" onClick="To('pt_findAll.action')"><img src="js/basic/icon/zhanghaoguanli.png" class="itemicon">帐号管理</a></li>
-				<li><a href="javascript:void(0)" onClick="To('#')"><img src="js/basic/icon/zhanghuguanli.png" class="itemicon">账户管理</a></li>
+<!-- 				<li><a href="javascript:void(0)" onClick="To('#')"><img src="js/basic/icon/zhanghuguanli.png" class="itemicon">账户管理</a></li> -->
 			</ul>
 		</li>
 
@@ -69,8 +69,8 @@
             </li>
             </dl>
 			<ul class="menu1">
-				<li><a href="javascript:void(0)" onClick="To('dd_ptFindAllYcdd.action')"><img src="js/basic/icon/chengyunshang.png" class="itemicon">解冻保证金</a></li>
-                <li><a href="javascript:void(0)" onClick="To('dd_ptFindAllYcdd.action')"><img src="js/basic/icon/huoyundailidian.png" class="itemicon">充值物流币</a></li>
+				<li><a href="javascript:void(0)" onClick="To('Jyjl_ptFindAllJdsq.action')"><img src="js/basic/icon/chengyunshang.png" class="itemicon">解冻保证金</a></li>
+<!--                 <li><a href="javascript:void(0)" onClick="To('dd_ptFindAllYcdd.action')"><img src="js/basic/icon/huoyundailidian.png" class="itemicon">充值物流币</a></li> -->
 			</ul>
 		</li>
  		<li class="fatheritem">
@@ -81,13 +81,18 @@
             </dl>
 			<ul class="menu1">
 				<li><a href="javascript:void(0)"><img src="js/basic/icon/jueseguanli.png" class="itemicon">角色管理</a></li>
-                <li><a href="javascript:void(0)"><img src="js/basic/icon/xitongrizhi.png" class="itemicon">系统日志</a></li>
-                <li><a href="javascript:void(0)"   onClick="To('jbyh_logOff.action')"><img src="js/basic/icon/tuichu.png" class="itemicon">退出</a></li>
+<!--                 <li><a href="javascript:void(0)"><img src="js/basic/icon/xitongrizhi.png" class="itemicon">系统日志</a></li> -->
+                <li><a href="javascript:void(0)"   onClick="Go('jbyh_logOff.action')"><img src="js/basic/icon/tuichu.png" class="itemicon">退出</a></li>
 			</ul>
-		</li>                
+		</li>
 	</ul>
 	</div>
-	<div data-options="region:'south',border:false" style="height:50px;background:#A9FACD;padding:10px;">south region</div>
+	
+	<div data-options="region:'south',border:false" style="height:40px;padding:10px;border:1px #95b8e7 solid;color:#535666;border-top:0px solid #fff;" class="foot">
+		<p style="padding:0px;margin:0px;text-align:center;">Copyright©2017-2019&nbsp;&nbsp;www.huoyuntong.top&nbsp;&nbsp;All&nbsp;Rights&nbsp;Reserved&nbsp;&nbsp;许可证号：粤ICP备17120651号</p>
+	</div>
+	
+	
 	<div data-options="region:'center',title:'我的桌面'">
     	<iframe class="zhuomian" frameborder="0" style="width:840px;height:640px;margin:0px;pading:0px;">	
         </iframe>

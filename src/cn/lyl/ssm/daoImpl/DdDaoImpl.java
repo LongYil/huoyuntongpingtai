@@ -69,7 +69,8 @@ public class DdDaoImpl extends CommonDaoImpl<Dd> implements DdDao {
 
 	@Override
 	public List<Dd> ptFindAllWwcDd(String yhbh) {
-		return (List<Dd>) ht.find("from Dd where ddzt<7 and yhbh = "+yhbh+"");
+//		return (List<Dd>) ht.find("from Dd where (ddzt=1 or ddzt=2 or ddzt=3 or ddzt=4 or ddzt=6 ");
+		return (List<Dd>) ht.find("from Dd where (ddzt=1 or ddzt=2 or ddzt=3 or ddzt=4 or ddzt=6  ) and (fhdld = "+yhbh+" or shdld ="+yhbh+" or cys = "+yhbh+" )");
 	}
 	
 

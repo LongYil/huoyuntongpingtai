@@ -38,10 +38,6 @@ public class WtrController extends BasicController<WtrServc> {
 	@Autowired
 	private Wtr wtr;
 	@Autowired
-	private Bzj bzj;
-	@Autowired
-	private BzjServc bzjServc;
-	@Autowired
 	private Ptzh ptzh;
 	@Autowired
 	private PtzhServc ptzhServc;
@@ -54,9 +50,6 @@ public class WtrController extends BasicController<WtrServc> {
 	@RequestMapping("/wtr_save")
 	public String save(Model model,Jbyh jbyh,Wtr wtr,HttpServletRequest request){
 		jbyhServc.save(jbyh);
-		bzj.setYhbh(jbyh.getYhbh());
-		bzj.setBzjje(0);
-		bzjServc.save(bzj);
 		ptzh.setYhbh(jbyh.getYhbh());
 		ptzh.setZhye(2000.0f);
 		ptzhServc.save(ptzh);
