@@ -167,6 +167,7 @@ public class HyglyController extends BasicController<HyglyServc> {
 		return "hy_jbxx";
 	}
 	
+	//
 	@RequestMapping("hy_cysFindDld")
 	public String cysFindDld(Model model,HttpServletRequest request) throws Exception{
 		cysgly = (Cysgly) request.getSession().getAttribute("cysgly");
@@ -225,6 +226,7 @@ public class HyglyController extends BasicController<HyglyServc> {
 	
 	@RequestMapping("hy_hyAddGly")//货运代理点用户添加管理员
 	public void hyAddGly(Jbyh jbyh,Hygly hygly,HttpServletRequest request){
+		jbyh.setYhmm(md5Encrypt.to32MD5(jbyh.getYhmm()));
 		jbyhServc.save(jbyh);
 		hygly.setYhbh(Integer.parseInt(request.getSession().getAttribute("yhbh").toString()));
 		hygly.setGlylx(2);

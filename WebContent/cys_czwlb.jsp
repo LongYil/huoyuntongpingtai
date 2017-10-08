@@ -27,7 +27,22 @@
 
 	<div class="easyui-panel" style="width:100%;max-width:830px;max-height:400px;padding:30px 60px;" title="充值物流币">
 		<form id="ff" name="myform" action="${pageContext.request.contextPath}/jyjl_cysSave.action" class="easyui-form" method="post" data-options="novalidate:true">
+			<div style="margin-bottom:20px">
+				<span>请汇款到如下账户:</span>						
+			</div>
+			<div style="margin-bottom:20px">
+				<input class="easyui-textbox" readOnly="true" value="${yhzh.yhlx}" style="width:40%" data-options="label:'收款银行',required:true">						
+			</div>
+			<div style="margin-bottom:20px">
+				<input class="easyui-textbox" readOnly="true" value="${yhzh.ckrxm }" style="width:40%" data-options="label:'收款人姓名',required:true">						
+			</div>
+			<div style="margin-bottom:20px">
+				<input class="easyui-textbox" readOnly="true" value="${yhzh.yhzh}" style="width:40%" data-options="label:'收款人账号',required:true">					
+			</div>
 			
+			<div style="margin-bottom:20px">
+				<span>请填写汇款信息:</span>						
+			</div>
 			<div style="margin-bottom:20px">
 				<input class="easyui-textbox" name="jyje" style="width:40%" data-options="label:'充值金额',required:true">(单位:元)						
 			</div>
@@ -35,7 +50,7 @@
 				<input class="easyui-textbox" name="jyrxm" style="width:40%" data-options="label:'汇款人姓名',required:true">						
 			</div>
 			<div style="margin-bottom:20px">
-				<input class="easyui-textbox" name="jyrid" style="width:40%" data-options="label:'汇款人身份证号',required:true">					
+				<input class="easyui-textbox" name="jyrid" style="width:40%" data-options="label:'汇款人身份证',required:true">					
 			</div>
 			
 			

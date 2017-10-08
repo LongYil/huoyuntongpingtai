@@ -59,14 +59,14 @@
             </dl>
 			<ul class="menu1">
 				<li><a href="javascript:void(0)" onClick="To('dd_findAllShAndFh.action')"><img src="js/basic/icon/quanbudingdan.png" class="itemicon">全部订单</a></li>
-                <li><a href="javascript:void(0)" onClick="To('dd_findAll.action?yhlx=2&id=1')"><img src="js/basic/icon/yijiedan.png" class="itemicon">待处理订单</a></li>
+                <li><a href="javascript:void(0)" onClick="To('dd_findAll.action?yhlx=2&id=1')"><img src="js/basic/icon/yijiedan.png" class="itemicon">待处理</a></li>
                 <li><a href="javascript:void(0)" onClick="To('dd_findAll.action?yhlx=2&id=2')"><img src="js/basic/icon/yijiedan.png" class="itemicon">已处理</a></li>
                 <li><a href="javascript:void(0)" onClick="To('dd_findAll.action?yhlx=2&id=3')"><img src="js/basic/icon/yunshuzhong.png" class="itemicon">运输中</a></li>
                 <li><a href="javascript:void(0)" onClick="To('dd_findAll.action?yhlx=2&id=4')"><img src="js/basic/icon/yunshuzhong.png" class="itemicon">已送达</a></li>
                 <li><a href="javascript:void(0)" onClick="To('dd_findAll.action?yhlx=2&id=5')"><img src="js/basic/icon/yiqianshou.png" class="itemicon">已签收</a></li>
                 <li><a href="javascript:void(0)" onClick="To('dd_findAll.action?yhlx=3&id=4')"><img src="js/basic/icon/yiqianshou.png" class="itemicon">代收货</a></li>
                 <li><a href="javascript:void(0)" onClick="To('dd_findAll.action?yhlx=3&id=5')"><img src="js/basic/icon/yiqianshou.png" class="itemicon">已代收</a></li>
-                <li><a href="javascript:void(0)" ><img src="js/basic/icon/dingdanchaxun.png" class="itemicon">订单查询</a></li>
+<!--                 <li><a href="javascript:void(0)" ><img src="js/basic/icon/dingdanchaxun.png" class="itemicon">订单查询</a></li> -->
 			</ul>
 		</li>
   
@@ -92,7 +92,7 @@
             </dl>
 			<ul class="menu1">
 				<li name="jsgl" style="display:${hyjs.jsgl}"><a href="javascript:void(0)" onClick="To('hyjs_findAll.action')"><img src="js/basic/icon/jueseguanli.png" class="itemicon">角色管理</a></li>
-                <li name="xtrz" style="display:${hyjs.xtrz}"><a href="javascript:void(0)"><img src="js/basic/icon/xitongrizhi.png" class="itemicon">系统日志</a></li>
+<%--                 <li name="xtrz" style="display:${hyjs.xtrz}"><a href="javascript:void(0)"><img src="js/basic/icon/xitongrizhi.png" class="itemicon">系统日志</a></li> --%>
                 <li><a href="javascript:void(0)" onClick="Go('jbyh_logOff.action')"><img src="js/basic/icon/tuichu.png" class="itemicon">退出</a></li>
 			</ul>
 		</li>

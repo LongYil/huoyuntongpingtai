@@ -9,9 +9,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import cn.lyl.ssm.po.Jbyh;
 import cn.lyl.ssm.po.Ptgly;
 import cn.lyl.ssm.po.Ptyyf;
+import cn.lyl.ssm.po.Yhzh;
 import cn.lyl.ssm.service.impl.JbyhServc;
 import cn.lyl.ssm.service.impl.PtglyServc;
 import cn.lyl.ssm.service.impl.PtyyfServc;
+import cn.lyl.ssm.service.impl.YhzhServc;
 
 /**
  * <p>Title:PtyyfController</p>
@@ -27,15 +29,23 @@ public class PtyyfController extends BasicController<PtyyfServc> {
 	private PtglyServc ptglyServc;
 	@Autowired
 	private JbyhServc jbyhServc;
+	@Autowired
+	private Yhzh yhzh;
+	@Autowired
+	private YhzhServc yhzhServc;
 	
 	@RequestMapping("/ptyyf_save")
 	public String save(Jbyh jbyh,Ptyyf ptyyf,Ptgly ptgly,HttpServletRequest request){
 		
 		if(jbyh.getYhm()!=""&&jbyh.getYhm()!=null) {
+			jbyh.setYhmm(md5Encrypt.to32MD5(jbyh.getYhmm()));
 			jbyhServc.save(jbyh);
 			ptyyf.setYhbh(jbyh.getYhbh());
 			ptgly.setGlybh(jbyh.getYhbh());
 			ptgly.setYhbh(jbyh.getYhbh());
+			
+			yhzh.setYhbh(jbyh.getYhbh());
+			yhzhServc.save(yhzh);
 			
 			ptgly.setGlylx(1);
 			servc.save(ptyyf);
@@ -47,7 +57,6 @@ public class PtyyfController extends BasicController<PtyyfServc> {
 		}else {
 			;
 		}
-		
 		return "pt_index";
 	}
 }

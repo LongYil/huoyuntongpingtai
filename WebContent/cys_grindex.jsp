@@ -60,7 +60,7 @@
                 <li><a href="javascript:void(0)"><img src="js/basic/icon/yijiedan.png" class="itemicon">已接单</a></li>
                 <li><a href="javascript:void(0)"><img src="js/basic/icon/yunshuzhong.png" class="itemicon">运输中</a></li>
 				<li><a href="javascript:void(0)"><img src="js/basic/icon/yiqianshou.png" class="itemicon">已签收</a></li>
-				<li><a href="javascript:void(0)"><img src="js/basic/icon/dingdanchaxun.png" class="itemicon">订单查询</a></li>
+<!-- 				<li><a href="javascript:void(0)"><img src="js/basic/icon/dingdanchaxun.png" class="itemicon">订单查询</a></li> -->
 			</ul>
 		</li>       
   

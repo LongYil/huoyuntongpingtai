@@ -49,45 +49,88 @@ public class JbyhController extends BasicController<JbyhServc> {
 	
 	@RequestMapping("/jbyh_login")
 	public String login(Model model,Jbyh jbyh,HttpServletRequest request) throws Exception{
-		request.getSession().invalidate();	
-		jbyh.setYhmm(md5Encrypt.to32MD5(jbyh.getYhmm()));
-		int[] info = servc.login(jbyh);
-		this.jbyh = servc.find(String.valueOf(info[1]));
-		model.addAttribute("jbyh",this.jbyh);
-		request.getSession().setAttribute("jbyh", this.jbyh);
-		request.getSession().setAttribute("yhbh", info[1]);
-		switch(info[0]){
-		case 1:
-			ptgly = ptglyServc.find(String.valueOf(this.jbyh.getYhbh()));
-			request.getSession().setAttribute("ptgly", ptgly);
-			request.getSession().setAttribute("tempptgly", ptgly);
-			System.out.println(ptgly);
-			return "pt_index";
-		case 2:
-			return "wtr_index";
-		case 3:
-			return "cys_grindex";
-		case 4:
-			cysgly = cysglyServc.find(String.valueOf(info[1]));
-			request.getSession().setAttribute("cysgly",cysgly);
-			cysqx = cysqxServc.find(String.valueOf(cysgly.getJsbh()));
-			model.addAttribute("cysqx",cysqx);
-			
-			return "cys_cdindex";
-		case 5:
-			cysgly = cysglyServc.find(String.valueOf(info[1]));
-			request.getSession().setAttribute("cysgly",cysgly);
-			cysqx = cysqxServc.find(String.valueOf(cysgly.getJsbh()));
-			model.addAttribute("cysqx",cysqx);
-			
-			return "cys_cdindex";
-		case 6:
-			hygly = hyglyServc.find(String.valueOf(info[1]));
-			request.getSession().setAttribute("hygly",hygly);
-			return "hy_index";
-		default:
-			return "success";
+		
+		if(jbyh.getYhmm()!=null&&jbyh.getYhmm()!="") {
+			request.getSession().invalidate();	
+			System.out.println(jbyh.getYhmm()+"------------------");
+			jbyh.setYhmm(md5Encrypt.to32MD5(jbyh.getYhmm()));
+			System.out.println(jbyh.getYhmm()+"------------------");
+			int[] info = servc.login(jbyh);
+			this.jbyh = servc.find(String.valueOf(info[1]));
+			model.addAttribute("jbyh",this.jbyh);
+			request.getSession().setAttribute("jbyh", this.jbyh);
+			request.getSession().setAttribute("yhbh", info[1]);
+			switch(info[0]){
+			case 1:
+				ptgly = ptglyServc.find(String.valueOf(this.jbyh.getYhbh()));
+				request.getSession().setAttribute("ptgly", ptgly);
+				request.getSession().setAttribute("tempptgly", ptgly);
+				System.out.println(ptgly);
+				return "pt_index";
+			case 2:
+				return "wtr_index";
+			case 3:
+				return "cys_grindex";
+			case 4:
+				cysgly = cysglyServc.find(String.valueOf(info[1]));
+				request.getSession().setAttribute("cysgly",cysgly);
+				cysqx = cysqxServc.find(String.valueOf(cysgly.getJsbh()));
+				model.addAttribute("cysqx",cysqx);
+				
+				return "cys_cdindex";
+			case 5:
+				cysgly = cysglyServc.find(String.valueOf(info[1]));
+				request.getSession().setAttribute("cysgly",cysgly);
+				cysqx = cysqxServc.find(String.valueOf(cysgly.getJsbh()));
+				model.addAttribute("cysqx",cysqx);
+				
+				return "cys_cdindex";
+			case 6:
+				hygly = hyglyServc.find(String.valueOf(info[1]));
+				request.getSession().setAttribute("hygly",hygly);
+				return "hy_index";
+			default:
+				return "success";
+			}
+		}else {
+			jbyh = (Jbyh) request.getSession().getAttribute("jbyh");
+			switch(jbyh.getYhlx()){
+			case 1:
+				ptgly = ptglyServc.find(String.valueOf(this.jbyh.getYhbh()));
+				request.getSession().setAttribute("ptgly", ptgly);
+				request.getSession().setAttribute("tempptgly", ptgly);
+				model.addAttribute("jbyh",jbyh);
+				return "pt_index";
+			case 2:
+				model.addAttribute("jbyh",jbyh);
+				return "wtr_index";
+			case 3:
+				model.addAttribute("jbyh",jbyh);
+				return "cys_grindex";
+			case 4:
+				cysgly = cysglyServc.find(String.valueOf(jbyh.getYhbh()));
+				request.getSession().setAttribute("cysgly",cysgly);
+				cysqx = cysqxServc.find(String.valueOf(cysgly.getJsbh()));
+				model.addAttribute("cysqx",cysqx);
+				model.addAttribute("jbyh",jbyh);
+				return "cys_cdindex";
+			case 5:
+				cysgly = cysglyServc.find(String.valueOf(jbyh.getYhbh()));
+				request.getSession().setAttribute("cysgly",cysgly);
+				cysqx = cysqxServc.find(String.valueOf(cysgly.getJsbh()));
+				model.addAttribute("cysqx",cysqx);
+				model.addAttribute("jbyh",jbyh);
+				return "cys_cdindex";
+			case 6:
+				hygly = hyglyServc.find(String.valueOf(jbyh.getYhbh()));
+				request.getSession().setAttribute("hygly",hygly);
+				model.addAttribute("jbyh",jbyh);
+				return "hy_index";
+			default:
+				return "success";
+			}
 		}
+		
 	}
 	
 	@RequestMapping("jbyh_logOff")//注销离开

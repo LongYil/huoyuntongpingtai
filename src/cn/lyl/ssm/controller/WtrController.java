@@ -47,7 +47,7 @@ public class WtrController extends BasicController<WtrServc> {
 	private List<Wtr> listwtr = new ArrayList<Wtr>();
 	private List<WtrVo> listvo = new ArrayList<WtrVo>();
 
-	@RequestMapping("/wtr_save")
+	@RequestMapping("wtr_save")
 	public String save(Model model,Jbyh jbyh,Wtr wtr,HttpServletRequest request){
 		jbyh.setYhmm(md5Encrypt.to32MD5(jbyh.getYhmm()));
 		jbyhServc.save(jbyh);
@@ -63,7 +63,7 @@ public class WtrController extends BasicController<WtrServc> {
 		return "wtr_index";
 	}
 	
-	@RequestMapping("/wtr_findWtrInfo")
+	@RequestMapping("wtr_findWtrInfo")
 	public String findWtrInfo(Model model,HttpServletRequest request){
 		jbyh = (Jbyh) request.getSession().getAttribute("jbyh");
 		wtr = servc.find(request.getSession().getAttribute("yhbh").toString());
@@ -94,7 +94,6 @@ public class WtrController extends BasicController<WtrServc> {
 		listvo = assembleWtr.getWtrVo(listwtr);
 		model.addAttribute("listvo",listvo);
 		model.addAttribute("wtrmc",mc);
-		
 		return "pt_sywtr";
 	}
 	

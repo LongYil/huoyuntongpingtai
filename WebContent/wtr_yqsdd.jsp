@@ -68,7 +68,7 @@
 					<td>${item.yjsdsj}</td>
 					<td>${item.sjsdsj}</td>
 					<td>
-					<a href="javascript:void(0)" class="easyui-linkbutton" onClick="pingjia('${item.id}')">评价</a>
+<%-- 					<a href="javascript:void(0)" class="easyui-linkbutton" onClick="pingjia('${item.id}')">评价</a> --%>
 					<a href="javascript:void(0)" class="easyui-linkbutton" onClick="peichang('${item.id}')">申请赔偿</a>
 					</td>
 					

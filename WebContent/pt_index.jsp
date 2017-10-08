@@ -33,7 +33,7 @@
 			<ul class="menu1">
 				<li><a href="javascript:void(0)" onClick="To('pt_findPtglyInfo.action')"><img src="js/basic/icon/jibenxinxi.png" class="itemicon">基本信息</a></li>
                 <li><a href="javascript:void(0)" onClick="To('pt_findAll.action')"><img src="js/basic/icon/zhanghaoguanli.png" class="itemicon">帐号管理</a></li>
-<!-- 				<li><a href="javascript:void(0)" onClick="To('#')"><img src="js/basic/icon/zhanghuguanli.png" class="itemicon">账户管理</a></li> -->
+				<li><a href="javascript:void(0)" onClick="To('yhzh_find.action')"><img src="js/basic/icon/zhanghuguanli.png" class="itemicon">账户管理</a></li>
 			</ul>
 		</li>
 
@@ -70,7 +70,8 @@
             </dl>
 			<ul class="menu1">
 				<li><a href="javascript:void(0)" onClick="To('Jyjl_ptFindAllJdsq.action')"><img src="js/basic/icon/chengyunshang.png" class="itemicon">解冻保证金</a></li>
-<!--                 <li><a href="javascript:void(0)" onClick="To('dd_ptFindAllYcdd.action')"><img src="js/basic/icon/huoyundailidian.png" class="itemicon">充值物流币</a></li> -->
+                <li><a href="javascript:void(0)" onClick="To('dd_ptFindAllYcdd.action')"><img src="js/basic/icon/huoyundailidian.png" class="itemicon">充值物流币</a></li>
+                <li><a href="javascript:void(0)" onClick="To('dd_ptFindAllYcdd.action')"><img src="js/basic/icon/huoyundailidian.png" class="itemicon">提现物流币</a></li>
 			</ul>
 		</li>
  		<li class="fatheritem">

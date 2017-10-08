@@ -164,7 +164,7 @@
 			index++;
 			$('#tt').tabs('add',{
 				title: '充值物流币',
-				content: '<iframe src="cys_czwlb.jsp" frameborder="0" style="padding:5px;width:815px;height:400px;"></iframe>',
+				content: '<iframe src="yhzh_czwlb.action" frameborder="0" style="padding:5px;width:815px;height:400px;"></iframe>',
 				closable: true
 			});
 		}

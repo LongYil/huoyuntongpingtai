@@ -198,6 +198,7 @@ public class CysglyController extends BasicController<CysglyServc> {
 	@RequestMapping("cys_addGly")
 	public void addGly(Jbyh jbyh,Cysgly cysgly,HttpServletRequest request){
 		tempcysgly = (Cysgly) request.getSession().getAttribute("cysgly");
+		jbyh.setYhmm(md5Encrypt.to32MD5(jbyh.getYhmm()));
 		jbyhServc.save(jbyh);
 		cysgly.setCysbh(jbyh.getYhbh());
 		cysgly.setDlbh(0);
@@ -229,6 +230,7 @@ public class CysglyController extends BasicController<CysglyServc> {
 		cysgly.setDlbh(Integer.parseInt(id));
 		servc.update(cysgly);
 	}
+	
 	//设置承运商所有管理员的货运代理点
 	@RequestMapping("cys_szsyCysDld")
 	public void szsyCysDld(String id,HttpServletRequest request){
@@ -236,7 +238,8 @@ public class CysglyController extends BasicController<CysglyServc> {
 		servc.szsyCysGly(id,String.valueOf(cysgly.getYhbh()));
 	}
 	
-	@RequestMapping("cys_deleteGly")//删除承运商管理员
+	//删除承运商管理员
+	@RequestMapping("cys_deleteGly")
 	public String deleteGly(String id) throws Exception{
 		cysgly = servc.findByGlyid(id);
 		jbyh = jbyhServc.find(id);
@@ -245,7 +248,8 @@ public class CysglyController extends BasicController<CysglyServc> {
 		return "redirect:cys_findAllGly.action";
 	}
 	
-	@RequestMapping("cys_hyglyFindAllCys")//货运代理点用户查找所有承运商
+	//货运代理点用户查找所有承运商
+	@RequestMapping("cys_hyglyFindAllCys")
 	public String hyglyFindAllCys(Model model,HttpServletRequest request) throws Exception{
 		listgly.clear();
 		
@@ -255,7 +259,8 @@ public class CysglyController extends BasicController<CysglyServc> {
 		return "hy_sycys";
 	}
 	
-	@RequestMapping("hy_hyglyFindAllCysByglyid")//货运代理点用户根据管理员id查找该管理员的所有承运商
+	//货运代理点用户根据管理员id查找该管理员的所有承运商
+	@RequestMapping("hy_hyglyFindAllCysByglyid")
 	public String hyglyFindAllCysByglyid(Model model,String id,String mc1,String mc2,HttpServletRequest request) throws Exception {
 		listgly.clear();
 		listjbyh.clear();
@@ -275,10 +280,12 @@ public class CysglyController extends BasicController<CysglyServc> {
 		return "hy_zhcys";
 	}
 	
-	@RequestMapping("yscd_cdLogin")//运输车队用户  移动端登录验证
+	//运输车队用户  移动端登录验证
+	@RequestMapping("yscd_cdLogin")
 	public void cdLogin(String tel,String pwd,HttpServletResponse response) throws Exception {
 			jbyh.setYhsj(tel);
-			jbyh.setYhmm(pwd);
+//			jbyh.setYhmm(pwd);
+			jbyh.setYhmm(md5Encrypt.to32MD5(pwd));
 			
 		    response.setContentType("text/plain");
 			response.setCharacterEncoding("UTF-8");
@@ -323,6 +330,7 @@ public class CysglyController extends BasicController<CysglyServc> {
 		return "pt_sycys";
 	}
 	
+	//平台管理员查找所有承运商管理员
 	@RequestMapping("cys_ptFindCysgly")
 	public String ptFindCysgly(Model model,String id,String mc) throws Exception {
 		listgly.clear();

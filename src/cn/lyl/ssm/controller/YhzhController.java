@@ -42,5 +42,20 @@ public class YhzhController extends BasicController<YhzhServc> {
 		model.addAttribute("yhzh",yhzh);
 		return "zhxx";
 	}
+	
+	@RequestMapping("yhzh_czwlb")
+	public String czwlb(Model model) throws Exception {
+		yhzh = servc.find("1");
+		model.addAttribute("yhzh",yhzh);
+		return "cys_czwlb";
+	}
 
+	
+	
+	
+	
+	
+	
+	
+	
 }
