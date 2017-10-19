@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 import cn.lyl.ssm.po.Bzj;
 import cn.lyl.ssm.po.Jbyh;
 import cn.lyl.ssm.po.Jyjl;
+import cn.lyl.ssm.po.Ptzh;
 
 /**
  * <p>Title:JyjlVo</p>
@@ -21,6 +22,8 @@ public class JyjlVo {
 	private Bzj bzj;//保证金实体
 	private Jbyh jbyh;//用户实体
 	private Jyjl jyjl;//交易记录实体
+	private Ptzh ptzh;//平台账户
+	
 	private String jysj;//交易时间
 	private String jylx;//交易类型
 	private String jyje;//交易金额
@@ -95,6 +98,12 @@ public class JyjlVo {
 	}
 	public void setId(Integer id) {
 		this.id = id;
+	}
+	public Ptzh getPtzh() {
+		return ptzh;
+	}
+	public void setPtzh(Ptzh ptzh) {
+		this.ptzh = ptzh;
 	}
 	
 }

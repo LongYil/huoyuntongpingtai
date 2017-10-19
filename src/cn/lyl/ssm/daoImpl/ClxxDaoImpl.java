@@ -30,22 +30,6 @@ public class ClxxDaoImpl extends CommonDaoImpl<Clxx> implements ClxxDao {
 	private Yscd yscd;
 	@Autowired
 	private Clxx clxx;
-	@Override
-	public void save(Clxx entity) {
-		ht.save(entity);		
-	}
-
-	@Override
-	public void update(Clxx entity) {
-		//
-		
-	}
-
-	@Override
-	public void delete(Clxx entity) {
-		ht.delete(entity);
-		
-	}
 
 	@Override
 	public Clxx find(String arg) {

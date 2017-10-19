@@ -17,7 +17,7 @@
     <img src="images/lzx/xian.gif" alt="xian" class="xian" height="80">
     <span class="zhu">系统初始化</span>
     <div class="nav">
-        <a href="#">返回主页</a>|
+        <a href="index.jsp">返回主页</a>|
         <a href="#">帮助中心</a>
     </div>
     <div class="help">

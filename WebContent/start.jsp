@@ -1,0 +1,14 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%> 
+<!DOCTYPE html >
+<html >
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>主页</title>
+
+</head>
+<body style="height:900px;">
+	<jsp:forward page="index.action"/>
+	 
+</body>
+</html>

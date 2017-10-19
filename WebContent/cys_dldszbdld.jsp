@@ -49,6 +49,7 @@
 			onSubmit:function(){
 				if(a){
 					$.messager.alert('提示','保存成功!');
+					setTimeout("yanchishuaxin()",1300);
 					return $(this).form('enableValidation').form('validate');
 				}else{
 					$.messager.alert('温馨提示','信息填写不完整，请填写完整信息!','warning');
@@ -59,6 +60,9 @@
 		
 		function clearForm(){
 			$('#ff').form('clear');
+		}
+		function yanchishuaxin(){
+			parent.parent.To("hy_cysFindDld.action");
 		}
 	</script>
 </body>

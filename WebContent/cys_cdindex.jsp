@@ -117,6 +117,7 @@
 function To(url){
 	$(".zhuomian").attr("src",url);
 }
+
 function Go(url){
 	window.location=url;
 }

@@ -51,11 +51,11 @@ public class HyglyController extends BasicController<HyglyServc> {
 	private Hygly hygly;
 	@Autowired
 	private Hygly temphygly;
-	@Autowired
+
 	private Bzj bzj;
 	@Autowired
 	private BzjServc bzjServc;
-	@Autowired
+
 	private Ptzh ptzh;
 	@Autowired
 	private PtzhServc ptzhServc;
@@ -95,13 +95,16 @@ public class HyglyController extends BasicController<HyglyServc> {
 		if(temp){
 			jbyh.setYhmm(md5Encrypt.to32MD5(jbyh.getYhmm()));
 			jbyhServc.save(jbyh);
+			bzj = new Bzj();
 			bzj.setYhbh(jbyh.getYhbh());
 			bzj.setBzjje(0);
 			bzj.setYsqje(0);
 			bzjServc.save(bzj);
+			ptzh = new Ptzh();
 			ptzh.setYhbh(jbyh.getYhbh());
 			ptzh.setZhye(2000.0f);
 			ptzhServc.save(ptzh);
+			
 			hydld.setYhbh(jbyh.getYhbh());
 			hygly.setYhbh(jbyh.getYhbh());
 			hygly.setGlylx(1);

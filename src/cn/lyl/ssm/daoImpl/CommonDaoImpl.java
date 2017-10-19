@@ -7,7 +7,7 @@ import cn.lyl.ssm.dao.ICommonDao;
 import cn.lyl.ssm.utils.GetDateAndTime;
 import cn.lyl.ssm.utils.GetEntity;
 
-public abstract class CommonDaoImpl<T> implements ICommonDao<T> {
+public  class CommonDaoImpl<T> implements ICommonDao<T> {
 	
 	@Autowired
 	public HibernateTemplate ht;
@@ -16,16 +16,25 @@ public abstract class CommonDaoImpl<T> implements ICommonDao<T> {
 	@Autowired
 	public GetEntity getEntity;
 	@Override
-	public abstract void save(T entity) ;
+	public  void save(T entity) {
+		ht.saveOrUpdate(entity);
+	}
 
 	@Override
-	public abstract void update(T entity) ;
+	public void update(T entity) {
+		ht.update(entity);
+	}
 
 	@Override
-	public abstract void delete(T entity) ;
+	public void delete(T entity) {
+		ht.delete(entity);
+	}
+	
 	
 	@Override
-	public abstract T find(String arg) throws Exception;
+	public T find(String arg) throws Exception {
+		return null;
+	}
 	
 	
 }

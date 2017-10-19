@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.hibernate.tutorial.hbm">
+
+	<class name="cn.lyl.ssm.po.Pj" table="Pj">
+		<id name="id">
+			<generator class="native"></generator>
+		</id>
+		<property name="dd" />
+		<property name="wtr" />
+		<property name="cys" />
+		<property name="fhdld" />
+		<property name="shdld" />		
+		<property name="cysPja" length="150"/>
+		<property name="cysPjb" length="150"/>
+		<property name="fhdldPja" length="150"/>
+		<property name="fhdldPjb" length="150"/>
+		<property name="shdldPja" length="150"/>
+		<property name="shdldPjb" length="150"/>
+		
+	</class>
+</hibernate-mapping>

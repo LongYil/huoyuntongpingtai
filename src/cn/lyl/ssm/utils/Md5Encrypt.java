@@ -2,11 +2,13 @@ package cn.lyl.ssm.utils;
 
 import java.security.MessageDigest;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component("md5Encrypt")
+@Scope(value="prototype")
 public class Md5Encrypt {
-    StringBuffer buf = new StringBuffer("");
+    StringBuffer buf = null;
 //    MessageDigest md = MessageDigest.getInstance("MD5");  
     MessageDigest md = null;  
     
@@ -46,6 +48,7 @@ public class Md5Encrypt {
    } 
    
    public void setMain(String plainText) {
+	   buf = new StringBuffer("");
        try {
        //生成实现指定摘要算法的 MessageDigest 对象。
        md = MessageDigest.getInstance("MD5"); 

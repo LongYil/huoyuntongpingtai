@@ -24,9 +24,9 @@ public class YhzhController extends BasicController<YhzhServc> {
 	
 	@RequestMapping("/yhzh_saveorupdate")
 	public void saveOrUpdate(Yhzh yhzh,HttpServletRequest request) throws Exception{
-		
+		String yhbh1 = request.getSession().getAttribute("yhbh").toString();
 		this.yhzh = servc.find(request.getSession().getAttribute("yhbh").toString());
-		if(this.yhzh.getCkrxm()!=""&&this.yhzh.getCkrxm()!=null){
+		if(this.yhzh.getYhbh()!=null&&this.yhzh.getYhbh()>0){
 			this.yhzh.setCkrxm(yhzh.getCkrxm());
 			this.yhzh.setYhzh(yhzh.getYhzh());
 			this.yhzh.setYhlx(yhzh.getYhlx());

@@ -40,8 +40,7 @@ public class JyjlController extends BasicController<JyjlServc>{
 	@Autowired
 	private BzjServc bzjServc;
 	
-	
-	@RequestMapping("jyjl_cysSave")
+	@RequestMapping("jyjl_cysSave")//保存交易记录
 	public void cysSave(Jyjl jyjl,Model model,HttpServletRequest request){
 		jyjl.setYhbh(Integer.parseInt(request.getSession().getAttribute("yhbh").toString()));
 		jyjl.setJysj(this.getDateAndTime.getNowDate());
@@ -49,6 +48,8 @@ public class JyjlController extends BasicController<JyjlServc>{
 		jyjl.setJyzt(1);
 		servc.save(jyjl);		
 	}
+	
+	
 	
 	@RequestMapping("jyjl_cysFindAll")//承运商查找所有交易记录
 	public String cysFindAll(Model model,HttpServletRequest request){
@@ -82,7 +83,9 @@ public class JyjlController extends BasicController<JyjlServc>{
 		return "cys_wlbczjl";
 	}
 	
-	@RequestMapping("jyjl_FindTxjl")
+	
+	
+	@RequestMapping("jyjl_FindTxjl")//查找物流币提现记录
 	public String FindTxjl(Model model,HttpServletRequest request){
 		listvo.clear();
 		listvo = servc.FindTxjl(request.getSession().getAttribute("yhbh").toString());
@@ -90,7 +93,7 @@ public class JyjlController extends BasicController<JyjlServc>{
 		return "cys_wlbtxjl";
 	}
 	
-	@RequestMapping("Jyjl_ptFindAllJdsq")
+	@RequestMapping("Jyjl_ptFindAllJdsq")//查找所有保证金解冻申请
 	public String ptFindAllJdsq(Model model) throws Exception {
 		listjyjl.clear();
 		listvo.clear();
@@ -98,6 +101,47 @@ public class JyjlController extends BasicController<JyjlServc>{
 		listvo = assembleJyjl.getJdsq(listjyjl);
 		model.addAttribute("listvo",listvo);
 		return "pt_jdbzj";
+	}
+	
+	@RequestMapping("Jyjl_ptFindAllCzsq")
+	public String ptFindAllCzsq(Model model) throws Exception {//查找所有物流币充值申请
+		listjyjl.clear();
+		listvo.clear();
+		listjyjl = servc.ptFindAllCzsq();
+		listvo = assembleJyjl.getCzsq(listjyjl);
+		model.addAttribute("listvo",listvo);
+		return "pt_czwlb";
+	}
+	
+	@RequestMapping("Jyjl_ptFindAllTxsq")
+	public String ptFindAllTxsq(Model model) throws Exception {//查找所有物流币提现申请
+		listjyjl.clear();
+		listvo.clear();
+		listjyjl = servc.ptFindAllTxsq();
+		listvo = assembleJyjl.getTxsq(listjyjl);
+		model.addAttribute("listvo",listvo);
+		return "pt_txwlb";
+	}
+	
+	@RequestMapping("jyjl_ptTxwlb")//同意物流币提现申请
+	public void ptTxwlb(String id,PrintWriter out) throws Exception {
+		jyjl = jyjlServc.find(id);
+		jyjl.setJyzt(2);
+		jyjlServc.save(jyjl);
+		ptzh = ptzhServc.find(String.valueOf(jyjl.getYhbh()));
+		ptzhServc.update(ptzh);
+		out.write("true");
+	}
+	
+	@RequestMapping("jyjl_ptCzwlb")//同意物流币充值申请
+	public void ptCzwlb(String id,PrintWriter out) throws Exception {
+		jyjl = jyjlServc.find(id);
+		jyjl.setJyzt(2);
+		jyjlServc.save(jyjl);
+		ptzh = ptzhServc.find(String.valueOf(jyjl.getYhbh()));
+		ptzh.setZhye(ptzh.getZhye()+jyjl.getJyje());
+		ptzhServc.update(ptzh);
+		out.write("true");
 	}
 	
 	@RequestMapping("jyjl_ptJdbzj")//同意解冻申请
@@ -126,5 +170,21 @@ public class JyjlController extends BasicController<JyjlServc>{
 		
 		out.write("false");
 	}
+	@RequestMapping("jyjl_ptBhtxsq")//驳回提现申请
+	public void ptBhtxsq(String id,PrintWriter out) throws Exception {
+		jyjl = jyjlServc.find(id);
+		
+		ptzh = ptzhServc.find(String.valueOf(jyjl.getYhbh()));
+		ptzh.setZhye(ptzh.getZhye()+jyjl.getJyje());
+		ptzhServc.update(ptzh);
+		
+		jyjl.setJyzt(3);
+		jyjlServc.save(jyjl);
+		
+		out.write("false");
+	}
+	
+	
+	
 	
 }

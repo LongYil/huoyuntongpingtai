@@ -9,10 +9,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import cn.lyl.ssm.po.Jbyh;
 import cn.lyl.ssm.po.Ptgly;
 import cn.lyl.ssm.po.Ptyyf;
+import cn.lyl.ssm.po.Ptzh;
 import cn.lyl.ssm.po.Yhzh;
 import cn.lyl.ssm.service.impl.JbyhServc;
 import cn.lyl.ssm.service.impl.PtglyServc;
 import cn.lyl.ssm.service.impl.PtyyfServc;
+import cn.lyl.ssm.service.impl.PtzhServc;
 import cn.lyl.ssm.service.impl.YhzhServc;
 
 /**
@@ -33,8 +35,12 @@ public class PtyyfController extends BasicController<PtyyfServc> {
 	private Yhzh yhzh;
 	@Autowired
 	private YhzhServc yhzhServc;
+	@Autowired
+	private Ptzh ptzh;
+	@Autowired
+	private PtzhServc ptzhServc;
 	
-	@RequestMapping("/ptyyf_save")
+	@RequestMapping("ptyyf_save")
 	public String save(Jbyh jbyh,Ptyyf ptyyf,Ptgly ptgly,HttpServletRequest request){
 		
 		if(jbyh.getYhm()!=""&&jbyh.getYhm()!=null) {
@@ -44,6 +50,10 @@ public class PtyyfController extends BasicController<PtyyfServc> {
 			ptgly.setGlybh(jbyh.getYhbh());
 			ptgly.setYhbh(jbyh.getYhbh());
 			
+			ptzh.setZhye(0.0f);
+			ptzh.setYhbh(1);
+			ptzhServc.save(ptzh);
+			
 			yhzh.setYhbh(jbyh.getYhbh());
 			yhzhServc.save(yhzh);
 			
@@ -52,6 +62,7 @@ public class PtyyfController extends BasicController<PtyyfServc> {
 			ptglyServc.save(ptgly);
 
 			request.getSession().setAttribute("jbyh", jbyh);
+			request.getSession().setAttribute("yhbh", jbyh.getYhbh());
 			request.getSession().setAttribute("ptgly", ptgly);
 			request.getSession().setAttribute("tempptgly", ptgly);
 		}else {

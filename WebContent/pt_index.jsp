@@ -70,8 +70,8 @@
             </dl>
 			<ul class="menu1">
 				<li><a href="javascript:void(0)" onClick="To('Jyjl_ptFindAllJdsq.action')"><img src="js/basic/icon/chengyunshang.png" class="itemicon">解冻保证金</a></li>
-                <li><a href="javascript:void(0)" onClick="To('dd_ptFindAllYcdd.action')"><img src="js/basic/icon/huoyundailidian.png" class="itemicon">充值物流币</a></li>
-                <li><a href="javascript:void(0)" onClick="To('dd_ptFindAllYcdd.action')"><img src="js/basic/icon/huoyundailidian.png" class="itemicon">提现物流币</a></li>
+                <li><a href="javascript:void(0)" onClick="To('Jyjl_ptFindAllCzsq.action')"><img src="js/basic/icon/huoyundailidian.png" class="itemicon">充值物流币</a></li>
+                <li><a href="javascript:void(0)" onClick="To('Jyjl_ptFindAllTxsq.action')"><img src="js/basic/icon/huoyundailidian.png" class="itemicon">提现物流币</a></li>
 			</ul>
 		</li>
  		<li class="fatheritem">

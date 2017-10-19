@@ -11,4 +11,6 @@ public interface JyjlDao {
 	List<Jyjl> FindCzjl(String arg);
 	List<Jyjl> FindTxjl(String arg);
 	List<Jyjl> FindAllJdsq();
+	List<Jyjl> FindAllCzsq();
+	List<Jyjl> FindAllTxsq();
 }

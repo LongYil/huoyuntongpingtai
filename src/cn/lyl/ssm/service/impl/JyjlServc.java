@@ -77,4 +77,12 @@ public class JyjlServc extends CommonSevc<Jyjl, JyjlDaoImpl> {
 	public List<Jyjl> ptFindAllJdsq() {
 		return daoImpl.FindAllJdsq();	
 	}
+	
+	public List<Jyjl> ptFindAllCzsq(){
+		return daoImpl.FindAllCzsq();
+	}
+	public List<Jyjl> ptFindAllTxsq(){
+		return daoImpl.FindAllTxsq();
+	}
+	
 }

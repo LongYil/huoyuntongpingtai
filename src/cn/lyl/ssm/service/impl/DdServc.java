@@ -11,6 +11,7 @@ import cn.lyl.ssm.daoImpl.DdDaoImpl;
 import cn.lyl.ssm.po.Cysgly;
 import cn.lyl.ssm.po.Dd;
 import cn.lyl.ssm.po.Hygly;
+import cn.lyl.ssm.po.Jyjl;
 import cn.lyl.ssm.po.Ptzh;
 import cn.lyl.ssm.po.Wlx;
 import cn.lyl.ssm.po.Yscd;
@@ -43,6 +44,10 @@ public class DdServc extends CommonSevc<Dd,DdDaoImpl> {
 	private PtzhServc ptzhServc;
 	@Autowired
 	private Dd dd;
+	@Autowired
+	private Jyjl jyjl;
+	@Autowired
+	private JyjlServc jyjlServc;
 	
 	private DdVo ddvo;
 	private List<Wlx> listWlx = new ArrayList<Wlx>();
@@ -125,21 +130,21 @@ public class DdServc extends CommonSevc<Dd,DdDaoImpl> {
 				ysdw.setYssx(listWlx.get(i).getYssx());
 				ysdw.setCysbh(cysgly.getCysbh());
 				ysdw.setCysmc(cysgly.getGsmc());
-				ysdw.setCysdz(cysgly.getSzsf()+"-"+cysgly.getSzcs()+"-"+cysgly.getSzx()+(cysgly.getXxdz()!=null?"-"+cysgly.getXxdz():""));
+				ysdw.setCysdz(cysgly.getSzsf()+"-"+cysgly.getSzcs()+"-"+cysgly.getSzx()+(cysgly.getXxdz()!=null||!cysgly.getXxdz().equals("")?"-"+cysgly.getXxdz():""));
 				ysdw.setCysdh(cysgly.getLxdh());
 				ysdw.setCyscd(listWlx.get(i).getCdbh());
 				ysdw.setCyscddh(yscd.getCdlxdh());
 				ysdw.setFhdldmc(hygly.getGsmc());
 				ysdw.setFhdldbh(hygly.getGlybh());
 				ysdw.setFhdh(hygly.getLxdh());
-				ysdw.setFhdz(hygly.getSzsf()+"-"+hygly.getSzcs()+"-"+hygly.getSzx()+"-"+(cysgly.getXxdz()!=null?"-"+cysgly.getXxdz():""));
+				ysdw.setFhdz(hygly.getSzsf()+"-"+hygly.getSzcs()+"-"+hygly.getSzx()+(cysgly.getXxdz()!=null||!cysgly.getXxdz().equals("")?"-"+cysgly.getXxdz():""));
 				if(dd.getJjlx()==2){//重货  费用按重量计价100
 					ysdw.setDlfhfy(dd.getZzl()*1.1f);
 					ysdw.setDlshfy(dd.getZzl()*0.6f);
 					ysdw.setYsfy(dd.getZzl()*listWlx.get(i).getZhjg());		
 				}else{//轻货  费用按轻货计价
-					ysdw.setDlfhfy(dd.getZzl()*8.2f);
-					ysdw.setDlshfy(dd.getZzl()*3.4f);
+					ysdw.setDlfhfy(dd.getZzl()*3.2f);
+					ysdw.setDlshfy(dd.getZzl()*1.4f);
 					ysdw.setYsfy(dd.getZtj()*listWlx.get(i).getQhjg());	
 				}
 				
@@ -163,7 +168,7 @@ public class DdServc extends CommonSevc<Dd,DdDaoImpl> {
 				}
 				
 				ysdw.setDsdlf(dd.getDsdlf());
-				ysdw.setYjfy(ysdw.getDlfhfy()+ysdw.getDlshfy()+ysdw.getYsfy()+ysdw.getThfy()+ysdw.getDsdlf());
+				ysdw.setYjfy(ysdw.getDlfhfy()+ysdw.getDlshfy()+ysdw.getYsfy()+ysdw.getThfy()+ysdw.getDsdlf()+2);
 				listysdw1.add(ysdw);
 			}
 		}else {
@@ -275,7 +280,47 @@ public class DdServc extends CommonSevc<Dd,DdDaoImpl> {
 			;
 		}
 		dd.setDdzt(5);
-		this.update(dd);
+		this.update(dd);		
+		//第一步：分摊发货代理点费用
+		ptzh = ptzhServc.find(String.valueOf(dd.getFhdld()));
+		ptzh.setZhye(Float.parseFloat(String.valueOf(dd.getFhdldsf())));
+		ptzhServc.update(ptzh);
+		jyjl.setYhbh(dd.getFhdld());
+		jyjl.setJylx(3);
+		jyjl.setJyje(dd.getFhdldsf());
+		jyjl.setJysj(getDateAndTime.getStandardDateAndTime());
+		jyjlServc.save(jyjl);
+		
+		//第二步：分摊收货代理点费用
+		ptzh = ptzhServc.find(String.valueOf(dd.getShdld()));
+		ptzh.setZhye(Float.parseFloat(String.valueOf(dd.getShdldsf())));
+		ptzhServc.update(ptzh);
+		jyjl.setYhbh(dd.getShdld());
+		jyjl.setJyje(dd.getShdldsf());
+		jyjl.setJylx(3);
+		jyjl.setJysj(getDateAndTime.getStandardDateAndTime());
+		jyjlServc.save(jyjl);
+			
+		//第三步：承运商收入
+		ptzh = ptzhServc.find(String.valueOf(dd.getCys()));
+		ptzh.setZhye(dd.getCyssf()+0.0f);
+		ptzhServc.update(ptzh);
+		jyjl.setYhbh(dd.getCys());
+		jyjl.setJyje(dd.getCyssf());
+		jyjl.setJylx(3);
+		jyjl.setJysj(getDateAndTime.getStandardDateAndTime());
+		jyjlServc.save(jyjl);
+		
+		//第四步：平台收入
+		ptzh = ptzhServc.find("1");
+		ptzh.setZhye(ptzh.getZhye()+2);
+		ptzhServc.update(ptzh);
+		jyjl.setYhbh(1);
+		jyjl.setJyje(2);
+		jyjl.setJylx(3);
+		jyjl.setJysj(getDateAndTime.getStandardDateAndTime());
+		jyjlServc.save(jyjl);
+		
 		return "1";
 	}
 	

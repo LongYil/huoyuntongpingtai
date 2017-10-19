@@ -25,7 +25,7 @@
 </head>
 <body style="padding:0px;margin:0px;">
 
-	<div class="easyui-panel" style="width:100%;max-width:830px;max-height:400px;padding:30px 60px;" title="充值物流币">
+	<div class="easyui-panel" style="border:0px #ffffff solid;width:100%;max-width:830px;max-height:480px;padding:30px 60px;" title="充值物流币">
 		<form id="ff" name="myform" action="${pageContext.request.contextPath}/jyjl_cysSave.action" class="easyui-form" method="post" data-options="novalidate:true">
 			<div style="margin-bottom:20px">
 				<span>请汇款到如下账户:</span>						

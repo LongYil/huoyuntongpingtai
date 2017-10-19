@@ -55,7 +55,7 @@
 			<input type="hidden" name="info" class="szx" value="${wtr.yhx}">
 			
 			<div style="margin-bottom:20px">
-				<input class="easyui-textbox" name="info" value="${wtr.yhbz}" style="width:91%;height:60px" data-options="label:'备注:',multiline:true">
+				<input class="easyui-textbox" name="info" value="${wtr.xxdz}" style="width:91%;height:60px" data-options="label:'备注:',multiline:true">
 			</div>
 
 		</form>

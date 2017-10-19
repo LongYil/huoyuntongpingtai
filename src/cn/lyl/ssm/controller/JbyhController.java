@@ -52,9 +52,7 @@ public class JbyhController extends BasicController<JbyhServc> {
 		
 		if(jbyh.getYhmm()!=null&&jbyh.getYhmm()!="") {
 			request.getSession().invalidate();	
-			System.out.println(jbyh.getYhmm()+"------------------");
 			jbyh.setYhmm(md5Encrypt.to32MD5(jbyh.getYhmm()));
-			System.out.println(jbyh.getYhmm()+"------------------");
 			int[] info = servc.login(jbyh);
 			this.jbyh = servc.find(String.valueOf(info[1]));
 			model.addAttribute("jbyh",this.jbyh);
@@ -90,7 +88,7 @@ public class JbyhController extends BasicController<JbyhServc> {
 				request.getSession().setAttribute("hygly",hygly);
 				return "hy_index";
 			default:
-				return "success";
+				return "login";
 			}
 		}else {
 			jbyh = (Jbyh) request.getSession().getAttribute("jbyh");
@@ -127,7 +125,7 @@ public class JbyhController extends BasicController<JbyhServc> {
 				model.addAttribute("jbyh",jbyh);
 				return "hy_index";
 			default:
-				return "success";
+				return "login";
 			}
 		}
 		
@@ -148,4 +146,23 @@ public class JbyhController extends BasicController<JbyhServc> {
 	public String preregister() {
 		return "preregister";
 	}
+	
+	@RequestMapping("index")
+	public String index() {
+		jbyh = servc.find("1");
+		if(jbyh!=null) {
+			return "index";
+		}else {
+			return "pt_start";
+		}		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

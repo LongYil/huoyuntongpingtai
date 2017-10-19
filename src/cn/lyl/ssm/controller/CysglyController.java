@@ -153,6 +153,7 @@ public class CysglyController extends BasicController<CysglyServc> {
 			request.getSession().setAttribute("jbyh", jbyh);
 			request.getSession().setAttribute("cysgly", cysgly);
 			request.getSession().setAttribute("tempcysgly", cysgly);
+			model.addAttribute("jbyh",jbyh);
 			model.addAttribute("cysqx",cysqx);
 		}
 		
