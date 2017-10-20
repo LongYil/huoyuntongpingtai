@@ -14,6 +14,7 @@ import org.springframework.stereotype.Component;
 @Scope(value="prototype")
 public class Ptgly {
 	private Integer id;//序号
+	private Integer jsbh;//角色编号
 	private Integer yhbh;//用户编号
 	private Integer glybh;//管理员编号
 	private Integer glylx;//管理员类型 1：超级管理员  2：管理员
@@ -82,6 +83,12 @@ public class Ptgly {
 	}
 	public void setYhyx(String yhyx) {
 		this.yhyx = yhyx;
+	}
+	public Integer getJsbh() {
+		return jsbh;
+	}
+	public void setJsbh(Integer jsbh) {
+		this.jsbh = jsbh;
 	}
 
 }

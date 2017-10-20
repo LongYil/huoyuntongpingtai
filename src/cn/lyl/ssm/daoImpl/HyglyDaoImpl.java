@@ -20,22 +20,6 @@ public class HyglyDaoImpl extends CommonDaoImpl<Hygly> implements HyglyDao {
 
 	@Autowired
 	private Hygly hygly;
-	
-	@Override
-	public void save(Hygly entity) {
-		ht.save(entity);		
-	}
-
-	@Override
-	public void update(Hygly entity) {
-		//
-		
-	}
-
-	@Override
-	public void delete(Hygly entity) {
-		ht.delete(entity);
-	}
 
 	@Override
 	public Hygly find(String arg) throws Exception {

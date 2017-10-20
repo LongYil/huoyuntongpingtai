@@ -18,6 +18,7 @@ import cn.lyl.ssm.po.Cys;
 import cn.lyl.ssm.po.Cysgly;
 import cn.lyl.ssm.po.Cysjs;
 import cn.lyl.ssm.po.Cysqx;
+import cn.lyl.ssm.po.Hydj;
 import cn.lyl.ssm.po.Jbyh;
 import cn.lyl.ssm.po.Ptzh;
 import cn.lyl.ssm.service.impl.BzjServc;
@@ -25,6 +26,7 @@ import cn.lyl.ssm.service.impl.CysServc;
 import cn.lyl.ssm.service.impl.CysglyServc;
 import cn.lyl.ssm.service.impl.CysjsServc;
 import cn.lyl.ssm.service.impl.CysqxServc;
+import cn.lyl.ssm.service.impl.HydjServc;
 import cn.lyl.ssm.service.impl.JbyhServc;
 import cn.lyl.ssm.service.impl.PtzhServc;
 import cn.lyl.ssm.utils.AssembleCys;
@@ -73,7 +75,11 @@ public class CysglyController extends BasicController<CysglyServc> {
 	private Cysqx cysqx;
 	@Autowired
 	private CysqxServc cysqxServc;
-
+	@Autowired
+	private Hydj hydj;
+	@Autowired
+	private HydjServc hydjServc;
+	
 	private List<Cysgly> listgly = new ArrayList<Cysgly>();
 	private List<Cys> listcys = new ArrayList<Cys>();
 	private List<Jbyh> listjbyh = new ArrayList<Jbyh>();
@@ -108,6 +114,12 @@ public class CysglyController extends BasicController<CysglyServc> {
 			cysgly.setDlbh(0);
 			cys.setYhbh(jbyh.getYhbh());
 			cysgly.setYhbh(jbyh.getYhbh());
+			
+			hydj.setYhbh(jbyh.getYhbh());
+			hydj.setJjje(0);
+			hydj.setHydj("青铜");
+			hydjServc.save(hydj);
+			
 			if(type==3){//如果用户是个人承运商
 				cys.setHylx(1);
 				cysgly.setHylx(1);
@@ -155,6 +167,7 @@ public class CysglyController extends BasicController<CysglyServc> {
 			request.getSession().setAttribute("tempcysgly", cysgly);
 			model.addAttribute("jbyh",jbyh);
 			model.addAttribute("cysqx",cysqx);
+			model.addAttribute("hydj",hydj);
 		}
 		
 		if(type==3){

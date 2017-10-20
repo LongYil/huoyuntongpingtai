@@ -11,23 +11,6 @@ import cn.lyl.ssm.po.Txjl;
 public class TxjlDaoImpl extends CommonDaoImpl<Txjl> implements TxjlDao {
 
 	@Override
-	public void save(Txjl entity) {
-		ht.save(entity);		
-	}
-
-	@Override
-	public void update(Txjl entity) {
-		//
-		
-	}
-
-	@Override
-	public void delete(Txjl entity) {
-		//
-		
-	}
-
-	@Override
 	public Txjl find(String arg) {
 		//
 		return null;

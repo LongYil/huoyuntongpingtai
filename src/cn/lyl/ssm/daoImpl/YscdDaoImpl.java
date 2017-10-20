@@ -35,20 +35,6 @@ public class YscdDaoImpl extends CommonDaoImpl<Yscd> implements YscdDao{
 	
 	private Wlx wlx;
 	private YscdVo yscdVo;
-	@Override
-	public void save(Yscd entity) {
-		ht.save(entity);		
-	}
-
-	@Override
-	public void update(Yscd entity) {
-		ht.update(entity);		
-	}
-
-	@Override
-	public void delete(Yscd entity) {
-		ht.delete(entity);		
-	}
 
 	@Override
 	public Yscd find(String arg) throws Exception {

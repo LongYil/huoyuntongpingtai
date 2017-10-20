@@ -11,23 +11,6 @@ import cn.lyl.ssm.po.Cysqx;
 public class CysqxDaoImpl extends CommonDaoImpl<Cysqx> implements CysqxDao{
 
 	@Override
-	public void save(Cysqx entity) {
-		ht.saveOrUpdate(entity);		
-	}
-
-	@Override
-	public void update(Cysqx entity) {
-		//
-		
-	}
-
-	@Override
-	public void delete(Cysqx entity) {
-		//
-		
-	}
-
-	@Override
 	public Cysqx find(String arg) throws Exception {
 		return (Cysqx) getEntity.getEntity("Cysqx", "jsbh", arg, Cysqx.class);
 	}

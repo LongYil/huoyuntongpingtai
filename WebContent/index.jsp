@@ -154,7 +154,7 @@
                             <label for="land">收货地</label>
                             <input class="end" id="tc_to" data-reveal-id="myModal" value="把货运到哪里？" wtmap="{c:'tc_to',cb:true}" readonly="readonly" type="text">
                         </div>
-                        <a class="menu" onclick="fahuo('tc_from', 'tc_to', '0')" href="javascript:void(0)">在线下单</a>
+                        <a class="menu" onclick="fahuoa()" href="javascript:void(0)">在线下单</a>
             	 </div>
             </div >
             <ul class="infor">
@@ -561,6 +561,10 @@
 </body>
 <script>
 //随屏滚动的图片漂浮广告 开始
+
+function fahuoa(){
+	window.location="jbyh_logOn.action";
+}
 		var id=function(o){return document.getElementById(o)}
 		var scroll=function (o){
 		var space=id(o).offsetTop;

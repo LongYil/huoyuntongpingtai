@@ -11,23 +11,6 @@ import cn.lyl.ssm.po.Pj;
 public class PjDaoImpl extends CommonDaoImpl<Pj> implements PjDao{
 
 	@Override
-	public void save(Pj entity) {
-		ht.save(entity);		
-	}
-
-	@Override
-	public void update(Pj entity) {
-		//
-		
-	}
-
-	@Override
-	public void delete(Pj entity) {
-		//
-		
-	}
-
-	@Override
 	public Pj find(String arg) throws Exception {
 		//
 		return null;

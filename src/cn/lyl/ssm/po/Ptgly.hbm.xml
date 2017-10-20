@@ -6,9 +6,11 @@
 <hibernate-mapping package="org.hibernate.tutorial.hbm">
 
 	<class name="cn.lyl.ssm.po.Ptgly" table="Ptgly">
-		<id name="glybh" column="glybh">
+		<id name="id" column="id">
 			<generator class="native"></generator>
 		</id>
+		<property name="glybh"/>
+		<property name="jsbh"/>
 		<property name="yhbh"/>
 		<property name="glylx"/>
 		<property name="gsmc" length="150"/>

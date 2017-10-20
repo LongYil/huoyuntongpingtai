@@ -48,6 +48,9 @@
 		<mapping resource="cn/lyl/ssm/po/Cysqx.hbm.xml"/>
 		<mapping resource="cn/lyl/ssm/po/Hyjs.hbm.xml"/>
 		<mapping resource="cn/lyl/ssm/po/Ycdd.hbm.xml"/>
+		<mapping resource="cn/lyl/ssm/po/Pj.hbm.xml"/>
+		<mapping resource="cn/lyl/ssm/po/Hydj.hbm.xml"/>
+		<mapping resource="cn/lyl/ssm/po/Ptjs.hbm.xml"/>
 
 	</session-factory>
 

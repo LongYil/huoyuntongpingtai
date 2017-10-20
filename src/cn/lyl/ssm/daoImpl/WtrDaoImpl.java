@@ -17,19 +17,6 @@ public class WtrDaoImpl extends CommonDaoImpl<Wtr> implements WtrDao {
 	private List<Wtr> list = new ArrayList<Wtr>();
 	@Autowired
 	private Wtr wtr;
-	@Override
-	public void save(Wtr entity) {
-		ht.save(entity);	
-	}
-
-	@Override
-	public void update(Wtr entity) {
-		ht.update(entity);		
-	}
-
-	@Override
-	public void delete(Wtr entity) {		
-	}
 
 	@Override
 	public Wtr find(String arg) {

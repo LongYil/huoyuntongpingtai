@@ -14,23 +14,6 @@ import cn.lyl.ssm.po.Jyjl;
 public class JyjlDaoImpl extends CommonDaoImpl<Jyjl> implements JyjlDao {
 
 	@Override
-	public void save(Jyjl entity) {
-		ht.saveOrUpdate(entity);
-	}
-
-	@Override
-	public void update(Jyjl entity) {
-		//
-
-	}
-
-	@Override
-	public void delete(Jyjl entity) {
-		//
-
-	}
-
-	@Override
 	public Jyjl find(String arg) throws Exception {
 		return (Jyjl) getEntity.getEntity("Jyjl", "id", arg, Jyjl.class);
 	}

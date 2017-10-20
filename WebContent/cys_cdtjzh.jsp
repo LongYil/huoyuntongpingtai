@@ -39,7 +39,7 @@
 				<input class="easyui-textbox" name="yhxm" style="width:40%" data-options="label:'用户姓名',required:true">
 			</div>
 			<div style="margin-bottom:20px">
-				<input class="easyui-textbox" name="yhmm" style="width:40%" data-options="label:'用户密码',required:true">
+				<input class="easyui-passwordbox" name="yhmm" style="width:40%" data-options="label:'用户密码',required:true">
 			</div>
 			<div style="margin-bottom:20px">
 				<input class="easyui-textbox" name="gsmc" style="width:40%" data-options="label:'公司名称',required:true">

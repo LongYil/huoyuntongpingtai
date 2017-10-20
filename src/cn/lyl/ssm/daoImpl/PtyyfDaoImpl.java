@@ -11,23 +11,6 @@ import cn.lyl.ssm.po.Ptyyf;
 public class PtyyfDaoImpl extends CommonDaoImpl<Ptyyf> implements PtyyfDao {
 
 	@Override
-	public void save(Ptyyf entity) {
-		ht.save(entity);		
-	}
-
-	@Override
-	public void update(Ptyyf entity) {
-		//
-		
-	}
-
-	@Override
-	public void delete(Ptyyf entity) {
-		//
-		
-	}
-
-	@Override
 	public Ptyyf find(String arg) {
 		//
 		return null;

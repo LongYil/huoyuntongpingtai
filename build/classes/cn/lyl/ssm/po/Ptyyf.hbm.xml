@@ -6,10 +6,10 @@
 <hibernate-mapping package="org.hibernate.tutorial.hbm">
 
 	<class name="cn.lyl.ssm.po.Ptyyf" table="Ptyyf">
-		<id name="yhbh">
+		<id name="id">
 			<generator class="native"/>
 		</id>
-		<property name="id"/>
+		<property name="yhbh"/>
 		<property name="gsmc" length="150"/>
 		<property name="gssf" length="150"/>
 		<property name="gscs" length="150"/>

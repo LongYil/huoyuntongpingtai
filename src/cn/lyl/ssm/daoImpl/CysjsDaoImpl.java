@@ -30,22 +30,6 @@ public class CysjsDaoImpl extends CommonDaoImpl<Cysjs> implements CysjsDao{
 	private Cysqx cysqx;
 	
 	private CysjsVo cysjsVo;
-	@Override
-	public void save(Cysjs entity) {
-		ht.saveOrUpdate(entity);		
-	}
-
-	@Override
-	public void update(Cysjs entity) {
-		//
-		
-	}
-
-	@Override
-	public void delete(Cysjs entity) {
-		//
-		
-	}
 
 	@Override
 	public Cysjs find(String arg) throws Exception {

@@ -26,7 +26,7 @@
 				<th data-options="field:'d',width:120,align:'center'">联系电话</th>
 				<th data-options="field:'e',width:150,align:'center'">提现时间</th>
 				<th data-options="field:'f',width:80,align:'center'">提现金额</th>
-				<th data-options="field:'g',width:80,align:'center'">账户金额</th>
+				<th data-options="field:'g',width:80,align:'center'">账户余额</th>
 				<th data-options="field:'i',width:150,align:'center'">操作</th>
 			</tr>
 		</thead>

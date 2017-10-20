@@ -13,21 +13,6 @@ import cn.lyl.ssm.po.Dd;
 public class DdDaoImpl extends CommonDaoImpl<Dd> implements DdDao {
 
 	@Override
-	public void save(Dd entity) {
-		ht.save(entity);		
-	}
-
-	@Override
-	public void update(Dd entity) {
-		ht.update(entity);		
-	}
-
-	@Override
-	public void delete(Dd entity) {
-		ht.delete(entity);		
-	}
-
-	@Override
 	public Dd find(String arg) {
 		return ht.get(Dd.class,Integer.parseInt(arg));
 	}

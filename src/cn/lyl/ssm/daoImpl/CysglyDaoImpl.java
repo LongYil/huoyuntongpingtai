@@ -14,21 +14,6 @@ import cn.lyl.ssm.po.Cysgly;
 public class CysglyDaoImpl extends CommonDaoImpl<Cysgly> implements CysglyDao {
 
 	@Override
-	public void save(Cysgly entity) {
-		ht.save(entity);		
-	}
-
-	@Override
-	public void update(Cysgly entity) {
-		ht.update(entity);		
-	}
-
-	@Override
-	public void delete(Cysgly entity) {
-		ht.delete(entity);		
-	}
-
-	@Override
 	public Cysgly find(String arg) throws Exception {
 		return (Cysgly) getEntity.getEntity("Cysgly", "cysbh", arg, Cysgly.class);
 	}

@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import cn.lyl.ssm.daoImpl.DdDaoImpl;
 import cn.lyl.ssm.po.Cysgly;
 import cn.lyl.ssm.po.Dd;
+import cn.lyl.ssm.po.Hydj;
 import cn.lyl.ssm.po.Hygly;
 import cn.lyl.ssm.po.Jyjl;
 import cn.lyl.ssm.po.Ptzh;
@@ -48,6 +49,10 @@ public class DdServc extends CommonSevc<Dd,DdDaoImpl> {
 	private Jyjl jyjl;
 	@Autowired
 	private JyjlServc jyjlServc;
+	@Autowired
+	private Hydj hydj;
+	@Autowired
+	private HydjServc hydjServc;
 	
 	private DdVo ddvo;
 	private List<Wlx> listWlx = new ArrayList<Wlx>();
@@ -73,6 +78,18 @@ public class DdServc extends CommonSevc<Dd,DdDaoImpl> {
 				
 				ptzhServc.update(ptzh);
 				daoImpl.save(arg);
+				
+				hydj = hydjServc.find(String.valueOf(arg.getCys()));
+				hydj.setJjje(hydj.getJjje()+arg.getCyssf());
+				hydjServc.save(hydj);
+				
+				hydj = hydjServc.find(String.valueOf(arg.getFhdld()));
+				hydj.setJjje(hydj.getJjje()+arg.getFhdldsf());
+				hydjServc.save(hydj);
+				
+				hydj = hydjServc.find(String.valueOf(arg.getShdld()));
+				hydj.setJjje(hydj.getJjje()+arg.getShdldsf());
+				hydjServc.save(hydj);
 				
 				jyjl.setYhbh(Integer.parseInt(yhbh));
 				jyjl.setJyje(arg.getYjyf());
@@ -130,14 +147,14 @@ public class DdServc extends CommonSevc<Dd,DdDaoImpl> {
 				ysdw.setYssx(listWlx.get(i).getYssx());
 				ysdw.setCysbh(cysgly.getCysbh());
 				ysdw.setCysmc(cysgly.getGsmc());
-				ysdw.setCysdz(cysgly.getSzsf()+"-"+cysgly.getSzcs()+"-"+cysgly.getSzx()+(cysgly.getXxdz()!=null||!cysgly.getXxdz().equals("")?"-"+cysgly.getXxdz():""));
+				ysdw.setCysdz(cysgly.getSzsf()+"-"+cysgly.getSzcs()+"-"+cysgly.getSzx()+(cysgly.getXxdz()!=null?"-"+cysgly.getXxdz():""));
 				ysdw.setCysdh(cysgly.getLxdh());
 				ysdw.setCyscd(listWlx.get(i).getCdbh());
 				ysdw.setCyscddh(yscd.getCdlxdh());
 				ysdw.setFhdldmc(hygly.getGsmc());
 				ysdw.setFhdldbh(hygly.getGlybh());
 				ysdw.setFhdh(hygly.getLxdh());
-				ysdw.setFhdz(hygly.getSzsf()+"-"+hygly.getSzcs()+"-"+hygly.getSzx()+(cysgly.getXxdz()!=null||!cysgly.getXxdz().equals("")?"-"+cysgly.getXxdz():""));
+				ysdw.setFhdz(hygly.getSzsf()+"-"+hygly.getSzcs()+"-"+hygly.getSzx()+(cysgly.getXxdz()!=null?"-"+cysgly.getXxdz():""));
 				if(dd.getJjlx()==2){//重货  费用按重量计价100
 					ysdw.setDlfhfy(dd.getZzl()*1.1f);
 					ysdw.setDlshfy(dd.getZzl()*0.6f);
@@ -216,6 +233,9 @@ public class DdServc extends CommonSevc<Dd,DdDaoImpl> {
 			jyjl.setJysj(getDateAndTime.getNowDate());
 			jyjl.setJylx(6);
 			jyjlServc.save(jyjl);
+			
+			
+			
 			
 			ptzhServc.update(ptzh);
 			return "1";

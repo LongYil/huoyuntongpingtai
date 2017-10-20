@@ -70,7 +70,7 @@
 			index++;
 			$('#tt').tabs('add',{
 				title: '添加帐号',
-				content: '<iframe src="pt_tjzh.jsp" frameborder="0" style="padding:5px;width:815px;height:500px;"></iframe>',
+				content: '<iframe src="ptjs_tjzh.action" frameborder="0" style="padding:5px;width:815px;height:500px;"></iframe>',
 				closable: true
 			});
 		}

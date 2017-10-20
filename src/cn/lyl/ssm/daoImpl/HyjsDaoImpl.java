@@ -13,21 +13,6 @@ import cn.lyl.ssm.po.Hyjs;
 public class HyjsDaoImpl extends CommonDaoImpl<Hyjs> implements HyjsDao {
 
 	@Override
-	public void save(Hyjs entity) {
-		ht.saveOrUpdate(entity);	
-	}
-
-	@Override
-	public void update(Hyjs entity) {
-		
-	}
-
-	@Override
-	public void delete(Hyjs entity) {
-		ht.delete(entity);		
-	}
-
-	@Override
 	public Hyjs find(String arg) throws Exception {
 		return ht.get(Hyjs.class,Integer.parseInt(arg));
 	}

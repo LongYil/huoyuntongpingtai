@@ -1,5 +1,8 @@
 package cn.lyl.ssm.po;
 
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
 /**
  * <p>Title:Pj</p>
  * <p>Description: 评价实体</p>
@@ -7,6 +10,8 @@ package cn.lyl.ssm.po;
  *		2017年10月19日
  *		下午9:35:11
  */
+@Component(value="pj")
+@Scope(value="prototype")
 public class Pj {
 	private Integer id;//序号
 	private Integer dd;//订单编号
@@ -15,11 +20,11 @@ public class Pj {
 	private Integer fhdld;//发货代理点编号
 	private Integer shdld;//收货代理点编号
 	private String pjsj;//评价时间
-	private String cysPja;//承运商评价种类
+	private Integer cysPja;//承运商评价种类
 	private String cysPjb;//承运商评价
-	private String fhdldPja;//发货代理点评价种类
+	private Integer fhdldPja;//发货代理点评价种类
 	private String fhdldPjb;//发货代理点评价
-	private String shdldPja;//收货代理点评价
+	private Integer shdldPja;//收货代理点评价
 	private String shdldPjb;//收货代理点评价
 	
 	public Integer getId() {
@@ -58,10 +63,16 @@ public class Pj {
 	public void setShdld(Integer shdld) {
 		this.shdld = shdld;
 	}
-	public String getCysPja() {
+	public String getPjsj() {
+		return pjsj;
+	}
+	public void setPjsj(String pjsj) {
+		this.pjsj = pjsj;
+	}
+	public Integer getCysPja() {
 		return cysPja;
 	}
-	public void setCysPja(String cysPja) {
+	public void setCysPja(Integer cysPja) {
 		this.cysPja = cysPja;
 	}
 	public String getCysPjb() {
@@ -70,10 +81,10 @@ public class Pj {
 	public void setCysPjb(String cysPjb) {
 		this.cysPjb = cysPjb;
 	}
-	public String getFhdldPja() {
+	public Integer getFhdldPja() {
 		return fhdldPja;
 	}
-	public void setFhdldPja(String fhdldPja) {
+	public void setFhdldPja(Integer fhdldPja) {
 		this.fhdldPja = fhdldPja;
 	}
 	public String getFhdldPjb() {
@@ -82,10 +93,10 @@ public class Pj {
 	public void setFhdldPjb(String fhdldPjb) {
 		this.fhdldPjb = fhdldPjb;
 	}
-	public String getShdldPja() {
+	public Integer getShdldPja() {
 		return shdldPja;
 	}
-	public void setShdldPja(String shdldPja) {
+	public void setShdldPja(Integer shdldPja) {
 		this.shdldPja = shdldPja;
 	}
 	public String getShdldPjb() {
@@ -93,12 +104,6 @@ public class Pj {
 	}
 	public void setShdldPjb(String shdldPjb) {
 		this.shdldPjb = shdldPjb;
-	}
-	public String getPjsj() {
-		return pjsj;
-	}
-	public void setPjsj(String pjsj) {
-		this.pjsj = pjsj;
 	}
 	
 }

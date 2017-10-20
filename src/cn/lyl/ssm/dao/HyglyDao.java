@@ -5,7 +5,7 @@ import java.util.List;
 import cn.lyl.ssm.po.Dd;
 import cn.lyl.ssm.po.Hygly;
 
-public interface HyglyDao {
+public interface HyglyDao extends ICommonDao<Hygly>{
 	List<Hygly> findAll();
 	List<Hygly> findByYhbh(String arg);
 	List<Hygly> findByShdz(Dd dd);

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import cn.lyl.ssm.po.Bzj;
 import cn.lyl.ssm.po.Cysgly;
 import cn.lyl.ssm.po.Cysqx;
+import cn.lyl.ssm.po.Hydj;
 import cn.lyl.ssm.po.Hydld;
 import cn.lyl.ssm.po.Hygly;
 import cn.lyl.ssm.po.Hyjs;
@@ -21,6 +22,7 @@ import cn.lyl.ssm.po.Ptzh;
 import cn.lyl.ssm.service.impl.BzjServc;
 import cn.lyl.ssm.service.impl.CysglyServc;
 import cn.lyl.ssm.service.impl.CysqxServc;
+import cn.lyl.ssm.service.impl.HydjServc;
 import cn.lyl.ssm.service.impl.HydldServc;
 import cn.lyl.ssm.service.impl.HyglyServc;
 import cn.lyl.ssm.service.impl.HyjsServc;
@@ -75,6 +77,10 @@ public class HyglyController extends BasicController<HyglyServc> {
 	private Hyjs hyjs;
 	@Autowired
 	private HyjsServc hyjsServc;
+	@Autowired
+	private Hydj hydj;
+	@Autowired
+	private HydjServc hydjServc;
 	
 	private List<Jbyh> listJbyh = new ArrayList<Jbyh>();
 	private List<Hygly> listdld = new ArrayList<Hygly>();
@@ -111,6 +117,11 @@ public class HyglyController extends BasicController<HyglyServc> {
 			hygly.setGlybh(jbyh.getYhbh());
 			hygly.setLxdh(jbyh.getYhsj());
 
+			hydj.setYhbh(jbyh.getYhbh());
+			hydj.setJjje(0);
+			hydj.setHydj("青铜");
+			hydjServc.save(hydj);
+			
 			hyjs.setBzj("inline-block");
 			hyjs.setSycd("inline-block");
 			hyjs.setSycys("inline-block");
@@ -133,6 +144,7 @@ public class HyglyController extends BasicController<HyglyServc> {
 			request.getSession().setAttribute("hygly", hygly);
 			model.addAttribute("jbyh",jbyh);
 			model.addAttribute("hyjs",hyjs);
+			model.addAttribute("hydj",hydj);
 		}else{
 			;
 		}

@@ -27,22 +27,6 @@ public class JbyhDaoImpl extends CommonDaoImpl<Jbyh> implements JbyhDao {
 	private List<Jbyh> list = new ArrayList<Jbyh>();
 	@Autowired
 	private Jbyh jbyh;
-	
-	@Override
-	public void save(Jbyh entity) {
-		ht.save(entity);
-		
-	}
-
-	@Override
-	public void update(Jbyh entity) {
-		ht.update(entity);		
-	}
-
-	@Override
-	public void delete(Jbyh entity) {
-		ht.delete(entity);		
-	}
 
 	@Override
 	public Jbyh find(String arg) {

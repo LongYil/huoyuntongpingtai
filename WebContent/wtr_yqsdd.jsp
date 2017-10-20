@@ -40,7 +40,7 @@
 				<th data-options="field:'t',width:120,align:'center'">订单发起时间</th>
 				<th data-options="field:'u',width:120,align:'center'">预计到达时间</th>
 				<th data-options="field:'v',width:120,align:'center'">实际到达时间</th>
-				<th data-options="field:'w',width:120,align:'center'">操作</th>
+				<th data-options="field:'w',width:140,align:'center'">操作</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -68,7 +68,7 @@
 					<td>${item.yjsdsj}</td>
 					<td>${item.sjsdsj}</td>
 					<td>
-<%-- 					<a href="javascript:void(0)" class="easyui-linkbutton" onClick="pingjia('${item.id}')">评价</a> --%>
+					<a href="javascript:void(0)" class="easyui-linkbutton" onClick="pingjia('${item.id}')">填写评价</a>
 					<a href="javascript:void(0)" class="easyui-linkbutton" onClick="peichang('${item.id}')">申请赔偿</a>
 					</td>
 					
@@ -88,6 +88,17 @@
 				$('#tt').tabs('add',{
 					title: '申请赔偿',
 					content: '<iframe src="ycdd_fqpc.action?id='+(id)+'" frameborder="0" style="padding:5px;width:810px;height:500px;"></iframe>',
+					closable: true
+				});
+			}
+		}
+		function pingjia(id){
+			var row = $('#dg').datagrid('getSelected');
+			if (row){
+				index++;
+				$('#tt').tabs('add',{
+					title: '填写评价',
+					content: '<iframe src="pj_fqpj.action?id='+(id)+'" frameborder="0" style="padding:5px;width:810px;height:560px;"></iframe>',
 					closable: true
 				});
 			}

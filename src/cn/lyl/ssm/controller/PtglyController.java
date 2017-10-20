@@ -69,7 +69,7 @@ public class PtglyController extends BasicController<PtglyServc> {
 	}
 	
 	@RequestMapping("pt_findAll")
-	public String findAll(Model model,HttpServletRequest request) {
+	public String findAll(Model model,HttpServletRequest request) throws Exception {
 		listglyvo.clear();
 		listgly.clear();
 		ptgly = (Ptgly) request.getSession().getAttribute("ptgly");

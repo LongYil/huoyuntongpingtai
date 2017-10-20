@@ -16,21 +16,6 @@ public class HydldDaoImpl extends CommonDaoImpl<Hydld> implements HydldDao {
 
 	@Autowired
 	private GetEntity getEntity ;
-	
-	@Override
-	public void save(Hydld entity) {
-		ht.save(entity);		
-	}
-
-	@Override
-	public void update(Hydld entity) {
-		//
-	}
-
-	@Override
-	public void delete(Hydld entity) {
-		//
-	}
 
 	@Override
 	public Hydld find(String arg) throws Exception {

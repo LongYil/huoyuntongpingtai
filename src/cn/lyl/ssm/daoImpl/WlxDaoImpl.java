@@ -28,21 +28,6 @@ public class WlxDaoImpl extends CommonDaoImpl<Wlx> implements WlxDao {
 	private Cysgly cysgly;
 	@Autowired
 	private Yscd yscd;
-	
-	@Override
-	public void save(Wlx entity) {
-		ht.save(entity);		
-	}
-
-	@Override
-	public void update(Wlx entity) {
-		ht.update(entity);		
-	}
-
-	@Override
-	public void delete(Wlx entity) {
-		ht.delete(entity);		
-	}
 
 	@Override
 	public Wlx find(String arg) {

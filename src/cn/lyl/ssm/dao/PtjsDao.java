@@ -1,5 +1,9 @@
 package cn.lyl.ssm.dao;
 
-public interface PtjsDao {
+import java.util.List;
 
+import cn.lyl.ssm.po.Ptjs;
+
+public interface PtjsDao extends ICommonDao<Ptjs>{
+	List<Ptjs> findAll(String arg);
 }

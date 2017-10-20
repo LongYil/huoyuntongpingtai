@@ -14,11 +14,11 @@
 		<property name="cys" />
 		<property name="fhdld" />
 		<property name="shdld" />		
-		<property name="cysPja" length="150"/>
+		<property name="cysPja"/>
 		<property name="cysPjb" length="150"/>
-		<property name="fhdldPja" length="150"/>
+		<property name="fhdldPja"/>
 		<property name="fhdldPjb" length="150"/>
-		<property name="shdldPja" length="150"/>
+		<property name="shdldPja"/>
 		<property name="shdldPjb" length="150"/>
 		
 	</class>

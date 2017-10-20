@@ -9,22 +9,6 @@ import cn.lyl.ssm.po.Ptzh;
 @Component(value="ptzhDaoImpl")
 @Scope(value="prototype")
 public class PtzhDaoImpl extends CommonDaoImpl<Ptzh> implements PtzhDao {
-	
-	@Override
-	public void save(Ptzh entity) {
-		ht.saveOrUpdate(entity);	
-	}
-
-	@Override
-	public void update(Ptzh entity) {
-		ht.update(entity);		
-	}
-
-	@Override
-	public void delete(Ptzh entity) {
-		//
-		
-	}
 
 	@Override
 	public Ptzh find(String arg) throws Exception {

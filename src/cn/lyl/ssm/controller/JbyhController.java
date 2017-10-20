@@ -9,14 +9,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import cn.lyl.ssm.po.Cysgly;
 import cn.lyl.ssm.po.Cysqx;
+import cn.lyl.ssm.po.Hydj;
 import cn.lyl.ssm.po.Hygly;
 import cn.lyl.ssm.po.Jbyh;
 import cn.lyl.ssm.po.Ptgly;
+import cn.lyl.ssm.po.Ptjs;
 import cn.lyl.ssm.service.impl.CysglyServc;
 import cn.lyl.ssm.service.impl.CysqxServc;
+import cn.lyl.ssm.service.impl.HydjServc;
 import cn.lyl.ssm.service.impl.HyglyServc;
 import cn.lyl.ssm.service.impl.JbyhServc;
 import cn.lyl.ssm.service.impl.PtglyServc;
+import cn.lyl.ssm.service.impl.PtjsServc;
 
 /**
  * <p>Title:JbyhController</p>
@@ -46,6 +50,14 @@ public class JbyhController extends BasicController<JbyhServc> {
 	private Ptgly ptgly;
 	@Autowired
 	private PtglyServc ptglyServc;
+	@Autowired
+	private Ptjs ptjs;
+	@Autowired
+	private PtjsServc ptjsServc;
+	@Autowired
+	private Hydj hydj;
+	@Autowired
+	private HydjServc hydjServc;
 	
 	@RequestMapping("/jbyh_login")
 	public String login(Model model,Jbyh jbyh,HttpServletRequest request) throws Exception{
@@ -63,30 +75,46 @@ public class JbyhController extends BasicController<JbyhServc> {
 				ptgly = ptglyServc.find(String.valueOf(this.jbyh.getYhbh()));
 				request.getSession().setAttribute("ptgly", ptgly);
 				request.getSession().setAttribute("tempptgly", ptgly);
-				System.out.println(ptgly);
+				ptjs = ptjsServc.find(String.valueOf(ptgly.getJsbh()));
+				model.addAttribute("ptjs",ptjs);
 				return "pt_index";
 			case 2:
+				hydj = hydjServc.find(String.valueOf(this.jbyh.getYhbh()));
+				model.addAttribute("hydj",hydj);
 				return "wtr_index";
 			case 3:
+				hydj = hydjServc.find(String.valueOf(this.jbyh.getYhbh()));
+				model.addAttribute("hydj",hydj);
 				return "cys_grindex";
 			case 4:
+				hydj = hydjServc.find(String.valueOf(this.jbyh.getYhbh()));
+				model.addAttribute("hydj",hydj);
 				cysgly = cysglyServc.find(String.valueOf(info[1]));
 				request.getSession().setAttribute("cysgly",cysgly);
 				cysqx = cysqxServc.find(String.valueOf(cysgly.getJsbh()));
 				model.addAttribute("cysqx",cysqx);
-				
 				return "cys_cdindex";
 			case 5:
+				hydj = hydjServc.find(String.valueOf(this.jbyh.getYhbh()));
+				model.addAttribute("hydj",hydj);
 				cysgly = cysglyServc.find(String.valueOf(info[1]));
 				request.getSession().setAttribute("cysgly",cysgly);
 				cysqx = cysqxServc.find(String.valueOf(cysgly.getJsbh()));
 				model.addAttribute("cysqx",cysqx);
-				
 				return "cys_cdindex";
 			case 6:
+				hydj = hydjServc.find(String.valueOf(this.jbyh.getYhbh()));
+				model.addAttribute("hydj",hydj);
 				hygly = hyglyServc.find(String.valueOf(info[1]));
 				request.getSession().setAttribute("hygly",hygly);
 				return "hy_index";
+			case 7:
+				ptgly = ptglyServc.find(String.valueOf(this.jbyh.getYhbh()));
+				request.getSession().setAttribute("ptgly", ptgly);
+				request.getSession().setAttribute("tempptgly", ptgly);
+				ptjs = ptjsServc.find(String.valueOf(ptgly.getJsbh()));
+				model.addAttribute("ptjs",ptjs);
+				return "pt_index";
 			default:
 				return "login";
 			}
@@ -125,6 +153,7 @@ public class JbyhController extends BasicController<JbyhServc> {
 				model.addAttribute("jbyh",jbyh);
 				return "hy_index";
 			default:
+				System.out.println("world");
 				return "login";
 			}
 		}

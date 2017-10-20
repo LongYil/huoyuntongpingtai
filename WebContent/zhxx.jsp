@@ -22,6 +22,11 @@
 				<option value="中国工商银行">中国工商银行</option>
 				<option value="中国农业银行">中国农业银行</option>
 				<option value="中国邮政银行">中国邮政银行</option>
+				<option value="中国工商银行">中国工商银行</option>
+				<option value="华夏银行">华夏银行</option>
+				<option value="中国银行">中国银行</option>
+				<option value="中国建设银行">中国建设银行</option>
+				<option value="中国邮政银行">中国邮政银行</option>
 				</select>
 			</div>
 			<div style="margin-bottom:20px">
@@ -30,10 +35,7 @@
 			<div style="margin-bottom:20px">
 				<input class="easyui-textbox" name="yhzh" value="${yhzh.yhzh}" style="width:40%" data-options="label:'银行卡号',required:true">
 			</div>
-
-
-
-
+			
 		</form>
 		<div style="text-align:center;padding:5px 0">
 			<a href="javascript:void(0)" class="easyui-linkbutton" onclick="submitForm()" style="width:80px">提交</a>

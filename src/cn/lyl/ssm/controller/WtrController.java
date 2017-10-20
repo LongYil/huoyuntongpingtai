@@ -10,11 +10,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import cn.lyl.ssm.po.Bzj;
+import cn.lyl.ssm.po.Hydj;
 import cn.lyl.ssm.po.Jbyh;
 import cn.lyl.ssm.po.Ptzh;
 import cn.lyl.ssm.po.Wtr;
-import cn.lyl.ssm.service.impl.BzjServc;
+import cn.lyl.ssm.service.impl.HydjServc;
 import cn.lyl.ssm.service.impl.JbyhServc;
 import cn.lyl.ssm.service.impl.PtzhServc;
 import cn.lyl.ssm.service.impl.WtrServc;
@@ -43,6 +43,10 @@ public class WtrController extends BasicController<WtrServc> {
 	private PtzhServc ptzhServc;
 	@Autowired
 	private AssembleWtr assembleWtr;
+	@Autowired
+	private Hydj hydj;
+	@Autowired
+	private HydjServc hydjServc;
 	
 	private List<Wtr> listwtr = new ArrayList<Wtr>();
 	private List<WtrVo> listvo = new ArrayList<WtrVo>();
@@ -51,6 +55,12 @@ public class WtrController extends BasicController<WtrServc> {
 	public String save(Model model,Jbyh jbyh,Wtr wtr,HttpServletRequest request){
 		jbyh.setYhmm(md5Encrypt.to32MD5(jbyh.getYhmm()));
 		jbyhServc.save(jbyh);
+		
+		hydj.setYhbh(jbyh.getYhbh());
+		hydj.setJjje(0);
+		hydj.setHydj("青铜");
+		hydjServc.save(hydj);
+		
 		ptzh.setYhbh(jbyh.getYhbh());
 		ptzh.setZhye(2000.0f);
 		ptzhServc.save(ptzh);
@@ -60,6 +70,7 @@ public class WtrController extends BasicController<WtrServc> {
 		request.getSession().setAttribute("yhbh",jbyh.getYhbh());
 		model.addAttribute("jbyh",jbyh);
 		model.addAttribute("wtr",wtr);
+		model.addAttribute("hydj",hydj);
 		return "wtr_index";
 	}
 	
